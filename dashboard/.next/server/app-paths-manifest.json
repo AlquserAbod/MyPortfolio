@@ -1,5 +1,6 @@
 {
-  "/users/page": "app/users/page.js",
-  "/users/show/[id]/page": "app/users/show/[id]/page.js",
-  "/users/edit/[id]/page": "app/users/edit/[id]/page.js"
+  "/categories/page": "app/categories/page.js",
+  "/categories/create/page": "app/categories/create/page.js",
+  "/categories/show/[id]/page": "app/categories/show/[id]/page.js",
+  "/categories/edit/[id]/page": "app/categories/edit/[id]/page.js"
 }

@@ -10,8 +10,7 @@ import React, { Suspense } from "react";
 import { ColorModeContextProvider } from "@contexts/color-mode";
 import { authProvider } from "@providers/auth-provider";
 import  dataProvider  from "@providers/data-provider";
-import { Person } from "@mui/icons-material";
-import CustomLayout from "@components/CustomLayout";
+import { Category, Person } from "@mui/icons-material";
 
 export const metadata: Metadata = {
   title: "Portfolio dashboard",
@@ -54,6 +53,17 @@ export default function RootLayout({
                         meta: {
                           canDelete: true,
                           icon: <Person />
+                        },
+                      },
+                      {
+                        name: "categories",
+                        list: "/categories",
+                        create: "/categories/create",
+                        edit: "/categories/edit/:id",
+                        show: "/categories/show/:id",
+                        meta: {
+                          canDelete: true,
+                          icon: <Category />
                         },
                       },
                     ]}
