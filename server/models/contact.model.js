@@ -27,11 +27,16 @@ const contactSchema = new mongoose.Schema(
             message: props => `${props.value} is not a valid phone number!`
         }
     },
+    readed: {
+        type: Boolean,
+        default: false
+    },
     message: {
         required: true,
         type: String,
+    }
     },
-    },{
+    {
         timestamps: true,
         versionKey: false
     }

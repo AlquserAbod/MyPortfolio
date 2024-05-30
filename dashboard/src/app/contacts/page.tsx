@@ -1,0 +1,158 @@
+"use client";
+
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { useMany, useUpdate } from "@refinedev/core";
+import {
+  DeleteButton,
+  List,
+  ShowButton,
+  useDataGrid,
+} from "@refinedev/mui";
+import React from "react";
+import styles from './styles.module.css'; 
+import { Cancel, Check, CheckCircle } from "@mui/icons-material";
+import { Checkbox } from "@mui/material";
+
+// pagination mode is client
+// filtering mode is in client
+// sort mode is in client and his asc 
+export default function ContactsList() {
+  const [paginationModel, setPaginationModel] = React.useState({ pageSize: 5, page: 0 });
+
+  const { dataGridProps } = useDataGrid({
+    syncWithLocation: true,
+  });
+
+  const { data: contactData, isLoading: contactIsLoading } = useMany({
+    resource: "contacts",
+    ids:
+    dataGridProps?.rows
+    ?.map((item: any) => item?.category?.id)
+    .filter(Boolean) ?? [],
+    
+    queryOptions: {      
+      enabled: !!dataGridProps?.rows,
+    },
+  });
+
+
+  const { mutate } = useUpdate();
+
+  const handleReadedChange = (row : any) => {
+    mutate({
+      resource: "contacts",
+      values : { ...row, readed: !row.readed },
+      id : row._id
+    })
+  };
+
+  
+  const columns = React.useMemo<GridColDef[]>(
+    () => [
+      {
+        field: "seq",
+        headerName: "ID",
+        minWidth: 50,
+        renderCell: (params) => params.api.getAllRowIds().indexOf(params.id) + 1,
+      },
+      {
+        field: "_id",
+        headerName: "MongoDB ID",
+        minWidth: 250,
+        filterable: true,
+      },
+      {
+        field: "first_name",
+        flex: 1,
+        headerName: "First Name",
+        minWidth: 70,
+        filterable: true,
+      },
+      {
+        field: "last_name",
+        flex: 1,
+        headerName: "Last Name",
+        minWidth: 70,
+        filterable: true,
+      },
+      {
+        field: "email",
+        type: "email",
+        flex: 1,
+        headerName: "Email",
+        minWidth: 100,
+        filterable: true,
+      },
+      {
+        field: "readed",
+        type: "boolean",
+        flex: 1,
+        headerName: "Readed",
+        minWidth: 25,
+        filterable: true,
+        align:"center",
+        renderCell: (params) => (
+          <Checkbox
+            icon={<Cancel color="error" />}
+            checkedIcon={<CheckCircle color="success" />}
+            checked={params.value}
+            onChange={() => handleReadedChange(params.row)}
+          />
+        )
+      },
+
+      {
+        field: "message",
+        flex: 1,
+        headerName: "Message",
+        minWidth: 400,
+        filterable: true,
+        renderCell: (params) => <div style={{ whiteSpace: 'normal' }}>{params.value}</div>,
+      },
+      {
+        field: "actions",
+        headerName: "Actions",
+        sortable: false,
+        renderCell: function render({ row }) {
+                    
+          return (
+            <>
+              <ShowButton hideText recordItemId={row._id} />
+              <DeleteButton hideText recordItemId={row._id} />
+            </>
+          );
+        },
+        align: "center",
+        headerAlign: "center",
+        minWidth: 80,
+      },
+    ],
+    []
+  );
+  
+  return (
+    <List>
+      <DataGrid
+        {...dataGridProps} 
+        pagination
+        initialState={{
+          pagination: {
+            paginationModel: {page: 0, pageSize: 5}
+          },
+        }}
+        sortingOrder={['asc']}
+        filterMode="client"
+        paginationMode="client"
+        sortingMode="client"
+        paginationModel={paginationModel}
+        onPaginationModelChange={setPaginationModel}
+        pageSizeOptions={[5,10,15,20,25]}
+        columns={columns} 
+        autoHeight
+        getRowId={(row) => row._id} 
+        getRowClassName={() => styles.rowSpacing} // Apply row spacing class
+
+        />
+    </List>
+  );
+}

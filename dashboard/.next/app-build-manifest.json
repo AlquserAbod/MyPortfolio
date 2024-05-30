@@ -5,36 +5,42 @@
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
     ],
-    "/categories/page": [
+    "/contacts/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/categories/page.css",
-      "static/chunks/app/categories/page.js"
+      "static/css/app/contacts/page.css",
+      "static/chunks/app/contacts/page.js"
     ],
-    "/categories/layout": [
+    "/contacts/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/categories/layout.js"
+      "static/chunks/app/contacts/layout.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/layout.js"
     ],
-    "/categories/create/page": [
+    "/contacts/show/[id]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/categories/create/page.js"
+      "static/chunks/app/contacts/show/[id]/page.js"
     ],
-    "/categories/show/[id]/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/categories/show/[id]/page.js"
+      "static/chunks/app/page.js"
     ],
-    "/categories/edit/[id]/page": [
+    "/users/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/categories/edit/[id]/page.js"
+      "static/chunks/app/users/layout.js"
+    ],
+    "/users/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/users/page.css",
+      "static/chunks/app/users/page.js"
     ]
   }
 }

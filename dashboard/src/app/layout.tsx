@@ -10,7 +10,7 @@ import React, { Suspense } from "react";
 import { ColorModeContextProvider } from "@contexts/color-mode";
 import { authProvider } from "@providers/auth-provider";
 import  dataProvider  from "@providers/data-provider";
-import { Category, Person } from "@mui/icons-material";
+import { Category, ContactMail, Person } from "@mui/icons-material";
 
 export const metadata: Metadata = {
   title: "Portfolio dashboard",
@@ -64,6 +64,16 @@ export default function RootLayout({
                         meta: {
                           canDelete: true,
                           icon: <Category />
+                        },
+                      },
+                      {
+                        name: "contacts",
+                        list: "/contacts",
+                        show: "/contacts/show/:id",
+                        
+                        meta: {
+                          canDelete: true,
+                          icon: <ContactMail />
                         },
                       },
                     ]}

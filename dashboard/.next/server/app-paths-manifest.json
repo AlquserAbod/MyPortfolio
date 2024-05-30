@@ -1,6 +1,6 @@
 {
-  "/categories/page": "app/categories/page.js",
-  "/categories/create/page": "app/categories/create/page.js",
-  "/categories/show/[id]/page": "app/categories/show/[id]/page.js",
-  "/categories/edit/[id]/page": "app/categories/edit/[id]/page.js"
+  "/page": "app/page.js",
+  "/icon.ico/route": "app/icon.ico/route.js",
+  "/contacts/page": "app/contacts/page.js",
+  "/contacts/show/[id]/page": "app/contacts/show/[id]/page.js"
 }
