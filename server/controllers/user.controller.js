@@ -34,9 +34,6 @@ exports.createUser = async (req, res) => {
 // Get all users
 exports.getAllUsers = async (req, res) => {
     try {
-
-
-        console.log(req.query);
         const users = await User.find();
         res.status(200).send(users);
     } catch (error) {

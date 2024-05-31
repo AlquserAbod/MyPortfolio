@@ -2,6 +2,7 @@
 
 import dataProvider from "@refinedev/simple-rest";
 
-const API_URL = "http://localhost:5000/api";
 
-export default dataProvider(API_URL);
+const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
+
+export default dataProvider(apiUrl);

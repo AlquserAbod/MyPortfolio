@@ -11,19 +11,15 @@ import { useGetIdentity } from "@refinedev/core";
 import { HamburgerMenu, RefineThemedLayoutV2HeaderProps } from "@refinedev/mui";
 import React, { useContext } from "react";
 
-type IUser = {
-  id: number;
-  name: string;
-  avatar: string;
-};
-
 export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = ({
   sticky = true,
 }) => {
   const { mode, setMode } = useContext(ColorModeContext);
 
-  const { data: user } = useGetIdentity<IUser>();
+  const { data: user } = useGetIdentity<any>();
 
+  const userFullName = user ? `${user.first_name} ${user.last_name}` : null;
+  
   return (
     <AppBar position={sticky ? "sticky" : "relative"}>
       <Toolbar>
@@ -49,14 +45,14 @@ export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = ({
               {mode === "dark" ? <LightModeOutlined /> : <DarkModeOutlined />}
             </IconButton>
 
-            {(user?.avatar || user?.name) && (
+            {(user?.profile_pic || userFullName) && (
               <Stack
                 direction="row"
                 gap="16px"
                 alignItems="center"
                 justifyContent="center"
               >
-                {user?.name && (
+                {userFullName && (
                   <Typography
                     sx={{
                       display: {
@@ -66,10 +62,10 @@ export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = ({
                     }}
                     variant="subtitle2"
                   >
-                    {user?.name}
+                    {userFullName}
                   </Typography>
                 )}
-                <Avatar src={user?.avatar} alt={user?.name} />
+                <Avatar src={user?.profile_pic} alt={' Profile Picture'} />
               </Stack>
             )}
           </Stack>

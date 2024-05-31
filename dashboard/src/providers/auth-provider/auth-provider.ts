@@ -1,91 +1,107 @@
 "use client";
 
-import { AuthBindings } from "@refinedev/core";
-import Cookies from "js-cookie";
+import Cookies from 'js-cookie';
+import type { AuthProvider } from "@refinedev/core";
+import axios from 'axios';
+import { CheckResponse } from '@refinedev/core/dist/contexts/auth/types';
 
-const mockUsers = [
-  {
-    name: "John Doe",
-    email: "johndoe@mail.com",
-    roles: ["admin"],
-    avatar: "https://i.pravatar.cc/150?img=1",
-  },
-  {
-    name: "Jane Doe",
-    email: "janedoe@mail.com",
-    roles: ["editor"],
-    avatar: "https://i.pravatar.cc/150?img=1",
-  },
-];
-
-export const authProvider: AuthBindings = {
-  login: async ({ email, username, password, remember }) => {
-    // Suppose we actually send a request to the back end here.
-    const user = mockUsers[0];
-
-    if (user) {
-      Cookies.set("auth", JSON.stringify(user), {
-        expires: 30, // 30 days
-        path: "/",
-      });
-      return {
-        success: true,
-        redirectTo: "/",
-      };
+const axiosInstance = axios.create({
+    baseURL: process.env.NEXT_PUBLIC_API_URL + "/auth", // Replace this with your actual base URL
+});
+  
+  const refreshToken = async () => {
+    const refreshToken = Cookies.get("refreshToken");
+    if (!refreshToken) {
+        throw new Error("No refresh token available");
     }
 
-    return {
-      success: false,
-      error: {
-        name: "LoginError",
-        message: "Invalid username or password",
-      },
-    };
-  },
-  logout: async () => {
-    Cookies.remove("auth", { path: "/" });
-    return {
-      success: true,
-      redirectTo: "/login",
-    };
-  },
-  check: async () => {
-    const auth = Cookies.get("auth");
-    if (auth) {
-      return {
-        authenticated: true,
-      };
-    }
+    const response = await axiosInstance.post('/refresh-token', { token: refreshToken });
+    const { accessToken, refreshToken: newRefreshToken } = response.data;
 
-    return {
-      authenticated: false,
-      logout: true,
-      redirectTo: "/login",
-    };
-  },
-  getPermissions: async () => {
-    const auth = Cookies.get("auth");
-    if (auth) {
-      const parsedUser = JSON.parse(auth);
-      return parsedUser.roles;
-    }
-    return null;
-  },
-  getIdentity: async () => {
-    const auth = Cookies.get("auth");
-    if (auth) {
-      const parsedUser = JSON.parse(auth);
-      return parsedUser;
-    }
-    return null;
-  },
-  onError: async (error) => {
-    if (error.response?.status === 401) {
-      return {
-        logout: true,
-      };
-    }
-
-    return { error };
-  },
+    Cookies.set("auth", accessToken, { expires: 1 / 24 }); // Expires in 1 hour
+    Cookies.set("refreshToken", newRefreshToken, { expires: 365 }); // Expires in 365 days
+    return accessToken;
 };
+
+export const authProvider: AuthProvider = {
+    login: async ({ email, password }) => {
+        try {
+            const response = await axiosInstance.post('/login', { email, password });
+            const { accessToken, refreshToken } = response.data;
+
+            Cookies.set("auth", accessToken, { expires: 1 / 24 }); // Expires in 1 hour
+            Cookies.set("refreshToken", refreshToken, { expires: 365 }); // Expires in 365 days
+            return {
+                success: true,
+                redirectTo: "/",
+            };
+        } catch (error) {
+            return {
+                success: false,
+                error: {
+                    name: "LoginError",
+                    message: "Invalid email or password",
+                },
+            };
+        }
+    },
+    logout: async () => {
+        Cookies.remove("auth");
+        Cookies.remove("refreshToken");
+        return {
+            success: true,
+            redirectTo: "/login",
+        };
+    },
+    check:  async (): Promise<CheckResponse> => {
+        let token = Cookies.get("auth");
+        
+        if (!token) {
+            return { authenticated: false, logout: true, redirectTo: "/login" };
+        }
+
+        
+        console.log("token");
+        try {
+            await axiosInstance.get('/verify-token', { headers: { Authorization: `Bearer ${token}` } });
+            return { authenticated: true };
+        } catch (error : any) {
+            if (error.response?.status === 401) {
+                try {
+                    token = await refreshToken();
+                    return { authenticated: true };
+                } catch {
+                    return { authenticated: false, logout: true, redirectTo: "/login" };
+                }
+            }
+            throw error
+        }
+
+    },
+    getIdentity: async () => {
+        const token = Cookies.get("auth");
+        if (token) {
+            try {
+                const response = await axiosInstance.get('/me', { headers: { Authorization: `Bearer ${token}` } });
+                
+                
+                return response.data;
+            } catch (error) {
+                console.log("error");
+                return null;
+            }
+        }
+        return null;
+    },
+    onError: async (error) => {
+        if (error.response?.status === 401) {
+            return {
+                logout: true,
+            };
+        }
+        console.log(error);
+        
+        return { error };
+    },
+};
+

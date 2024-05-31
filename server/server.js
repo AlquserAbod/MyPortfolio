@@ -3,12 +3,12 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
+dotenv.config();
 
 const categoryRoutes = require('./routes/category.routes.js');
 const contactRoutes = require('./routes/contact.routes.js');
 const userRoutes = require('./routes/users.routes.js');
-
-dotenv.config();
+const authRoutes = require('./routes/auth.routes.js');
 
 
 const app = express();
@@ -24,6 +24,7 @@ app.use(bodyParser.json());
 app.use('/api/categories', categoryRoutes);
 app.use('/api/contacts', contactRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/auth', authRoutes);
 
 
 const PORT = process.env.PORT || 5000;

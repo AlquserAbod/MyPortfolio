@@ -8,7 +8,7 @@ import { cookies } from "next/headers";
 import React, { Suspense } from "react";
 
 import { ColorModeContextProvider } from "@contexts/color-mode";
-import { authProvider } from "@providers/auth-provider";
+import  { authProvider }  from "@providers/auth-provider";
 import  dataProvider  from "@providers/data-provider";
 import { Category, ContactMail, Person } from "@mui/icons-material";
 
