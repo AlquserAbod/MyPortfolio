@@ -1,3 +1,4 @@
+const FIREBASE_IMAGE_SUB_DIRS = require('../constants/firebase_image_subDirs.js');
 const User = require('../models/users.model.js');
 const { uploadImageToFirebase } = require('../utils/firebase/upload.js');
 const hashPassword = require('../utils/hash/hashPassword.js');
@@ -11,7 +12,7 @@ exports.createUser = async (req, res) => {
         let profilePicUrl = null;
 
         if (profilePic) {
-            profilePicUrl = await uploadImageToFirebase(profilePic.buffer, profilePic.originalname, profilePic.mimetype);
+            profilePicUrl = await uploadImageToFirebase(profilePic.buffer, profilePic.originalname,FIREBASE_IMAGE_SUB_DIRS.PROFILE_PIC);
         }
     
         const hashedPassword = await hashPassword(password);
@@ -66,7 +67,7 @@ exports.updateUser = async (req, res) => {
         let profilePicUrl = null;
 
         if (profilePic) {
-            profilePicUrl = await uploadImageToFirebase(profilePic.buffer, profilePic.originalname, profilePic.mimetype);
+            profilePicUrl = await uploadImageToFirebase(profilePic.buffer, profilePic.originalname, FIREBASE_IMAGE_SUB_DIRS.PROFILE_PIC);
             updatedData.profile_pic = profilePicUrl;
         }
 
