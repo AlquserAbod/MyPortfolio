@@ -23,11 +23,11 @@ exports.login = async (req, res) => {
 
         // get user whitout password
         const userWhitoutPassword = { ...user };
-        delete user.password;
+        delete userWhitoutPassword.password;
         
         // Generate tokens
-        const accessToken = generateAccessToken(userWhitoutPassword);
-        const refreshToken = generateRefreshToken(userWhitoutPassword);
+        const accessToken = generateAccessToken(userWhitoutPassword._doc);
+        const refreshToken = generateRefreshToken(userWhitoutPassword._doc);
 
         res.json({ accessToken, refreshToken });
     } catch (error) {
@@ -37,25 +37,30 @@ exports.login = async (req, res) => {
 };
 
 exports.refreshToken = async (req,res) => {
-    const { refreshToken } = req.body;
+    const { token:refreshToken } = req.body;
 
     if (!refreshToken) {
         return res.status(401).json({ message: "No refresh token provided" });
     }
 
     try {
-        const decoded = jwt.verify(refreshToken, REFRESH_SECRET_KEY);
+        const decoded = jwt.verify(refreshToken, process.env.REFRESH_SECRET_KEY);
 
-        const user = await User.findOne({ email: decoded.email });
+        const user = await User.findById(decoded._id);
         if (!user) {
             return res.status(401).json({ message: "User not found" });
         }
 
-        const newAccessToken = generateAccessToken(decoded);
-        const newRefreshToken = generateRefreshToken(decoded);
+        const userWhitoutPassword = { ...user };
+        delete userWhitoutPassword.password;
+        
+
+        const newAccessToken = generateAccessToken(userWhitoutPassword._doc);
+        const newRefreshToken = generateRefreshToken(userWhitoutPassword._doc);
         
         res.json({ accessToken: newAccessToken, refreshToken: newRefreshToken });
     } catch (error) {
+        console.log(error);
         return res.status(401).json({ message: "Invalid or expired refresh token" });
     }
 }
