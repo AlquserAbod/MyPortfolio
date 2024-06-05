@@ -39,7 +39,7 @@ exports.login = async (req, res) => {
 exports.refreshToken = async (req,res) => {
     const { token:refreshToken } = req.body;
 
-    if (!refreshToken) {
+    if (! refreshToken) {
         return res.status(401).json({ message: "No refresh token provided" });
     }
 
@@ -71,12 +71,9 @@ exports.verifyToken = (req,res) => {
 
 exports.me = async (req,res) => {
     try {
-        const user = await User.findOne({ email: req.user.email }).select('-password'); // Exclude password from the result
-        if (!user) {
-            return res.status(404).json({ message: 'User not found' });
-        }
-        return res.status(200).json(user)
+        return res.status(200).json(req.user)
     } catch (error) {
+        console.log("error on me controller :",error);
         res.status(500).json({ message: 'Server error' });
     }
 }

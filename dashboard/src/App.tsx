@@ -149,6 +149,7 @@ function App() {
                       <Route path="*" element={<ErrorComponent />} />
                     
                   </Route>
+                  
                   <Route
                     element={
                       <Authenticated
