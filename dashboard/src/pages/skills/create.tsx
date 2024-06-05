@@ -1,33 +1,27 @@
 "use client";
 
-import { Autocomplete, Box, Slider, TextField, Typography } from "@mui/material";
-import { Edit } from "@refinedev/mui";
+import { Box, TextField, Slider,Typography, Autocomplete } from "@mui/material";
+import { Create } from "@refinedev/mui";
 import { useForm } from "@refinedev/react-hook-form";
-import { BaseSyntheticEvent, FormEvent, useEffect, useState } from "react";
+import { useState, BaseSyntheticEvent, FormEvent } from "react";
 import { SubmitHandler,FieldValues } from "react-hook-form";
+import { readImageFile }  from '@/utils/readImageFile'; 
 import { useAutocomplete } from "@refinedev/mui";
+import { Skills } from "@/interfaces/Skills";
+import { Category } from "@/interfaces";
 
-import Image from "next/image";
-import { readImageFile }  from '../../../../utils/readImageFile'; 
 
-interface ICategory {
-  _id: string;
-  title_en: string;
-  title_tr: string;
-  title_ar: string;
-}
-
-export default function SkillEdit() {
+export function SkillCreate() {
   const {
     saveButtonProps,
-    refineCore: { queryResult, formLoading, onFinish },
+    refineCore: { formLoading, onFinish },
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm({
+  } = useForm<Skills>({
     refineCoreProps: {
       resource: "skills",
-      action: "edit",
+      action: "create",
       meta: {
         headers: {
           'Content-Type': `multipart/form-data`,
@@ -36,24 +30,11 @@ export default function SkillEdit() {
     }
   });
 
-
-  const skill = queryResult?.data?.data;
-
+  
   const [selectedIcon, setSelectedIcon] = useState<File | null>(null);
-  const [selectedCategory, setSelectedCategory] = useState<ICategory | null>(null);
-  const [iconPreview, setIconPreview] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
+  const [iconPreview, IconPreview] = useState<string | null>(null);
 
-
-  useEffect(() => {
-    console.log(skill);
-    
-    if (skill && skill.icon) {
-      setIconPreview(skill.icon);
-    }
-    if(skill && skill.category) {
-      setSelectedCategory(skill.category);
-    }
-  }, [skill]);
 
 
   const handleButtonClick = (event: BaseSyntheticEvent) => {
@@ -66,7 +47,7 @@ export default function SkillEdit() {
   saveButtonProps.onClick = handleButtonClick;
 
   const onSubmit: SubmitHandler<FieldValues> = async (data: FieldValues) => {
-    const { icon,category, ...rest } = data; // Exclude password_confirm and profile_pic
+    const { ...rest } = data; // Exclude password_confirm and profile_pic
     const formData = new FormData();
     
     formData.append('name', rest.name);
@@ -94,19 +75,19 @@ export default function SkillEdit() {
       setSelectedIcon(file);
       try {
         const imageUrl = await readImageFile(file);
-        setIconPreview(imageUrl);
+        IconPreview(imageUrl);
       } catch (error) {
         console.error("Error reading image file", error);
       }
     }
   };
 
-  const { autocompleteProps } = useAutocomplete<ICategory>({
+  const { autocompleteProps } = useAutocomplete<Category>({
     resource: "categories",
   });
 
   return (
-    <Edit isLoading={formLoading} saveButtonProps={saveButtonProps} >
+    <Create isLoading={formLoading} saveButtonProps={saveButtonProps} >
       <Box
         component="form"
         sx={{ display: "flex", flexDirection: "column" }}
@@ -121,20 +102,22 @@ export default function SkillEdit() {
               InputLabelProps={{ shrink: true }}
               type="file"
               label="Icon"
+              required
               inputProps={{ 
                 accept: "image/*", 
                 onChange: (e) => handleFileChange(e),
               }}
+              error={!selectedIcon} 
+              helperText={!selectedIcon  && "Please select an icon"} 
             />
             {iconPreview && (
               <Box>
-                <Image
-                  src={iconPreview}
-                  alt="Skill Icon"
-                  priority={true}
-                  width={150}
-                  height={150}
-                  style={{ borderRadius: '50%' }}
+                <img
+                    src={iconPreview}
+                    alt="Profile Preview"
+                    width={150}
+                    height={150}
+                    style={{ borderRadius: '50%' }}
                 />
               </Box>
             )}
@@ -162,9 +145,6 @@ export default function SkillEdit() {
                 onChange={(event, newValue) => {
                   setSelectedCategory(newValue); // Update the selected option
                 }}
-                isOptionEqualToValue= {(option, value)  => {
-                  return option._id == value._id;
-                }}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -182,16 +162,15 @@ export default function SkillEdit() {
               />
 
           <Box sx={{ mt: 5 }}>
-            <Typography variant="body1" component="label" htmlFor="proficiency">
+              <Typography variant="body1" component="label" htmlFor="proficiency">
               Proficiency (%)
             </Typography>
             <Box sx={{ mr:20, ml: 20}}>
               <Slider
-                {...register("proficiency", { required: "This field is required"})}
+                {...register("proficiency", { required: "This field is required", min: 0, max: 100 })}
                 valueLabelDisplay="auto"
                 aria-labelledby="proficiency-slider"
                 step={1}
-                
                 marks={[
                   { value: 0, label: "0%" },
                   { value: 25, label: "25%" },
@@ -202,13 +181,12 @@ export default function SkillEdit() {
                 name="proficiency"
                 min={0} 
                 max={100}
-                defaultValue={skill?.proficiency } // Set the initial value here
-
+                
               />
 
             </Box>
           </Box>
       </Box>
-    </Edit>
+    </Create>
   );
 }

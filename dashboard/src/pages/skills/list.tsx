@@ -1,38 +1,25 @@
 "use client";
 
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import { useMany, useUpdate } from "@refinedev/core";
 import {
   DeleteButton,
+  EditButton,
   List,
   ShowButton,
   useDataGrid,
 } from "@refinedev/mui";
 import React from "react";
-import styles from './styles.module.css'; 
-import { Cancel, Check, CheckCircle } from "@mui/icons-material";
-import { Checkbox } from "@mui/material";
+import { Typography } from "@mui/material";
+import Link from '@mui/material/Link';
+import { Skills } from "@/interfaces/Skills";
 
-// pagination mode is client
-// filtering mode is in client
-// sort mode is in client and his asc 
-export default function ContactsList() {
+
+export function SkillList() {
   const [paginationModel, setPaginationModel] = React.useState({ pageSize: 5, page: 0 });
 
-  const { dataGridProps } = useDataGrid({
+  const { dataGridProps } = useDataGrid<Skills>({
     syncWithLocation: true,
   });
-
-  const { mutate } = useUpdate();
-
-  const handleReadedChange = (row : any) => {
-    mutate({
-      resource: "contacts",
-      values : { ...row, readed: !row.readed },
-      id : row._id
-    })
-  };
-
   
   const columns = React.useMemo<GridColDef[]>(
     () => [
@@ -49,52 +36,55 @@ export default function ContactsList() {
         filterable: true,
       },
       {
-        field: "first_name",
+        field: "name",
         flex: 1,
-        headerName: "First Name",
-        minWidth: 70,
-        filterable: true,
-      },
-      {
-        field: "last_name",
-        flex: 1,
-        headerName: "Last Name",
-        minWidth: 70,
-        filterable: true,
-      },
-      {
-        field: "email",
-        type: "email",
-        flex: 1,
-        headerName: "Email",
+        headerName: "Name",
         minWidth: 100,
         filterable: true,
       },
       {
-        field: "readed",
-        type: "boolean",
+        field: "category",
         flex: 1,
-        headerName: "Readed",
-        minWidth: 25,
+        headerName: "Category",
+        minWidth: 100,
         filterable: true,
-        align:"center",
-        renderCell: (params) => (
-          <Checkbox
-            icon={<Cancel color="error" />}
-            checkedIcon={<CheckCircle color="success" />}
-            checked={params.value}
-            onChange={() => handleReadedChange(params.row)}
-          />
-        )
+        renderCell: function ({row})  {          
+          return (
+            <Link href={`/categories/show/${row.category._id}`}>{row.category.title_en}</Link>
+          )
+        },
       },
-
       {
-        field: "message",
+        field: "proficiency",
         flex: 1,
-        headerName: "Message",
-        minWidth: 400,
+        headerName: "Proficiency",
+        minWidth: 40,
         filterable: true,
-        renderCell: (params) => <div style={{ whiteSpace: 'normal' }}>{params.value}</div>,
+        renderCell: function render({row})  {
+          return (
+            <Typography>{row.proficiency}%</Typography>
+          )
+        }
+      },
+      {
+        field: "icon",
+        flex: 1,
+        headerName: "Icon",
+        minWidth: 100,
+        align: "center",
+        filterable: false,
+        sortable: false,
+        renderCell: function render({ row }) {
+          return (
+            <img
+              src={row.icon}
+              alt="Profile Preview"
+              width={150}
+              height={150}
+              style={{ borderRadius: '50%' }}
+            />
+          )
+        }
       },
       {
         field: "actions",
@@ -104,6 +94,7 @@ export default function ContactsList() {
                     
           return (
             <>
+              <EditButton hideText recordItemId={row._id} />
               <ShowButton hideText recordItemId={row._id} />
               <DeleteButton hideText recordItemId={row._id} />
             </>
@@ -127,6 +118,7 @@ export default function ContactsList() {
             paginationModel: {page: 0, pageSize: 5}
           },
         }}
+        rowHeight={100}
         sortingOrder={['asc']}
         filterMode="client"
         paginationMode="client"
@@ -137,7 +129,6 @@ export default function ContactsList() {
         columns={columns} 
         autoHeight
         getRowId={(row) => row._id} 
-        getRowClassName={() => styles.rowSpacing} // Apply row spacing class
 
         />
     </List>

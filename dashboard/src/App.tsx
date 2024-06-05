@@ -25,11 +25,11 @@ import { ColorModeContextProvider } from "./contexts/color-mode";
 
 import { CategoryCreate, CategoryEdit, CategoryList, CategoryShow } from "./pages/categories";
 import { UserCreate, UserEdit, UserList, UserShow } from "./pages/users";
+import { SkillCreate, SkillEdit, SkillList, SkillShow } from "./pages/skills";
 import { ContactsList,ContactsShow } from "./pages/contacts";
 
 import { ForgotPassword } from "./pages/forgotPassword";
 import { Login } from "./pages/login";
-import { Register } from "./pages/register";
 import { Category, ContactMail, Person, TipsAndUpdates } from "@mui/icons-material";
 
 function App() {
@@ -132,6 +132,14 @@ function App() {
                         <Route path="show/:id" element={<CategoryShow />} />
                       </Route>
 
+                      <Route path="/skills">
+                        <Route index element={<SkillList />} />
+                        <Route path="create" element={<SkillCreate />} />
+                        <Route path="edit/:id" element={<SkillEdit />} />
+                        <Route path="show/:id" element={<SkillShow />} />
+                      </Route>
+
+
                       <Route path="/contacts">
                         <Route index element={<ContactsList />} />
                         <Route path="show/:id" element={<ContactsShow />} />
@@ -152,7 +160,6 @@ function App() {
                     }
                   >
                     <Route path="/login" element={<Login />} />
-                    <Route path="/register" element={<Register />} />
                     <Route
                       path="/forgot-password"
                       element={<ForgotPassword />}

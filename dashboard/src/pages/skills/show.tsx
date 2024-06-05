@@ -6,9 +6,8 @@ import {
   Show,
   TextFieldComponent as TextField,
 } from "@refinedev/mui";
-import Image from 'next/image';
 
-export default function BlogPostShow() {
+export function SkillShow() {
   const { queryResult } = useShow({
     resource: "skills",
   });
@@ -16,8 +15,6 @@ export default function BlogPostShow() {
   const { data, isLoading } = queryResult;
 
   const record = data?.data;
-
-  console.log(record);
   
   return (
     <Show isLoading={isLoading}>
@@ -40,12 +37,12 @@ export default function BlogPostShow() {
       <Typography variant="body1" fontWeight="bold">
         {"Icon"}
       </Typography>
-      <Image
+      <img
         src={record?.icon}
-        alt="Icon"
-        width={100}
-        height={100}
-        style={{ borderRadius: '50%', textAlign: "center" }}
+        alt="Profile Preview"
+        width={150}
+        height={150}
+        style={{ borderRadius: '50%' }}
       />
 
       <Typography variant="body1" fontWeight="bold">
