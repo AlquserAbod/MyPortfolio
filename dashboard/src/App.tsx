@@ -31,6 +31,7 @@ import { ContactsList,ContactsShow } from "./pages/contacts";
 import { ForgotPassword } from "./pages/forgotPassword";
 import { Login } from "./pages/login";
 import { Category, ContactMail, Person, TipsAndUpdates } from "@mui/icons-material";
+import Home from "./pages/home/Home";
 
 function App() {
   return (
@@ -115,7 +116,7 @@ function App() {
                   >
                     <Route
                       index
-                      element={<NavigateToResource resource="blog_posts" />}
+                      element={ <Home />}
                     />
 
                       <Route path="/users">

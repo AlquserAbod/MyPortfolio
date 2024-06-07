@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const isGitHubUrl = require('../utils/Validate/isGithubUrl');
 
 const projectSchema = new mongoose.Schema(
     {
@@ -11,7 +12,7 @@ const projectSchema = new mongoose.Schema(
             required: true,
             type: String,
         },
-        short_description_tr: {
+          short_description_tr: {
             required: true,
             type: String,
         },
@@ -91,4 +92,4 @@ const projectSchema = new mongoose.Schema(
 
 const Project = mongoose.model("Project", projectSchema);
 
-export default Project;
+module.exports = Project;
