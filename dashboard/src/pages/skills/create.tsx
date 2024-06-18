@@ -61,6 +61,9 @@ export function SkillCreate() {
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, width: '100%' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, width: '100%' }}>
             <Button
+              {...register("icon", {
+               required: "This field is required",
+              })}
               component="label"
               size="large"
               fullWidth
@@ -122,7 +125,10 @@ export function SkillCreate() {
               if (errors.category) {
                 clearErrors("category"); // Clear error message if valid selection is made
               }
-            } 
+            }else {
+              setSelectedCategory(null);
+              setValue('category', null);
+            }
           }}
           renderInput={(params) => (
             <TextField

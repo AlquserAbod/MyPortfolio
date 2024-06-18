@@ -50,6 +50,7 @@ export function SkillEdit() {
 
     if(skill && skill.category) {
       setSelectedCategory(skill.category as Category);
+      
     }
 
   }, [setValue, skill]);
@@ -125,25 +126,31 @@ export function SkillEdit() {
           />
 
           <Autocomplete
+      
             {...register("category", 
               { required: "This field is required", 
               setValueAs: () => selectedCategory?._id,
-                
             })}
             {...autocompleteProps}
             getOptionLabel={(item: any) => item.title_en}
-            isOptionEqualToValue={(option : Category, value: Category) =>  option._id == value._id}
+            isOptionEqualToValue={(option : Category, value: Category) => {
+              return  option._id == value._id
+            }}
             value={selectedCategory}
+            defaultValue={selectedCategory}
             onChange={(event, newValue) => {
               
               if (newValue) {
-                
                 setSelectedCategory(newValue);
-                setValue('category', newValue._id); // Ensure to use _id property directly
+                
+                setValue('category', newValue._id); 
                 if (errors.category) {
-                  clearErrors("category"); // Clear error message if valid selection is made
+                  clearErrors("category"); 
                 }
-              } 
+              }else {
+                setSelectedCategory(null);
+                setValue('category', null);
+              }
             }}
             renderInput={(params) => (
               <TextField

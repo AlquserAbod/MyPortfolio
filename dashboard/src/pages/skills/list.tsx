@@ -81,9 +81,8 @@ export function SkillList() {
             <img
               src={row.icon}
               alt="Profile Preview"
-              width={150}
-              height={150}
-              style={{ borderRadius: '50%' }}
+              width={100}
+              height={100}
             />
           )
         }
