@@ -8,6 +8,7 @@ const contactRoutes = require('./routes/contact.routes.js');
 const projectRoutes = require('./routes/project.routes.js');
 const categoryRoutes = require('./routes/category.routes.js');
 const userRoutes = require('./routes/users.routes.js');
+const certificatesRouter = require('./routes/certificate.routes.js');
 const authRoutes = require('./routes/auth.routes.js');
 const  { bindFlmngr } = require("@flmngr/flmngr-server-node-express");
 const  connectToMongoDB = require("./db/connecttoMongoDB.js");
@@ -36,6 +37,8 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api/categories', categoryRoutes);
 app.use('/api/skills', skillsRoutes);
 app.use('/api/contacts', contactRoutes);
+app.use('/certificates', certificatesRouter);
+
 app.use('/api/projects', projectRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
