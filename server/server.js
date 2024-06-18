@@ -37,7 +37,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api/categories', categoryRoutes);
 app.use('/api/skills', skillsRoutes);
 app.use('/api/contacts', contactRoutes);
-app.use('/certificates', certificatesRouter);
+app.use('/api/certificates', certificatesRouter);
 
 app.use('/api/projects', projectRoutes);
 app.use('/api/users', userRoutes);

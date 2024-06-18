@@ -11,4 +11,5 @@ export enum PaginationKey {
   Projects = 'projects',
   Contacts = 'contacts',
   Categories = 'categories',
+  Certificates =  'certificates'
 }  

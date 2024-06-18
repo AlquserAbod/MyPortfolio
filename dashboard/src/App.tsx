@@ -24,14 +24,16 @@ import { Header } from "./components/header";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 
 import { CategoryCreate, CategoryEdit, CategoryList, CategoryShow } from "./pages/categories";
+import { CertificastList } from "./pages/certificates";
 import { ProjectCreate, ProjectEdit, ProjectList, ProjectShow } from "./pages/projects";
 import { UserCreate, UserEdit, UserList, UserShow } from "./pages/users";
 import { SkillCreate, SkillEdit, SkillList, SkillShow } from "./pages/skills";
 import { ContactsList,ContactsShow } from "./pages/contacts";
 
+
 import { ForgotPassword } from "./pages/forgotPassword";
 import { Login } from "./pages/login";
-import { Category, ContactMail, Person, TipsAndUpdates,FolderCopy } from "@mui/icons-material";
+import { Category, ContactMail, Person, TipsAndUpdates,FolderCopy, Star } from "@mui/icons-material";
 import Home from "./pages/home/Home";
 
 import '@/config/firebaseConfig';
@@ -109,6 +111,17 @@ function App() {
                       icon: <TipsAndUpdates />
                     },
                   },
+                  {
+                    name: "certificates",
+                    list: "/certificates",
+                    create: "/certificates/create",
+                    edit: "/certificates/edit/:id",
+                    show: "/certificates/show/:id",
+                    meta: {
+                      canDelete: true,
+                      icon: <Star />
+                    },
+                  },
 
                 ]}
                 options={{
@@ -164,6 +177,10 @@ function App() {
                         <Route path="show/:id" element={<SkillShow />} />
                       </Route>
 
+                      <Route path="/certificates">
+                        <Route index element={<CertificastList />} />
+                      </Route>
+                      
 
                       <Route path="/contacts">
                         <Route index element={<ContactsList />} />

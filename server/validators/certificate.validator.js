@@ -4,7 +4,7 @@ const { body, validationResult } = require('express-validator');
 const createCertificateValidator = [
     body('image')
         .notEmpty().withMessage('Image URL is required')
-        .custom(value => {
+        .bail().custom(value => {
             if (!isValidURL(value)) {
                 throw new Error('Invalid image URL');
             }

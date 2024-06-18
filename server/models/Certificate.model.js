@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { isValidURL } = require('../utils/validators');
 
 const certificateSchema = new mongoose.Schema(
     {
