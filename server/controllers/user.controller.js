@@ -6,15 +6,8 @@ const hashPassword = require('../utils/hash/hashPassword.js');
 // Create a new user
 exports.createUser = async (req, res) => {
     try {
-        const { first_name, last_name, email, password } = req.body;
-        const profilePic = req.file;
-
-        let profilePicUrl = null;
-
-        if (profilePic) {
-            profilePicUrl = await uploadImageToFirebase(profilePic.buffer, profilePic.originalname,FIREBASE_IMAGE_SUB_DIRS.PROFILE_PIC);
-        }
-    
+        const { first_name, last_name, email, password, profile_pic } = req.body;
+        
         const hashedPassword = await hashPassword(password);
         
         const user = new User({
@@ -22,7 +15,7 @@ exports.createUser = async (req, res) => {
             last_name,
             email,
             password: hashedPassword,
-            profile_pic: profilePicUrl
+            profile_pic
         });
 
         await user.save();
@@ -60,18 +53,12 @@ exports.getUserById = async (req, res) => {
 exports.updateUser = async (req, res) => {
     try {
         const updatedData = req.body;
-        const profilePic = req.file;
-
-        console.log(profilePic);
         
-        let profilePicUrl = null;
 
-        if (profilePic) {
-            profilePicUrl = await uploadImageToFirebase(profilePic.buffer, profilePic.originalname, FIREBASE_IMAGE_SUB_DIRS.PROFILE_PIC);
-            updatedData.profile_pic = profilePicUrl;
-        }
+
 
         const user = await User.findOneAndUpdate({_id:req.params.id}, updatedData, { new: true, runValidators: true });
+        
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
         }

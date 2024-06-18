@@ -81,12 +81,7 @@ export function SkillCreate() {
             >
               Upload Icon
             </Button>
-
-            <input
-              type="hidden"
-              {...register('icon', { required: 'Icon field is required' })}
-            />
-
+            
             {iconUrl && (
               <Box>
                 <img

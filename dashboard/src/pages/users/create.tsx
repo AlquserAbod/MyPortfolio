@@ -1,25 +1,26 @@
 "use client";
 
-import { Box, TextField, IconButton, InputAdornment } from "@mui/material";
+import { Box, TextField, IconButton, InputAdornment, Button, Alert, Typography } from "@mui/material";
 import { Create } from "@refinedev/mui";
 import { useForm } from "@refinedev/react-hook-form";
-import { useState, MouseEvent, BaseSyntheticEvent, FormEvent } from "react";
+import { useState, MouseEvent } from "react";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { SubmitHandler,FieldValues } from "react-hook-form";
-import readImageFile   from '@/utils/readers/readImageFile'; 
 import { User }  from '@/interfaces'; 
+import { CloudUpload } from "@mui/icons-material";
+import Flmngr from "flmngr";
 
 
 
 export function UserCreate() {
+
   const {
     saveButtonProps,
-    refineCore: { formLoading, onFinish },
-    handleSubmit,
+    refineCore: { formLoading },
     register,
     control,
     formState: { errors },
+    setValue
   } = useForm<User>({
     refineCoreProps: {
       resource: "users",
@@ -33,54 +34,11 @@ export function UserCreate() {
   });
 
   const [showPassword, setShowPassword] = useState(false);
-  const [selectedProfilePic, setSelectedProfilePic] = useState<File | null>(null);
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
 
 
   const handleClickShowPassword = () => setShowPassword(!showPassword);
   const handleMouseDownPassword = (event: MouseEvent<HTMLButtonElement>) => event.preventDefault();
-
-  const handleButtonClick = (event: BaseSyntheticEvent) => {
-    event.preventDefault();
-    
-    handleSubmit(onSubmit)(event);
-  };
-
-
-  saveButtonProps.onClick = handleButtonClick;
-
-  const onSubmit: SubmitHandler<FieldValues> = async (data: FieldValues) => {
-    const { ...rest } = data; // Exclude password_confirm and profile_pic
-    const formData = new FormData();
-    
-    formData.append('first_name', rest.first_name);
-    formData.append('last_name', rest.last_name);
-    formData.append('email', rest.email);
-    formData.append('password', rest.password);
-    
-    if (selectedProfilePic ) {
-      formData.append('profile_pic', selectedProfilePic);
-    }
-    
-    onFinish(formData)
-  
-  };
-
-  const handleFileChange = async (e: FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const target = e.target as HTMLInputElement;
-    const files = target.files;
-
-    if (files && files.length > 0) {
-      const file = files[0];
-      setSelectedProfilePic(file);
-      try {
-        const imageUrl = await readImageFile(file);
-        setImagePreview(imageUrl);
-      } catch (error) {
-        console.error("Error reading image file", error);
-      }
-    }
-  };
 
   return (
     <Create isLoading={formLoading} saveButtonProps={saveButtonProps} >
@@ -88,58 +46,71 @@ export function UserCreate() {
         component="form"
         sx={{ display: "flex", flexDirection: "column" }}
         autoComplete="off"
-        onSubmit={handleSubmit(onSubmit)}
       >
 
-          <Box  sx={{ display: 'flex', alignItems: 'center', gap: 2, width: "100%" }}>
-            <TextField
-              margin="normal"
-              fullWidth
-              InputLabelProps={{ shrink: true }}
-              type="file"
-              defaultValue={null} // Set initial value to null
-              label="Profile Picture"
-              inputProps={{ accept: "image/*", onChange: (e) => handleFileChange(e) }}
-            />
-            {imagePreview && (
-              <Box>
-                <img
-                    src={imagePreview}
-                    alt="Profile Preview"
-                    width={150}
-                    height={150}
-                    style={{ borderRadius: '50%' }}
-                />
-              </Box>
-            )}
-          </Box>
+        <Box  sx={{ display: 'flex', alignItems: 'center', gap: 2, width: "100%" }}>
+          <Button
+            {...register('profile_pic', { required: "This field is required"})}
+            component="label"
+            size="large"
+            fullWidth
+            variant="contained"
+            tabIndex={-1}
+            startIcon={<CloudUpload />}
+            onClick={() => {
+              Flmngr.open({
+                isMultiple: false,
+                onFinish: (files) => {
+                  const imageUrl = files[0].url;
+                  setValue('profile_pic', imageUrl, { shouldValidate: true });
+                  setImageUrl(imageUrl);
+                },
+              });
+            }}
+            color={errors.profile_pic ? 'error' : 'primary'} >
+            Upload Profile
+          </Button>
 
-          <TextField
-            {...register("first_name", {
-              required: "This field is required",
-            })}
-            error={!!errors.first_name}
-            helperText={(errors as any).first_name?.message}
-            margin="normal"
-            fullWidth
-            InputLabelProps={{ shrink: true }}
-            type="text"
-            label="First Name"
-            name="first_name"
-          />
-          <TextField
-            {...register("last_name", {
-              required: "This field is required",
-            })}
-            error={!!errors.last_name}
-            helperText={(errors as any).last_name?.message}
-            margin="normal"
-            fullWidth
-            InputLabelProps={{ shrink: true }}
-            type="text"
-            label="Last Name"
-            name="last_name"
-          />
+          {imageUrl && (
+            <Box>
+              <img
+                  src={imageUrl}
+                  alt="Profile Preview"
+                  width={150}
+                  height={150}
+                  style={{ borderRadius: '50%' }}
+              />
+            </Box>
+          )}
+        </Box>
+
+        <TextField
+          {...register("first_name", {
+            required: "This field is required",
+          })}
+          error={!!errors.first_name}
+          helperText={(errors as any).first_name?.message}
+          margin="normal"
+          fullWidth
+          InputLabelProps={{ shrink: true }}
+          type="text"
+          label="First Name"
+          name="first_name"
+        />
+
+        <TextField
+          {...register("last_name", {
+            required: "This field is required",
+          })}
+          error={!!errors.last_name}
+          helperText={(errors as any).last_name?.message}
+          margin="normal"
+          fullWidth
+          InputLabelProps={{ shrink: true }}
+          type="text"
+          label="Last Name"
+          name="last_name"
+        />
 
         <TextField
           {...register("email", {
@@ -158,6 +129,7 @@ export function UserCreate() {
           label="Email"
           name="email"
         />
+
         <TextField
           {...register("password", {
             required: "This field is required",
@@ -188,6 +160,7 @@ export function UserCreate() {
             ),
           }}
         />
+        
         <TextField
           {...register("password_confirm", {
             required: "This field is required",
@@ -216,6 +189,16 @@ export function UserCreate() {
             ),
           }}
         />
+
+        {Object.keys(errors).length > 0 && (
+          <Alert severity="error" sx={{ mt: 2 }}>
+            {Object.entries(errors).map(([field, error], index) => (
+              <Typography key={index}>
+                {(error as any).message === 'This field is required' ? `The ${field} field is required` : (error as any).message}
+              </Typography>
+            ))}
+          </Alert>
+        )}
 
       </Box>
     </Create>
