@@ -1,86 +1,35 @@
 "use client";
 
-import { Box, TextField } from "@mui/material";
+import { Box, TextField, Button, Alert, Typography } from "@mui/material";
 import { Edit } from "@refinedev/mui";
 import { useForm } from "@refinedev/react-hook-form";
-import { BaseSyntheticEvent, FormEvent, useEffect, useState } from "react";
-import { SubmitHandler,FieldValues } from "react-hook-form";
-
-import readImageFile   from '@/utils/readers/readImageFile'; 
+import { CloudUpload } from "@mui/icons-material";
+import { useEffect, useState } from "react";
+import Flmngr from "flmngr";
 
 export function UserEdit() {
   const {
     saveButtonProps,
-    refineCore: { queryResult, formLoading, onFinish },
-    handleSubmit,
+    refineCore: { queryResult, formLoading },
     register,
+    setValue,
     formState: { errors },
   } = useForm({
     refineCoreProps: {
       resource: "users",
       action: "edit",
-      meta: {
-        headers: {
-          'Content-Type': `multipart/form-data`,
-        }
-      }
     }
   });
 
-
   const user = queryResult?.data?.data;
 
-  const [selectedProfilePic, setSelectedProfilePic] = useState<File | null>(null);
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
-
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
 
   useEffect(() => {
     if (user && user.profile_pic) {
-      setImagePreview(user.profile_pic);
+      setImageUrl(user.profile_pic);
     }
   }, [user]);
-
-
-  const handleButtonClick = (event: BaseSyntheticEvent) => {
-    event.preventDefault();
-    
-    handleSubmit(onSubmit)(event);
-  };
-
-
-  saveButtonProps.onClick = handleButtonClick;
-
-  const onSubmit: SubmitHandler<FieldValues> = async (data: FieldValues) => {
-    const {  ...rest } = data; // Exclude password_confirm and profile_pic
-    const formData = new FormData();
-    
-    formData.append('first_name', rest.first_name);
-    formData.append('last_name', rest.last_name);
-    formData.append('email', rest.email);
-    
-    if (selectedProfilePic ) {
-      formData.append('profile_pic', selectedProfilePic);
-    }
-
-    onFinish(formData)
-  
-  };
-
-  const handleFileChange = async (e: FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const target = e.target as HTMLInputElement;
-    const files = target.files;
-
-    if (files && files.length > 0) {
-      const file = files[0];
-      setSelectedProfilePic(file);
-      try {
-        const imageUrl = await readImageFile(file);
-        setImagePreview(imageUrl);
-      } catch (error) {
-        console.error("Error reading image file", error);
-      }
-    }
-  };
 
   return (
     <Edit isLoading={formLoading} saveButtonProps={saveButtonProps}>
@@ -88,31 +37,42 @@ export function UserEdit() {
         component="form"
         sx={{ display: "flex", flexDirection: "column" }}
         autoComplete="off"
-        onSubmit={handleSubmit(onSubmit)}
       >
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, width: "100%" }}>
+          <Button
+            {...register('profile_pic', { required: "This field is required"})}
+            component="label"
+            size="large"
+            fullWidth
+            variant="contained"
+            tabIndex={-1}
+            startIcon={<CloudUpload />}
+            onClick={() => {
+              Flmngr.open({
+                isMultiple: false,
+                onFinish: (files) => {
+                  const imageUrl = files[0].url;
+                  setValue('profile_pic', imageUrl, { shouldValidate: true });
+                  setImageUrl(imageUrl);
+                },
+              });
+            }}
+            color={errors.profile_pic ? 'error' : 'primary'} >
+            Upload Profile
+          </Button>
 
-        <Box  sx={{ display: 'flex', alignItems: 'center', gap: 2, width: "100%" }}>
-            <TextField
-              margin="normal"
-              fullWidth
-              InputLabelProps={{ shrink: true }}
-              type="file"
-              defaultValue={null} // Set initial value to null
-              label="Profile Picture"
-              inputProps={{ accept: "image/*", onChange: (e) => handleFileChange(e) }}
-            />
-            {imagePreview && (
-              <Box>
-                <img
-                    src={imagePreview}
-                    alt="Profile Preview"
-                    width={150}
-                    height={150}
-                    style={{ borderRadius: '50%' }}
-                />
-              </Box>
-            )}
-          </Box>
+          {imageUrl && (
+            <Box>
+              <img
+                  src={imageUrl}
+                  alt="Profile Preview"
+                  width={150}
+                  height={150}
+                  style={{ borderRadius: '50%' }}
+              />
+            </Box>
+          )}
+        </Box>
 
         <TextField
           {...register("first_name", {
@@ -158,6 +118,17 @@ export function UserEdit() {
           label="Email"
           name="email"
         />
+
+        
+        {Object.keys(errors).length > 0 && (
+          <Alert severity="error" sx={{ mt: 2 }}>
+            {Object.entries(errors).map(([field, error], index) => (
+              <Typography key={index}>
+                {(error as any).message === 'This field is required' ? `The ${field} field is required` : (error as any).message}
+              </Typography>
+            ))}
+          </Alert>
+        )}
       </Box>
     </Edit>
   );

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const validator = require('validator');
 const generateProfilePicURL = require('../utils/genrateros/generateProfilePicURL');
+const { isValidURL } = require('../utils/validators');
 
 const usersSchema = new mongoose.Schema(
     {
@@ -16,7 +16,7 @@ const usersSchema = new mongoose.Schema(
             type: String,
             validate: {
                 validator: function(v) {
-                    return v === null || v === '' || validator.isURL(v);
+                    return v === null || v === '' || isValidURL(v);
                 },
                 message: props => `${props.value} is not a valid image URL!`
             }

@@ -1,18 +1,16 @@
 const { body, validationResult } = require('express-validator');
-const {isEmail} = require('../utils/validators');
+const {isEmail, isValidURL} = require('../utils/validators');
 
 const password_min_character = 8
 
 exports.createUserValidator = [
     body('first_name').notEmpty().withMessage('First name is required').isString(),
     body('last_name').notEmpty().withMessage('Last name is required').isString(),
-    body('profile_pic').optional().custom((value, { req }) => {
-        if (req.file) {
-            if (!req.file.mimetype.startsWith('image')) {
-                throw new Error('Profile picture must be an image file');
-            }
+    body('profile_pic').optional().custom((value) => {
+        if (!isValidURL(value)) {
+            throw new Error('Profile picture must be a valid URL');
         }
-        return true; 
+        return true;
     }),
     body('email').notEmpty().withMessage('Email is required').bail().custom((value) => {
         if (!isEmail(value)) {
