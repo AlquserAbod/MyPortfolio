@@ -7,19 +7,18 @@ import { Autocomplete, Box, TextField, Grid, Typography, Alert, Button } from "@
 import { Create, useAutocomplete } from "@refinedev/mui";
 import { useForm } from "@refinedev/react-hook-form";
 import Flmngr from "flmngr";
-import { useState, BaseSyntheticEvent, useRef } from "react";
-import { Controller, FieldValues, SubmitHandler } from "react-hook-form";
+import { useState, useRef } from "react";
+import { Controller } from "react-hook-form";
 import DOMPurify from 'dompurify';
 
 
 export function ProjectCreate() {
   const {
     saveButtonProps,
-    refineCore: { formLoading,onFinish },
+    refineCore: { formLoading },
     register,
     formState: { errors },
     setValue,
-    handleSubmit,
     control,
     trigger
   } = useForm<Project>({
@@ -43,26 +42,12 @@ export function ProjectCreate() {
   const trEditorRef = useRef(null);
   const arEditorRef = useRef(null);
 
-
-  const handleButtonClick = (event: BaseSyntheticEvent) => {
-    event.preventDefault();
-    
-    handleSubmit(onSubmit)(event);
-  };
-
-  saveButtonProps.onClick = handleButtonClick;
-
-  const onSubmit: SubmitHandler<FieldValues> = async (data : FieldValues) => {
-    onFinish(data);
-  };
-
   return (
     <Create isLoading={formLoading} saveButtonProps={saveButtonProps} >
       <Box
         component="form"
         sx={{ display: "flex", flexDirection: "column" }}
         autoComplete="true"
-        onSubmit={handleSubmit(onSubmit)}
       >
         <TextField
           {...register("name", {

@@ -111,29 +111,7 @@ export function ProjectList() {
           )
         }
       },
-      {
-        field: "project_images",
-        flex: 1,
-        headerName: "Project Images",
-        minWidth: 300,
-        align: "center",
-        filterable: false,
-        sortable: false,
-        renderCell: function render({ row }) {
-          return (
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-              {row.project_images.map((image : string, index : number) => (
-                <img
-                  key={index}
-                  src={image}
-                  alt={`Project Image ${index + 1}`}
-                  style={{ maxWidth: '30%', maxHeight: '50px', objectFit: 'contain' }}
-                />
-              ))}
-            </div>
-          )
-        }
-      },
+
       {
         field: "actions",
         headerName: "Actions",
