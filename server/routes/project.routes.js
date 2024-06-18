@@ -6,14 +6,8 @@ const validateProject = require('../validators/project.validator');
 
 router.get('/', projectController.getAllProjects);
 router.get('/:id', projectController.getProjectById);
-router.post('/',upload.fields([
-  { name: 'main_image', maxCount: 1 },
-  { name: 'project_images', maxCount: 5 } // Adjust maxCount as needed
-  ]),validateProject, projectController.createProject);
-router.patch('/:id', upload.fields([
-  { name: 'main_image', maxCount: 1 },
-  { name: 'project_images' }
-]), projectController.updateProject);
+router.post('/' , validateProject, projectController.createProject);
+router.patch('/:id',  projectController.updateProject);
 router.delete('/:id', projectController.deleteProject);
 
 module.exports = router;

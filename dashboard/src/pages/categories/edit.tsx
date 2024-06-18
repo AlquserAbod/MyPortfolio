@@ -4,6 +4,7 @@ import { Category } from "@/interfaces";
 import { Box, TextField } from "@mui/material";
 import { Edit } from "@refinedev/mui";
 import { useForm } from "@refinedev/react-hook-form";
+import { useParams } from "react-router-dom";
 
 export function CategoryEdit() {
   const {
@@ -13,6 +14,7 @@ export function CategoryEdit() {
     formState: { errors },
   } = useForm<Category>({
     refineCoreProps: {
+      id: useParams()['id'],
       resource: "categories",
       action: "edit",
     }

@@ -7,13 +7,13 @@ const { createSkillValidator } = require('../validators/skills.validator.js')
 
 
 // Routes
-router.post('/',upload.single('icon'), createSkillValidator, skillsController.createSkill);
+router.post('/', createSkillValidator, skillsController.createSkill);
 
 router.get('/', skillsController.getAllSkills);
 
 router.get('/:id', skillsController.getSkillById);
 
-router.patch('/:id',upload.single('icon'), skillsController.updateSkill);
+router.patch('/:id', skillsController.updateSkill);
 
 router.delete('/:id', skillsController.deleteSkill);
 

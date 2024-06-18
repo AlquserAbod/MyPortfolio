@@ -1,5 +1,5 @@
 const { body, validationResult } = require('express-validator');
-const {isGitHubUrl} = require('../utils/validators');
+const {isGitHubUrl, isValidURL} = require('../utils/validators');
 
 const validateProject = [
     body('name').notEmpty().withMessage('Name is required'),
@@ -12,20 +12,24 @@ const validateProject = [
     body('visit_url').optional().isURL().withMessage('Visit URL must be a valid URL'),
     body('category').notEmpty().withMessage('Category is required')
         .bail().isMongoId().withMessage('Invalid category ID'),
-    body('main_image').custom((value, { req }) => {
-        console.log(req.files);
-        if (!req.files.main_image) {
-            throw new Error('Main image is required');
+
+    body('main_image').notEmpty().withMessage('Main Image is required').bail()
+    .custom((value) => {
+        if (!isValidURL(value)) {
+            throw new Error('Main Image must be a valid URL');
         }
-        // Perform additional checks on the uploaded file if needed
         return true;
     }),
     // Validate project_images 
-    body('project_images').custom((value, { req }) => {
-        if (!req.files.project_images || !Array.isArray(req.files.project_images)) {
-            throw new Error('Project images are required and must be an array');
+    body('project_images').notEmpty().withMessage('Project images is required').bail()
+    .custom((value) => {
+        for (let url of value) {
+            if (!isValidURL(url)) {
+                throw new Error(`${url} is not a valid URL`);
+            }
         }
-        // Perform additional checks on each uploaded file if needed
+    
+        // Return true if all URLs are valid
         return true;
     }),
     body('github_url')

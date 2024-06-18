@@ -9,7 +9,6 @@ import { useAutocomplete } from "@refinedev/mui";
 import { Category } from "@/interfaces";
 import { CloudUpload } from "@mui/icons-material";
 import Flmngr from "flmngr";
-import { Skills } from "@/interfaces/Skills";
 import { useParams } from "react-router-dom";
 
 
@@ -27,7 +26,7 @@ export function SkillEdit() {
     refineCoreProps: {
       resource: "skills",
       action: "edit",
-      id: useParams()['id'], // Set the id based on the query result
+      id: useParams()['id'],
       meta: {
         headers: {
           'Content-Type': `multipart/form-data`,

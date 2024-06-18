@@ -25,11 +25,6 @@ export function UserCreate() {
     refineCoreProps: {
       resource: "users",
       action: "create",
-      meta: {
-        headers: {
-          'Content-Type': `multipart/form-data`,
-        }
-      }
     }
   });
 

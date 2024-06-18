@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
-const {isGitHubUrl} = require('../utils/validators');
+const {isGitHubUrl, isValidURL} = require('../utils/validators');
+const { default: isURL } = require('validator/lib/isURL');
 
 const projectSchema = new mongoose.Schema(
     {
@@ -62,7 +63,7 @@ const projectSchema = new mongoose.Schema(
             default: null,
             validate: {
                 validator: function(v) {
-                    return v === null || v === '' || validator.isURL(v);
+                    return v === null || v === '' || isValidURL(v);
                 },
                 message: props => `${props.value} is not a valid image URL!`
             }
@@ -72,7 +73,7 @@ const projectSchema = new mongoose.Schema(
                 type: String,
                 validate: {
                     validator: function(v) {
-                        return v === null || v === '' || validator.isURL(v);
+                        return v === null || v === '' || isValidURL(v);
                     },
                     message: props => `${props.value} is not a valid image URL!`
                 }

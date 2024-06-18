@@ -40,15 +40,8 @@ exports.getSkillById = async (req, res) => {
 // Update a skill by ID
 exports.updateSkill = async (req, res) => {
     try {
-        const updates = { ...req.body }; // Copy all fields from req.body
 
-        // Handle icon upload if a new file is provided
-        if (req.file) {
-            const iconUrl = await uploadImageToFirebase(req.file.buffer, req.file.originalname, FIREBASE_IMAGE_SUB_DIRS.ICONS);
-            updates.icon = iconUrl;
-        }
-
-        const skill = await Skills.findByIdAndUpdate(req.params.id, updates, { new: true, runValidators: true });
+        const skill = await Skills.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
         if (!skill) {
             return res.status(404).json({ message: 'Skill not found' });
         }

@@ -2,14 +2,14 @@
 
 import TinyMCEEditor from "@/components/TinyEditor/tinyEditor";
 import { Category, Project } from "@/interfaces";
-import readImageFile from "@/utils/readers/readImageFile";
-import {  AddPhotoAlternate, PermMedia } from "@mui/icons-material";
-import { Autocomplete, Box, TextField, Grid, Typography } from "@mui/material";
+import {   CloudUpload } from "@mui/icons-material";
+import { Autocomplete, Box, TextField, Grid, Typography, Alert, Button } from "@mui/material";
 import { Create, useAutocomplete } from "@refinedev/mui";
 import { useForm } from "@refinedev/react-hook-form";
-import { MuiFileInput } from "mui-file-input";
-import { useState, BaseSyntheticEvent } from "react";
+import Flmngr from "flmngr";
+import { useState, BaseSyntheticEvent, useRef } from "react";
 import { Controller, FieldValues, SubmitHandler } from "react-hook-form";
+import DOMPurify from 'dompurify';
 
 
 export function ProjectCreate() {
@@ -21,15 +21,11 @@ export function ProjectCreate() {
     setValue,
     handleSubmit,
     control,
+    trigger
   } = useForm<Project>({
     refineCoreProps: {
       resource: "projects",
       action: "create",
-      meta: {
-        headers: {
-          'Content-Type': `multipart/form-data`,
-        }
-      }
     }
   });
 
@@ -38,39 +34,15 @@ export function ProjectCreate() {
     resource: "categories",
   });
 
-  const [mainImage, setMainImage] = useState<File | null>(null);
-  const [mainImagePreview, setMainImagePreview] = useState<string | null>(null);
+  const [mainImageURL, setMainImageUrl] = useState<string | null>(null);
 
-  const [projectImages, setProjectImages] = useState<File[]>([]);
-  const [projectImagesPreview, setProjectImagesPreview] = useState<string[]>([]);
+  const [projectImagesUrl, setProjectImagesUrl] = useState<string[]>([]);
 
 
-  
-  const [enEditorValue, setEnEditorValue] = useState('');
-  const [trEditorValue, setTrEditorValue] = useState('');
-  const [arEditorValue, setArEditorValue] = useState('');
+  const enEditorRef = useRef(null);
+  const trEditorRef = useRef(null);
+  const arEditorRef = useRef(null);
 
-
-  const handleMainImageChange = async (file : File | null) => {
-    if (file) {
-      setMainImage(file);
-      try {
-        const imageUrl = await readImageFile(file);
-        setMainImagePreview(imageUrl)
-      } catch (error) {
-        console.error("Error reading image file", error);
-      }
-    }
-  };
-
-  const handleProjectImagesChange = async (files : File[]) => {
-    if (files.length > 0) {
-      setProjectImages(files);
-      const imagePromises = files.map(async file => await readImageFile(file));
-      const images = await Promise.all(imagePromises); // Wait for all promises to resolve
-      setProjectImagesPreview(images);
-    }
-  };
 
   const handleButtonClick = (event: BaseSyntheticEvent) => {
     event.preventDefault();
@@ -81,27 +53,7 @@ export function ProjectCreate() {
   saveButtonProps.onClick = handleButtonClick;
 
   const onSubmit: SubmitHandler<FieldValues> = async (data : FieldValues) => {
-    
-    const formData = new FormData();
-
-
-    // Append other form data fields to the FormData
-    Object.keys(data).forEach(key => { 
-      formData.append(key, data[key]);
-    });
-
-    // Iterate through project_images array
-    if(projectImages) {
-        projectImages.forEach((file, index) => {
-          formData.append('project_images', file);
-        });
-      }
-  
-      if(mainImage) {
-        formData.append('main_image', mainImage)
-      } 
-
-    onFinish(formData);
+    onFinish(data);
   };
 
   return (
@@ -163,7 +115,6 @@ export function ProjectCreate() {
             />
           )}
         />
-
 
         <TextField
           {...register("visit_url", {
@@ -237,68 +188,85 @@ export function ProjectCreate() {
         />
 
         {/* Main image field */}
-        <Box mt={4}>
-
-          <Controller
-            name="main_image"
-            control={control}
-            rules={{ required: mainImage == null  ? "This field is required" : false }}
-            render={({ field, fieldState }) => (
-              <MuiFileInput
-                {...field}
-                label="Main Image"
-                placeholder="select a image"
-                error={fieldState.invalid}
-                helperText={fieldState.error?.message}
-                value={mainImage}
-                onChange={handleMainImageChange}
-                InputProps={{
-                  inputProps: { accept: 'image/*', },
-                  startAdornment: <AddPhotoAlternate />
-                }}
-              />
+        <Box sx={{ display: 'flex', flexDirection: 'column' , justifyContent:"center", alignItems: "center", gap: 2, mt:2 }}>
+          <Box sx={{ width: "50%", mt: 2, mb:2}}>
+            <Button
+              {...register("main_image", {
+               required: "This field is required",
+              })}
+              fullWidth
+              component="label"
+              size="large"
+              variant="contained"
+              tabIndex={-1}
+              startIcon={<CloudUpload />}
+              onClick={() => {
+                Flmngr.open({
+                  isMultiple: false,
+                  onFinish: (files) => {
+                    const MainImageUrl = files[0].url;
+                    setValue('main_image', MainImageUrl, { shouldValidate: true });
+                    setMainImageUrl(MainImageUrl);
+                  },
+                });
+              }}
+              color={errors.main_image ? 'error' : 'primary'}
+            >
+              Upload Main Image
+            </Button>
+          </Box>
+            
+            {mainImageURL && (
+                <img
+                  src={mainImageURL}
+                  alt="Main Image"
+                  width={150}
+                  height={150}
+                />
             )}
-          />
-
-          {mainImagePreview && (
-            <Box mt={2} mb={2}>
-              <img src={mainImagePreview} alt="Main Image" style={{ maxWidth: '30%' }} />
-            </Box>
-          )}
-
         </Box>
 
         {/* Project images field */}
+        <Box mt={2} sx={{ display: 'flex', flexDirection: 'column' , justifyContent:"center", alignItems: "center", gap: 2, mt:2 }}>
+          <Box sx={{ width: "50%", mt: 2, mb:2}}>
+            <Button
+              {...register("project_images", {
+                required: "This field is required",
+              })}
+              component="label"
+              size="large"
+              variant="contained"
+              fullWidth
+              tabIndex={-1}
+              startIcon={<CloudUpload />}
+              onClick={() => {
+                Flmngr.open({
+                  isMultiple: true,
+                  onFinish: (files) => {
+                    const ImageUrls = files.map((value) => value.url);
+                    setValue('project_images', ImageUrls, { shouldValidate: true });
+                    setProjectImagesUrl(ImageUrls);
+                  },
+                });
+              }}
+              color={errors.project_images ? 'error' : 'primary'}
+            >
+              Upload Project Images
+            </Button>
+          </Box>
 
-        <Box mt={4}>
-          <Controller
-            name="project_images"
-            control={control}
-            rules={{ required: projectImages.length  <= 0 ? "This field is required" : false }}
-            render={({ field, fieldState }) => (
-              <MuiFileInput
-              
-                {...field}
-                label="Project Images"
-                placeholder="select a images"
-                error={fieldState.invalid}
-                helperText={fieldState.error?.message}
-                value={projectImages}
-                multiple={true}
-                onChange={handleProjectImagesChange}
-                name="project_images"
-                InputProps={{
-                  inputProps: { accept: 'image/*' },
-                  startAdornment: <PermMedia />
-                }}
-              />
-            )}
-          />
-
-          <Grid container spacing={2} mt={2}>
-            {projectImagesPreview.map((image, index) => (
+          <Grid 
+            container 
+            spacing={2} 
+            mt={2} 
+            justifyContent="center" 
+            alignItems="center"
+          >
+            {projectImagesUrl.map((image, index) => (
               <Grid item xs={4} key={index}>
-                <img src={image} alt={`Project ${index + 1}`} style={{ maxWidth: '60%' }} />
+                <Box display="flex" justifyContent="center">
+                  <img src={image} alt={`Project ${index + 1}`} style={{ maxWidth: '40%' }} />
+                </Box>
               </Grid>
             ))}
           </Grid>
@@ -309,14 +277,78 @@ export function ProjectCreate() {
       <Box mt={2} mb={2}>
 
             <TinyMCEEditor
-              apiKey={"dm50xclxghr3g68ic64yksj2ltp9sj62ipwy1pxceoi48mrw"}
-              // error={!!errors.description_en}
-              // helperText={(errors as any).description_en?.message}
+              {...register("description_en", {
+                required: "This field is required",
+              })}
+              ref={enEditorRef}
+              error={!!errors.description_en}
+              helperText={(errors as any).description_en?.message}
               onChange={(content: string) => {
-                setEnEditorValue(content);
+                const sanitizedContent = DOMPurify.sanitize(content);
+                  
+                setValue('description_en',sanitizedContent)
+                if(errors.description_en) {
+                  trigger("description_en")
+                }
+            }}
+            />
+      </Box>
+
+      <Typography variant="h6" mt={2}>Description (Tr)</Typography>
+      <Box mt={2} mb={2}>
+
+            <TinyMCEEditor
+              {...register("description_tr", {
+                required: "This field is required",
+              })}
+              ref={trEditorRef}
+              error={!!errors.description_tr}
+              helperText={(errors as any).description_tr?.message}
+              onChange={(content: string) => {
+                const sanitizedContent = DOMPurify.sanitize(content);
+                  
+                setValue('description_tr',sanitizedContent)
+                if(errors.description_tr) {
+                  trigger("description_tr")
+                }
               }}
             />
       </Box>
+
+
+      <Typography variant="h6" mt={2}>Description (Ar)</Typography>
+      <Box mt={2} mb={2}>
+
+            <TinyMCEEditor
+              {...register("description_ar", {
+                required: "This field is required",
+              })}
+              ref={arEditorRef}
+              error={!!errors.description_ar}
+              helperText={(errors as any).description_ar?.message}
+              onChange={(content: string) => {
+                const sanitizedContent = DOMPurify.sanitize(content);
+                  
+                setValue('description_ar',sanitizedContent)
+                if(errors.description_ar) {
+                  trigger("description_ar")
+                }
+              }}
+            />
+      </Box>
+
+
+
+
+      {Object.keys(errors).length > 0 && (
+          <Alert severity="error" sx={{ mt: 2 }}>
+            {Object.entries(errors).map(([field, error], index) => (
+              <Typography key={index}>
+                {(error as any).message === 'This field is required' ? `The ${field} field is required` : (error as any).message}
+              </Typography>
+            ))}
+          </Alert>
+        )}
 
       </Box>
     </Create>

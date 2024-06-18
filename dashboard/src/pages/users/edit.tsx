@@ -6,6 +6,7 @@ import { useForm } from "@refinedev/react-hook-form";
 import { CloudUpload } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import Flmngr from "flmngr";
+import { useParams } from "react-router-dom";
 
 export function UserEdit() {
   const {
@@ -16,6 +17,7 @@ export function UserEdit() {
     formState: { errors },
   } = useForm({
     refineCoreProps: {
+      id: useParams()['id'],
       resource: "users",
       action: "edit",
     }

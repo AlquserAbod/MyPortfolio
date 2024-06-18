@@ -7,7 +7,7 @@ const { createUserValidator } = require('../validators/users.validator.js');
 const upload = require('../middleware/upload.middleware.js');
 
 // Create a new user
-router.post('/',upload.single('profile_pic'),createUserValidator, userController.createUser);
+router.post('/',createUserValidator, userController.createUser);
 
 // Get all users
 router.get('/', userController.getAllUsers);
@@ -17,7 +17,7 @@ router.get('/:id', userController.getUserById);
 
 
 // Update a user by ID (PATCH for partial update)
-router.patch('/:id', upload.single('profile_pic'),userController.updateUser);
+router.patch('/:id',userController.updateUser);
 
 // Delete a user by ID
 router.delete('/:id', userController.deleteUserById);

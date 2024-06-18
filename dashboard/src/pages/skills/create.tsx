@@ -24,11 +24,6 @@ export function SkillCreate() {
     refineCoreProps: {
       resource: "skills",
       action: "create",
-      meta: {
-        headers: {
-          'Content-Type': `multipart/form-data`,
-        }
-      }
     }
   });
 
