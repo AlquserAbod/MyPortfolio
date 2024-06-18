@@ -8,14 +8,16 @@ import {
   ShowButton,
   useDataGrid,
 } from "@refinedev/mui";
-import React from "react";
 import { Typography } from "@mui/material";
 import Link from '@mui/material/Link';
 import { Skills } from "@/interfaces/Skills";
+import { usePaginationModel } from "@/hooks/usePaginationModel";
+import { PaginationKey } from '@/types';
+import React from "react";
 
 
 export function SkillList() {
-  const [paginationModel, setPaginationModel] = React.useState({ pageSize: 5, page: 0 });
+  const { paginationModel, setPaginationModel } = usePaginationModel(PaginationKey.Skills);
 
   const { dataGridProps } = useDataGrid<Skills>({
     syncWithLocation: true,
@@ -26,7 +28,7 @@ export function SkillList() {
       {
         field: "seq",
         headerName: "ID",
-        minWidth: 50,
+        minWidth: 10,
         renderCell: (params) => params.api.getAllRowIds().indexOf(params.id) + 1,
       },
       {
@@ -39,7 +41,7 @@ export function SkillList() {
         field: "name",
         flex: 1,
         headerName: "Name",
-        minWidth: 100,
+        minWidth: 10,
         filterable: true,
       },
       {

@@ -1,4 +1,4 @@
-import { Authenticated, GitHubBanner, Refine } from "@refinedev/core";
+import { Authenticated, Refine } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
@@ -24,19 +24,24 @@ import { Header } from "./components/header";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 
 import { CategoryCreate, CategoryEdit, CategoryList, CategoryShow } from "./pages/categories";
+import { ProjectCreate, ProjectEdit, ProjectList, ProjectShow } from "./pages/projects";
 import { UserCreate, UserEdit, UserList, UserShow } from "./pages/users";
 import { SkillCreate, SkillEdit, SkillList, SkillShow } from "./pages/skills";
 import { ContactsList,ContactsShow } from "./pages/contacts";
 
 import { ForgotPassword } from "./pages/forgotPassword";
 import { Login } from "./pages/login";
-import { Category, ContactMail, Person, TipsAndUpdates } from "@mui/icons-material";
+import { Category, ContactMail, Person, TipsAndUpdates,FolderCopy } from "@mui/icons-material";
 import Home from "./pages/home/Home";
 
+import '@/config/firebaseConfig';
+
+
 function App() {
+
+  
   return (
     <BrowserRouter>
-      <GitHubBanner />
       <RefineKbarProvider>
         <ColorModeContextProvider>
           <CssBaseline />
@@ -48,6 +53,7 @@ function App() {
                 notificationProvider={notificationProvider}
                 routerProvider={routerBindings}
                 authProvider={authProvider}
+                
                 resources={[
                   {
                     name: "users",
@@ -69,6 +75,17 @@ function App() {
                     meta: {
                       canDelete: true,
                       icon: <Category />
+                    },
+                  },
+                  {
+                    name: "projects",
+                    list: "/projects",
+                    create: "/projects/create",
+                    edit: "/projects/edit/:id",
+                    show: "/projects/show/:id",
+                    meta: {
+                      canDelete: true,
+                      icon: <FolderCopy />
                     },
                   },
                   {
@@ -131,6 +148,13 @@ function App() {
                         <Route path="create" element={<CategoryCreate />} />
                         <Route path="edit/:id" element={<CategoryEdit />} />
                         <Route path="show/:id" element={<CategoryShow />} />
+                      </Route>
+
+                      <Route path="/projects">
+                        <Route index element={<ProjectList />} />
+                        <Route path="create" element={<ProjectCreate />} />
+                        <Route path="edit/:id" element={<ProjectEdit />} />
+                        <Route path="show/:id" element={<ProjectShow />} />
                       </Route>
 
                       <Route path="/skills">

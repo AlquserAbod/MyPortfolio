@@ -1,5 +1,5 @@
 const { body, validationResult } = require('express-validator');
-const isEmail = require('../utils/Validate/isEmail');
+const {isEmail} = require('../utils/validators');
 
 const password_min_character = 8
 

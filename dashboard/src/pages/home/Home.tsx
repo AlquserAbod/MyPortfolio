@@ -1,8 +1,25 @@
+import { Button } from "@mui/material";
+import Flmngr from "flmngr";
 
 const Home = () => {
+
   return (
     <div>
-      Homewef
+          <Button 
+            onClick={() => {
+
+                Flmngr.open({         
+                    isMultiple: false,
+                    onFinish: (files) => {
+                      console.log("User picked:");
+                      console.log(files);
+                    },
+                    
+                });
+            }}
+        >
+            Open file manager
+        </Button>
     </div>
   )
 }

@@ -96,7 +96,6 @@ export const authProvider: AuthProvider = {
         if (token) {
             try {
                 const response = await axiosInstance.get('/me', { headers: { Authorization: `Bearer ${token}` } });
-                console.log(response.data);
                 
                 return response.data;
             } catch (error) {

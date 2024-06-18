@@ -1,28 +1,33 @@
 "use client";
 
-import { Autocomplete, Box, Slider, TextField, Typography } from "@mui/material";
+import { Alert, Autocomplete, Box, Button, Slider, TextField, Typography } from "@mui/material";
 import { Edit } from "@refinedev/mui";
 import { useForm } from "@refinedev/react-hook-form";
-import { BaseSyntheticEvent, FormEvent, useEffect, useState } from "react";
-import { SubmitHandler,FieldValues } from "react-hook-form";
+import { useEffect, useState } from "react";
 import { useAutocomplete } from "@refinedev/mui";
 
-import { readImageFile }  from '@/utils/readImageFile'; 
 import { Category } from "@/interfaces";
+import { CloudUpload } from "@mui/icons-material";
+import Flmngr from "flmngr";
 import { Skills } from "@/interfaces/Skills";
+import { useParams } from "react-router-dom";
 
 
 export function SkillEdit() {
+  
   const {
     saveButtonProps,
-    refineCore: { queryResult, formLoading, onFinish },
-    handleSubmit,
+    refineCore: { queryResult, formLoading },
     register,
     formState: { errors },
+    setValue,
+    clearErrors
   } = useForm({
+    
     refineCoreProps: {
       resource: "skills",
       action: "edit",
+      id: useParams()['id'], // Set the id based on the query result
       meta: {
         headers: {
           'Content-Type': `multipart/form-data`,
@@ -34,70 +39,26 @@ export function SkillEdit() {
 
   const skill = queryResult?.data?.data;
 
-  const [selectedIcon, setSelectedIcon] = useState<File | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
-  const [iconPreview, setIconPreview] = useState<string | null>(null);
+  const [iconUrl, setIconUrl] = useState<string | null>(null);
 
 
   useEffect(() => {
-    
     if (skill && skill.icon) {
-      setIconPreview(skill.icon);
+      setIconUrl(skill.icon);
     }
+
     if(skill && skill.category) {
-      setSelectedCategory(skill.category);
-    }
-  }, [skill]);
-
-
-  const handleButtonClick = (event: BaseSyntheticEvent) => {
-    event.preventDefault();
-    
-    handleSubmit(onSubmit)(event);
-  };
-
-
-  saveButtonProps.onClick = handleButtonClick;
-
-  const onSubmit: SubmitHandler<FieldValues> = async (data: FieldValues) => {
-    const { ...rest } = data; // Exclude password_confirm and profile_pic
-    const formData = new FormData();
-    
-    formData.append('name', rest.name);
-    formData.append('proficiency', rest.proficiency);
-
-    if(selectedCategory) {
-      formData.append('category', selectedCategory?._id);
+      setSelectedCategory(skill.category as Category);
     }
 
-    
-    if (selectedIcon) {
-      formData.append('icon', selectedIcon);
-    }
-    
-    onFinish(formData)
-  
-  };
+  }, [setValue, skill]);
 
-  const handleFileChange = async (e: FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const target = e.target as HTMLInputElement;
-    const files = target.files;
 
-    if (files && files.length > 0) {
-      const file = files[0];
-      setSelectedIcon(file);
-      try {
-        const imageUrl = await readImageFile(file);
-        setIconPreview(imageUrl);
-      } catch (error) {
-        console.error("Error reading image file", error);
-      }
-    }
-  };
 
-  const { autocompleteProps } = useAutocomplete<Category>({
-    resource: "categories",
-  });
+
+
+  const { autocompleteProps } = useAutocomplete<Category>({ resource: "categories", });
 
   return (
     <Edit isLoading={formLoading} saveButtonProps={saveButtonProps} >
@@ -105,33 +66,49 @@ export function SkillEdit() {
         component="form"
         sx={{ display: "flex", flexDirection: "column" }}
         autoComplete="true"
-        onSubmit={handleSubmit(onSubmit)}
       >
 
-          <Box  sx={{ display: 'flex', alignItems: 'center', gap: 2, width: "100%" }}>
-            <TextField
-              margin="normal"
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, width: '100%' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, width: '100%' }}>
+            <Button
+              component="label"
+              size="large"
               fullWidth
-              InputLabelProps={{ shrink: true }}
-              type="file"
-              label="Icon"
-              inputProps={{ 
-                accept: "image/*", 
-                onChange: (e) => handleFileChange(e),
+              variant="contained"
+              tabIndex={-1}
+              startIcon={<CloudUpload />}
+              onClick={() => {
+                Flmngr.open({
+                  isMultiple: false,
+                  onFinish: (files) => {
+                    const IconUrl = files[0].url;
+                    setValue('icon', IconUrl, { shouldValidate: true });
+                    setIconUrl(IconUrl);
+                  },
+                });
               }}
+              color={errors.icon ? 'error' : 'primary'}
+            >
+              Upload Icon
+            </Button>
+
+            <input
+              type="hidden"
+              {...register('icon', { required: 'Icon field is required' })}
             />
-            {iconPreview && (
+
+            {iconUrl && (
               <Box>
                 <img
-                    src={iconPreview}
-                    alt="Profile Preview"
-                    width={150}
-                    height={150}
-                    style={{ borderRadius: '50%' }}
+                  src={iconUrl}
+                  alt="Profile Preview"
+                  width={150}
+                  height={150}
                 />
               </Box>
             )}
           </Box>
+        </Box>
 
           <TextField
             {...register("name", {
@@ -148,32 +125,41 @@ export function SkillEdit() {
           />
 
           <Autocomplete
-                {...register("category", { required: "This field is required" })}
-                {...autocompleteProps}
-                getOptionLabel={(item: any) => item.title_en}
-                value={selectedCategory} // Use a state variable to control the selected option
-                onChange={(event, newValue) => {
-                  setSelectedCategory(newValue); // Update the selected option
-                }}
-                isOptionEqualToValue= {(option, value)  => {
-                  return option._id == value._id;
-                }}
-                renderInput={(params) => (
-                  <TextField
-                    {...params}
-                    margin="normal"
-                    fullWidth
-                    InputLabelProps={{ shrink: true }}
-                    label="Category"
-                    name="category"
-                    required
-                    placeholder="Select a category"
-                    error={!!errors.category}
-                    helperText={(errors as any).category?.message}
-                  />
-                )}
+            {...register("category", 
+              { required: "This field is required", 
+              setValueAs: () => selectedCategory?._id,
+                
+            })}
+            {...autocompleteProps}
+            getOptionLabel={(item: any) => item.title_en}
+            isOptionEqualToValue={(option : Category, value: Category) =>  option._id == value._id}
+            value={selectedCategory}
+            onChange={(event, newValue) => {
+              
+              if (newValue) {
+                
+                setSelectedCategory(newValue);
+                setValue('category', newValue._id); // Ensure to use _id property directly
+                if (errors.category) {
+                  clearErrors("category"); // Clear error message if valid selection is made
+                }
+              } 
+            }}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                margin="normal"
+                fullWidth
+                InputLabelProps={{ shrink: true }}
+                label="Category"
+                name="category"
+                required
+                placeholder="Select a category"
+                error={!!errors.category}
+                helperText={(errors as any).category?.message}
               />
-
+            )}
+          />
           <Box sx={{ mt: 5 }}>
             <Typography variant="body1" component="label" htmlFor="proficiency">
               Proficiency (%)
@@ -201,6 +187,15 @@ export function SkillEdit() {
 
             </Box>
           </Box>
+          {Object.keys(errors).length > 0 && (
+            <Alert severity="error" sx={{ mt: 2 }}>
+              {Object.entries(errors).map(([field, error], index) => (
+                <Typography key={index}>
+                  {(error as any).message === 'This field is required' ? `The ${field} field is required` : (error as any).message}
+                </Typography>
+              ))}
+            </Alert>
+          )}
       </Box>
     </Edit>
   );

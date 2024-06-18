@@ -10,9 +10,11 @@ import {
   useDataGrid,
 } from "@refinedev/mui";
 import React from "react";
+import { usePaginationModel } from "@/hooks/usePaginationModel";
+import { PaginationKey } from '@/types';
 
 export function CategoryList() {
-  const [paginationModel, setPaginationModel] = React.useState({ pageSize: 5, page: 0 });
+  const { paginationModel, setPaginationModel } = usePaginationModel(PaginationKey.Categories);
 
   const { dataGridProps } = useDataGrid<Category>({
     syncWithLocation: true,

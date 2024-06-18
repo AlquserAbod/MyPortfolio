@@ -7,7 +7,7 @@ import { useState, MouseEvent, BaseSyntheticEvent, FormEvent } from "react";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { SubmitHandler,FieldValues } from "react-hook-form";
-import { readImageFile }  from '@/utils/readImageFile'; 
+import readImageFile   from '@/utils/readers/readImageFile'; 
 import { User }  from '@/interfaces'; 
 
 

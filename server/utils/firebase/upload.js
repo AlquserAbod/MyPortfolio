@@ -19,7 +19,7 @@ async function uploadImageToFirebase(imageBlob, originalFileName, subDir) {
   }
 
   const fileExtension = getFileExtension(originalFileName);
-  const fileName = generateRandomImageName(subDir, fileExtension);
+  const fileName = generateRandomImageName(fileExtension);
   const imagePath = `images/${subDir}/${fileName}`;
   
   const storageRef = ref(storage, imagePath);

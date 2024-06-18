@@ -7,12 +7,14 @@ import {
   useDataGrid,
 } from "@refinedev/mui";
 import React from "react";
+import { usePaginationModel } from "@/hooks/usePaginationModel";
+import { PaginationKey } from '@/types';
 
 // pagination mode is client
 // filtering mode is in client
 // sort mode is in client and his asc 
 export function UserList() {
-  const [paginationModel, setPaginationModel] = React.useState({ pageSize: 5, page: 0 });
+  const { paginationModel, setPaginationModel } = usePaginationModel(PaginationKey.Users);
 
   const { dataGridProps } = useDataGrid({
     syncWithLocation: true,

@@ -1,6 +1,5 @@
 const { body, validationResult } = require('express-validator');
-const isEmail = require('../utils/Validate/isEmail');
-const isPhoneNumber = require('../utils/Validate/isPhoneNumber');
+const {isEmail,  isPhoneNumber} = require('../utils/validators');
 
 exports.createContactValidator = [
     body('first_name').notEmpty().withMessage('First name is required'),

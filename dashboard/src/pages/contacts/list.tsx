@@ -12,10 +12,11 @@ import React from "react";
 import { Cancel, CheckCircle } from "@mui/icons-material";
 import { Checkbox } from "@mui/material";
 import { Contact } from "@/interfaces";
-
+import { usePaginationModel } from "@/hooks/usePaginationModel";
+import { PaginationKey } from '@/types';
 
 export function ContactsList() {
-  const [paginationModel, setPaginationModel] = React.useState({ pageSize: 5, page: 0 });
+  const { paginationModel, setPaginationModel } = usePaginationModel(PaginationKey.Contacts);
 
   const { dataGridProps } = useDataGrid<Contact>({
     syncWithLocation: true,

@@ -1,26 +1,36 @@
-const connectToMongoDB = require('./db/connecttoMongoDB');
-const bodyParser = require('body-parser');
-const express = require('express');
-const dotenv = require('dotenv');
-const cors = require('cors');
+const dotenv = require('dotenv')
+
 dotenv.config();
 
-const categoryRoutes = require('./routes/category.routes.js');
+const express = require('express')
 const skillsRoutes = require('./routes/skills.routes.js');
 const contactRoutes = require('./routes/contact.routes.js');
 const projectRoutes = require('./routes/project.routes.js');
+const categoryRoutes = require('./routes/category.routes.js');
 const userRoutes = require('./routes/users.routes.js');
 const authRoutes = require('./routes/auth.routes.js');
+const  { bindFlmngr } = require("@flmngr/flmngr-server-node-express");
+const  connectToMongoDB = require("./db/connecttoMongoDB.js");
 
+const cors = require('cors');
+const bodyParser = require('body-parser')
+const path = require('path')
 
 const app = express();
+
+
+bindFlmngr({
+  app: app,
+  urlFileManager: "/flmngr",
+  urlFiles: "/uploads/",
+  dirFiles: "./uploads"
+});
 
 
 app.use(cors());
 app.use(bodyParser.json());
 
-
-
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
 app.use('/api/categories', categoryRoutes);

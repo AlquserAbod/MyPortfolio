@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const validator = require('validator');
+const { isValidURL } = require('../utils/validators');
 
 const skillsSchema = new mongoose.Schema(
     {
@@ -10,9 +10,7 @@ const skillsSchema = new mongoose.Schema(
         icon: {
             type: String,
             validate: {
-                validator: function(v) {
-                    return validator.isURL(v);
-                },
+                validator: (u) => isValidURL(u),
                 message: props => `${props.value} is not a valid image URL!`
             }
         },

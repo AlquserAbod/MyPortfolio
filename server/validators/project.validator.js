@@ -1,27 +1,47 @@
-const { check, validationResult } = require('express-validator');
-const isGitHubUrl = require('../utils/Validate/isGithubUrl');
+const { body, validationResult } = require('express-validator');
+const {isGitHubUrl} = require('../utils/validators');
 
 const validateProject = [
-    check('name').not().isEmpty().withMessage('Name is required'),
-    check('short_description_en').not().isEmpty().withMessage('English short description is required'),
-    check('short_description_tr').not().isEmpty().withMessage('Turkish short description is required'),
-    check('short_description_ar').not().isEmpty().withMessage('Arabic short description is required'),
-    check('description_en').not().isEmpty().withMessage('English description is required'),
-    check('description_tr').not().isEmpty().withMessage('Turkish description is required'),
-    check('description_ar').not().isEmpty().withMessage('Arabic description is required'),
-    check('visit_url').optional().isURL().withMessage('Visit URL must be a valid URL'),
-    check('github_url')
-    .optional()
-    .isURL().withMessage('GitHub URL must be a valid URL')
-    .bail()
-    .custom(value => {
-        if (!isGitHubUrl(value)) {
-            throw new Error('GitHub URL must be a valid GitHub repository URL');
+    body('name').notEmpty().withMessage('Name is required'),
+    body('short_description_en').notEmpty().withMessage('English short description is required'),
+    body('short_description_tr').notEmpty().withMessage('Turkish short description is required'),
+    body('short_description_ar').notEmpty().withMessage('Arabic short description is required'),
+    body('description_en').notEmpty().withMessage('English description is required'),
+    body('description_tr').notEmpty().withMessage('Turkish description is required'),
+    body('description_ar').notEmpty().withMessage('Arabic description is required'),
+    body('visit_url').optional().isURL().withMessage('Visit URL must be a valid URL'),
+    body('category').notEmpty().withMessage('Category is required')
+        .bail().isMongoId().withMessage('Invalid category ID'),
+    body('main_image').custom((value, { req }) => {
+        console.log(req.files);
+        if (!req.files.main_image) {
+            throw new Error('Main image is required');
         }
+        // Perform additional checks on the uploaded file if needed
         return true;
-    }),    check('category').not().isEmpty().withMessage('Category is required'),
+    }),
+    // Validate project_images 
+    body('project_images').custom((value, { req }) => {
+        if (!req.files.project_images || !Array.isArray(req.files.project_images)) {
+            throw new Error('Project images are required and must be an array');
+        }
+        // Perform additional checks on each uploaded file if needed
+        return true;
+    }),
+    body('github_url')
+        .optional()
+        .isURL().withMessage('GitHub URL must be a valid URL')
+        .bail()
+        .custom(value => {
+            if (!isGitHubUrl(value)) {
+                throw new Error('GitHub URL must be a valid GitHub repository URL');
+            }
+            return true;
+        }),
+
     // Check for validation errors
     (req, res, next) => {
+
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const isEmail = require('../utils/Validate/isEmail');
-const isPhoneNumber = require('../utils/Validate/isPhoneNumber');
+const {isEmail,  isPhoneNumber} = require('../utils/validators');
+
 
 const contactSchema = new mongoose.Schema(
     {

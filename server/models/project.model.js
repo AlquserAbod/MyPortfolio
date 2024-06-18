@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
-const isGitHubUrl = require('../utils/Validate/isGithubUrl');
+const {isGitHubUrl} = require('../utils/validators');
 
 const projectSchema = new mongoose.Schema(
     {

@@ -1,18 +1,11 @@
 const FIREBASE_IMAGE_SUB_DIRS = require('../constants/firebase_image_subDirs.js');
-const Skills = require('../models/skills.model.js');
+const Skills = require('../models/Skills.model.js');
 const { uploadImageToFirebase } = require('../utils/firebase/upload.js');
 
 // Create a new skill
 exports.createSkill = async (req, res) => {
     try {
-        const { name, category, proficiency } = req.body;
-        let iconUrl = '';
-
-        if (req.file) {
-            iconUrl = await uploadImageToFirebase(req.file.buffer, req.file.originalname, FIREBASE_IMAGE_SUB_DIRS.ICONS);
-        }
-
-        const skill = new Skills({ name, category, proficiency, icon: iconUrl });
+        const skill = new Skills(req.body);
         await skill.save();
         res.status(201).json(skill);
     } catch (error) {

@@ -1,12 +1,12 @@
 const { body,validationResult } = require('express-validator');
+const { isValidURL } = require('../utils/validators');
 
 exports.createSkillValidator = [
     body('name').notEmpty().withMessage('Name is required'),
-    body('icon').custom((value, { req }) => {
-        if (!req.file) {
-            throw new Error('Icon is required');
-        } else if (!req.file.mimetype.startsWith('image')) {
-            throw new Error('Icon must be an image file');
+    body('icon').notEmpty().withMessage('icon is required').bail()
+    .custom((value) => {
+        if (!isValidURL(value)) {
+            throw new Error('icon must be a valid URL');
         }
         return true;
     }),

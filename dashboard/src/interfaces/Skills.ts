@@ -5,5 +5,5 @@ export interface Skills {
     name: string;
     proficiency: number;
     category: Category;
-    icon: File;
+    icon: string;
 }

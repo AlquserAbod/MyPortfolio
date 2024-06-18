@@ -6,7 +6,7 @@ import { useForm } from "@refinedev/react-hook-form";
 import { BaseSyntheticEvent, FormEvent, useEffect, useState } from "react";
 import { SubmitHandler,FieldValues } from "react-hook-form";
 
-import { readImageFile }  from '@/utils/readImageFile'; 
+import readImageFile   from '@/utils/readers/readImageFile'; 
 
 export function UserEdit() {
   const {
