@@ -1,3 +1,5 @@
+import { Category } from "./Category";
+
 export interface Project {
     _id: string
     name: string;
@@ -12,8 +14,8 @@ export interface Project {
     visit_url: string;
     github_url: string;
 
-    main_image:File;
-    project_images:Array<File>;
+    main_image:string;
+    project_images:Array<string>;
 
-    category:string;
+    category:Category;
 }
