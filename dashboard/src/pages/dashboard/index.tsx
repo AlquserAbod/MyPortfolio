@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Card, CardContent, Typography, Grid, Box, Link } from '@mui/material';
 import { Statistics, CategoryStatistics, CertificateStatistics, SkillStatistics, Skill, Category } from '@/interfaces';
 import { ContactStatistics, ProjectStatistics, UserStatistics } from '@/interfaces';
-import '@/styles/dashboard.css'
 
 const axiosInstance = axios.create({
   baseURL: `${import.meta.env.VITE_API_URL}/statistics`, 

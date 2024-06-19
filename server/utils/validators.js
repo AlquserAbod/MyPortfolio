@@ -30,7 +30,22 @@ const isEmail = (email) => {
     return validator.isEmail(email);
 };
 
+
+// utils/dateUtils.js
+
+/**
+ * Validate date format against YYYY-MM-DD format.
+ * @param {string} dateString - Date string to validate.
+ * @returns {boolean} - True if valid, false otherwise.
+ */
+const isValidDateFormat = (dateString) => {
+    const regex = /^\d{4}-\d{2}-\d{2}$/; // YYYY-MM-DD format regex
+    return regex.test(dateString);
+};
+  
+
 module.exports = {
+    isValidDateFormat,
     isValidURL,
     isPhoneNumber,
     isGitHubUrl,

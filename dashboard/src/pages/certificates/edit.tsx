@@ -2,11 +2,14 @@
 
 import { Certificast } from "@/interfaces";
 import { CloudUpload } from "@mui/icons-material";
-import { Alert, Box, Button, Typography } from "@mui/material";
+import { Alert, Box, Button, TextField, Typography } from "@mui/material";
+import { DateField } from "@mui/x-date-pickers";
 import {  Edit } from "@refinedev/mui";
 import { useForm } from "@refinedev/react-hook-form";
+import dayjs from "dayjs";
 import Flmngr from "flmngr";
 import { useEffect, useState } from "react";
+import { Controller } from "react-hook-form";
 import { useParams } from "react-router-dom";
 
 export function CertificastEdit() {
@@ -16,7 +19,8 @@ export function CertificastEdit() {
     refineCore: { formLoading, queryResult },
     register,
     formState: { errors },
-    setValue
+    setValue,
+    control
   } = useForm<Certificast>({
     refineCoreProps: {
       resource: "certificates",
@@ -33,6 +37,7 @@ export function CertificastEdit() {
     useState<string | null>(null);
 
 
+
     useEffect(() => setCertificastImageURL(certificastData?.image ?? null),[certificastData])
 
   return (
@@ -43,6 +48,39 @@ export function CertificastEdit() {
         autoComplete="off"
       >
         
+
+        <TextField
+          {...register("from", {
+            required: "This field is required",
+          })}
+          error={!!errors.from}
+          helperText={(errors as any).from?.message}
+          margin="normal"
+          fullWidth
+          InputLabelProps={{ shrink: true }}
+          type="text"
+          label="From"
+          name="from"
+        />
+
+        <Controller
+          name={'taken_date'}
+          control={control}
+          rules={{ required: "This field is required" }}
+          render={({ field }) => (
+            <DateField
+              {...field}
+              label="Taken Date"
+              InputLabelProps={{ shrink: true }}
+              format="YYYY-MM-DD"
+              value={field.value ? dayjs(field.value) : null} // Convert Date to Dayjs
+              onChange={(newValue) => {
+                const formattedDate = newValue ? dayjs(newValue).format('YYYY-MM-DD') : null; // Format to YYYY-MM-DD
+                field.onChange(formattedDate); // Update form value
+              }}
+            />
+          )}
+        />
 
         <Box sx={{ display: 'flex', flexDirection: 'column' , justifyContent:"center", alignItems: "center", gap: 2, mt:2 }}>
           <Box sx={{ width: "50%", mt: 2, mb:2}}>

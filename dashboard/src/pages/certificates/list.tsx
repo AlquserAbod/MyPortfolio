@@ -12,6 +12,7 @@ import {
 import React from "react";
 import { usePaginationModel } from "@/hooks/usePaginationModel";
 import { PaginationKey } from '@/types';
+import { format } from "date-fns";
 
 export function CertificastList() {
   const { paginationModel, setPaginationModel } = usePaginationModel(PaginationKey.Certificates);
@@ -31,6 +32,16 @@ export function CertificastList() {
         renderCell: (params) => params.api.getAllRowIds().indexOf(params.id) + 1,
       },
       {
+        field: "_id",
+        headerName: "Monago Id",
+        minWidth: 300,
+      },
+      {
+        field: 'from',
+        headerName: "From",
+        minWidth:150
+      },
+      {
         field: "image",
         headerName: "Certificat",
         filterable: false,
@@ -41,6 +52,15 @@ export function CertificastList() {
         renderCell: (row) => (
           <img src={row.value} alt="Certificat" width={"350px"}/>
         ),
+      },
+      {
+        field: 'taken_date',
+        headerName: "Taken Date",
+        minWidth:150,
+        renderCell: (params) => {
+          const date = new Date(params.value);
+          return format(date, 'yyyy-MM-dd');
+        },
       },
       {
         field: "actions",

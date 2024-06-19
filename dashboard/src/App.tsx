@@ -20,6 +20,7 @@ import routerBindings, {
 import dataProvider from "@refinedev/simple-rest";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { authProvider } from "./authProvider";
+import { LocalizationProvider } from '@mui/x-date-pickers';
 import { Header } from "./components/header";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 
@@ -39,6 +40,12 @@ import Dashbaord from "./pages/dashboard";
 import '@/config/firebaseConfig';
 
 
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import utc  from "dayjs/plugin/utc";
+import dayjs from "dayjs";
+
+dayjs.extend(utc); // Extend dayjs with utc plugin
+
 function App() {
 
   
@@ -50,175 +57,177 @@ function App() {
           <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
           <RefineSnackbarProvider>
             <DevtoolsProvider>
-              <Refine
-                dataProvider={dataProvider(import.meta.env.VITE_API_URL)}
-                notificationProvider={notificationProvider}
-                routerProvider={routerBindings}
-                authProvider={authProvider}
-                
-                resources={[
-                  {
-                    name: "users",
-                    list: "/users",
-                    create: "/users/create",
-                    edit: "/users/edit/:id",
-                    show: "/users/show/:id",
-                    meta: {
-                      canDelete: true,
-                      icon: <Person />
-                    },
-                  },
-                  {
-                    name: "categories",
-                    list: "/categories",
-                    create: "/categories/create",
-                    edit: "/categories/edit/:id",
-                    show: "/categories/show/:id",
-                    meta: {
-                      canDelete: true,
-                      icon: <Category />
-                    },
-                  },
-                  {
-                    name: "projects",
-                    list: "/projects",
-                    create: "/projects/create",
-                    edit: "/projects/edit/:id",
-                    show: "/projects/show/:id",
-                    meta: {
-                      canDelete: true,
-                      icon: <FolderCopy />
-                    },
-                  },
-                  {
-                    name: "contacts",
-                    list: "/contacts",
-                    show: "/contacts/show/:id",
-                    
-                    meta: {
-                      canDelete: true,
-                      icon: <ContactMail />
-                    },
-                  },
-                  {
-                    name: "skills",
-                    list: "/skills",
-                    create: "/skills/create",
-                    edit: "/skills/edit/:id",
-                    show: "/skills/show/:id",
-                    meta: {
-                      canDelete: true,
-                      icon: <TipsAndUpdates />
-                    },
-                  },
-                  {
-                    name: "certificates",
-                    list: "/certificates",
-                    create: "/certificates/create",
-                    edit: "/certificates/edit/:id",
-                    show: "/certificates/show/:id",
-                    meta: {
-                      canDelete: true,
-                      icon: <Star />
-                    },
-                  },
-
-                ]}
-                options={{
-                  syncWithLocation: true,
-                  warnWhenUnsavedChanges: true,
-                  useNewQueryKeys: true,
-                  title: { icon: (<Dashboard />),text: "Alquser Dashboard" },
-                  projectId: "ShBqPc-kn6dWT-A8UKZq",
-                }}
-
-              >
-                <Routes>
-                  <Route
-                    element={
-                      <Authenticated
-                        key="authenticated-inner"
-                        fallback={<CatchAllNavigate to="/login" />}
-                      >
-                        <ThemedLayoutV2 Header={() => <Header sticky />}>
-                          <Outlet />
-                        </ThemedLayoutV2>
-                      </Authenticated>
-                    }
-                  >
-                    <Route
-                      index
-                      element={ <Dashbaord />}
-                    />
-
-                      <Route path="/users">
-                        <Route index element={<UserList />} />
-                        <Route path="create" element={<UserCreate />} />
-                        <Route path="edit/:id" element={<UserEdit />} />
-                        <Route path="show/:id" element={<UserShow />} />
-                      </Route>
-
-                      <Route path="/categories">
-                        <Route index element={<CategoryList />} />
-                        <Route path="create" element={<CategoryCreate />} />
-                        <Route path="edit/:id" element={<CategoryEdit />} />
-                        <Route path="show/:id" element={<CategoryShow />} />
-                      </Route>
-
-                      <Route path="/projects">
-                        <Route index element={<ProjectList />} />
-                        <Route path="create" element={<ProjectCreate />} />
-                        <Route path="edit/:id" element={<ProjectEdit />} />
-                        <Route path="show/:id" element={<ProjectShow />} />
-                      </Route>
-
-                      <Route path="/skills">
-                        <Route index element={<SkillList />} />
-                        <Route path="create" element={<SkillCreate />} />
-                        <Route path="edit/:id" element={<SkillEdit />} />
-                        <Route path="show/:id" element={<SkillShow />} />
-                      </Route>
-
-                      <Route path="/certificates">
-                        <Route index element={<CertificastList />} />
-                        <Route path="create" element={<CertificastCreate />} />
-                        <Route path="edit/:id" element={<CertificastEdit />} />
-                        <Route path="show/:id" element={<CertificastShow />} />
-                      </Route>
-                      
-
-                      <Route path="/contacts">
-                        <Route index element={<ContactsList />} />
-                        <Route path="show/:id" element={<ContactsShow />} />
-                      </Route>
-
-
-                      <Route path="*" element={<ErrorComponent />} />
-                    
-                  </Route>
+              <LocalizationProvider dateAdapter={AdapterDayjs}  >
+                <Refine
+                  dataProvider={dataProvider(import.meta.env.VITE_API_URL)}
+                  notificationProvider={notificationProvider}
+                  routerProvider={routerBindings}
+                  authProvider={authProvider}
                   
-                  <Route
-                    element={
-                      <Authenticated
-                        key="authenticated-outer"
-                        fallback={<Outlet />}
-                      >
-                        <NavigateToResource />
-                      </Authenticated>
-                    }
-                  >
-                    <Route path="/login" element={<Login />} />
-                    <Route
-                      path="/forgot-password"
-                      element={<ForgotPassword />}
-                    />
-                  </Route>
-                </Routes>
+                  resources={[
+                    {
+                      name: "users",
+                      list: "/users",
+                      create: "/users/create",
+                      edit: "/users/edit/:id",
+                      show: "/users/show/:id",
+                      meta: {
+                        canDelete: true,
+                        icon: <Person />
+                      },
+                    },
+                    {
+                      name: "categories",
+                      list: "/categories",
+                      create: "/categories/create",
+                      edit: "/categories/edit/:id",
+                      show: "/categories/show/:id",
+                      meta: {
+                        canDelete: true,
+                        icon: <Category />
+                      },
+                    },
+                    {
+                      name: "projects",
+                      list: "/projects",
+                      create: "/projects/create",
+                      edit: "/projects/edit/:id",
+                      show: "/projects/show/:id",
+                      meta: {
+                        canDelete: true,
+                        icon: <FolderCopy />
+                      },
+                    },
+                    {
+                      name: "contacts",
+                      list: "/contacts",
+                      show: "/contacts/show/:id",
+                      
+                      meta: {
+                        canDelete: true,
+                        icon: <ContactMail />
+                      },
+                    },
+                    {
+                      name: "skills",
+                      list: "/skills",
+                      create: "/skills/create",
+                      edit: "/skills/edit/:id",
+                      show: "/skills/show/:id",
+                      meta: {
+                        canDelete: true,
+                        icon: <TipsAndUpdates />
+                      },
+                    },
+                    {
+                      name: "certificates",
+                      list: "/certificates",
+                      create: "/certificates/create",
+                      edit: "/certificates/edit/:id",
+                      show: "/certificates/show/:id",
+                      meta: {
+                        canDelete: true,
+                        icon: <Star />
+                      },
+                    },
 
-                <RefineKbar />
-                <UnsavedChangesNotifier />
-                <DocumentTitleHandler />
-              </Refine>
+                  ]}
+                  options={{
+                    syncWithLocation: true,
+                    warnWhenUnsavedChanges: true,
+                    useNewQueryKeys: true,
+                    title: { icon: (<Dashboard />),text: "Alquser Dashboard" },
+                    projectId: "ShBqPc-kn6dWT-A8UKZq",
+                  }}
+
+                >
+                  <Routes>
+                    <Route
+                      element={
+                        <Authenticated
+                          key="authenticated-inner"
+                          fallback={<CatchAllNavigate to="/login" />}
+                        >
+                          <ThemedLayoutV2 Header={() => <Header sticky />}>
+                            <Outlet />
+                          </ThemedLayoutV2>
+                        </Authenticated>
+                      }
+                    >
+                      <Route
+                        index
+                        element={ <Dashbaord />}
+                      />
+
+                        <Route path="/users">
+                          <Route index element={<UserList />} />
+                          <Route path="create" element={<UserCreate />} />
+                          <Route path="edit/:id" element={<UserEdit />} />
+                          <Route path="show/:id" element={<UserShow />} />
+                        </Route>
+
+                        <Route path="/categories">
+                          <Route index element={<CategoryList />} />
+                          <Route path="create" element={<CategoryCreate />} />
+                          <Route path="edit/:id" element={<CategoryEdit />} />
+                          <Route path="show/:id" element={<CategoryShow />} />
+                        </Route>
+
+                        <Route path="/projects">
+                          <Route index element={<ProjectList />} />
+                          <Route path="create" element={<ProjectCreate />} />
+                          <Route path="edit/:id" element={<ProjectEdit />} />
+                          <Route path="show/:id" element={<ProjectShow />} />
+                        </Route>
+
+                        <Route path="/skills">
+                          <Route index element={<SkillList />} />
+                          <Route path="create" element={<SkillCreate />} />
+                          <Route path="edit/:id" element={<SkillEdit />} />
+                          <Route path="show/:id" element={<SkillShow />} />
+                        </Route>
+
+                        <Route path="/certificates">
+                          <Route index element={<CertificastList />} />
+                          <Route path="create" element={<CertificastCreate />} />
+                          <Route path="edit/:id" element={<CertificastEdit />} />
+                          <Route path="show/:id" element={<CertificastShow />} />
+                        </Route>
+                        
+
+                        <Route path="/contacts">
+                          <Route index element={<ContactsList />} />
+                          <Route path="show/:id" element={<ContactsShow />} />
+                        </Route>
+
+
+                        <Route path="*" element={<ErrorComponent />} />
+                      
+                    </Route>
+                    
+                    <Route
+                      element={
+                        <Authenticated
+                          key="authenticated-outer"
+                          fallback={<Outlet />}
+                        >
+                          <NavigateToResource />
+                        </Authenticated>
+                      }
+                    >
+                      <Route path="/login" element={<Login />} />
+                      <Route
+                        path="/forgot-password"
+                        element={<ForgotPassword />}
+                      />
+                    </Route>
+                  </Routes>
+
+                  <RefineKbar />
+                  <UnsavedChangesNotifier />
+                  <DocumentTitleHandler />
+                </Refine>
+              </LocalizationProvider>
               <DevtoolsPanel />
             </DevtoolsProvider>
           </RefineSnackbarProvider>

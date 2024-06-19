@@ -4,6 +4,7 @@ import { Certificast } from "@/interfaces";
 import { Stack, Typography } from "@mui/material";
 import { useShow } from "@refinedev/core";
 import {
+  DateField,
   MarkdownField,
   Show,
 } from "@refinedev/mui";
@@ -27,6 +28,17 @@ export function CertificastShow() {
           {"ID"}
         </Typography>
         <MarkdownField value={record?._id ?? ""} />
+
+        <Typography variant="body1" fontWeight="bold">
+          {"From"}
+        </Typography>
+        <MarkdownField value={record?.from ?? ""} />
+
+        <Typography variant="body1" fontWeight="bold">
+          {"Taken Date"}
+        </Typography>
+        <DateField value={record?.taken_date ?? ""} format="YYYY-MM-DD" />
+
 
 
         <Typography variant="body1" fontWeight="bold">
