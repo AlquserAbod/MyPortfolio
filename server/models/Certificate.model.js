@@ -3,6 +3,14 @@ const { isValidURL } = require('../utils/validators');
 
 const certificateSchema = new mongoose.Schema(
     {
+        from: {
+            type: String,
+            required: true,
+        },
+        taken_date :{
+            type: Date,
+            required: true,
+        },
         image: {
             type: String,
             required: true,

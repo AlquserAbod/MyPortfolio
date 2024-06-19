@@ -8,7 +8,7 @@ const User = require('../models/Users.model.js');
 const getCategoriesStatistics = async (req, res) => {
   try {
     const totalCount = await Category.countDocuments();
-    const categories = await Category.find().limit(5).sort({ createdAt: -1 });
+    const categories = await Category.find().limit(5);
     res.json({ totalCount, categories });
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -18,8 +18,8 @@ const getCategoriesStatistics = async (req, res) => {
 const getCertificatesStatistics = async (req, res) => {
   try {
     const totalCount = await Certificate.countDocuments();
-    const latestCertificates = await Certificate.findOne().sort({ createdAt: -1 });;
-    res.json({ totalCount, latestCertificates });
+    const latestCertificate = await Certificate.findOne().sort({ taken_date: -1 });
+    res.json({ totalCount, latestCertificate });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

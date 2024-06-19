@@ -3,8 +3,7 @@ const Certificate = require('../models/Certificate.model.js');
 // Controller to create a new certificate
 const createCertificate = async (req, res) => {
     try {
-        const { image } = req.body;
-        const certificate = new Certificate({ image });
+        const certificate = new Certificate(req.body);
         await certificate.save();
         res.status(201).send(certificate);
     } catch (err) {
@@ -38,7 +37,7 @@ const getCertificateById = async (req, res) => {
 // Controller to update a certificate by ID
 const updateCertificateById = async (req, res) => {
     const updates = Object.keys(req.body);
-    const allowedUpdates = ['image']; // Add more fields as needed
+    const allowedUpdates = ['image', "taken_date", "from"]; // Add more fields as needed
     const isValidOperation = updates.every(update => allowedUpdates.includes(update));
 
     if (!isValidOperation) {
