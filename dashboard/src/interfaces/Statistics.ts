@@ -13,9 +13,15 @@ export interface Statistics {
   contacts: ContactStatistics;
 }
 
+export interface CategoryDetails {
+  totalCount: number;
+  category: Category | null;
+}
+
+
 export interface CategoryStatistics {
   totalCount: number;
-  categories: Category[];
+  categories: CategoryDetails[];
 }
 
 export interface CertificateStatistics {

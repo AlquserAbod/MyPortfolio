@@ -18,4 +18,7 @@ export interface Project {
     project_images:Array<string>;
 
     category:Category;
+
+    createdAt:Date,
+    updatedAt:Date
 }

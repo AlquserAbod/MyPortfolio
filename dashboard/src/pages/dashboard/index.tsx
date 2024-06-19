@@ -1,11 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Card, CardContent, Typography, Grid, Box, Link } from '@mui/material';
-import { Statistics, CategoryStatistics, CertificateStatistics, SkillStatistics, Skill, Category } from '@/interfaces';
-import { ContactStatistics, ProjectStatistics, UserStatistics } from '@/interfaces';
+import {
+  Card,
+  CardContent,
+  Typography,
+  Grid,
+  Box,
+  Link,
+  CircularProgress,
+} from '@mui/material';
+import {
+  Statistics,
+  CategoryStatistics,
+  CertificateStatistics,
+  SkillStatistics,
+  ProjectStatistics,
+  UserStatistics,
+  ContactStatistics,
+} from '@/interfaces';
+import styles from '@/styles/dashboard.module.css'; 
 
 const axiosInstance = axios.create({
-  baseURL: `${import.meta.env.VITE_API_URL}/statistics`, 
+  baseURL: `${import.meta.env.VITE_API_URL}/statistics`,
 });
 
 const Dashboard: React.FC = () => {
@@ -17,6 +33,8 @@ const Dashboard: React.FC = () => {
     users: { totalCount: 0 },
     contacts: { totalContacts: 0, unreadContacts: 0 },
   });
+
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchStatistics = async () => {
@@ -47,19 +65,191 @@ const Dashboard: React.FC = () => {
         });
 
         
+
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching statistics:', error);
+        setLoading(false);
       }
     };
 
-
-    
     fetchStatistics();
-    
-
   }, []);
 
-  return null;
+  if (loading) {
+    return <CircularProgress />;
+  }
+
+  return (
+    <Grid container spacing={3}  alignItems={"stretch"} justifyContent={"space-evenly"}>
+      <Grid item xs={11} md={6} lg={4}>
+        <Card >
+          <CardContent>
+            <Typography variant="h6" gutterBottom>
+              Categories
+            </Typography>
+            <Typography variant="body1">
+              Total Categories: {statistics.categories.totalCount}
+            </Typography>
+            <Box mt={2}>
+              <Typography variant="subtitle2">Top Categories:</Typography>
+              <ul style={{ listStyle:"none"}}>
+                {statistics.categories.categories.map((category) => (
+                  <li className={styles.category} key={category.category?._id}>{category.category?.title_en} : <span className={styles.category_not}>({category.totalCount} project with this category) </span></li>
+                ))}
+              </ul>
+            </Box>
+            <Box mt={2}>
+              <Link href="/categories" color="primary">
+                View All Categories
+              </Link>
+            </Box>
+          </CardContent>
+        </Card>
+      </Grid>
+
+      <Grid item xs={11} md={6} lg={4} >
+      <Card >
+        <CardContent>
+          <Typography variant="h6" gutterBottom>
+            Skills
+          </Typography>
+          <Typography variant="body1">
+            Total Skills: {statistics.skills.totalCount}
+          </Typography>
+          <Box mt={2} className={styles.skillsGrid}>
+            {statistics.skills.skills.map((skill) => (
+              <Box key={skill._id} p={1}>
+                <Link href="#">
+                  <img
+                    src={skill.icon}
+                    alt={skill.name}
+                    style={{ width: '50px', height: '50px' }}
+                  />
+                </Link>
+                
+              </Box>
+              
+            ))}
+          </Box>
+          <Box mt={2} textAlign="center">
+            <Link href="/skills" color="primary">
+              View All Skills
+            </Link>
+          </Box>
+        </CardContent>
+      </Card>
+      </Grid>
+      
+
+      <Grid item xs={11} md={6} lg={4} >
+        <Card>
+          <CardContent>
+            <Typography variant="h6" gutterBottom>
+              Certificates
+            </Typography>
+            <Typography variant="body1">
+              Total Certificates: {statistics.certificates.totalCount}
+            </Typography>
+            {statistics.certificates.latestCertificate && (
+              <Box mt={2}>
+                <Typography variant="subtitle2">Latest Certificate:</Typography>
+                <Typography variant="body2">
+                  from "{statistics.certificates.latestCertificate.from}" Take in : (
+                    
+                  {new Date(
+                    statistics.certificates.latestCertificate.taken_date
+                  ).toLocaleDateString()})
+                </Typography>
+                <Box mt={2} textAlign={"center"}>
+                  <img
+                    
+                    src={statistics.certificates.latestCertificate.image}
+                    alt="Latest Certificate"
+                    style={{ maxWidth: '100%', maxHeight: '200px' }}
+                  />
+                </Box>
+              </Box>
+            )}
+            <Box mt={2}>
+              <Link href="/contacts" color="primary">
+                View All Contacts
+              </Link>
+            </Box>
+          </CardContent>
+        </Card>
+      </Grid>
+
+      
+      <Grid item xs={11} md={6} lg={4}>
+        <Card>
+          <CardContent>
+            <Typography variant="h6" gutterBottom>
+              Projects
+            </Typography>
+            <Typography variant="body1">
+              Total Projects: {statistics.projects.totalCount}
+            </Typography>
+            {statistics.projects.latestProject && (
+              <Box mt={2}>
+                <Typography variant="subtitle2">Latest Project:</Typography>
+                <Typography variant="body2">
+                  {statistics.projects.latestProject.name} (
+                  {new Date(
+                    statistics.projects.latestProject.createdAt
+                  ).toLocaleDateString()})
+                </Typography>
+              </Box>
+            )}
+            <Box mt={2}>
+              <Link href="/projects" color="primary">
+                View All Projects
+              </Link>
+            </Box>
+          </CardContent>
+        </Card>
+      </Grid>
+
+      <Grid item xs={11} md={6} lg={4}>
+        <Card>
+          <CardContent>
+            <Typography variant="h6" gutterBottom>
+              Users
+            </Typography>
+            <Typography variant="body1">
+              Total Users: {statistics.users.totalCount}
+            </Typography>
+            <Box mt={2}>
+              <Link href="/users" color="primary">
+                View All Users
+              </Link>
+            </Box>
+          </CardContent>
+        </Card>
+      </Grid>
+
+      <Grid item xs={11} md={6} lg={4}>
+        <Card>
+          <CardContent>
+            <Typography variant="h6" gutterBottom>
+              Contacts
+            </Typography>
+            <Typography variant="body1">
+              Total Contacts: {statistics.contacts.totalContacts}
+            </Typography>
+            <Typography variant="body1">
+              Unread Contacts: {statistics.contacts.unreadContacts}
+            </Typography>
+            <Box mt={2}>
+              <Link href="/contacts" color="primary">
+                View All Contacts
+              </Link>
+            </Box>
+          </CardContent>
+        </Card>
+      </Grid>
+    </Grid>
+  );
 };
 
 export default Dashboard;

@@ -8,8 +8,28 @@ const User = require('../models/Users.model.js');
 const getCategoriesStatistics = async (req, res) => {
   try {
     const totalCount = await Category.countDocuments();
-    const categories = await Category.find().limit(5);
-    res.json({ totalCount, categories });
+    const categories = await Project.aggregate([
+      { $group: { _id: '$category', count: { $sum: 1 } } },
+      { $sort: { count: -1 } },
+      { $limit: 3 },
+      {
+        $lookup: {
+          from: 'categories',
+          localField: '_id',
+          foreignField: '_id',
+          as: 'categoryDetails',
+        },
+      },
+      {
+        $project: {
+          _id: 0, 
+          totalCount: '$count', 
+          category: {
+            $arrayElemAt: ['$categoryDetails', 0], 
+          },
+        },
+      },
+    ]);    res.json({ totalCount, categories });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
