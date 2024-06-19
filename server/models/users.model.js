@@ -61,6 +61,6 @@ usersSchema.pre('findOneAndUpdate',  async function (next) {
     next();
 });
 
-const User = mongoose.model("User", usersSchema);
+const User = mongoose.models.User || mongoose.model("User", usersSchema);
 
 module.exports = User;

@@ -33,8 +33,8 @@ import { ContactsList,ContactsShow } from "./pages/contacts";
 
 import { ForgotPassword } from "./pages/forgotPassword";
 import { Login } from "./pages/login";
-import { Category, ContactMail, Person, TipsAndUpdates,FolderCopy, Star } from "@mui/icons-material";
-import Home from "./pages/home/Home";
+import { Category, ContactMail, Person, TipsAndUpdates,FolderCopy, Star, Dashboard } from "@mui/icons-material";
+import Dashbaord from "./pages/dashboard";
 
 import '@/config/firebaseConfig';
 
@@ -128,8 +128,10 @@ function App() {
                   syncWithLocation: true,
                   warnWhenUnsavedChanges: true,
                   useNewQueryKeys: true,
+                  title: { icon: (<Dashboard />),text: "Alquser Dashboard" },
                   projectId: "ShBqPc-kn6dWT-A8UKZq",
                 }}
+
               >
                 <Routes>
                   <Route
@@ -146,7 +148,7 @@ function App() {
                   >
                     <Route
                       index
-                      element={ <Home />}
+                      element={ <Dashbaord />}
                     />
 
                       <Route path="/users">

@@ -1,5 +1,5 @@
 const FIREBASE_IMAGE_SUB_DIRS = require('../constants/firebase_image_subDirs.js');
-const User = require('../models/users.model.js');
+const User = require('../models/Users.model.js');
 const { uploadImageToFirebase } = require('../utils/firebase/upload.js');
 const hashPassword = require('../utils/hash/hashPassword.js');
 

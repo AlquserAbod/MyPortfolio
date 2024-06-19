@@ -21,6 +21,7 @@ const contactSchema = new mongoose.Schema(
         }
     },
     phone_number: {
+        required: false,
         type: String,
         validate: {
             validator: (v) => isPhoneNumber(v),
