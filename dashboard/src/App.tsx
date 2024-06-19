@@ -24,7 +24,7 @@ import { Header } from "./components/header";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 
 import { CategoryCreate, CategoryEdit, CategoryList, CategoryShow } from "./pages/categories";
-import { CertificastList, CertificastShow } from "./pages/certificates";
+import { CertificastCreate, CertificastList, CertificastShow } from "./pages/certificates";
 import { ProjectCreate, ProjectEdit, ProjectList, ProjectShow } from "./pages/projects";
 import { UserCreate, UserEdit, UserList, UserShow } from "./pages/users";
 import { SkillCreate, SkillEdit, SkillList, SkillShow } from "./pages/skills";
@@ -179,6 +179,8 @@ function App() {
 
                       <Route path="/certificates">
                         <Route index element={<CertificastList />} />
+                        <Route path="create" element={<CertificastCreate />} />
+       
                         <Route path="show/:id" element={<CertificastShow />} />
                       </Route>
                       
