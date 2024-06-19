@@ -1,6 +1,6 @@
 import { Category } from ".";
 
-export interface Skills {
+export interface Skill {
     _id: string
     name: string;
     proficiency: number;

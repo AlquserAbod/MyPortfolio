@@ -18,7 +18,7 @@ const getCategoriesStatistics = async (req, res) => {
 const getCertificatesStatistics = async (req, res) => {
   try {
     const totalCount = await Certificate.countDocuments();
-    const latestCertificates = await Certificate.find().limit(1).sort({ createdAt: -1 });
+    const latestCertificates = await Certificate.findOne().sort({ createdAt: -1 });;
     res.json({ totalCount, latestCertificates });
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -28,7 +28,7 @@ const getCertificatesStatistics = async (req, res) => {
 const getSkillsStatistics = async (req, res) => {
   try {
     const totalCount = await Skill.countDocuments();
-    const skills = await Skill.find().select('name icon').limit(5);
+    const skills = await Skill.find().select('name icon');
     res.json({ totalCount, skills });
   } catch (err) {
     res.status(500).json({ message: err.message });
