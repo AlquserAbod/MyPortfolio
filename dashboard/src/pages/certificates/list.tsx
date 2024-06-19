@@ -35,11 +35,12 @@ export function CertificastList() {
         headerName: "Certificat",
         filterable: false,
         sortable: false,
-        minWidth:300,
+        flex:2,
+        align: "center",
+        headerAlign: "center",
         renderCell: (row) => (
-          <img src={row.value} alt="Certificat"                 width={300}
-                height={300}/>
-        )
+          <img src={row.value} alt="Certificat" width={"350px"}/>
+        ),
       },
       {
         field: "actions",
@@ -57,35 +58,37 @@ export function CertificastList() {
         },
         align: "center",
         headerAlign: "center",
-        minWidth: 80,
+        flex:1
       },
     ],
     []
   );
   
   return (
-    <List>
-      <DataGrid
-        {...dataGridProps} 
-        pagination
-        initialState={{
-          pagination: {
-            paginationModel: {page: 0, pageSize: 5}
-          },
-        }}
-        sortingOrder={['asc']}
-        rowHeight={300}
-        filterMode="client"
-        paginationMode="client"
-        sortingMode="client"
-        paginationModel={paginationModel}
-        onPaginationModelChange={setPaginationModel}
-        pageSizeOptions={[5,10,15,20,25]}
-        columns={columns} 
-        autoHeight
-        getRowId={(row) => row._id} 
+    <div style={{ width: '100%' }}>
+      <List>
+        <DataGrid
+          {...dataGridProps} 
+          pagination
+          initialState={{
+            pagination: {
+              paginationModel: {page: 0, pageSize: 5}
+            },
+          }}
+          sortingOrder={['asc']}
+          filterMode="client"
+          paginationMode="client"
+          sortingMode="client"
+          rowHeight={350}
+          paginationModel={paginationModel}
+          onPaginationModelChange={setPaginationModel}
+          pageSizeOptions={[5,10,15,20,25]}
+          columns={columns}
+          getRowId={(row) => row._id} 
 
-        />
-    </List>
+          />
+      </List>
+
+    </div>
   );
 }
