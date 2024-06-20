@@ -1,7 +1,7 @@
 const Category = require('../models/category.model.js');
 const Certificate = require('../models/Certificate.model.js');
 const Contact = require('../models/contact.model.js');
-const Project = require('../models/Project.model.js');
+const Project = require('../models/project.model.js');
 const Skill = require('../models/Skills.model.js');
 const User = require('../models/Users.model.js');
 

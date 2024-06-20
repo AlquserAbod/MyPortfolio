@@ -1,4 +1,4 @@
-const Project = require('../models/Project.model.js'); // Adjust the path as necessary
+const Project = require('../models/project.model.js'); // Adjust the path as necessary
 
 // Get all projects
 exports.getAllProjects = async (req, res) => {
