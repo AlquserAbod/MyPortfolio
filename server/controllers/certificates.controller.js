@@ -1,4 +1,4 @@
-const Certificate = require('../models/certificate.model.js');
+const Certificate = require('../models/certification.model.js');
 
 // Controller to create a new certificate
 const createCertificate = async (req, res) => {
