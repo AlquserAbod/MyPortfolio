@@ -5,4 +5,4 @@ export type *  from './Project';
 export type *  from './Certificast';
 export type *  from './Skill';
 export type *  from './Statistics';
- 
+export type * from './SocialLinks';

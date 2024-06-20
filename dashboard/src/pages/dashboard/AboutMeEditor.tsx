@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import {
+  Box,
   CircularProgress,
+  Typography,
 } from '@mui/material';
 import TinyMCEEditor from '@/components/TinyEditor/tinyEditor';
-import tinymce from 'tinymce';
 
 const axiosInstance = axios.create({
   baseURL: `${import.meta.env.VITE_API_URL}/about`,
@@ -13,10 +14,9 @@ const axiosInstance = axios.create({
 const AboutMeEditor: React.FC = () => {
   const [content, setContent] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
-  const editorRef = useRef(null);
 
   useEffect(() => {
-    const fetchStatistics = async () => {
+    const fetchAboutMe = async () => {
         try {
             const response =  await axiosInstance.get('');
             setContent(response.data.aboutMe);
@@ -25,12 +25,12 @@ const AboutMeEditor: React.FC = () => {
   
           setLoading(false);
         } catch (error) {
-          console.error('Error fetching statistics:', error);
+          console.error('Error fetching About Me:', error);
           setLoading(false);
         }
       };
   
-      fetchStatistics();
+      fetchAboutMe();
   }, []);
 
   if (loading) {
@@ -38,13 +38,18 @@ const AboutMeEditor: React.FC = () => {
   }
 
   return (
-    <TinyMCEEditor
-        ref={editorRef}
-        initialValue={content} 
-        onSave={async (content: string) => {
-          await axiosInstance.put('',{aboutMe: content});      
-        }} 
-    />
+    <Box>
+      <Typography variant="h5" sx={{mb:2}}> About Me Section Content :</Typography>
+
+      <Box sx={{ml:1}}>
+        <TinyMCEEditor
+            initialValue={content} 
+            onSave={async (content: string) => {
+              await axiosInstance.put('',{aboutMe: content});      
+            }} 
+        />
+      </Box>
+    </Box>
   );
 };
 
