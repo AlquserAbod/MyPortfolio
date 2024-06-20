@@ -47,7 +47,6 @@ const projectSchema = new mongoose.Schema(
                 }
             },
         },
-        
         github_url: {
             type: String,
             default: null,

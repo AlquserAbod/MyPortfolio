@@ -1,9 +1,9 @@
 const Category = require('../models/category.model.js');
-const Certificate = require('../models/Certificate.model.js');
+const Certificate = require('../models/certificate.model.js');
 const Contact = require('../models/contact.model.js');
 const Project = require('../models/project.model.js');
-const Skill = require('../models/Skills.model.js');
-const User = require('../models/Users.model.js');
+const Skill = require('../models/skills.model.js');
+const User = require('../models/users.model.js');
 
 const getCategoriesStatistics = async (req, res) => {
   try {

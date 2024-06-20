@@ -1,4 +1,4 @@
-const User = require('../models/Users.model.js');
+const User = require('../models/users.model.js');
 const hashPassword = require('../utils/hash/hashPassword.js');
 
 // Create a new user
