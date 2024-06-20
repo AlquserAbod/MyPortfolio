@@ -3,14 +3,6 @@ const dotenv = require('dotenv')
 dotenv.config();
 
 const express = require('express')
-const skillsRoutes = require('./routes/skills.routes.js');
-const contactRoutes = require('./routes/contact.routes.js');
-const projectRoutes = require('./routes/project.routes.js');
-const categoryRoutes = require('./routes/category.routes.js');
-const userRoutes = require('./routes/users.routes.js');
-const statisticsRoutes = require('./routes/statistics.routes');
-const certificatesRouter = require('./routes/certificate.routes.js');
-const authRoutes = require('./routes/auth.routes.js');
 const  { bindFlmngr } = require("@flmngr/flmngr-server-node-express");
 const  connectToMongoDB = require("./db/connecttoMongoDB.js");
 
@@ -32,9 +24,24 @@ bindFlmngr({
 app.use(cors());
 app.use(bodyParser.json());
 
+
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
+
+
+// import routes
+const skillsRoutes = require('./routes/skills.routes.js');
+const contactRoutes = require('./routes/contact.routes.js');
+const projectRoutes = require('./routes/project.routes.js');
+const categoryRoutes = require('./routes/category.routes.js');
+const userRoutes = require('./routes/users.routes.js');
+const statisticsRoutes = require('./routes/statistics.routes');
+const certificatesRouter = require('./routes/certificate.routes.js');
+const aboutRoutes = require('./routes/about.routes.js');
+const socialLinksRoutes = require('./routes/socialLinks.routes.js');
+const authRoutes = require('./routes/auth.routes.js');
+
 // CRUD Routes
 app.use('/api/categories', categoryRoutes);
 app.use('/api/skills', skillsRoutes);
@@ -46,7 +53,8 @@ app.use('/api/auth', authRoutes);
 
 // Other Routes
 app.use('/api/statistics', statisticsRoutes);
-
+app.use('/api/about', aboutRoutes);
+app.use('/api/social-links', socialLinksRoutes);
 
 
 const PORT = process.env.PORT || 5000;
