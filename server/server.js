@@ -22,8 +22,12 @@ bindFlmngr({
 
 
 app.use(cors());
+
 app.use(bodyParser.json());
 
+app.use(cookieParser());
+
+app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static( path.join( __dirname, 'public' ) ))
 
