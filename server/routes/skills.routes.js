@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const skillsController = require('../controllers/skills.controller.js');
+const skillsController = require('../controllers/skill.controller.js');
 const upload = require('../middleware/upload.middleware.js');
 const { createSkillValidator } = require('../validators/skills.validator.js')
 

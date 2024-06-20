@@ -6,7 +6,7 @@ const {
     getCertificateById,
     updateCertificateById,
     deleteCertificateById
-} = require('../controllers/certificate.controller.js');
+} = require('../controllers/certificates.controller.js');
 const { createCertificateValidator } = require('../validators/certificate.validator.js');
 
 // Routes for certificates
