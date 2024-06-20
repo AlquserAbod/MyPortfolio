@@ -62,10 +62,7 @@ const StatisticsSection: React.FC = () => {
           projects: projectsResponse.data,
           users: usersResponse.data,
           contacts: contactsResponse.data,
-        });
-
-        console.log(statistics);
-        
+        });        
 
         setLoading(false);
       } catch (error) {

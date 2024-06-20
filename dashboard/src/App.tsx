@@ -37,7 +37,6 @@ import { Login } from "./pages/login";
 import { Category, ContactMail, Person, TipsAndUpdates,FolderCopy, Star, Dashboard } from "@mui/icons-material";
 import Dashbaord from "./pages/dashboard";
 
-import '@/config/firebaseConfig';
 
 
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';

@@ -1,5 +1,6 @@
 import { Divider } from '@mui/material';
 import StatisticsSection from './Statistics';
+import AboutMeEditor from './AboutMeEditor';
 
 
 const Dashboard: React.FC = () => {
@@ -8,6 +9,7 @@ const Dashboard: React.FC = () => {
     <div>
       <StatisticsSection />
       <Divider  sx={{mt:5,mb:5}} />
+      <AboutMeEditor />
     </div>
   );
 };

@@ -12,14 +12,17 @@ const getAboutMe = (req, res) => {
     }
 };
 
+
 const updateAboutMe = (req, res) => {
     try {
         const data = JSON.parse(readData(dataFilePath));
         data.aboutMe = req.body.aboutMe;
+        console.log(req.body.aboutMe);
         writeData(dataFilePath, JSON.stringify(data, null, 2));
         res.json({ message: 'About Us section updated successfully', aboutMe: data.aboutMe });
     } catch (error) {
         res.status(500).json({ message: error.message });
+        console.log("error in update about me controller :", error);
     }
 };
 

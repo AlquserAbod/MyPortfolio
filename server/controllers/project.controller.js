@@ -1,6 +1,4 @@
 const Project = require('../models/Project.model.js'); // Adjust the path as necessary
-const { uploadImageToFirebase } = require('../utils/firebase/upload.js');
-const FIREBASE_IMAGE_SUB_DIRS = require('../constants/firebase_image_subDirs');
 
 // Get all projects
 exports.getAllProjects = async (req, res) => {
