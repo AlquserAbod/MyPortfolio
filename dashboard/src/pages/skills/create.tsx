@@ -6,7 +6,7 @@ import { useForm } from "@refinedev/react-hook-form";
 import { useState, BaseSyntheticEvent } from "react";
 import { SubmitHandler, FieldValues } from "react-hook-form";
 import { useAutocomplete } from "@refinedev/mui";
-import { Skills } from "@/interfaces/Skills";
+import { Skill } from "@/interfaces";
 import { Category } from "@/interfaces";
 import { CloudUpload } from "@mui/icons-material";
 import Flmngr from "flmngr";
@@ -20,7 +20,7 @@ export function SkillCreate() {
     formState: { errors },
     setValue,
     clearErrors
-  } = useForm<Skills>({
+  } = useForm<Skill>({
     refineCoreProps: {
       resource: "skills",
       action: "create",

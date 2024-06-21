@@ -8,6 +8,7 @@ const initialPaginationModels: Record<PaginationKey, PaginationModel> = {
   [PaginationKey.Projects]: { pageSize: 10, page: 0 },
   [PaginationKey.Contacts]: { pageSize: 25, page: 0 },
   [PaginationKey.Categories]: { pageSize: 5, page: 0 },
+  [PaginationKey.Certificates]: {pageSize:5, page: 0}
   // Add more keys as needed
 };
 

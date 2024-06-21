@@ -10,7 +10,7 @@ import {
 } from "@refinedev/mui";
 import { Typography } from "@mui/material";
 import Link from '@mui/material/Link';
-import { Skills } from "@/interfaces/Skills";
+import { Skill } from "@/interfaces";
 import { usePaginationModel } from "@/hooks/usePaginationModel";
 import { PaginationKey } from '@/types';
 import React from "react";
@@ -19,7 +19,7 @@ import React from "react";
 export function SkillList() {
   const { paginationModel, setPaginationModel } = usePaginationModel(PaginationKey.Skills);
 
-  const { dataGridProps } = useDataGrid<Skills>({
+  const { dataGridProps } = useDataGrid<Skill>({
     syncWithLocation: true,
   });
   
