@@ -62,9 +62,10 @@ app.use('/api/about', aboutRoutes);
 app.use('/api/social-links', socialLinksRoutes);
 
 
+connectToMongoDB();
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT,() => {
-  connectToMongoDB();
   console.log(`server Running on port ${PORT}`)
 });
 
