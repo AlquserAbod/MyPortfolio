@@ -19,25 +19,25 @@ import routerBindings, {
 } from "@refinedev/react-router-v6";
 import dataProvider from "@refinedev/simple-rest";
 import { Outlet, Route, Routes } from "react-router-dom";
-import { authProvider } from "../providers/authProvider";
+import { authProvider } from "./providers/authProvider";
 import { LocalizationProvider } from '@mui/x-date-pickers';
-import { ColorModeContextProvider } from "../contexts/color-mode";
+import { ColorModeContextProvider } from "./contexts/color-mode";
 
-import { CategoryCreate, CategoryEdit, CategoryList, CategoryShow } from "../pages/dashboard/categories";
-import { CertificastCreate, CertificastEdit, CertificastList, CertificastShow } from "../pages/dashboard/certificates";
-import { ProjectCreate, ProjectEdit, ProjectList, ProjectShow } from "../pages/dashboard/projects";
-import { UserCreate, UserEdit, UserList, UserShow } from "../pages/dashboard/users";
-import { SkillCreate, SkillEdit, SkillList, SkillShow } from "../pages/dashboard/skills";
-import { ContactsList,ContactsShow } from "../pages/dashboard/contacts";
+import { CategoryCreate, CategoryEdit, CategoryList, CategoryShow } from "./pages/dashboard/categories";
+import { CertificastCreate, CertificastEdit, CertificastList, CertificastShow } from "./pages/dashboard/certificates";
+import { ProjectCreate, ProjectEdit, ProjectList, ProjectShow } from "./pages/dashboard/projects";
+import { UserCreate, UserEdit, UserList, UserShow } from "./pages/dashboard/users";
+import { SkillCreate, SkillEdit, SkillList, SkillShow } from "./pages/dashboard/skills";
+import { ContactsList,ContactsShow } from "./pages/dashboard/contacts";
 
 
-import { Login } from "../pages/dashboard/login";
-import { Category, ContactMail, Person, TipsAndUpdates,FolderCopy, Star } from "@mui/icons-material";
+import { Login } from "./pages/dashboard/login";
+import { Category, ContactMail, Person, TipsAndUpdates,FolderCopy, Star, Dashboard } from "@mui/icons-material";
 import Dashbaord from "@/pages/dashboard";
 
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import DashboardSider from "../layout/dashboardSider";
-import { DashboardHeader } from "../layout/dashboardHeader";
+import DashboardSider from "./layout/dashboardSider";
+import { DashboardHeader } from "./layout/dashboardHeader";
 
 
 const RefineComponent = () => {
@@ -121,16 +121,18 @@ const RefineComponent = () => {
             <DevtoolsProvider>
               <LocalizationProvider dateAdapter={AdapterDayjs}  >
                 <Refine
-            
                   dataProvider={dataProvider(import.meta.env.VITE_API_URL)}
                   notificationProvider={notificationProvider}
                   routerProvider={routerBindings}
                   authProvider={authProvider}
+                  
                   resources={resources}
                   options={{
                     syncWithLocation: true,
                     warnWhenUnsavedChanges: true,
                     useNewQueryKeys: true,
+                    
+                    title: { icon: (<Dashboard />),text: "Alquser Dashboard"},
                     projectId: "ShBqPc-kn6dWT-A8UKZq",
                   
                   }}
@@ -138,6 +140,7 @@ const RefineComponent = () => {
                 >
                   <Routes>
                     <Route
+                      path=""
                       element={
                         <Authenticated
                           key="authenticated-inner"
@@ -145,7 +148,8 @@ const RefineComponent = () => {
                         >
                           <ThemedLayoutV2 
                             Header={() => <DashboardHeader sticky />} 
-                            Sider={() => <DashboardSider />} >           
+                            Sider={() => <DashboardSider />} >
+                              
                             <Outlet />
                           </ThemedLayoutV2>
                         </Authenticated>
