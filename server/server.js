@@ -21,7 +21,9 @@ bindFlmngr({
 });
 
 
-app.use(cors());
+app.use(cors({
+  origin: process.env.APP_URL
+}));
 
 app.use(bodyParser.json());
 
