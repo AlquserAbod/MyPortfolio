@@ -8,8 +8,6 @@ const flmngrConfig = {
 
 };
 
-const runFlmngrLoad = () => {
-    Flmngr.load(flmngrConfig);
-}
+  Flmngr.load(flmngrConfig);
 
-export  {runFlmngrLoad,flmngrConfig};
+export  {flmngrConfig};
