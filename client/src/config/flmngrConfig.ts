@@ -1,8 +1,6 @@
 // flmngrConfig.ts
 import Flmngr from "flmngr";
 
-
-
 const flmngrConfig = {
   apiKey: "M8cDnFCI",
   urlFileManager: 'http://localhost:5000/flmngr',
@@ -13,7 +11,5 @@ const flmngrConfig = {
 const runFlmngrLoad = () => {
     Flmngr.load(flmngrConfig);
 }
-
-
 
 export  {runFlmngrLoad,flmngrConfig};
