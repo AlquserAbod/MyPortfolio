@@ -2,10 +2,9 @@
 import Flmngr from "flmngr";
 
 const flmngrConfig = {
-  apiKey: "M8cDnFCI",
-  urlFileManager: 'http://localhost:5000/flmngr',
-  urlFiles: 'http://localhost:5000/uploads',
-
+  apiKey: import.meta.env.VITE_FLMNGR_API_KEY,
+  urlFileManager: `${import.meta.env.VITE_SERVER_URL}/flmngr`,
+  urlFiles: `${import.meta.env.VITE_SERVER_URL}/uploads`,
 };
 
   Flmngr.load(flmngrConfig);
