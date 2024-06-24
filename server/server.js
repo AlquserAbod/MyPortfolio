@@ -1,6 +1,6 @@
 const dotenv = require('dotenv')
 
-dotenv.config();
+dotenv.config({path: "./.env.local"});
 
 const express = require('express')
 const  { bindFlmngr } = require("@flmngr/flmngr-server-node-express");
