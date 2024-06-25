@@ -1,6 +1,12 @@
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
 
-dotenv.config({path: "./.env.local"});
+// Load environment variables based on the NODE_ENV
+if (process.env.NODE_ENV === 'test') {
+    dotenv.config({ path: './.env.test.local' });
+} else {
+    dotenv.config({ path: './.env.local' });
+}
+
 
 const express = require('express')
 const  { bindFlmngr } = require("@flmngr/flmngr-server-node-express");
@@ -73,4 +79,4 @@ app.listen(PORT,() => {
 });
 
 
-// test branch system
+module.exports = app 

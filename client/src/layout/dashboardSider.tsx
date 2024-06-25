@@ -15,7 +15,7 @@ const DashboardSider = () => {
   return (
     <ThemedSiderV2
         Title={({ collapsed }) => <SiderTitle collapsed={collapsed} />} 
-        render={({ items, logout }) => {
+        render={({ items, logout }) => {            
             return (
             <>
                 {items}
