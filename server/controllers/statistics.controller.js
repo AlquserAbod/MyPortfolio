@@ -76,9 +76,9 @@ const getUsersStatistics = async (req, res) => {
 
 const getContactsStatistics = async (req, res) => {
   try {
-    const totalContacts = await Contact.countDocuments();
+    const totalCount = await Contact.countDocuments();
     const unreadContacts = await Contact.countDocuments({ readed: false });
-    res.json({ totalContacts, unreadContacts });
+    res.json({ totalCount, unreadContacts });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

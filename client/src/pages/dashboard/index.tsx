@@ -1,17 +1,21 @@
 import { Divider } from '@mui/material';
-import StatisticsSection from '@/components/dashboard/Statistics';
-import AboutMeEditor from '@/components/dashboard/AboutMeEditor';
-import SocialLinksSection from '@/components/dashboard/SocialLinksSection';
+import StatisticsSection from './dashboard/Statistics';
+import AboutMeEditor from './dashboard/AboutMeEditor';
+import SocialLinksSection from './dashboard/SocialLinksSection';
+import SiteIdentity from './dashboard/SiteIdentity';
 
 
 const Dashboard: React.FC = () => {
 
   return (
     <div>
-      <StatisticsSection />
+      <SiteIdentity />
       
       <Divider  sx={{mt:5,mb:5}} />
 
+
+      <StatisticsSection />
+      
       <AboutMeEditor />
 
       <Divider  sx={{mt:5,mb:5}} />
