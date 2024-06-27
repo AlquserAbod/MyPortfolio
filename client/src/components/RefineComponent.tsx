@@ -41,7 +41,6 @@ import DashboardSider from "../layout/dashboardSider";
 import { DashboardHeader } from "../layout/dashboardHeader";
 import { ResetPassword } from "@/pages/dashboard/authPages/resetPassword";
 
-
 const RefineComponent = () => {
 
   const resources = [

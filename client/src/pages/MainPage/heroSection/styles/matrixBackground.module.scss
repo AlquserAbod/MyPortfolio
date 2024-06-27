@@ -1,0 +1,35 @@
+@use  "./heroSection.module.scss" as * ; 
+
+:export {
+    backgroundColor: rgba($primary-color,0.2);
+    textColor: rgba(12,10,97,0.5);
+    fontSize: 20px;
+    fontFamily: $font-family; 
+}
+
+
+
+
+
+.matrixContainer {
+    display: relative;
+    height: 100%;
+    width: 100%;
+    
+    .backgroundCanvas {
+        background-color: transparent;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: $main_section-height;
+        z-index: 1;
+    }
+
+    .childrenContainer {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+    }
+}
