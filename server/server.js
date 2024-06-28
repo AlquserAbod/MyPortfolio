@@ -27,6 +27,9 @@ bindFlmngr({
 });
 
 
+console.log(process.env.APP_URL);
+console.log(process.env.API_URL);
+console.log(process.env.SERVER_URL);
 app.use(cors({
   origin: process.env.APP_URL
 }));
