@@ -1,7 +1,7 @@
 const path = require('path');
 const { readData, writeData } = require('../utils/fileUtils');
 
-const dataFilePath = path.join(__dirname, '../data.json');
+const dataFilePath = path.join(__dirname, '../tmp/data.json');
 
 const getAboutMe = (req, res) => {
     try {

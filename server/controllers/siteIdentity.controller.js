@@ -3,7 +3,7 @@ const { log } = require('console');
 const { readData, writeData } = require('../utils/fileUtils');
 const path = require('path');
 
-const dataFilePath = path.join(__dirname, '../data.json');
+const dataFilePath = path.join(__dirname, '../tmp/data.json');
 
 const setSiteIdentity = (req, res) => {
   try {
