@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-<<<<<<< HEAD
-=======
 
->>>>>>> site-identity-dashboard
 import {
   Card,
   CardContent,
@@ -14,10 +11,7 @@ import {
   CircularProgress,
   Divider,
 } from '@mui/material';
-<<<<<<< HEAD
-=======
 
->>>>>>> site-identity-dashboard
 import {
   Statistics,
   CategoryStatistics,
@@ -40,14 +34,10 @@ const StatisticsSection: React.FC = () => {
     skills: { totalCount: 0, skills: [] },
     projects: { totalCount: 0, latestProject: null },
     users: { totalCount: 0 },
-<<<<<<< HEAD
-    contacts: { totalContacts: 0, unreadContacts: 0 },
-  });
-  const [hasStatistics,setHasStatistics] = useState<boolean>(false);
-=======
     contacts: { totalCount: 0, unreadContacts: 0 },
   });
->>>>>>> site-identity-dashboard
+
+  const [hasStatistics,setHasStatistics] = useState<boolean>(false);
 
   const [loading, setLoading] = useState(true);
 
@@ -77,7 +67,6 @@ const StatisticsSection: React.FC = () => {
           projects: projectsResponse.data,
           users: usersResponse.data,
           contacts: contactsResponse.data,
-<<<<<<< HEAD
         });        
 
         setHasStatistics(
@@ -86,12 +75,11 @@ const StatisticsSection: React.FC = () => {
           statistics.skills.totalCount + 
           statistics.projects.totalCount +
           statistics.users.totalCount +
-          statistics.contacts.totalContacts > 0);
-=======
-        });
->>>>>>> site-identity-dashboard
+          statistics.contacts.totalCount > 0
+        );
         setLoading(false);
-      } catch (error) {
+      }
+      catch (error) {
         console.error('Error fetching statistics:', error);
         setLoading(false);
       }
@@ -100,18 +88,12 @@ const StatisticsSection: React.FC = () => {
     fetchStatistics();
   }, []);
 
-<<<<<<< HEAD
-=======
-  const hasStatistics = Object.values(statistics).some(
-    (statistic) => statistic.totalCount > 0
-  );
 
->>>>>>> site-identity-dashboard
+
   if (loading) {
     return <CircularProgress />;
   }
 
-<<<<<<< HEAD
   {hasStatistics ? ( 
       <Box>
         <Grid container spacing={3}  alignItems={"stretch"} justifyContent={"space-evenly"}>
@@ -273,7 +255,7 @@ const StatisticsSection: React.FC = () => {
 
 
 
-          {statistics.contacts.totalContacts > 0 ?? (
+          {statistics.contacts.totalCount > 0 ?? (
             <Grid item xs={12} md={6} lg={4}>
               <Card>
                 <CardContent>
@@ -281,7 +263,7 @@ const StatisticsSection: React.FC = () => {
                     Contacts
                   </Typography>
                   <Typography variant="body1">
-                    Total Contacts: {statistics.contacts.totalContacts}
+                    Total Contacts: {statistics.contacts.totalCount}
                   </Typography>
                   <Typography variant="body1">
                     Unread Contacts: {statistics.contacts.unreadContacts}
@@ -301,7 +283,6 @@ const StatisticsSection: React.FC = () => {
         <Divider  sx={{mt:5,mb:5}} />
       </Box>
     ): <></> }
-=======
   if (!hasStatistics) {
     return <></>; // Or any placeholder for no statistics
   }
@@ -472,7 +453,7 @@ const StatisticsSection: React.FC = () => {
                   Contacts
                 </Typography>
                 <Typography variant="body1">
-                  Total Contacts: {statistics.contacts.totalContacts}
+                  Total Contacts: {statistics.contacts.totalCount}
                 </Typography>
                 <Typography variant="body1">
                   Unread Contacts: {statistics.contacts.unreadContacts}
@@ -493,7 +474,6 @@ const StatisticsSection: React.FC = () => {
     </>
 
   );
->>>>>>> site-identity-dashboard
 };
 
 export default StatisticsSection;
