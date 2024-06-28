@@ -53,6 +53,7 @@ const statisticsRoutes = require('./routes/statistics.routes');
 const certificatesRouter = require('./routes/certificate.routes.js');
 const aboutRoutes = require('./routes/about.routes.js');
 const socialLinksRoutes = require('./routes/socialLinks.routes.js');
+const siteIdentityRoutes = require('./routes/siteIdentity.routes.js');
 const authRoutes = require('./routes/auth.routes.js');
 
 // CRUD Routes
@@ -65,6 +66,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
 
 // Other Routes
+app.use('/api/siteIdentity', siteIdentityRoutes);
 app.use('/api/statistics', statisticsRoutes);
 app.use('/api/about', aboutRoutes);
 app.use('/api/social-links', socialLinksRoutes);

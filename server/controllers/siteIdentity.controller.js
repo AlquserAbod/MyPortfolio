@@ -1,0 +1,64 @@
+// controllers/siteIdentityController.js
+const { readData, writeData } = require('../utils/fileUtils');
+const path = require('path');
+
+const dataFilePath = path.join(__dirname, '../data.json');
+
+const setSiteIdentity = (req, res) => {
+  try {
+    let data = JSON.parse(readData(dataFilePath));
+    let siteIdentity = data.siteIdentity;
+
+    // Update logoUrl if 'logo' file is uploaded
+    if(req.files) {
+      if (req.files['logo']) {
+        siteIdentity.logoUrl = `/public/uploads/${req.files['logo'][0].filename}`;
+      }
+  
+      // Update nobgLogoUrl if 'nobgLogo' file is uploaded
+      if (req.files['nobgLogo']) {
+        siteIdentity.nobgLogoUrl = `/public/uploads/${req.files['nobgLogo'][0].filename}`;
+      }
+    }
+
+    // Update slogan for specified languages
+    if (req.body.slogan) {
+      const slogan = JSON.parse(req.body.slogan);
+      Object.keys(slogan).forEach(lang => {
+        if (slogan[lang]) {
+          siteIdentity.slogan[lang] = slogan[lang];
+        }
+      });
+    }
+
+    // Update jobTitle for specified languages
+    if (req.body.jobTitle) {
+      const jobTitle = JSON.parse(req.body.jobTitle);
+      Object.keys(jobTitle).forEach(lang => {
+        if (jobTitle[lang]) {
+          siteIdentity.jobTitle[lang] = jobTitle[lang];
+        }
+      });
+    }
+
+    data.siteIdentity = siteIdentity;
+
+    writeData(dataFilePath, JSON.stringify(data,null,2));
+
+    res.status(201).json(data);
+  } catch (error) {
+    console.log("error on set site identity controller :", error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+const getSiteIdentity = (req, res) => {
+  try {
+    const data = readData(dataFilePath);
+    res.json(JSON.parse(data).siteIdentity);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+module.exports = { setSiteIdentity, getSiteIdentity };
