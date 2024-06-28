@@ -1,4 +1,5 @@
 // controllers/siteIdentityController.js
+const { log } = require('console');
 const { readData, writeData } = require('../utils/fileUtils');
 const path = require('path');
 
@@ -9,21 +10,22 @@ const setSiteIdentity = (req, res) => {
     let data = JSON.parse(readData(dataFilePath));
     let siteIdentity = data.siteIdentity;
 
+    console.log(req.body);
     // Update logoUrl if 'logo' file is uploaded
     if(req.files) {
       if (req.files['logo']) {
-        siteIdentity.logoUrl = `/public/uploads/${req.files['logo'][0].filename}`;
+        siteIdentity.logoUrl = `${process.env.SERVER_URL}/uploads/${req.files['logo'][0].filename}`;
       }
   
       // Update nobgLogoUrl if 'nobgLogo' file is uploaded
       if (req.files['nobgLogo']) {
-        siteIdentity.nobgLogoUrl = `/public/uploads/${req.files['nobgLogo'][0].filename}`;
+        siteIdentity.nobgLogoUrl = `${process.env.SERVER_URL}/uploads/${req.files['nobgLogo'][0].filename}`;
       }
     }
 
     // Update slogan for specified languages
-    if (req.body.slogan) {
-      const slogan = JSON.parse(req.body.slogan);
+    if (req.body.slogans) {
+      const slogan = JSON.parse(req.body.slogans);
       Object.keys(slogan).forEach(lang => {
         if (slogan[lang]) {
           siteIdentity.slogan[lang] = slogan[lang];
@@ -32,8 +34,8 @@ const setSiteIdentity = (req, res) => {
     }
 
     // Update jobTitle for specified languages
-    if (req.body.jobTitle) {
-      const jobTitle = JSON.parse(req.body.jobTitle);
+    if (req.body.jobTitles) {
+      const jobTitle = JSON.parse(req.body.jobTitles);
       Object.keys(jobTitle).forEach(lang => {
         if (jobTitle[lang]) {
           siteIdentity.jobTitle[lang] = jobTitle[lang];
@@ -45,7 +47,7 @@ const setSiteIdentity = (req, res) => {
 
     writeData(dataFilePath, JSON.stringify(data,null,2));
 
-    res.status(201).json(data);
+    res.status(201).json(data.siteIdentity);
   } catch (error) {
     console.log("error on set site identity controller :", error);
     res.status(500).json({ message: error.message });

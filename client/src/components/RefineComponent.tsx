@@ -1,5 +1,4 @@
 import { Authenticated, Refine } from "@refinedev/core";
-import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
 import {
@@ -119,7 +118,6 @@ const RefineComponent = () => {
           <CssBaseline />
           <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
           <RefineSnackbarProvider >
-            <DevtoolsProvider>
               <LocalizationProvider dateAdapter={AdapterDayjs}  >
                 <Refine
             
@@ -223,8 +221,6 @@ const RefineComponent = () => {
                   <DocumentTitleHandler />
                 </Refine>
               </LocalizationProvider>
-              <DevtoolsPanel />
-            </DevtoolsProvider>
           </RefineSnackbarProvider>
         </ColorModeContextProvider>
     </RefineKbarProvider>

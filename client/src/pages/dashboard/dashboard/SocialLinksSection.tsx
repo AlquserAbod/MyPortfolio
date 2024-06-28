@@ -1,5 +1,5 @@
 import { SocialLinks } from "@/interfaces";
-import { Box, CircularProgress, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button, TextField, FormControl, FormHelperText } from "@mui/material";
+import { Box, CircularProgress, Typography, Paper, Button, TextField, FormControl, FormHelperText, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import axios from 'axios';
 
@@ -17,17 +17,17 @@ const SocialLinksSection = () => {
 
   useEffect(() => {
     const fetchSocialLinks = async () => {
-        try {
-          const response = await axiosInstance.get('');
-          setSociallinks(response.data);
-          setLoading(false);
-        } catch (error) {
-          console.error('Error fetching Social Links:', error);
-          setLoading(false);
-        }
-      };
-  
-      fetchSocialLinks();
+      try {
+        const response = await axiosInstance.get('');
+        setSociallinks(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching Social Links:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchSocialLinks();
   }, [editMode]);
 
   if (loading) {
@@ -80,7 +80,7 @@ const SocialLinksSection = () => {
 
     // Validate required fields
     if (!tempLinkValue) {
-      errors[editMode.key as keyof SocialLinks] = 'this field is required';
+      errors[editMode.key as keyof SocialLinks] = 'This field is required';
       valid = false;
     }
 
@@ -92,69 +92,60 @@ const SocialLinksSection = () => {
     setValidationErrors({});
   };
 
-  const socialLinkRows = sociallinks ? Object.keys(sociallinks).map((key) => ({
+  const socialLinkItems = sociallinks ? Object.keys(sociallinks).map((key) => ({
     name: key.charAt(0).toUpperCase() + key.slice(1),
     link: sociallinks[key as keyof SocialLinks]
   })) : [];
 
   return (
-    <Box>
+    <Box maxWidth={"100%"} overflow="auto">
       <Typography variant="h5" sx={{ mb: 2 }}>Your Social Links:</Typography>
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Social Name</TableCell>
-              <TableCell>Social Link</TableCell>
-              <TableCell>Actions</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {socialLinkRows.map((row, index) => (
-              <TableRow key={index}>
-                <TableCell>{row.name}</TableCell>
-                <TableCell>
-                  {editMode.active && editMode.key === row.name.toLowerCase() as keyof SocialLinks ? (
-                    <FormControl fullWidth error={!!validationErrors[editMode.key]}>
-                      <TextField
-                        value={tempLinkValue}
-                        onChange={(e) => setTempLinkValue(e.target.value)}
-                        fullWidth
-                        onBlur={handleBlur}
-                        autoFocus // Auto focus on the TextField when in edit mode
-                        onKeyDown={(e) => {
-                          if (e.key === 'Escape') {
-                            handleCancelEdit();
-                          }
-                        }}
-                      />
-                      <FormHelperText>{validationErrors[editMode.key]}</FormHelperText>
-                    </FormControl>
-                  ) : (
-                    <Typography
-                      onClick={() => handleLinkClick(row.name.toLowerCase() as keyof SocialLinks)}
-                      style={{ cursor: 'pointer', textDecoration: 'underline' }}
-                    >
-                      {row.link}
-                    </Typography>
-                  )}
-                </TableCell>
-                <TableCell>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={() => window.open(row.link, "_blank")}
+      <Paper sx={{ width: '100%', overflow: 'auto' }}>
+        <Grid container spacing={2}>
+          {socialLinkItems.map((item, index) => (
+            <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+              <Paper sx={{ p: 2, borderBottom: '1px solid #ccc', display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <Typography variant="body1" sx={{ mb: 1 }}>{item.name}</Typography>
+                {editMode.active && editMode.key === item.name.toLowerCase() as keyof SocialLinks ? (
+                  <FormControl fullWidth error={!!validationErrors[editMode.key]}>
+                    <TextField
+                      value={tempLinkValue}
+                      onChange={(e) => setTempLinkValue(e.target.value)}
+                      fullWidth
+                      onBlur={handleBlur}
+                      autoFocus // Auto focus on the TextField when in edit mode
+                      onKeyDown={(e) => {
+                        if (e.key === 'Escape') {
+                          handleCancelEdit();
+                        }
+                      }}
+                    />
+                    <FormHelperText>{validationErrors[editMode.key]}</FormHelperText>
+                  </FormControl>
+                ) : (
+                  <Typography
+                    onClick={() => handleLinkClick(item.name.toLowerCase() as keyof SocialLinks)}
+                    style={{ cursor: 'pointer', textDecoration: 'underline' , wordBreak:'break-all'}}
+                    sx={{ flex: 1 }}
                   >
-                    Go to {row.name}
-                  </Button>
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+                    {item.link}
+                  </Typography>
+                )}
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => window.open(item.link, "_blank")}
+                  sx={{ mt: 1 }}
+                >
+                  Go to {item.name}
+                </Button>
+              </Paper>
+            </Grid>
+          ))}
+        </Grid>
+      </Paper>
     </Box>
-  )
-}
+  );
+};
 
 export default SocialLinksSection;

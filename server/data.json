@@ -1,14 +1,14 @@
 {
   "siteIdentity": {
-    "logoUrl": "/public/uploads/bbf2d935-335c-4b0d-97f0-f9f72e6e129e-1719565987947.jpg",
-    "nobgLogoUrl": "ergerg",
+    "logoUrl": "http://localhost:5000/uploads/e354a853-f89c-49b8-865a-9eab0fb6a214-1719576991922.jpg",
+    "nobgLogoUrl": "http://localhost:5000/uploads/0bfc7d32-56dd-492a-b23e-619026c239c0-1719577533975.png",
     "slogan": {
-      "ar": "reg",
+      "ar": "arabic slogan",
       "tr": "tr slogan",
-      "en": "ergeg"
+      "en": "english"
     },
     "jobTitle": {
-      "ar": "ar test",
+      "ar": "ar test 2",
       "tr": "erg",
       "en": "en test"
     }
@@ -16,7 +16,7 @@
   "socialLinks": {
     "facebook": "https://www.facebook.com/",
     "instagram": "https://www.instagram.com/alquserabdullh/",
-    "linkedin": "http://linkedin.com/de",
+    "linkedin": "http://linkedin.com/ds-fas-fgksgafsdfsfdsdfssdfsdf",
     "youtube": "https://www.youtube.com/channel/UCHjg9k4u6btQl59nMZjekiw",
     "github": "https://github.com/AlquserAbod"
   },
