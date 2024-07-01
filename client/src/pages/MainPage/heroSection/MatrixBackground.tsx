@@ -16,10 +16,16 @@ const MatrixBackground = ({ children } : { children : JSX.Element}) => {
 
         // Function to resize canvas
         const resizeCanvas = () => {
-            const { innerWidth, innerHeight } = window;
-            canvas.width = innerWidth;
-            canvas.height = innerHeight;
-            setCanvasDimensions({ width: innerWidth, height: innerHeight });
+            const parentElement = canvas.parentElement;
+            if (parentElement) {
+                const parentWidth = parentElement.clientWidth;
+                const width = parentWidth;
+                const height = (parentWidth * 9) / 16; // 16:9 aspect ratio
+
+                canvas.width = width;
+                canvas.height = height;
+                setCanvasDimensions({ width, height });
+            }
         };
 
         // Initial resize and event listener
@@ -71,7 +77,7 @@ const MatrixBackground = ({ children } : { children : JSX.Element}) => {
     
     return (
         <div className={styles.matrixContainer}>
-            <canvas ref={canvasRef} className={styles.backgroundCanvas}></canvas>
+            <canvas ref={canvasRef} className={styles.backgroundCanvas} width={16} height={9}></canvas>
             <div className={styles.childrenContainer}>
                 {children}
             </div>
