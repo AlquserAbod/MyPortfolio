@@ -66,8 +66,8 @@ app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
 
 // Other Routes
-app.use('/api/siteIdentity', siteIdentityRoutes);
 app.use('/api/statistics', statisticsRoutes);
+app.use('/api/siteIdentity', siteIdentityRoutes);
 app.use('/api/about', aboutRoutes);
 app.use('/api/social-links', socialLinksRoutes);
 
