@@ -1,6 +1,7 @@
 import styles from './styles/heroSection.module.scss';
 import MatrixBackground from './MatrixBackground';
-import mainPcIconUrl from '@/assets/mainPcIcon.png';
+import pcIconUrl from '@/assets/pcIcon.png';
+import pcGroundUrl from '@/assets/laptopGround.png';
 import noBgLogoUrl from '@/assets/noBgLogo.png';
 import laptopWithGround from '@/assets/laptopWithGround.png';
 import { PiGithubLogoFill  } from "react-icons/pi";
@@ -11,7 +12,7 @@ const HeroSection = () => {
     <section  className={styles.container}>
       <MatrixBackground>
         <div className={styles.mainSectionContainer}>
-          <div className={styles.rightSide}>
+          <div className={styles.leftSide}>
 
             <div className={styles.logoHolder}>
               <img src={noBgLogoUrl} className={styles.logo} alt="logo" />
@@ -40,8 +41,9 @@ const HeroSection = () => {
 
           </div>
           
-          <div className={styles.leftSide}>
+          <div className={styles.rightSide}>
             <div className={styles.pcIconHolder}>
+              
                 <img src={laptopWithGround} alt='laptop With Ground' className={styles.laptop} />
             </div>
           </div>

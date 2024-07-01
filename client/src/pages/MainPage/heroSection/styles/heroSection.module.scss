@@ -3,8 +3,10 @@
 $main-section-height: 100%;
 $laptop-animation-speed : 10s;
 $slogan-font-size: 3vw;
+$jobTitle-font-size: 1.5vw;
 $slogan-line-ratio: 1.2;
 $logo-width: 5vw;
+$account-hover-change-width: 2px;
 
 .container {
     aspect-ratio: 16 / 9;
@@ -20,10 +22,11 @@ $logo-width: 5vw;
 
 
 
+
     .mainSectionContainer {
         display: flex;
         align-items: center;
-        gap: 2px;
+        gap: 50px;
         width: 100%;
         height: 100%;
 
@@ -32,7 +35,7 @@ $logo-width: 5vw;
             width: 50%;
         }
 
-        .leftSide {
+        .rightSide {
 
 
             .pcIconHolder {
@@ -46,7 +49,7 @@ $logo-width: 5vw;
             }
         }
 
-        .rightSide {
+        .leftSide {
             display: flex;
             flex-direction: column;
             gap: calc(1.5 * 1em);
@@ -82,8 +85,7 @@ $logo-width: 5vw;
                     white-space: nowrap;
 
                     font-weight: 600;
-                    word-break: keep-all;
-                    font-size: 1.5vw;
+                    font-size: $jobTitle-font-size;
                     width: fit-content;
                     padding: 1px 7px;
                 }
@@ -105,7 +107,7 @@ $logo-width: 5vw;
                         cursor: pointer;
 
                         svg {
-                            font-size: 27px;
+                            font-size: calc(25px + $account-hover-change-width);
                             fill: $secondary-color;
                         }
                     }
@@ -129,3 +131,95 @@ $logo-width: 5vw;
 	}
 }
 
+@media (max-width: $screen-size-md) {
+    .mainSectionContainer {
+        .leftSide {
+            gap: calc(1 * 1em) !important;
+            
+            .textHolder {
+                gap: calc(1.4 * 1em) !important;
+            }
+        }
+    }
+}
+@media (max-width: $screen-size-sm) {
+    .container {
+        padding: 0 20px;
+        height: fit-content;
+        aspect-ratio: auto;
+
+        .mainSectionContainer {
+            flex-direction: column;
+            gap: 25px !important;
+            padding-top: 50px;
+
+            .leftSide {
+                gap: calc(1 * 1em) !important;
+                .logoHolder {
+                    width: calc($logo-width * 2) !important;
+                }
+                .textHolder {
+                    align-items: center;
+                    gap: calc(1 * 1em) !important;
+                    .slogan {
+                        font-size: calc($slogan-font-size * 2.2) !important;
+                        line-height: calc($slogan-line-ratio * 1em) !important;
+                    }
+    
+                    .jobTitle {
+                        font-weight: 900;
+                        font-size: calc($jobTitle-font-size * 2) !important;
+    
+                    }
+                }
+    
+                .accountsHolder {
+                    margin-top: 10px !important;
+                    svg {
+                        font-size: 15px !important;
+    
+                        &:hover {
+                            font-size: calc(15px + $account-hover-change-width) !important;
+                        }
+                    }
+                }
+                align-items: center;
+                text-align: center;
+            }
+            .rightSide {
+                width: 100% !important;
+                .pcIconHolder {
+                    
+                }
+            }
+        }
+
+    }
+
+}
+
+@media  (max-width: $screen-size-xs) {
+    .container {
+        .mainSectionContainer {
+            padding-top: 25px !important;
+            gap: 15px !important;
+    
+    
+            .leftSide {
+                gap: calc(0.4 * 1em) !important;
+                .accountsHolder {
+                    margin-top: 0px !important;
+    
+                    svg {
+                        font-size: 10px !important;
+    
+                        &:hover {
+                            font-size: calc(10px + $account-hover-change-width) !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    }
