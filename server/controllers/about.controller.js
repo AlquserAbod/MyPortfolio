@@ -1,32 +1,26 @@
-const path = require('path');
-const { readData, writeData } = require('../utils/fileUtils');
+const WebsiteData = require('../models/websiteData.model.js');
 
-const dataFilePath = path.join(__dirname, '../tmp/data.json');
-
-const getAboutMe = (req, res) => {
-    try {
-        const data = JSON.parse(readData(dataFilePath));
-        res.json({aboutMe: data.aboutMe});
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+const getAboutMe = async (req, res) => {
+  try {
+    const data = await WebsiteData.findOne();
+    res.json({ aboutMe: data.aboutMe });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
-
-const updateAboutMe = (req, res) => {
-    try {
-        const data = JSON.parse(readData(dataFilePath));
-        data.aboutMe = req.body.aboutMe;
-        console.log(req.body.aboutMe);
-        writeData(dataFilePath, JSON.stringify(data, null, 2));
-        res.json({ message: 'About Us section updated successfully', aboutMe: data.aboutMe });
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-        console.log("error in update about me controller :", error);
-    }
+const updateAboutMe = async (req, res) => {
+  try {
+    const data = await WebsiteData.findOne();
+    data.aboutMe = req.body.aboutMe;
+    await data.save();
+    res.json({ message: 'About Us section updated successfully', aboutMe: data.aboutMe });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
 module.exports = {
-    getAboutMe,
-    updateAboutMe,
+  getAboutMe,
+  updateAboutMe,
 };

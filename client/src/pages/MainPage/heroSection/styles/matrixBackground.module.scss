@@ -1,7 +1,7 @@
 @use  "./heroSection.module.scss" as * ; 
 
 :export {
-    backgroundColor: rgba($primary-color,0.2);
+    backgroundColor: rgba($primary-color,0.1);
     textColor: rgba(12,10,97,0.5);
     fontSize: 20px;
     fontFamily: $font-family; 
@@ -22,7 +22,6 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: $main_section-height;
         z-index: 1;
     }
 

@@ -2,12 +2,13 @@ import styles from './styles/heroSection.module.scss';
 import MatrixBackground from './MatrixBackground';
 import mainPcIconUrl from '@/assets/mainPcIcon.png';
 import noBgLogoUrl from '@/assets/noBgLogo.png';
+import laptopWithGround from '@/assets/laptopWithGround.png';
 import { PiGithubLogoFill  } from "react-icons/pi";
 import { FaLinkedinIn } from "react-icons/fa";
 
 const HeroSection = () => {
   return (
-    <div className={styles.container}>
+    <section  className={styles.container}>
       <MatrixBackground>
         <div className={styles.mainSectionContainer}>
           <div className={styles.rightSide}>
@@ -41,12 +42,12 @@ const HeroSection = () => {
           
           <div className={styles.leftSide}>
             <div className={styles.pcIconHolder}>
-              <img src={mainPcIconUrl} alt='pc icon' className={styles.pcIcon}  />
+                <img src={laptopWithGround} alt='laptop With Ground' className={styles.laptop} />
             </div>
           </div>
         </div>
       </MatrixBackground>
-    </div>
+    </section >
   )
 }
 

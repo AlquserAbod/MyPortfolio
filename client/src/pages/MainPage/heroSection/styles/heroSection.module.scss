@@ -1,60 +1,58 @@
 @use "src/styles/variables.scss" as *;
 
-$main-section-height: 70vh;
+$main-section-height: 100%;
 $laptop-animation-speed : 10s;
+$slogan-font-size: 3vw;
+$slogan-line-ratio: 1.2;
+$logo-width: 5vw;
 
 .container {
-    width: 100%;
-    height: 70vh;
+    aspect-ratio: 16 / 9;
+    padding: 0 50px;
+
+    @media (max-width: $screen-size-xl) {
+        padding: 0 50px;
+    }
+
+    @media (max-width: $screen-size-lg) {
+        padding: 0 30px;
+    }
+
 
 
     .mainSectionContainer {
         display: flex;
+        align-items: center;
+        gap: 2px;
         width: 100%;
         height: 100%;
 
+
         .rightSide , .leftSide {
             width: 50%;
-            height: 100%;
         }
 
         .leftSide {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-top: 80px;
+
 
             .pcIconHolder {
-
-                transform: translate(-50%, -50%);
-                animation: float $laptop-animation-speed ease-in-out infinite;
-                width: 600px;
-                height: auto;
-
-                @media  (max-width: $screen-size-xl) {
-                    width: 500px;
-                }
-
-                @media  (max-width: $screen-size-lg) {
-                    width: 450px;
-                }
-                .pcIcon {
+                width: 100%;
+                
+                .laptop {
                     width: 100%;
                     height: 100%;
                 }
+
             }
         }
 
         .rightSide {
-            padding-left: 100px;
             display: flex;
             flex-direction: column;
-            gap: 30px;
-            padding-top: 130px;
+            gap: calc(1.5 * 1em);
 
             .logoHolder {
-                width: 110px;
-
+                width: $logo-width;
                 .logo {
                     width: 100%;
                 }
@@ -67,8 +65,12 @@ $laptop-animation-speed : 10s;
 
                 .slogan {
                     font-weight: 300;
-                    font-size: 35px;
-                    line-height: 35px;
+                  
+                    font-size: $slogan-font-size;
+                    line-height: calc($slogan-line-ratio * 1em);
+                  
+                    white-space: nowrap;
+
                     b {
                         font-weight: 900;
                     }
@@ -77,8 +79,11 @@ $laptop-animation-speed : 10s;
                 .jobTitle {
                     background-color: $secondary-color;
                     color: $black-color;
+                    white-space: nowrap;
+
                     font-weight: 600;
-                    font-size: 20px;
+                    word-break: keep-all;
+                    font-size: 1.5vw;
                     width: fit-content;
                     padding: 1px 7px;
                 }
@@ -86,7 +91,7 @@ $laptop-animation-speed : 10s;
 
             .accountsHolder {
                 display: flex;
-                margin-top: 40px;
+                margin-top: 20px;
                 gap: 10px;
 
                 .github, .linkedIn {
@@ -104,6 +109,7 @@ $laptop-animation-speed : 10s;
                             fill: $secondary-color;
                         }
                     }
+
                 }
             }
             
@@ -122,3 +128,4 @@ $laptop-animation-speed : 10s;
 		transform: translatey(0px);
 	}
 }
+
