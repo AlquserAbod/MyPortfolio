@@ -2,7 +2,7 @@
 
 :export {
     backgroundColor: rgba($primary-color,0.1);
-    textColor: rgba(12,10,97,0.5);
+    textColor: rgba(12,10,97,2);
     fontSize: 20px;
     fontFamily: $font-family; 
 }
@@ -32,3 +32,4 @@
         height: 100%;
     }
 }
+
