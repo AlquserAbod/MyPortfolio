@@ -15,6 +15,7 @@ const  connectToMongoDB = require("./db/connecttoMongoDB.js");
 const cors = require('cors');
 const bodyParser = require('body-parser')
 const path = require('path')
+const fs = require('fs');
 
 const app = express();
 
@@ -26,10 +27,6 @@ bindFlmngr({
   dirFiles: "./public/uploads"
 });
 
-
-console.log(process.env.APP_URL);
-console.log(process.env.API_URL);
-console.log(process.env.SERVER_URL);
 app.use(cors({
   origin: process.env.APP_URL
 }));
@@ -40,6 +37,12 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static( path.join( __dirname, 'public' ) ))
+
+const uploadDir = path.join(__dirname, 'public/uploads');
+
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
 
 app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 
