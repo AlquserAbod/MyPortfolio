@@ -44,6 +44,6 @@ export interface UserStatistics {
 }
 
 export interface ContactStatistics {
-  totalContacts: number;
+  totalCount: number;
   unreadContacts: number;
 }

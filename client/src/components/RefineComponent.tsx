@@ -1,5 +1,4 @@
 import { Authenticated, Refine } from "@refinedev/core";
-import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
 import {
@@ -31,14 +30,15 @@ import { SkillCreate, SkillEdit, SkillList, SkillShow } from "../pages/dashboard
 import { ContactsList,ContactsShow } from "../pages/dashboard/contacts";
 
 
-import { Login } from "../pages/dashboard/login";
+
+import { ForgotPassword, Login} from '@/pages/dashboard/authPages';
 import { Category, ContactMail, Person, TipsAndUpdates,FolderCopy, Star } from "@mui/icons-material";
 import Dashbaord from "@/pages/dashboard";
 
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import DashboardSider from "../layout/dashboardSider";
 import { DashboardHeader } from "../layout/dashboardHeader";
-
+import { ResetPassword } from "@/pages/dashboard/authPages/resetPassword";
 
 const RefineComponent = () => {
 
@@ -118,7 +118,6 @@ const RefineComponent = () => {
           <CssBaseline />
           <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
           <RefineSnackbarProvider >
-            <DevtoolsProvider>
               <LocalizationProvider dateAdapter={AdapterDayjs}  >
                 <Refine
             
@@ -211,6 +210,8 @@ const RefineComponent = () => {
                       }
                     >
                       <Route path="/login" element={<Login />} />
+                      <Route path="/forgetPassword" element={<ForgotPassword />} />
+                      <Route path="/reset-password/:token" element={<ResetPassword />} />
 
                     </Route>
                   </Routes>
@@ -220,8 +221,6 @@ const RefineComponent = () => {
                   <DocumentTitleHandler />
                 </Refine>
               </LocalizationProvider>
-              <DevtoolsPanel />
-            </DevtoolsProvider>
           </RefineSnackbarProvider>
         </ColorModeContextProvider>
     </RefineKbarProvider>

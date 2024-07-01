@@ -1,0 +1,18 @@
+
+nav.navbar {
+    position: sticky;
+    display: flex;
+    top: 0px;
+    justify-content: center;
+    z-index: 100;
+    background-color: white;
+    width: 300px;
+    .logoHolder {
+        width: 30px;
+        height: 50px;
+        background-color: $primary-color;
+        img {
+            width: 100%;
+        }
+    }
+}

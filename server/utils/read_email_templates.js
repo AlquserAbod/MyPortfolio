@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const readEmailTemplate = (templateName, data) => {
-    const templatePath = path.join(__dirname, `../templates/${templateName}.html`);
+    const templatePath = path.join(__dirname, `../public/templates/${templateName}.html`);
     let template = fs.readFileSync(templatePath, 'utf-8');
 
     for (const key in data) {

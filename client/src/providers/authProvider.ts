@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import Cookies from 'js-cookie';
-import type { AuthProvider } from "@refinedev/core";
 import axios from 'axios';
+import { CustomAuthProvider } from '@/interfaces';
 
 const axiosInstance = axios.create({
     baseURL: import.meta.env.VITE_API_URL + "/auth", // Replace this with your actual base URL
@@ -26,7 +27,7 @@ const verifyRefreshToken = async () => {
   return accessToken;
 };
 
-export const authProvider: AuthProvider = {
+export const authProvider: CustomAuthProvider = {
     login: async ({ email, password }) => {
         try {
             const response = await axiosInstance.post('/login', { email, password })
@@ -38,7 +39,7 @@ export const authProvider: AuthProvider = {
           
             return {
               success: true,
-              redirectTo: "/",
+              redirectTo: "/dashboard",
             };
 
         } catch (error) {
@@ -59,7 +60,7 @@ export const authProvider: AuthProvider = {
 
         return {
             success: true,
-            redirectTo: "/login",
+            redirectTo: "/dashboard/login",
         };
     },
 
@@ -119,5 +120,66 @@ export const authProvider: AuthProvider = {
         
         return { error };
     },
+    
+    forgotPassword: async ({email }) => {
+        try {
+            // Assuming your API endpoint for initiating password reset is '/forgot-password'
+            await axiosInstance.post('/forgot-password', {email});
+            
+            return {
+              success: true,
+              redirectTo: '/dashboard/login',
+              successNotification: {
+                message: "Password reset successful",
+                description: "Your password reset instructions have been sent to your email.",
+              },
+            };
+        } catch (error: any) {
+            console.error("Error resetting password:", error);
+        
+            if (error.response && error.response.status === 404) {
+                return {
+                  success: false,
+                  error: {
+                    name: "Invalid Email",
+                    message: "Email not found. Please check your email address and try again.",
+                  },
+                };
+            }
+            
+            return {
+              success: false,
+              error: {
+                name: "ForgotPasswordError",
+                message: "Failed to initiate password reset. Please try again later.",
+              },
+            };
+        }
+    },
+
+    resetPassword: async ({ token, newPassword }) => {
+        try {
+            await axiosInstance.post(`/reset-password/${token}`, { newPassword });
+            return {
+                success: true,
+                redirectTo: '/dashboard/login',
+                data: {
+                    message: "Password reset successful",
+                    description: "Your password has been successfully reset.",
+                },
+            };
+        } catch (error) {
+            console.error("Error resetting password:", error);
+            return {
+                success: false,
+                data: {
+                    name: "Error on reset password..",
+                    message: "Failed to reset password. Please try again later.",
+                },
+            };
+        }
+    },
+
+
 };
 

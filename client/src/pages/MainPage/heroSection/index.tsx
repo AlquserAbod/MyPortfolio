@@ -1,0 +1,56 @@
+import styles from './styles/heroSection.module.scss';
+import MatrixBackground from './MatrixBackground';
+import pcIconUrl from '@/assets/pcIcon.png';
+import pcGroundUrl from '@/assets/laptopGround.png';
+import noBgLogoUrl from '@/assets/noBgLogo.png';
+import laptopWithGround from '@/assets/laptopWithGround.png';
+import { PiGithubLogoFill  } from "react-icons/pi";
+import { FaLinkedinIn } from "react-icons/fa";
+
+const HeroSection = () => {
+  return (
+    <section  className={styles.container}>
+      <MatrixBackground>
+        <div className={styles.mainSectionContainer}>
+          <div className={styles.leftSide}>
+
+            <div className={styles.logoHolder}>
+              <img src={noBgLogoUrl} className={styles.logo} alt="logo" />
+            </div>
+
+            <div className={styles.textHolder}> 
+              <div className={styles.slogan}>
+                Programming is the <br /><b> modern language of creativity </b>  
+              </div>
+
+              <div className={styles.jobTitle}>
+               Comprehensive developer of web and Android applications
+              </div>
+              
+            </div>
+
+            <div className={styles.accountsHolder}>
+               <div className={styles.github}>
+                  <PiGithubLogoFill />
+               </div>
+
+               <div className={styles.linkedIn}>
+                <FaLinkedinIn />
+               </div>
+            </div>
+
+          </div>
+          
+          <div className={styles.rightSide}>
+            <div className={styles.pcIconHolder}>
+              
+                <img src={laptopWithGround} alt='laptop With Ground' className={styles.laptop} />
+            </div>
+          </div>
+        </div>
+      </MatrixBackground>
+    </section >
+  )
+}
+
+export default HeroSection
