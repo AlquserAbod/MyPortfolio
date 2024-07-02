@@ -92,10 +92,11 @@ const MatrixBackground = ({ children }: { children: JSX.Element }) => {
 
     return (
         <div className={styles.matrixContainer}>
-            <canvas ref={canvasRef} className={styles.backgroundCanvas} width={16} height={9}></canvas>
+            <canvas ref={canvasRef} className={styles.backgroundCanvas}></canvas>
             <div className={styles.childrenContainer}>
                 {children}
-                {canvasRef.current?.parentElement?.clientHeight}
+                {canvasRef.current?.parentElement?.classList}<br></br>
+                {canvasRef.current?.parentElement?.clientHeight}<br></br>
             </div>
         </div>
     );
