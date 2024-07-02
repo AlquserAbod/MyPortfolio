@@ -26,7 +26,7 @@ const MatrixBackground = ({ children }: { children: JSX.Element }) => {
                 let height: number;
                 
                 if (window.innerWidth <= 600) {
-                    height = parentHeight + 500;  // Use parent's height
+                    height = parentHeight;  // Use parent's height
                 } else {
                     height = (parentWidth * 9) / 16; // 16:9 aspect ratio
                 }
@@ -95,7 +95,9 @@ const MatrixBackground = ({ children }: { children: JSX.Element }) => {
             <canvas ref={canvasRef} className={styles.backgroundCanvas} width={16} height={9}></canvas>
             <div className={styles.childrenContainer}>
                 {children}
-                {window.innerWidth}
+                {window.innerWidth}<br/>
+                {window.innerHeight}<br />
+                {canvasRef.current?.parentElement?.clientHeight}
             </div>
         </div>
     );
