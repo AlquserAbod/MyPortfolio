@@ -1,44 +1,51 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './styles/matrixBackground.module.scss';
 
-const MatrixBackground = ({ children } : { children : JSX.Element}) => {
+const MatrixBackground = ({ children }: { children: JSX.Element }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [canvasDimensions, setCanvasDimensions] = useState({ width: 0, height: 0 });
 
     const matrixCharacters = '010101010101010101010101010101';
     const matrixSpeed = 100;
 
-    useEffect(() => {
+    const resizeCanvas = () => {
         const canvas = canvasRef.current;
         if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        if (!ctx) return;
+        const parentElement = canvas.parentElement;
+        if (!parentElement) return;
 
-        // Function to resize canvas
-        const resizeCanvas = () => {
-            const parentElement = canvas.parentElement;
-            if (parentElement) {
-                const parentWidth = parentElement.clientWidth;
-                const parentHeight = parentElement.clientHeight;
+        const parentWidth = parentElement.clientWidth;
+        const parentHeight = parentElement.clientHeight;
 
-                const width = parentWidth;
-                let height: number;
+        const width = parentWidth;
+        let height: number;
 
-                if (window.innerWidth <= 600) {
-                    height = parentHeight;  // Use parent's height
-                } else {
-                    height = (parentWidth * 9) / 16; // 16:9 aspect ratio
-                }
+        if (window.innerWidth <= 600) {
+            height = parentHeight;  // Use parent's height for mobile devices
+        } else {
+            height = (parentWidth * 9) / 16; // 16:9 aspect ratio for larger screens
+        }
 
-                canvas.width = width;
-                canvas.height = height;
-                setCanvasDimensions({ width, height });
-            }
-        };
+        canvas.width = width;
+        canvas.height = height;
+        setCanvasDimensions({ width, height });
+    };
 
-        // Initial resize and event listener
+    useEffect(() => {
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
+
+        // Initial load dimensions
+        const canvas = canvasRef.current;
+        if (canvas) {
+            const parentElement = canvas.parentElement;
+            if (parentElement) {
+                setCanvasDimensions({
+                    width: parentElement.clientWidth,
+                    height: parentElement.clientHeight
+                });
+            }
+        }
 
         // Cleanup function
         return () => {
@@ -52,10 +59,9 @@ const MatrixBackground = ({ children } : { children : JSX.Element}) => {
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        // Matrix characters
         const matrix = matrixCharacters.split("");
         const fontSizeValue = parseFloat(styles.fontSize);
-        const columns = Math.floor(canvasDimensions.width + 20 / fontSizeValue);
+        const columns = Math.floor(canvasDimensions.width / fontSizeValue);
         const drops: number[] = new Array(columns).fill(1);
 
         const draw = () => {
@@ -82,7 +88,7 @@ const MatrixBackground = ({ children } : { children : JSX.Element}) => {
             clearInterval(interval);
         };
     }, [canvasDimensions]);
-    
+
     return (
         <div className={styles.matrixContainer}>
             <canvas ref={canvasRef} className={styles.backgroundCanvas} width={16} height={9}></canvas>
