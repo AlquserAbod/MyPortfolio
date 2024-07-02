@@ -1,7 +1,5 @@
 import styles from './styles/heroSection.module.scss';
 import MatrixBackground from './MatrixBackground';
-import pcIconUrl from '@/assets/pcIcon.png';
-import pcGroundUrl from '@/assets/laptopGround.png';
 import noBgLogoUrl from '@/assets/noBgLogo.png';
 import laptopWithGround from '@/assets/laptopWithGround.png';
 import { PiGithubLogoFill  } from "react-icons/pi";
