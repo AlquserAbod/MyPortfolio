@@ -26,7 +26,7 @@ const MatrixBackground = ({ children }: { children: JSX.Element }) => {
                 let height: number;
                 
                 if (window.innerWidth <= 600) {
-                    height = parentHeight;  // Use parent's height
+                    height = parentHeight + 500;  // Use parent's height
                 } else {
                     height = (parentWidth * 9) / 16; // 16:9 aspect ratio
                 }
