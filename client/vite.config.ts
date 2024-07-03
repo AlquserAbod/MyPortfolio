@@ -18,5 +18,8 @@ export default defineConfig({
         additionalData: `@use "src/styles/variables.scss" as *;`
       }
     }
-  }
+  },
+  server: {
+    host: '0.0.0.0',
+  },
 })

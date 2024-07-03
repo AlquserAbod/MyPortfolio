@@ -1,7 +1,7 @@
 @use "src/styles/variables.scss" as *;
 
 $main-section-height: 100%;
-$laptop-animation-speed : 10s;
+$laptop-animation-speed: 10s;
 $slogan-font-size: 3vw;
 $jobTitle-font-size: 1.5vw;
 $slogan-line-ratio: 1.2;
@@ -10,35 +10,26 @@ $account-hover-change-width: 2px;
 
 .container {
     aspect-ratio: 16 / 9;
-    padding: 0 50px;
-
-    @media (max-width: $screen-size-xl) {
-        padding: 0 50px;
-    }
-
-    @media (max-width: $screen-size-lg) {
-        padding: 0 30px;
-    }
-
-
-
 
     .mainSectionContainer {
-        display: flex;
-        align-items: center;
-        gap: 50px;
-        width: 100%;
         height: 100%;
+        margin: 0 50px;
 
+        .flexContainer {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            width: 100%;
+            height: 100%;
 
-        .rightSide , .leftSide {
-            width: 50%;
-        }
+            .rightSide,
+            .leftSide {
+                width: 50%;
+            }
 
         .rightSide {
- 
 
-            
+
             .pcIconHolder {
                 width: 100%;
                 
@@ -50,177 +41,171 @@ $account-hover-change-width: 2px;
             }
         }
 
-        .leftSide {
-            display: flex;
-            flex-direction: column;
-            gap: calc(1.5 * 1em);
-
-            .logoHolder {
-                width: $logo-width;
-                .logo {
-                    width: 100%;
-                }
-            }
-
-            .textHolder {
+            .leftSide {
                 display: flex;
                 flex-direction: column;
-                gap: 30px;
+                gap: calc(1.5 * 1em);
 
-                .slogan {
-                    font-weight: 300;
-                  
-                    font-size: $slogan-font-size;
-                    line-height: calc($slogan-line-ratio * 1em);
-                  
-                    white-space: nowrap;
-
-                    b {
-                        font-weight: 900;
+                .logoHolder {
+                    width: $logo-width;
+                    .logo {
+                        width: 100%;
                     }
                 }
-                
-                .jobTitle {
-                    background-color: $secondary-color;
-                    color: $black-color;
-                    white-space: nowrap;
 
-                    font-weight: 600;
-                    font-size: $jobTitle-font-size;
-                    width: fit-content;
-                    padding: 1px 7px;
-                }
-            }
+                .textHolder {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
 
-            .accountsHolder {
-                display: flex;
-                margin-top: 20px;
-                gap: 10px;
+                    .slogan {
+                        font-weight: 300;
+                        font-size: $slogan-font-size;
+                        line-height: calc($slogan-line-ratio * 1em);
+                        white-space: nowrap;
 
-                .github, .linkedIn {
-
-                    svg {
-                        font-size: 25px;
-                        transition: all 0.3s;
-                    }
-
-                    &:hover{
-                        cursor: pointer;
-
-                        svg {
-                            font-size: calc(25px + $account-hover-change-width);
-                            fill: $secondary-color;
+                        b {
+                            font-weight: 900;
                         }
                     }
 
+                    .jobTitle {
+                        background-color: $secondary-color;
+                        color: $black-color;
+                        white-space: nowrap;
+                        font-weight: 600;
+                        font-size: $jobTitle-font-size;
+                        width: fit-content;
+                        padding: 1px 7px;
+                    }
+                }
+
+                .accountsHolder {
+                    display: flex;
+                    margin-top: 20px;
+                    gap: 10px;
+
+                    .github,
+                    .linkedIn {
+                        svg {
+                            font-size: 25px;
+                            transition: all 0.3s;
+                        }
+
+                        &:hover {
+                            cursor: pointer;
+
+                            svg {
+                                font-size: calc(25px + $account-hover-change-width);
+                                fill: $secondary-color;
+                            }
+                        }
+                    }
                 }
             }
-            
         }
     }
-}
-
-@keyframes float {
-	0% {
-		transform: translatey(0px);
-	}
-	50% {
-		transform: translatey(-20px);
-	}
-	100% {
-		transform: translatey(0px);
-	}
 }
 
 @media (max-width: $screen-size-md) {
-    .mainSectionContainer {
-        .leftSide {
-            gap: calc(1 * 1em) !important;
-            
-            .textHolder {
-                gap: calc(1.4 * 1em) !important;
+    .container {
+        .mainSectionContainer {
+            .flexContainer {
+                .leftSide {
+                    gap: calc(1 * 1em);
+
+                    .textHolder {
+                        gap: calc(1.4 * 1em);
+                    }
+                }
             }
         }
     }
 }
+
 @media (max-width: $screen-size-sm) {
     .container {
-        padding: 0 20px;
         height: fit-content;
         aspect-ratio: auto;
 
         .mainSectionContainer {
-            flex-direction: column;
-            gap: 25px !important;
-            padding-top: 50px;
+            padding: 50px 0;
 
-            .leftSide {
-                gap: calc(1 * 1em) !important;
-                .logoHolder {
-                    width: calc($logo-width * 2) !important;
-                }
-                .textHolder {
-                    align-items: center;
-                    gap: calc(1 * 1em) !important;
-                    .slogan {
-                        font-size: calc($slogan-font-size * 2.2) !important;
-                        line-height: calc($slogan-line-ratio * 1em) !important;
+            .flexContainer {
+                flex-direction: column;
+                gap: 25px;
+
+                .leftSide {
+                    gap: calc(1 * 1em);
+
+                    .logoHolder {
+                        width: calc($logo-width * 2);
                     }
-    
-                    .jobTitle {
-                        font-weight: 900;
-                        font-size: calc($jobTitle-font-size * 2) !important;
-    
-                    }
-                }
-    
-                .accountsHolder {
-                    margin-top: 10px !important;
-                    svg {
-                        font-size: 15px !important;
-    
-                        &:hover {
-                            font-size: calc(15px + $account-hover-change-width) !important;
+
+                    .textHolder {
+                        align-items: center;
+                        gap: calc(1 * 1em);
+
+                        .slogan {
+                            font-size: calc($slogan-font-size * 2.2);
+                            line-height: calc($slogan-line-ratio * 1em);
+                        }
+
+                        .jobTitle {
+                            font-weight: 900;
+                            font-size: calc($jobTitle-font-size * 2);
                         }
                     }
+
+                    .accountsHolder {
+                        margin-top: 10px;
+
+                        svg {
+                            font-size: 15px !important;
+
+                            &:hover {
+                                font-size: calc(15px + $account-hover-change-width);
+                            }
+                        }
+                    }
+
+                    align-items: center;
+                    text-align: center;
                 }
-                align-items: center;
-                text-align: center;
-            }
-            .rightSide {
-                width: 100% !important;
-                .pcIconHolder {
-                    
+
+                .rightSide {
+                    width: 100%;
+
+                    .pcIconHolder {
+                        /* Additional styles if needed */
+                    }
                 }
             }
         }
-
     }
-
 }
 
-@media  (max-width: $screen-size-xs) {
+@media (max-width: $screen-size-xs) {
     .container {
         .mainSectionContainer {
-            padding-top: 25px !important;
-            gap: 15px !important;
-    
-    
+            gap: 15px;
+            margin: 0 10px;
+
             .leftSide {
-                gap: calc(0.4 * 1em) !important;
+                gap: calc(0.4 * 1em);
+
                 .accountsHolder {
-                    margin-top: 0px !important;
-    
+                    margin-top: 0px;
+
                     svg {
-                        font-size: 10px !important;
-    
+                        font-size: 10px;
+
                         &:hover {
-                            font-size: calc(10px + $account-hover-change-width) !important;
+                            font-size: calc(10px + $account-hover-change-width);
                         }
                     }
                 }
             }
         }
     }
-
-    }
+}
