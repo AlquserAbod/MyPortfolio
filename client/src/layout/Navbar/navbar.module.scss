@@ -1,0 +1,375 @@
+$pagesGap: 50px;
+
+nav.navbar {
+  position: fixed;
+  top: 0px;
+  z-index: 100;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .itemsHolder {
+    display: flex;
+    align-items: center;
+    padding: 25px 25px 40px;
+    border-radius: 0px 0px 20px 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+
+
+
+    .logoHolder {
+      width: 40px;
+      position: absolute;
+      height: fit-content;
+      transition: 0.3s ease;
+      background-color: $primary-color;
+      transform: translateY(-75px);
+      padding: 25px 15px 10px;
+      border-radius: 0px 0px 10px 10px;
+
+      img {
+        width: 100%;
+      }
+
+      .siderCloseButton {
+        display: none;
+      }
+    }
+
+    .pagesHolder {
+      margin: 0 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: $pagesGap;
+
+      span {
+        a {
+          color: #f3fff4;
+          text-decoration: none;
+          position: relative;
+          transition: color 0.3s ease, font-size 0.2s ease;
+          font-weight: 900;
+          font-size: 20px;
+          white-space: nowrap;
+          height: fit-content;
+
+          &::after {
+            content: '\007C';
+            position: absolute;
+            text-align: center;
+            right: calc($pagesGap / 2 * -1);
+            color: #f3fff4;
+          }
+
+          &:hover {
+            color: $secondary-color;
+            font-size: 22px;
+          }
+        }
+
+        &:last-child a::after {
+          content: '';
+        }
+      }
+    }
+
+    .languageSelectorDropDown {
+      position: relative;
+      transition: 0.3s ease;
+
+      &.open {
+        transform: translateY(-15px);
+
+        .selectedLanguage .dropdownArrow {
+          transform: rotate(180deg);
+        }
+
+        .selectMenu {
+          color: $primary-color;
+          display: block;
+        }
+      }
+
+      .selectedLanguage {
+        background-color: $light-color;
+        font-weight: 700;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        padding: 0px 5px;
+        border-radius: 5px 5px 0px 0px;
+
+        .language {
+          color: $primary-color;
+          user-select: none;
+        }
+
+        .dropdownArrow {
+          color: gray;
+          transition: 0.3s ease;
+          font-size: 20px;
+        }
+      }
+
+      .selectMenu {
+        position: absolute;
+        display: none;
+        background-color: $light-color;
+        width: 100%;
+        margin-top: 2px;
+        font-weight: 500;
+        font-size: 15px;
+        border-radius: 0 0 5px 5px;
+
+        div {
+          padding-left: 5px;
+          user-select: none;
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &.scrolled {
+    .itemsHolder {
+      background-color: $white-color;
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(255, 255, 255, 0));
+      padding-top: 0px;
+      padding-bottom: 10px;
+
+      .logoHolder {
+        transform: translateY(0px);
+        position: static;
+      }
+
+      .pagesHolder {
+        span {
+          a {
+            color: $primary-color;
+
+            &::after {
+              color: $primary-color;
+            }
+          }
+        }
+      }
+
+      .languageSelectorHolder {
+        .languageSelectorDropDown {
+            .selectedLanguage {
+                background-color: $primary-color;
+    
+                .language {
+                    color: $secondary-color;
+                }
+            }
+
+            .selectMenu {
+                background-color: $secondary-color;
+            }
+
+        }
+
+      }
+    }
+  }
+
+  .sidebarToggle {
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    transition: 0.3s ease;
+    display: none;
+    cursor: pointer;
+    background-color: $secondary-color;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    
+    .iconHolder {
+      display: flex;
+      color: $primary-color;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+@media (max-width: $screen-size-lg) {
+  nav.navbar {
+    .itemsHolder .pagesHolder span a {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: $screen-size-md) {
+  nav.navbar {
+    width: 100%;
+
+    .itemsHolder .pagesHolder {
+      gap: 20px;
+
+      span a {
+        font-size: 2vw;
+
+        &::after {
+          right: -13px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-size-sm) {
+  nav.navbar {
+    .itemsHolder {
+        background-image: none !important;
+        background-color: rgba($color: $light-color, $alpha: 0.9) !important;
+
+        z-index: 100;
+        padding: 10px;
+        height: 100vh;
+        position: fixed;
+        width: 50%;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: space-between;
+        transform: translateX(-100%);
+        transition: 0.3s ease;
+
+        &.open {
+          left: 0;
+          display: flex !important;
+          transform: translateX(0);
+        }
+
+        .logoHolder {
+           transform: translate(0);
+           width: 100%;
+           background-color: transparent;
+
+           position: static;
+
+           margin: 35px 0px;
+           padding: 0;
+           
+           display: flex;
+           align-items: center;
+           justify-content: space-around;
+
+           flex: 1;
+
+           
+           img {
+              width: 70px;
+           }
+
+           .siderCloseButton {
+            display: block;
+            cursor: pointer;
+            color: $primary-color;
+           }
+        }
+
+        .pagesHolder {
+            flex-direction: column;
+            align-items: start;
+            flex: 1.5;
+            span {
+                a {
+                    font-size: 20px;
+                    font-weight: 300;
+                    color: $primary-color;
+                    position: relative;
+                    gap: 40px;
+                    
+                    &::after {
+                        content: '\007C';
+                        position: absolute;
+                        text-align: center;
+                        left: 10px;
+                        bottom: -20px;
+                        color: $primary-color;
+                        width: fit-content;
+                        transform: rotate(90deg);
+                      }
+                }
+            }
+        }
+
+        .languageSelectorHolder {
+            flex: 1.5;
+            position: relative;
+            .languageSelectorDropDown {
+                width: fit-content;
+                position: absolute;
+                bottom: 60px;
+                left: 20px;
+
+                .selectedLanguage {
+                    background-color: $primary-color;
+
+                    .language {
+                        color: $secondary-color;
+                    }
+                }
+
+                .selectMenu {
+                    background-color: $secondary-color;
+                }
+            }
+        }
+    }
+
+    .sidebarToggle {
+      display: block !important;
+
+    }
+  }
+}
+
+
+@media  (max-width: 450px){
+  nav.navbar {
+    .itemsHolder {
+      width: 100%;
+
+      .pagesHolder {
+        margin: 5px;
+
+        span {
+          a {
+            font-size: 9vw;
+            white-space: wrap;
+
+            &::after {
+              content: '\007C';
+              position: absolute;
+              text-align: center;
+              left: 20px;
+              bottom: -35px;
+              color: $primary-color;
+              width: fit-content;
+              transform: rotate(90deg);
+            }
+
+            &:hover{
+              font-size: 9.2vw;
+            }
+          }
+        }
+      }
+    }
+  }
+}

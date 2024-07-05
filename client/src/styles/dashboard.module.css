@@ -1,0 +1,15 @@
+/* @/styles/dashboard.module.css */
+
+.skillsGrid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .category_not {
+    font-size: smaller;
+  }
+  .category {
+    font-size: small;
+  }
