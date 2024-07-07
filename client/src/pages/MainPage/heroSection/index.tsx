@@ -6,7 +6,6 @@ import { PiGithubLogoFill  } from "react-icons/pi";
 import { FaLinkedinIn } from "react-icons/fa";
 
 const HeroSection = () => {
-
   return (
     <section  className={styles.container}>
       <MatrixBackground>
