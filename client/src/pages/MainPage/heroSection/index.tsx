@@ -1,7 +1,7 @@
 import styles from './styles/heroSection.module.scss';
 import MatrixBackground from './MatrixBackground';
 import noBgLogoUrl from '@/assets/images/logos/noBgLogo.png';
-import laptopWithGround from '@/assets/images/laptopWithGround.gif';
+import laptopWithGround from '@/assets/images/laptopWithGround.png';
 import { PiGithubLogoFill  } from "react-icons/pi";
 import { FaLinkedinIn } from "react-icons/fa";
 
