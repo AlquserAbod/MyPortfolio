@@ -23,7 +23,7 @@ const app = express();
 bindFlmngr({
   app: app,
   urlFileManager: "/flmngr",
-  urlFiles: "/uploads/",
+  urlFiles: "/uploads",
   dirFiles: "./public/uploads"
 });
 
