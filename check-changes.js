@@ -12,6 +12,8 @@ try {
   const changedFiles = execSync(`git diff --name-only ${previousSha}..${currentSha}`).toString().split('\n');
   const hasChanges = changedFiles.some(file => file.startsWith(directory));
 
+  console.log(`changedFiles : ${changedFiles}`);
+  console.log(`hasChanges : ${hasChanges}`);
   if (hasChanges) {
     console.log(`Changes detected in ${directory}`);
     process.exit(1);
