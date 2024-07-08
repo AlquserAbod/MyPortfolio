@@ -40,10 +40,6 @@ app.use(express.static( path.join( __dirname, 'public' ) ))
 
 const uploadDir = path.join(__dirname, 'public/uploads');
 
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
-}
-
 app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 
 // Routes
