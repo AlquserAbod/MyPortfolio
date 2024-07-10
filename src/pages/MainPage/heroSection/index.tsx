@@ -4,10 +4,13 @@ import noBgLogoUrl from '@/assets/images/logos/noBgLogo.png';
 import laptopWithGround from '@/assets/images/laptopWithGround.png';
 import { PiGithubLogoFill  } from "react-icons/pi";
 import { FaLinkedinIn } from "react-icons/fa";
+import { Trans } from 'react-i18next';
+import { isRtl } from '@/utils/i18n';
 
 const HeroSection = () => {
+  
   return (
-    <section  className={styles.container}>
+    <section  className={`${styles.container} ${ isRtl() ? styles.rtl : ''}`}>
       <MatrixBackground>
         <div className={styles.mainSectionContainer}>
           <div className={styles.flexContainer}>
@@ -19,11 +22,12 @@ const HeroSection = () => {
 
               <div className={styles.textHolder}> 
                 <div className={styles.slogan}>
-                  Programming is the <br /><b> modern language of creativity </b>  
+                <Trans i18nKey="slogan" components={{ br: <br />, b: <b /> }} />
+                  
                 </div>
 
                 <div className={styles.jobTitle}>
-                Comprehensive developer of web and Android applications
+                <Trans i18nKey="jobTitle" />
                 </div>
                 
               </div>

@@ -1,24 +1,28 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './navbar.module.scss';
 import noBgLogoUrl from '@/assets/images/logos/noBgLogo.png';
-import primaryNoBgLogoUrl from '@/assets/images/logos/PrimaryColorNoBgLogo.png'
-import { MdArrowDropUp } from "react-icons/md";
+import primaryNoBgLogoUrl from '@/assets/images/logos/PrimaryColorNoBgLogo.png';
 import { TiThMenu } from "react-icons/ti";
 import { ImCross } from "react-icons/im";
 import useClickOutside from '@/hooks/useClickOutside';
-const Navbar = () => {
+import LanguageSelector from '@/components/languageSelector';
+import { isRtl } from '@/utils/i18n';
+import { Trans } from 'react-i18next';
 
-  const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState<boolean>(false);
+const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false); // State to track scroll
+  const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
+
   const sidebarRef = useRef<HTMLDivElement>(null);
+  const sidebarToggleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const navbar = document.querySelector(`.${styles.navbar}`);
       if (window.scrollY > 50) {
-        navbar?.classList.add(styles.scrolled);
+        setIsScrolled(true);
       } else {
-        navbar?.classList.remove(styles.scrolled);
+        setIsScrolled(false);
       }
     };
 
@@ -31,28 +35,26 @@ const Navbar = () => {
   }, []);
 
 
-  useClickOutside(sidebarRef, () => {
+  const logoUrl = screenWidth > 600 ? noBgLogoUrl : primaryNoBgLogoUrl;
+
+
+  useClickOutside([sidebarRef, sidebarToggleRef], () => {
     if (isSidebarOpen) {
       setIsSidebarOpen(false);
     }
   });
 
-  const handleToggleLanguageMenu = () => {
-    setIsLanguageMenuOpen(!isLanguageMenuOpen); // Toggle the state
-  }
-
   const handleToggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen); // Toggle the state
+    setIsSidebarOpen(!isSidebarOpen);
   }
 
   return (
     <>
-      <nav className={styles.navbar} >
-        <div className={`${styles.itemsHolder} ${isSidebarOpen ? styles.open : ''}`}    ref={sidebarRef}        >
+      <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''} ${isRtl() ? styles.rtl : ''}`}>
+        <div className={`${styles.itemsHolder} ${isSidebarOpen ? styles.open : ''}`} ref={sidebarRef}>
 
           <div className={styles.logoHolder}>
-            <img src={isSidebarOpen ? primaryNoBgLogoUrl  : noBgLogoUrl} alt="logo" className={styles.logo} />
-
+            <img src={logoUrl} alt="logo" className={styles.logo} />
             <div className={styles.siderCloseButton} onClick={handleToggleSidebar}>
               <ImCross />
             </div>
@@ -60,53 +62,31 @@ const Navbar = () => {
 
           <div className={styles.pagesHolder}>
             <span>
-              <a href="#">who am I</a>
+              <a href="#"><Trans i18nKey="navbar.whoami"></Trans></a>
             </span>
             <span>
-              <a href="#">Projects</a>
+              <a href="#"><Trans i18nKey={"navbar.projects"}></Trans></a>
             </span>
             <span>
-              <a href="#">Services</a>
-            </span>  
-            <span>
-              <a href="#">Academic qualifications</a>
+              <a href="#"><Trans i18nKey={"navbar.services"}></Trans></a>
             </span>
             <span>
-              <a href="#">Connect with us</a>
+              <a href="#"><Trans i18nKey={"navbar.academic_qualifications"}></Trans></a>
+            </span>
+            <span>
+              <a href="#"><Trans i18nKey={"navbar.connectWithUs"}></Trans></a>
             </span>
           </div>
-          
 
-          <div className={styles.languageSelectorHolder}>
-            <div className={`${styles.languageSelectorDropDown} ${isLanguageMenuOpen ? styles.open : ''}`}>
-              <div className={styles.selectedLanguage} onClick={handleToggleLanguageMenu}>
-                <div className={styles.language}>
-                  EN 
-                </div>
-                <MdArrowDropUp  className={`${styles.dropdownArrow}`}/>
-              </div>
-              <div  className={`${styles.selectMenu}`}>
-                <div className={styles.item}>
-                  AR
-                </div>
-                <div className={styles.item}>
-                  TR
-                </div>
-              </div>
-            </div>
-
-          </div>
-
+          <LanguageSelector isScrolled={isScrolled} /> {/* Pass isScrolled state */}
         </div>
 
-        <div className={`${styles.sidebarToggle} ${isSidebarOpen ? styles.open :''}`} onClick={handleToggleSidebar}>
+        <div className={`${styles.sidebarToggle} ${isSidebarOpen ? styles.open : ''}`}  onClick={handleToggleSidebar} ref={sidebarToggleRef}>
           <div className={styles.iconHolder}>
             <TiThMenu />
-
           </div>
         </div>
       </nav>
-
     </>
   );
 };

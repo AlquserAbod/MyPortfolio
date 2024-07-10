@@ -4,7 +4,7 @@ import styles from './styles/matrixBackground.module.scss';
 const MatrixBackground = ({ children }: { children: JSX.Element }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [canvasDimensions, setCanvasDimensions] = useState({ width: 0, height: 0 });
-    const [fontSize, setFontSize] = useState(20); // Default font size
+    const [fontSize, setFontSize] = useState(20); 
 
     const matrixCharacters = '010101010101010101010101010101';
     const matrixSpeed = 100;
@@ -15,7 +15,6 @@ const MatrixBackground = ({ children }: { children: JSX.Element }) => {
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
-        // Function to resize canvas and adjust font size
         const resizeCanvas = () => {
             const parentElement = canvas.parentElement;
             if (parentElement) {
@@ -26,29 +25,26 @@ const MatrixBackground = ({ children }: { children: JSX.Element }) => {
                 let height: number;
                 
                 if (window.innerWidth <= 600) {
-                    height = parentHeight;  // Use parent's height
+                    height = parentHeight;
                 } else {
-                    height = (parentWidth * 9) / 16; // 16:9 aspect ratio
+                    height = (parentWidth * 9) / 16; 
                 }
 
                 canvas.width = width;
                 canvas.height = height;
                 setCanvasDimensions({ width, height });
 
-                // Adjust font size based on screen width
                 if (window.innerWidth <= 400) {
-                    setFontSize(15); // Smaller font size for small screens
+                    setFontSize(15); 
                 } else {
-                    setFontSize(20); // Default font size for larger screens
+                    setFontSize(20); 
                 }
             }
         };
 
-        // Initial resize and event listener
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
 
-        // Cleanup function
         return () => {
             window.removeEventListener('resize', resizeCanvas);
         };
