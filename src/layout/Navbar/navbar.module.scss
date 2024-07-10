@@ -74,66 +74,6 @@ nav.navbar {
         }
       }
     }
-
-    .languageSelectorDropDown {
-      position: relative;
-      transition: 0.3s ease;
-
-      &.open {
-        transform: translateY(-15px);
-
-        .selectedLanguage .dropdownArrow {
-          transform: rotate(180deg);
-        }
-
-        .selectMenu {
-          color: $primary-color;
-          display: block;
-        }
-      }
-
-      .selectedLanguage {
-        background-color: $light-color;
-        font-weight: 700;
-        font-size: 15px;
-        display: flex;
-        align-items: center;
-        gap: 2px;
-        padding: 0px 5px;
-        border-radius: 5px 5px 0px 0px;
-
-        .language {
-          color: $primary-color;
-          user-select: none;
-        }
-
-        .dropdownArrow {
-          color: gray;
-          transition: 0.3s ease;
-          font-size: 20px;
-        }
-      }
-
-      .selectMenu {
-        position: absolute;
-        display: none;
-        background-color: $light-color;
-        width: 100%;
-        margin-top: 2px;
-        font-weight: 500;
-        font-size: 15px;
-        border-radius: 0 0 5px 5px;
-
-        div {
-          padding-left: 5px;
-          user-select: none;
-        }
-      }
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
   }
 
   &.scrolled {
@@ -160,23 +100,7 @@ nav.navbar {
         }
       }
 
-      .languageSelectorHolder {
-        .languageSelectorDropDown {
-            .selectedLanguage {
-                background-color: $primary-color;
-    
-                .language {
-                    color: $secondary-color;
-                }
-            }
 
-            .selectMenu {
-                background-color: $secondary-color;
-            }
-
-        }
-
-      }
     }
   }
 
@@ -199,6 +123,14 @@ nav.navbar {
 
     &:hover {
       transform: scale(1.2);
+    }
+  }
+
+  &.rtl {
+    .itemsHolder {
+      .pagesHolder {
+        flex-direction: row-reverse;
+      }
     }
   }
 }
@@ -249,7 +181,6 @@ nav.navbar {
         transition: 0.3s ease;
 
         &.open {
-          left: 0;
           display: flex !important;
           transform: translateX(0);
         }
@@ -286,6 +217,8 @@ nav.navbar {
             flex-direction: column;
             align-items: start;
             flex: 1.5;
+            flex-direction: column !important;
+
             span {
                 a {
                     font-size: 20px;
@@ -295,50 +228,59 @@ nav.navbar {
                     gap: 40px;
                     
                     &::after {
-                        content: '\007C';
-                        position: absolute;
-                        text-align: center;
-                        left: 10px;
-                        bottom: -20px;
-                        color: $primary-color;
-                        width: fit-content;
-                        transform: rotate(90deg);
-                      }
-                }
-            }
-        }
+                      content: '\007C';
+                      position: absolute;
+                      text-align: center;
+                      left: 10px;
+                      bottom: -20px;
+                      color: $primary-color;
+                      width: fit-content;
+                      transform: rotate(90deg);
 
-        .languageSelectorHolder {
-            flex: 1.5;
-            position: relative;
-            .languageSelectorDropDown {
-                width: fit-content;
-                position: absolute;
-                bottom: 60px;
-                left: 20px;
-
-                .selectedLanguage {
-                    background-color: $primary-color;
-
-                    .language {
-                        color: $secondary-color;
+                      
                     }
                 }
-
-                .selectMenu {
-                    background-color: $secondary-color;
-                }
             }
+
+   
         }
     }
 
     .sidebarToggle {
       display: block !important;
+    }
 
+    &.rtl {
+      
+      .itemsHolder {
+        right: 0;
+        left: auto;
+        transform: translateX(100%);
+        
+        &.open {
+          transform: translateX(0);
+        }
+
+        .pagesHolder {
+  
+          span a {
+            &::after {
+              right: 10px;
+  
+            }
+          }
+        }
+      }
+
+      .sidebarToggle {
+        right: 30px;
+        left: 0px;
+
+        width: fit-content;
+      }
     }
   }
 }
-
 
 @media  (max-width: 450px){
   nav.navbar {
@@ -373,3 +315,4 @@ nav.navbar {
     }
   }
 }
+

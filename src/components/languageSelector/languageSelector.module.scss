@@ -1,0 +1,111 @@
+
+
+.languageSelectorHolder {
+
+  .languageSelectorDropDown {
+      position: relative;
+      transition: 0.3s ease;
+  
+      &.open {
+        transform: translateY(-15px);
+  
+        .selectedLanguage .dropdownArrow {
+          transform: rotate(180deg);
+        }
+  
+        .selectMenu {
+          color: $primary-color;
+          display: block;
+        }
+      }
+  
+      .selectedLanguage {
+        background-color: $light-color;
+        font-weight: 700;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        padding: 0px 5px;
+        border-radius: 5px 5px 0px 0px;
+  
+        .language {
+          color: $primary-color;
+        }
+  
+        .dropdownArrow {
+          color: gray;
+          transition: 0.3s ease;
+          font-size: 20px;
+        }
+      }
+  
+      .selectMenu {
+        position: absolute;
+        display: none;
+        background-color: $light-color;
+        width: 100%;
+        margin-top: 2px;
+        font-weight: 500;
+        font-size: 15px;
+        border-radius: 0 0 5px 5px;
+  
+        div {
+          padding-left: 5px;
+        }
+      }
+  
+      &:hover {
+        cursor: pointer;
+      }
+  
+  }
+
+  &.scrolled {
+    .selectedLanguage {
+        background-color: $primary-color;
+
+        .language {
+            color: $secondary-color;
+        }
+    }
+    .selectMenu {
+        background-color: $secondary-color;
+    }
+  }
+
+  @media (max-width: $screen-size-sm) {
+    flex: 1.5;
+    position: relative;
+    
+    .languageSelectorDropDown {
+        width: fit-content;
+        position: absolute;
+        bottom: 60px;
+        left: 20px;
+
+        .selectedLanguage {
+            background-color: $primary-color;
+
+            .language {
+                color: $secondary-color;
+            }
+        }
+
+        .selectMenu {
+            background-color: $secondary-color;
+        }
+
+      }
+
+      &.rtl {
+
+        .languageSelectorDropDown {
+          right:  20px;
+
+        }
+      }
+  }
+
+}  
+
