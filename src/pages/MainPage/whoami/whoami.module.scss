@@ -1,0 +1,69 @@
+$glass-background-color: rgba(255, 255, 255, 0.10);
+$glass-border-radius: 16px;
+$glass-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+$glass-backdrop-blur: 6.9px;
+$glass-border-color: rgba(255, 255, 255, 0.31);
+$glass-border-width: 1px;
+
+.conatiner {
+    margin-top: 150px;
+
+    .holder {
+        background: $glass-background-color;
+        border-radius: $glass-border-radius;
+        box-shadow: $glass-box-shadow;
+        backdrop-filter: blur($glass-backdrop-blur);
+        -webkit-backdrop-filter: blur($glass-backdrop-blur);
+        border: $glass-border-width solid $glass-border-color;
+
+        margin: 0 250px;
+        padding: 30px;
+        position: relative;
+
+
+        .titleHolder {
+            width: fit-content;
+            margin-bottom: 20px;
+            
+            .title {
+                $light-effect-color: rgba(255, 255, 255, 0.2);
+
+                color: $primary-color;
+                background-color: $secondary-color;
+                padding: 3px 8px;
+
+                font-weight: 900;
+                font-size: 18px;
+                box-shadow: 0 0 20px $light-effect-color, 0 0 15px $light-effect-color, 0 0 0px $light-effect-color;
+            }
+        }
+
+        .contentHolder {
+            font-weight: 400;
+            font-size: 18.5px;
+            color: $light-color;
+
+            display: flex;
+            gap: 30px;
+            flex-direction: column;
+
+
+            .line1holder {
+                width: 85%;
+            }
+            .line2holder {
+                width: 90%;
+            }
+        }
+
+        .logoHolder {
+            position: absolute;
+            width: 900px;
+            right: -800px;
+            top: -150px;
+            .logo {
+                width: 100%;
+            }
+        }
+    }
+}
