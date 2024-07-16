@@ -6,6 +6,7 @@ import { PiGithubLogoFill  } from "react-icons/pi";
 import { FaLinkedinIn } from "react-icons/fa";
 import { Trans } from 'react-i18next';
 import { isRtl } from '@/utils/i18n';
+import data from '@/data.json';
 
 const HeroSection = () => {
   
@@ -33,13 +34,13 @@ const HeroSection = () => {
               </div>
 
               <div className={styles.accountsHolder}>
-                <div className={styles.github}>
+                <a className={styles.github} href={data.links.github}  target="_blank">
                     <PiGithubLogoFill />
-                </div>
+                </a>
 
-                <div className={styles.linkedIn}>
+                <a className={styles.linkedIn} href={data.links.linkedIn}  target="_blank">
                   <FaLinkedinIn />
-                </div>
+                </a>
               </div>
 
             </div>
