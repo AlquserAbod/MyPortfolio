@@ -1,5 +1,5 @@
 $glass-background-color: rgba(255, 255, 255, 0.10);
-$glass-border-radius: 16px;
+$glass-border-radius: 40px;
 $glass-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 $glass-backdrop-blur: 6.9px;
 $glass-border-color: rgba(255, 255, 255, 0.31);
@@ -16,54 +16,180 @@ $glass-border-width: 1px;
         -webkit-backdrop-filter: blur($glass-backdrop-blur);
         border: $glass-border-width solid $glass-border-color;
 
-        margin: 0 250px;
+        margin: 0 70px;
         padding: 30px;
         position: relative;
+        padding: 70px;
 
 
         .titleHolder {
             width: fit-content;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             
             .title {
-                $light-effect-color: rgba(255, 255, 255, 0.2);
-
                 color: $primary-color;
                 background-color: $secondary-color;
                 padding: 3px 8px;
 
                 font-weight: 900;
-                font-size: 18px;
-                box-shadow: 0 0 20px $light-effect-color, 0 0 15px $light-effect-color, 0 0 0px $light-effect-color;
+                font-size: 24px;
+                box-shadow: 0 0 20px $secondary-color, 0 0 2px $secondary-color, 0 0 2px $secondary-color;
             }
         }
 
         .contentHolder {
             font-weight: 400;
             font-size: 18.5px;
-            color: $light-color;
+            color: rgba($color: $light-color, $alpha: 0.8);
 
             display: flex;
             gap: 30px;
             flex-direction: column;
+            margin-right: 15%;
+            line-height: 30px;
+            word-break: normal;
+            overflow-wrap: break-word;
+            white-space: normal;        
 
+            
 
-            .line1holder {
-                width: 85%;
-            }
-            .line2holder {
-                width: 90%;
-            }
         }
+        position: relative;
 
         .logoHolder {
+            height: 100%;
             position: absolute;
-            width: 900px;
-            right: -800px;
-            top: -150px;
+            bottom:  0px;
+            right: 0px;
+            
             .logo {
                 width: 100%;
+                height: 100%;
             }
+        }
+    }
+}
+
+@media (max-width: $screen-size-xl) {
+    .conatiner {
+        .holder {
+            .contentHolder {
+                margin-right: 25%;
+ 
+            }
+        }
+    }
+}
+
+
+@media (max-width: $screen-size-lg) {
+    .conatiner {
+        .holder {
+            .contentHolder {
+                margin-right:0;
+
+                .line1holder {
+                    width: 80%;
+                }
+            }
+
+            .logoHolder {
+                height: 60%;
+                top: 0px;
+            }
+        }
+    }
+}
+
+@media (max-width: $screen-size-md) {
+    .conatiner {
+        .holder {
+            margin: 0px 20px;
+
+            .contentHolder {
+                font-size: 16px;
+
+            }
+
+
+        }
+    }
+}
+
+@media (max-width: 775px) {
+    .conatiner {
+        .holder {
+
+            .logoHolder {
+                height: 40%;
+                top: 100px;
+            }
+        }
+    }
+}
+
+@media (max-width: $screen-size-sm) {
+    .conatiner {
+        .holder {
+            padding: 50px 20px;
+
+            .contentHolder {
+                font-size: 14px;
+                line-height: 20px;
+            }
+
+            .logoHolder {
+                top: 80px;
+
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .conatiner {
+        .holder {
+            .contentHolder {
+                font-size: 13px;
+                .line1holder {
+                    width: 60%;
+                }
+            }
+
+            .logoHolder {
+                top: 80px;
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .conatiner {
+        .holder {
+            .contentHolder {
+                .line1holder {
+                    width: 50%;
+                }
+            }
+
+        }
+    }
+}
+
+
+@media (max-width: 350px) {
+    .conatiner {
+        .holder {
+            .contentHolder {
+                text-align: center;
+                .line1holder {
+                    width: 100%;
+                }
+            }
+            .logoHolder {
+                display: none;
+            }
+
         }
     }
 }
