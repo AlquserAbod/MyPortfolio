@@ -1,17 +1,17 @@
 import { Trans } from 'react-i18next'
 import styles from './whoami.module.scss'
 import hlaflogo from '@/assets/images/logos/hlaflogo.png';
+import halflogoRotate from '@/assets/images/logos/halflogoRotate.png';
+import { isRtl } from '@/utils/i18n';
 
 const WhoamiSection = () => {
   return (
-    <div className={styles.conatiner}>
-      <div className={styles.holder}>
+    <div className={styles.container}>
+      <div className={`${styles.holder} ${isRtl() ? styles.rtl : ""}`}>
 
         <div className={styles.titleHolder}>
           <div className={styles.title}><Trans i18nKey={'whoami.title'}></Trans></div>
         </div>
-
-        <div className={styles.contentHolder}>
           <div className={styles.line1holder}> 
             <Trans i18nKey={"whoami.line1"} components={{span: <span />}}></Trans>
 
@@ -26,10 +26,9 @@ const WhoamiSection = () => {
 
           </div>
 
-        </div>
-
         <div className={styles.logoHolder}>
-          <img src={hlaflogo} className={styles.logo} />
+
+          <img src={ isRtl() ? halflogoRotate : hlaflogo } className={styles.logo} />
         </div>
       </div>
     </div>
