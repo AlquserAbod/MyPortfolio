@@ -1,0 +1,163 @@
+$glass-background-color: rgba(255, 255, 255, 0.10);
+$glass-border-radius: 40px;
+$glass-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+$glass-backdrop-blur: 6.9px;
+$glass-border-color: rgba(255, 255, 255, 0.31);
+$glass-border-width: 1px;
+
+.container {
+    margin-top: 150px;
+
+    .holder {
+        background: $glass-background-color;
+        border-radius: $glass-border-radius;
+        box-shadow: $glass-box-shadow;
+        backdrop-filter: blur($glass-backdrop-blur);
+        -webkit-backdrop-filter: blur($glass-backdrop-blur);
+        border: $glass-border-width solid $glass-border-color;
+        margin: 0 70px;
+        position: relative;
+        display: grid;
+        grid-template-columns: 80% 20%;
+        grid-template-rows: 20% 30% 30%;
+        grid-auto-flow: column;
+        flex-wrap: wrap;
+        padding: 20px 0 20px 20px;
+        row-gap: 10px;
+        box-shadow: inset $secondary-color 0px 0px 60px -12px; 
+        box-shadow: rgba($secondary-color, 0.25) 0px 50px 100px -20px inset, rgba($secondary-color, 0.35) 0px -2px 6px 0px inset;
+        &.rtl {
+            padding: 20px 20px 20px 0;
+        }
+
+        .titleHolder {
+            width: fit-content;
+            align-self: center;
+
+            .title {
+                color: $primary-color;
+                background-color: $secondary-color;
+                padding: 3px 8px;
+                font-weight: 900;
+                font-size: 24px;
+                box-shadow: 0 0 20px $secondary-color, 0 0 2px $secondary-color, 0 0 2px $secondary-color;
+            }
+        }
+
+        .line1holder,
+        .line2holder,
+        .line3holder {
+            font-weight: 400;
+            font-size: 18.5px;
+            color: rgba($color: $light-color, $alpha: 0.8);
+            line-height: 30px;
+            word-break: normal;
+            overflow-wrap: break-word;
+            white-space: normal;
+        }
+
+        .line1holder,
+        .line2holder {
+            align-self: center;
+        }
+
+        .logoHolder {
+            height: 90%;
+            width: 200px;
+            grid-column-start: 2;
+            grid-area: 1 / 2 / 5 / 5;
+            justify-self: end;
+
+            .logo {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    @media (max-width: $screen-size-lg) {
+        .holder {
+            grid-template-columns: 70% 30%;
+
+            .logoHolder {
+                grid-area: 1 / 2 / 3;
+                height: 100%;
+                align-self: stretch;
+            }
+
+            .line2holder {
+                grid-area: 3 / 1 / 4 / last-line;
+            }
+
+            .line3holder {
+                grid-area: 4 / 1 / 4 / last-line;
+            }
+        }
+    }
+
+    @media (max-width: $screen-size-md) {
+        .holder {
+            grid-template-columns: 70% 30%;
+            margin: 50px;
+
+            .logoHolder {
+                grid-area: 1 / 2 / 3;
+                height: 100%;
+                align-self: stretch;
+            }
+
+            .line1holder,
+            .line2holder,
+            .line3holder {
+                font-size: 15px;
+                line-height: 25px;
+            }
+        }
+    }
+
+    @media (max-width: 775px) {
+        .holder {
+            margin: 40px;
+
+            .logoHolder {
+                width: 150px;
+            }
+
+            .line1holder,
+            .line2holder,
+            .line3holder {
+                font-size: 14px;
+                line-height: 20px;
+            }
+        }
+    }
+
+    @media (max-width: $screen-size-sm) {
+        .holder {
+            .logoHolder {
+                width: calc(100% - 20px);
+            }
+
+            .line1holder,
+            .line2holder,
+            .line3holder {
+                font-size: 12.5px;
+                line-height: 20px;
+                margin: 25px 0;
+            }
+        }
+    }
+
+    @media (max-width: 400px) {
+        .holder {
+            display: flex;
+            justify-content: center;
+            padding: 20px !important;
+            text-align: center;
+
+            .logoHolder {
+                display: none;
+            }
+        }
+    }
+}
