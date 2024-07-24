@@ -7,7 +7,7 @@ import TitleBox from '@/components/titleBox';
 // Import images
 import htmlIcon from '@/assets/icons/skills/html.png';
 import cssIcon from '@/assets/icons/skills/css.png';
-import expressjsIcon from '@/assets/icons/skills/expressjs.png';
+import expressjsIcon from '@/assets/icons/skills/express-js.png';
 import nextjsIcon from '@/assets/icons/skills/nextjs.png';
 import tailwindcssIcon from '@/assets/icons/skills/tailwindcss.png';
 import dartIcon from '@/assets/icons/skills/dart.png';
@@ -15,8 +15,8 @@ import flutterIcon from '@/assets/icons/skills/flutter.png';
 import javascriptIcon from '@/assets/icons/skills/javascript.png';
 import typescriptIcon from '@/assets/icons/skills/typescript.png';
 import reactIcon from '@/assets/icons/skills/react.png';
-import nodeIcon from '@/assets/icons/skills/node.png';
-import mongodbIcon from '@/assets/icons/skills/mongodb.png';
+import nodeIcon from '@/assets/icons/skills/_node.png';
+import mongodbIcon from '@/assets/icons/skills/mongo-db.png';
 import sassIcon from '@/assets/icons/skills/sass.png';
 
 const SkillsSection = () => {
