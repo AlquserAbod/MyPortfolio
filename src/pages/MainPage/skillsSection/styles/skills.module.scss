@@ -1,0 +1,26 @@
+
+
+.container {
+    margin: 100px;
+    
+
+    .sectionTitle {
+        margin-bottom: 50px;
+    }
+
+    .flexContainer {
+        display:  flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 50px;
+    }
+    
+}
+
+
+@media (max-width: $screen-size-lg) {
+    .container {
+        margin : 100px 50px;
+    }
+}

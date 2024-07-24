@@ -1,17 +1,18 @@
-import { Trans } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import styles from './whoami.module.scss'
 import hlaflogo from '@/assets/images/logos/hlaflogo.png';
 import halflogoRotate from '@/assets/images/logos/halflogoRotate.png';
 import { isRtl } from '@/utils/i18n';
+import TitleBox from '@/components/titleBox';
 
 const WhoamiSection = () => {
+  const { t } = useTranslation();
+  
   return (
     <div className={styles.container}>
       <div className={`${styles.holder} ${isRtl() ? styles.rtl : ""}`}>
 
-        <div className={styles.titleHolder}>
-          <div className={styles.title}><Trans i18nKey={'whoami.title'}></Trans></div>
-        </div>
+          <TitleBox title={t('whoami.title')} />
           <div className={styles.line1holder}> 
             <Trans i18nKey={"whoami.line1"} components={{span: <span />}}></Trans>
 

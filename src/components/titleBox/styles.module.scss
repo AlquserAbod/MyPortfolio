@@ -1,0 +1,12 @@
+.titleHolder {
+    width: fit-content;
+    align-self: center;
+    .title {
+        color: $primary-color;
+        background-color: $secondary-color;
+        padding: 3px 8px;
+        font-weight: 900;
+        font-size: 24px;
+        box-shadow: 0px 0px 30px 02px rgba(29,255,195,0.4);
+    }
+}

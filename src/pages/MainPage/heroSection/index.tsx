@@ -18,7 +18,7 @@ const HeroSection = () => {
             <div className={styles.leftSide}>
 
               <div className={styles.logoHolder}>
-                <img src={noBgLogoUrl} className={styles.logo} alt="logo" />
+                <img src={noBgLogoUrl} width={50} className={styles.logo} alt="logo" />
               </div>
 
               <div className={styles.textHolder}> 

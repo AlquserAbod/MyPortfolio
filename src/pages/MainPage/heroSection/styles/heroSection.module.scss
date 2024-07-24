@@ -13,7 +13,7 @@ $account-hover-change-width: 2px;
 
     .mainSectionContainer {
         height: 100%;
-        margin: 0 50px;
+        margin: 0 150px;
 
         .flexContainer {
             display: flex;
@@ -108,9 +108,18 @@ $account-hover-change-width: 2px;
     }
 }
 
+
+@media (max-width: $screen-size-lg) {
+    .container {
+        .mainSectionContainer {
+            margin: 0 100px !important;
+        }
+    }
+}
 @media (max-width: $screen-size-md) {
     .container {
         .mainSectionContainer {
+            margin: 0 50px !important;
             .flexContainer {
                 .leftSide {
                     gap: calc(1 * 1em);

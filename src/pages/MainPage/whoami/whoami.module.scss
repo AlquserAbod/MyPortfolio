@@ -6,7 +6,7 @@ $glass-border-color: rgba(255, 255, 255, 0.31);
 $glass-border-width: 1px;
 
 .container {
-    margin-top: 150px;
+    margin: 150px 0;
 
     .holder {
         background: $glass-background-color;
@@ -24,25 +24,13 @@ $glass-border-width: 1px;
         flex-wrap: wrap;
         padding: 20px 0 20px 20px;
         row-gap: 10px;
-        box-shadow: inset $secondary-color 0px 0px 60px -12px; 
-        box-shadow: rgba($secondary-color, 0.25) 0px 50px 100px -20px inset, rgba($secondary-color, 0.35) 0px -2px 6px 0px inset;
+        -webkit-box-shadow: inset 0px 0px 61px -47px $white-color;
+        -moz-box-shadow: inset 0px 0px 61px -47px $white-color;
+        box-shadow: inset 0px 0px 61px -47px $white-color;
         &.rtl {
             padding: 20px 20px 20px 0;
         }
 
-        .titleHolder {
-            width: fit-content;
-            align-self: center;
-
-            .title {
-                color: $primary-color;
-                background-color: $secondary-color;
-                padding: 3px 8px;
-                font-weight: 900;
-                font-size: 24px;
-                box-shadow: 0 0 20px $secondary-color, 0 0 2px $secondary-color, 0 0 2px $secondary-color;
-            }
-        }
 
         .line1holder,
         .line2holder,
