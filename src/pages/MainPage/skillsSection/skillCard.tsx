@@ -7,6 +7,7 @@ interface SkillCardProps {
     content: string;
 }
 const SkillCard: React.FC<SkillCardProps> =  ({title, icon, content}) => {
+
   return (
     <div className={styles.skillHolder}> 
         <div className={styles.headerHolder}>
