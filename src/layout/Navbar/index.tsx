@@ -18,6 +18,7 @@ const Navbar = () => {
   const sidebarToggleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    
     const handleScroll = () => {
       if (window.scrollY > 50) {
         setIsScrolled(true);
@@ -25,6 +26,8 @@ const Navbar = () => {
         setIsScrolled(false);
       }
     };
+
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll);
 

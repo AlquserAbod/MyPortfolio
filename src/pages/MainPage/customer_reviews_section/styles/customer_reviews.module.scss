@@ -1,0 +1,89 @@
+.container {
+    margin: 100px;
+
+    .titleHolder {
+        margin-bottom: 50px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 250px;
+    }
+
+    
+    
+    .reviewsHolder {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        
+        padding: 0px 50px 0px 50px;
+        max-height: 350px;
+
+
+        background: $glass-background-color;
+        border-radius: $glass-border-radius;
+        backdrop-filter: blur($glass-backdrop-blur);
+        -webkit-backdrop-filter: blur($glass-backdrop-blur);
+        border: $glass-border-width solid $glass-border-color;
+        
+        -moz-box-shadow:$glass-box-shadow;
+        -webkit-box-shadow: $glass-box-shadow;
+        box-shadow: $glass-box-shadow;
+    }
+}
+
+@media (max-width: $screen-size-xl) {
+    .container {
+        margin: 100px 50px;
+        
+
+        .reviewsHolder{
+            max-height: 425px;
+        }
+    }
+}
+
+@media (max-width: $screen-size-lg) {
+    .container {
+        margin: 100px 50px;
+
+        .reviewsHolder{
+            gap: 25px;
+            padding: 25px;
+
+            max-height: 400px;
+        }
+    }
+}
+
+@media (max-width: $screen-size-md) {
+    .container {
+        .reviewsHolder {
+
+            flex-direction: column;
+            
+            background: none;
+            border-radius: 0;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border: 0;
+            
+            -moz-box-shadow:none;
+            -webkit-box-shadow: none;
+            box-shadow:n one;
+        
+            max-height: fit-content;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        margin: 100px 25px;
+
+        
+        .titleHolder {
+            margin-bottom: 100px;
+        }
+    }
+}

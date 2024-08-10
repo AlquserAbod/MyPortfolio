@@ -74,6 +74,25 @@
             "title": "Sass",
             "content": "Sass is an open source CSS-optimizedformatting language that enables the useof variables, nesting, and functions tosimplify and maintain large, complex CSSlayouts. Sass code is converted to CSS for.use in websites"
         }
+    },
+
+    "customerReveiews": { 
+        "title": "Customer Reviews",
+        "review1": {
+            "name": "Ahmed Mohammed",
+            "comment": "Abdullah is a skilled programmer who quickly understands what is needed. His work is excellent and always delivered on time. I highly recommend working with him.",
+            "service": "Website Development using MERN Stack"
+        },
+        "review2": {
+            "name": "Emily Davis",
+            "comment": "I have worked with Abdullah on several projects, and he always delivers outstanding work and innovative solutions. He is very cooperative and patient.",
+            "service": "Android App Development using Flutter"
+        },
+        "review3": {
+            "name": "Omar Ahmed",
+            "comment": "Abdullah works with great professionalism and attention to detail. He solves problems quickly and effectively. Working with him was an excellent experience.",
+            "service": "Website Development using React Technologie"
+        }
     }
 }
   

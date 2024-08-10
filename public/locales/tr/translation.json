@@ -1,4 +1,5 @@
 {
+
     "slogan": "Programlama, <br/><b> yaratıcılığın modern dili </b>",
     "jobTitle": "Web ve Android uygulamalarının kapsamlı geliştiricisi",
 
@@ -70,6 +71,25 @@
         "sass": {
             "title": "SASS",
             "content": "Sass, büyük ve karmaşık CSS düzenlerini basitleştirmek ve bakımını yapmak için değişkenler, iç içe geçme ve fonksiyonlar kullanılmasını sağlayan açık kaynaklı bir CSS optimize biçimlendirme dilidir. Sass kodu, web sitelerinde kullanılmak üzere CSS'ye dönüştürülür."
+        }
+    },
+
+    "customerReveiews": {
+        "title": "Müşteri Yorumları",
+        "review1": {
+            "name": "Ahmed Mohammed",
+            "comment": "Abdullah, neyin gerektiğini hızlıca anlayan yetenekli bir programcı. Çalışmaları mükemmel ve her zaman zamanında teslim ediliyor. Onunla çalışmayı kesinlikle tavsiye ederim.",
+            "service": "MERN Yığını Kullanarak Web Sitesi Geliştirme"
+        },
+        "review2": {
+            "name": "Emily Davis",
+            "comment": "Abdullah ile birkaç projede çalıştım ve her zaman olağanüstü iş ve yenilikçi çözümler sunuyor. Çok işbirlikçi ve sabırlı.",
+            "service": "Flutter Kullanarak Android Uygulama Geliştirme"
+        },
+        "review3": {
+            "name": "Ömer Ahmed",
+            "comment": "Abdullah, büyük bir profesyonellik ve detaylara dikkat ile çalışıyor. Sorunları hızlı ve etkili bir şekilde çözüyor. Onunla çalışmak mükemmel bir deneyimdi.",
+            "service": "React Teknolojilerini Kullanarak Web Sitesi Geliştirme"
         }
     }
 }

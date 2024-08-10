@@ -3,6 +3,7 @@ import HeroSection from './heroSection'
 import '@/styles/index.scss';
 import WhoamiSection from './whoami';
 import SkillsSection from './skillsSection';
+import CustomerReviews from './customer_reviews_section';
 
 const MainPage = () => {
   return (
@@ -14,6 +15,8 @@ const MainPage = () => {
       <WhoamiSection />
 
       <SkillsSection /> 
+
+      <CustomerReviews />
     </div>
   )
 }
