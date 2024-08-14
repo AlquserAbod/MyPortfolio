@@ -4,6 +4,7 @@ import '@/styles/index.scss';
 import WhoamiSection from './whoami';
 import SkillsSection from './skillsSection';
 import CustomerReviews from './customer_reviews_section';
+import GetInTouch from './getinTouch_section';
 
 const MainPage = () => {
   return (
@@ -17,6 +18,8 @@ const MainPage = () => {
       <SkillsSection /> 
 
       <CustomerReviews />
+
+      <GetInTouch />
     </div>
   )
 }

@@ -77,7 +77,7 @@ const Navbar = () => {
               <a href="#"><Trans i18nKey={"navbar.academic_qualifications"}></Trans></a>
             </span>
             <span>
-              <a href="#"><Trans i18nKey={"navbar.connectWithUs"}></Trans></a>
+              <a href="#"><Trans i18nKey={"navbar.getinTouch"}></Trans></a>
             </span>
           </div>
 

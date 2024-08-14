@@ -1,0 +1,414 @@
+$value-tooltip-bg: #333;
+$value-tooltip-color: #fff;
+$value-tooltip-padding: 5px 10px;
+$value-tooltip-font-size: 14px;
+$value-tooltip-arrow-size: 8px;
+
+.container {
+  position: relative;
+  height: 100%;
+  z-index: 1;
+  margin: 100px 150px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("@/assets/images/backgrounds/getInTouch/laptop.png");
+    background-size: 100% 100%;  
+    opacity: 0.4;
+    z-index: -1;
+ 
+  }
+  .itemsHolder {
+    display: flex;
+    justify-content: space-between;
+    gap: 150px;
+    width: 100%;
+
+    .formHolder {
+      display: flex;
+      flex-direction: column;
+      background: $glass-background-color;
+      border-radius: $glass-border-radius;
+      backdrop-filter: blur($glass-backdrop-blur);
+      -webkit-backdrop-filter: blur($glass-backdrop-blur);
+      border: $glass-border-width solid $glass-border-color;
+      -moz-box-shadow: $glass-box-shadow;
+      -webkit-box-shadow: $glass-box-shadow;
+      box-shadow: $glass-box-shadow;
+
+      padding: 50px;
+      gap: 20px;
+      flex: 1 1 50%;
+      margin: 0 50px;
+
+      .inputGroup {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        
+        label {
+          font-size: 18px;
+        }
+
+        .input {
+          background: $light-color;
+          padding: 5px;
+          border-radius: 5px;
+          outline: none;
+          transition: 0.3s ease;
+        }
+
+        .input:focus {
+          transform: scale(1.05);
+          border-color: $secondary-color;
+          box-shadow: 0 0 5px rgba($secondary-color, 0.5);
+        }
+
+        textarea {
+          resize: none;
+          width: 100% !important;
+          height: 150px !important;
+        }
+      }
+
+      .submitButton {
+        button {
+          width: 100%;
+          padding: 10px 0;
+          border: 1px solid $secondary-color;
+          background: none;
+          color: $white-color;
+          font-weight: 700;
+          font-size: 16px;
+          border-radius: 5px;
+          transition: 0.3s ease;
+
+          &:hover {
+            background-color: $secondary-color;
+            color: $primary-color;
+          }
+        }
+      }
+    }
+
+    .contentHolder {
+      display: flex;
+      flex-direction: column;
+      padding: 50px;
+      flex: 1 1 50%;
+
+      .description {
+        font-size: 20px;
+        color: $light-color;
+        line-height: 24px;
+        margin-top: 50px;
+      }
+
+      .contactData {
+        margin-top: 150px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+
+          .title {
+            font-size: 28px;
+            font-weight: 600;
+          }
+
+          .value {
+            position: relative;
+            padding: 10px 20px;
+            font-size: 20px;
+            font-family: Verdana, sans-serif;
+            letter-spacing: 2px;
+            text-align: center;
+
+            .tooltip {
+              position: absolute;
+              bottom: 120%;
+              left: 50%;
+              transform: translateX(-50%);
+              background: $value-tooltip-bg;
+              color: $value-tooltip-color;
+              padding: $value-tooltip-padding;
+              font-size: $value-tooltip-font-size;
+              border-radius: 4px;
+              white-space: nowrap;
+              opacity: 0;
+              visibility: hidden;
+              transition: opacity 0.3s, visibility 0.3s;
+              z-index: 10;
+
+              &::after {
+                content: '';
+                position: absolute;
+                bottom: -$value-tooltip-arrow-size;
+                left: 50%;
+                transform: translateX(-50%);
+                border-width: $value-tooltip-arrow-size;
+                border-style: solid;
+                border-color: $value-tooltip-bg transparent transparent transparent;
+              }
+            }
+
+            &:before,
+            &:after {
+              content: '';
+              position: absolute;
+              width: 8px;
+              height: 8px;
+              background: transparent;
+              transition: width 1s, height 1s;
+            }
+
+            &:hover .tooltip {
+              opacity: 1;
+              visibility: visible;
+            }
+
+            &:hover {
+              cursor: pointer;
+            }
+
+            &:before {
+              top: -4px;
+              right: -4px;
+              border-top: 4px solid $secondary-color;
+              border-right: 4px solid $secondary-color;
+            }
+
+            &:after {
+              bottom: -4px;
+              left: -4px;
+              border-bottom: 4px solid $secondary-color;
+              border-left: 4px solid $secondary-color;
+            }
+
+            &:hover:before,
+            &:hover:after {
+              width: calc(100% - 8px); 
+              height: calc(100% - 8px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-size-xl) {
+    .container {
+        margin: 0 100px;
+        padding: 0 50px;
+    
+        .itemsHolder {
+            gap: 0px;
+        }
+    }
+}
+
+@media (max-width: $screen-size-lg) {
+    .container {
+
+        margin: 0 50px;
+        padding: 0 20px;
+
+        .itemsHolder {
+
+            .formHolder {
+                flex: 1 1 70%;
+                margin: 20px;
+            }
+
+            .contentHolder {
+                padding: 50px 25px;
+                .contactData {
+                    div {
+                        .title {
+                            font-size: 24px;
+                        }
+                        .value {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $screen-size-md) {
+    .container {
+
+        margin: 0 10px;
+        padding: 0 10px;
+
+        .itemsHolder {
+
+            .formHolder {
+                flex: 1 1 90%;
+                margin: 20px;
+                padding: 25px;
+            }
+
+            .contentHolder {
+                flex: 1 1 10%;
+
+                padding: 50px 25px;
+                .contactData {
+                    div {
+                        .title {
+                            font-size: 24px;
+                        }
+                        .value {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 700px) {
+    .container {
+
+        .itemsHolder {
+
+            .formHolder {
+                margin: 20px;
+                padding: 25px;
+            }
+
+            .contentHolder {
+                padding: 50px 0;
+                .contactData {
+                    div {
+                        .title {
+                            font-size: 4vw;
+                        }
+                        .value {
+                            font-size: 2.5vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: $screen-size-sm) {
+    .container {
+
+        margin: 0 20px;
+        padding: 0 40px;
+
+        &::before {
+            background-image: url("@/assets/images/backgrounds/getInTouch/phone.png");
+        }
+
+        .itemsHolder {
+            flex-direction: column-reverse;
+            gap: 50px;
+            padding: 20px 0;
+
+            .formHolder {
+                margin: 0;
+                padding: 50px;
+     
+            }
+
+            .contentHolder {
+                padding: 0;
+
+                .description {
+                    margin-top: 30px;
+                }
+
+                .contactData {
+                    margin-top: 50px;
+
+                    div {
+                        .title {
+                            font-size: 24px;
+                        }
+                        .value {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 400px) {
+    .container {
+
+        margin: 0 0;
+        padding: 0 40px;
+
+
+        .itemsHolder {
+
+
+            .formHolder {
+                padding: 25px;
+
+            }
+
+            .contentHolder {
+
+    
+                .contactData {
+                    margin-top: 50px;
+
+                    div {
+                        .title {
+                            font-size: 7vw;
+                        }
+                        .value {
+                            padding: 5px 10px;
+                             
+                            span {
+                                width: 100%;
+                                word-break: break-word; /* Allow long words to break and wrap */
+                                overflow-wrap: break-word;                            
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 300px) {
+    .container {
+
+        margin: 0 0;
+        padding: 10px;
+
+
+        .itemsHolder {
+
+
+            .formHolder {
+                padding: 20px;
+            }
+        }
+    }
+}

@@ -1,98 +1,111 @@
 {
-    "slogan": "Programming is the <br /> <b> modern language of creativity </b>",
-    "jobTitle": "Comprehensive developer of web and Android applications",
+  "slogan": "Programming is the <br /> <b> modern language of creativity </b>",
+  "jobTitle": "Comprehensive developer of web and Android applications",
 
-    "navbar": {
-        "whoami": "Who Am I",
-        "projects": "Projects",
-        "services": "Services",
-        "academic_qualifications": "Academic Qualifications",
-        "connectWithUs": "Connect with us"
+
+  "navbar": {
+    "whoami": "Who Am I",
+    "projects": "Projects",
+    "services": "Services",
+    "academic_qualifications": "Academic Qualifications",
+    "getinTouch": "Get in Touch"
+  },
+
+  "whoami": {
+    "title": "who am I",
+
+    "line1": "I have extensive experience spanning more than 4 years in web and Android application development, with a focus on creating and implementing attractive and effective user interfaces. I have worked on a variety of projects including business applications, e-commerce, social media, and distance learning, which has positioned me to understand market requirements and deliver effective solutions that meet customer needs.",
+    "line2": "Proficient in using multiple languages ​​and technologies such as HTML, CSS, JavaScript, ReactJS, and ExpressJS, with exceptional abilities to solve problems and improve application performance and security. I have the ability to work as part of a team and in multicultural work environments, and I always strive for continuous professional development and use the latest methodologies and technical tools to achieve innovation and improve the user experience.",
+    "line3": "I am committed to providing innovative technical solutions that contribute to the success of customer projects and meet their aspirations on an ongoing basis."
+  },
+
+  "skills": {
+    "title": "Skills",
+    "html": {
+      "title": "Html",
+      "content": "HTML is a hypertext markup language usedto create and design web pages, whichdefines the structure and content ofdocuments using tags and elements. It isthe foundation of web technologies alongwith CSS and JavaScript"
+    },
+    "css": {
+      "title": "Css",
+      "content": "CSS is a formatting language used to designand format web pages, defining theappearance and layout of elements writtenin HTML. Allows you to control colors, fonts,spacing, and layouts to provide attractive.and responsive user interfaces"
+    },
+    "expressjs": {
+      "title": "Express Js",
+      "content": "Express.js is a lightweight, open sourceframework for Node.js, used to build webapplications and APIs quickly andefficiently. It provides a set of tools andfeatures to make it easier to managerequests and responses and extend.applications"
+    },
+    "dart": {
+      "title": "Dart",
+      "content": "Dart is an open source programminglanguage developed by Google, used todevelop web and mobile applications viathe Flutter framework. Dart provides highperformance and a modern architecture tosupport fast, maintainable application.development"
+    },
+    "flutter": {
+      "title": "Flutter",
+      "content": "Flutter is an open source framework fromGoogle that is used to build integratedapplications across multiple platforms(Android and iOS) from a single code base.It is based on the Dart language and offerstools and features for creating smooth and.attractive user interfaces"
     },
 
-    "whoami": {
-        "title": "who am I",
-
-        "line1": "I have extensive experience spanning more than 4 years in web and Android application development, with a focus on creating and implementing attractive and effective user interfaces. I have worked on a variety of projects including business applications, e-commerce, social media, and distance learning, which has positioned me to understand market requirements and deliver effective solutions that meet customer needs.",
-        "line2": "Proficient in using multiple languages ​​and technologies such as HTML, CSS, JavaScript, ReactJS, and ExpressJS, with exceptional abilities to solve problems and improve application performance and security. I have the ability to work as part of a team and in multicultural work environments, and I always strive for continuous professional development and use the latest methodologies and technical tools to achieve innovation and improve the user experience.",
-        "line3": "I am committed to providing innovative technical solutions that contribute to the success of customer projects and meet their aspirations on an ongoing basis."
+    "tailwindcss": {
+      "title": "Tailwind CSS",
+      "content": "Skilled in using Tailwind CSS to design modern, responsive, and visually appealing user interfaces. Experienced in customizing and extending utility-first CSS for rapid development and consistent design systems."
     },
-
-
-    "skills": {
-        "title": "Skills",
-        "html" : {
-            "title": "Html",
-            "content": "HTML is a hypertext markup language usedto create and design web pages, whichdefines the structure and content ofdocuments using tags and elements. It isthe foundation of web technologies alongwith CSS and JavaScript"
-        },
-        "css" : {
-            "title": "Css",
-            "content": "CSS is a formatting language used to designand format web pages, defining theappearance and layout of elements writtenin HTML. Allows you to control colors, fonts,spacing, and layouts to provide attractive.and responsive user interfaces"
-        },
-        "expressjs" : {
-            "title": "Express Js",
-            "content": "Express.js is a lightweight, open sourceframework for Node.js, used to build webapplications and APIs quickly andefficiently. It provides a set of tools andfeatures to make it easier to managerequests and responses and extend.applications"
-        },
-        "dart" : {
-            "title": "Dart",
-            "content": "Dart is an open source programminglanguage developed by Google, used todevelop web and mobile applications viathe Flutter framework. Dart provides highperformance and a modern architecture tosupport fast, maintainable application.development"
-        },
-        "flutter" : {
-            "title": "Flutter",
-            "content": "Flutter is an open source framework fromGoogle that is used to build integratedapplications across multiple platforms(Android and iOS) from a single code base.It is based on the Dart language and offerstools and features for creating smooth and.attractive user interfaces"
-        },
-
-        "tailwindcss" : {
-            "title": "Tailwind CSS",
-            "content": "Skilled in using Tailwind CSS to design modern, responsive, and visually appealing user interfaces. Experienced in customizing and extending utility-first CSS for rapid development and consistent design systems."
-        },
-        "nextjs" : {
-            "title": "Next Js",
-            "content": "Proficient in developing high-performance, server-rendered React applications with Next.js. Expertise in building dynamic, SEO-friendly websites and leveraging Next.js features like static site generation (SSG) and server-side rendering (SSR) for optimal user experience."
-        },
-        "javascript" : {
-            "title": "Javascript",
-            "content": "JavaScript is a scripting language widely used in web application development. It is designed to provide interactive and dynamic web pages, and is characterized by its ability to handle events, change content, and communicate with servers"
-        },
-        "typescript" : {
-            "title": "TypeScript",
-            "content": "TypeScript is an open source programminglanguage developed by Microsoft that addsstatic typing features to JavaScript toimprove error detection and codemaintainability. The TypeScript code is.converted to JavaScript for execution"
-        },
-        "react" : {
-            "title": "React",
-            "content": "React is an open source JavaScript librarydeveloped by Facebook, used to buildinteractive and fast-performinginterfaces for web applications. It relies onthe component principle to reuse code and.improve state management"
-        },
-        "node": {
-            "title": "Node",
-            "content": "Node.js is an open source runtime environmentengine to run JavaScript on the based on the VAserver, enabling the building ofhigh-performance, scalable web applications.It uses an asynchronous and event-drivenmodel to process operations efficiently"
-        },
-        "mongodb": {
-            "title": "Mongo DB",
-            "content": "MongoDB is an open source NoSQL database,used to store data in the form of flexible andscalable JSON documents, making it ideal forlarge and complex web applications.Provides high performance and the ability toprocess large amounts of data quickly"
-        },
-        "sass": {
-            "title": "Sass",
-            "content": "Sass is an open source CSS-optimizedformatting language that enables the useof variables, nesting, and functions tosimplify and maintain large, complex CSSlayouts. Sass code is converted to CSS for.use in websites"
-        }
+    "nextjs": {
+      "title": "Next Js",
+      "content": "Proficient in developing high-performance, server-rendered React applications with Next.js. Expertise in building dynamic, SEO-friendly websites and leveraging Next.js features like static site generation (SSG) and server-side rendering (SSR) for optimal user experience."
     },
-
-    "customerReveiews": { 
-        "title": "Customer Reviews",
-        "review1": {
-            "name": "Ahmed Mohammed",
-            "comment": "Abdullah is a skilled programmer who quickly understands what is needed. His work is excellent and always delivered on time. I highly recommend working with him.",
-            "service": "Website Development using MERN Stack"
-        },
-        "review2": {
-            "name": "Emily Davis",
-            "comment": "I have worked with Abdullah on several projects, and he always delivers outstanding work and innovative solutions. He is very cooperative and patient.",
-            "service": "Android App Development using Flutter"
-        },
-        "review3": {
-            "name": "Omar Ahmed",
-            "comment": "Abdullah works with great professionalism and attention to detail. He solves problems quickly and effectively. Working with him was an excellent experience.",
-            "service": "Website Development using React Technologie"
-        }
+    "javascript": {
+      "title": "Javascript",
+      "content": "JavaScript is a scripting language widely used in web application development. It is designed to provide interactive and dynamic web pages, and is characterized by its ability to handle events, change content, and communicate with servers"
+    },
+    "typescript": {
+      "title": "TypeScript",
+      "content": "TypeScript is an open source programminglanguage developed by Microsoft that addsstatic typing features to JavaScript toimprove error detection and codemaintainability. The TypeScript code is.converted to JavaScript for execution"
+    },
+    "react": {
+      "title": "React",
+      "content": "React is an open source JavaScript librarydeveloped by Facebook, used to buildinteractive and fast-performinginterfaces for web applications. It relies onthe component principle to reuse code and.improve state management"
+    },
+    "node": {
+      "title": "Node",
+      "content": "Node.js is an open source runtime environmentengine to run JavaScript on the based on the VAserver, enabling the building ofhigh-performance, scalable web applications.It uses an asynchronous and event-drivenmodel to process operations efficiently"
+    },
+    "mongodb": {
+      "title": "Mongo DB",
+      "content": "MongoDB is an open source NoSQL database,used to store data in the form of flexible andscalable JSON documents, making it ideal forlarge and complex web applications.Provides high performance and the ability toprocess large amounts of data quickly"
+    },
+    "sass": {
+      "title": "Sass",
+      "content": "Sass is an open source CSS-optimizedformatting language that enables the useof variables, nesting, and functions tosimplify and maintain large, complex CSSlayouts. Sass code is converted to CSS for.use in websites"
     }
+  },
+
+  "customerReveiews": {
+    "title": "Customer Reviews",
+    "review1": {
+      "name": "Ahmed Mohammed",
+      "comment": "Abdullah is a skilled programmer who quickly understands what is needed. His work is excellent and always delivered on time. I highly recommend working with him.",
+      "service": "Website Development using MERN Stack"
+    },
+    "review2": {
+      "name": "Emily Davis",
+      "comment": "I have worked with Abdullah on several projects, and he always delivers outstanding work and innovative solutions. He is very cooperative and patient.",
+      "service": "Android App Development using Flutter"
+    },
+    "review3": {
+      "name": "Omar Ahmed",
+      "comment": "Abdullah works with great professionalism and attention to detail. He solves problems quickly and effectively. Working with him was an excellent experience.",
+      "service": "Website Development using React Technologie"
+    }
+  },
+
+  "submit": "Submit",
+  "clicktoCopy": "Click to copy",
+  "getInTouch": {
+    "title": "Get In Touch",
+    "firstName": "First Name",
+    "lastName": "Last Name", 
+    "email": "Email",
+    "phoneNumber": "Phone Number",
+    "messageTitle": "Your Message",
+    "messagePlaceHolder": "What do you have in mind",
+
+    "description": "Do you want to work together or want to give your opinion on my work? You can apply here and you will be answered as soon as possible."
+  }
 }
-  
