@@ -17,10 +17,9 @@ $value-tooltip-arrow-size: 8px;
     right: 0;
     bottom: 0;
     background-image: url("@/assets/images/backgrounds/getInTouch/laptop.png");
-    background-size: 100% 100%;  
+    background-size: 100% 100%;
     opacity: 0.4;
     z-index: -1;
- 
   }
   .itemsHolder {
     display: flex;
@@ -49,18 +48,36 @@ $value-tooltip-arrow-size: 8px;
         display: flex;
         flex-direction: column;
         gap: 5px;
-        
+
         label {
           font-size: 18px;
         }
 
         .input {
-          background: $light-color;
-          padding: 5px;
-          border-radius: 5px;
-          outline: none;
-          transition: 0.3s ease;
-        }
+            background: $light-color;
+            padding: 5px;
+            border-radius: 5px;
+            outline: none;
+            transition: 0.3s ease;
+          
+            &.error {
+              border-color: red;
+              box-shadow: 0 0 5px rgba(red, 0.5);
+          
+              + .errorText,
+              ~ .errorText {
+                display: block;
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba(red, 0.8);
+              }
+            }
+          }
+          
+          .errorText {
+            display: none; // Hide by default
+          }
+          
 
         .input:focus {
           transform: scale(1.05);
@@ -149,20 +166,21 @@ $value-tooltip-arrow-size: 8px;
               z-index: 10;
 
               &::after {
-                content: '';
+                content: "";
                 position: absolute;
                 bottom: -$value-tooltip-arrow-size;
                 left: 50%;
                 transform: translateX(-50%);
                 border-width: $value-tooltip-arrow-size;
                 border-style: solid;
-                border-color: $value-tooltip-bg transparent transparent transparent;
+                border-color: $value-tooltip-bg transparent transparent
+                  transparent;
               }
             }
 
             &:before,
             &:after {
-              content: '';
+              content: "";
               position: absolute;
               width: 8px;
               height: 8px;
@@ -195,7 +213,7 @@ $value-tooltip-arrow-size: 8px;
 
             &:hover:before,
             &:hover:after {
-              width: calc(100% - 8px); 
+              width: calc(100% - 8px);
               height: calc(100% - 8px);
             }
           }
@@ -206,209 +224,186 @@ $value-tooltip-arrow-size: 8px;
 }
 
 @media (max-width: $screen-size-xl) {
-    .container {
-        margin: 0 100px;
-        padding: 0 50px;
-    
-        .itemsHolder {
-            gap: 0px;
-        }
+  .container {
+    margin: 0 100px;
+    padding: 0 50px;
+
+    .itemsHolder {
+      gap: 0px;
     }
+  }
 }
 
 @media (max-width: $screen-size-lg) {
-    .container {
+  .container {
+    margin: 0 50px;
+    padding: 0 20px;
 
-        margin: 0 50px;
-        padding: 0 20px;
+    .itemsHolder {
+      .formHolder {
+        flex: 1 1 70%;
+        margin: 20px;
+      }
 
-        .itemsHolder {
-
-            .formHolder {
-                flex: 1 1 70%;
-                margin: 20px;
+      .contentHolder {
+        padding: 50px 25px;
+        .contactData {
+          div {
+            .title {
+              font-size: 24px;
             }
-
-            .contentHolder {
-                padding: 50px 25px;
-                .contactData {
-                    div {
-                        .title {
-                            font-size: 24px;
-                        }
-                        .value {
-                            font-size: 16px;
-                        }
-                    }
-                }
+            .value {
+              font-size: 16px;
             }
+          }
         }
+      }
     }
+  }
 }
 
 @media (max-width: $screen-size-md) {
-    .container {
+  .container {
+    margin: 0 10px;
+    padding: 0 10px;
 
-        margin: 0 10px;
-        padding: 0 10px;
+    .itemsHolder {
+      .formHolder {
+        flex: 1 1 90%;
+        margin: 20px;
+        padding: 25px;
+      }
 
-        .itemsHolder {
+      .contentHolder {
+        flex: 1 1 10%;
 
-            .formHolder {
-                flex: 1 1 90%;
-                margin: 20px;
-                padding: 25px;
+        padding: 50px 25px;
+        .contactData {
+          div {
+            .title {
+              font-size: 24px;
             }
-
-            .contentHolder {
-                flex: 1 1 10%;
-
-                padding: 50px 25px;
-                .contactData {
-                    div {
-                        .title {
-                            font-size: 24px;
-                        }
-                        .value {
-                            font-size: 16px;
-                        }
-                    }
-                }
+            .value {
+              font-size: 16px;
             }
+          }
         }
+      }
     }
+  }
 }
-
 
 @media (max-width: 700px) {
-    .container {
+  .container {
+    .itemsHolder {
+      .formHolder {
+        margin: 20px;
+        padding: 25px;
+      }
 
-        .itemsHolder {
-
-            .formHolder {
-                margin: 20px;
-                padding: 25px;
+      .contentHolder {
+        padding: 50px 0;
+        .contactData {
+          div {
+            .title {
+              font-size: 4vw;
             }
-
-            .contentHolder {
-                padding: 50px 0;
-                .contactData {
-                    div {
-                        .title {
-                            font-size: 4vw;
-                        }
-                        .value {
-                            font-size: 2.5vw;
-                        }
-                    }
-                }
+            .value {
+              font-size: 2.5vw;
             }
+          }
         }
+      }
     }
+  }
 }
-
 
 @media (max-width: $screen-size-sm) {
-    .container {
+  .container {
+    margin: 0 20px;
+    padding: 0 40px;
 
-        margin: 0 20px;
-        padding: 0 40px;
-
-        &::before {
-            background-image: url("@/assets/images/backgrounds/getInTouch/phone.png");
-        }
-
-        .itemsHolder {
-            flex-direction: column-reverse;
-            gap: 50px;
-            padding: 20px 0;
-
-            .formHolder {
-                margin: 0;
-                padding: 50px;
-     
-            }
-
-            .contentHolder {
-                padding: 0;
-
-                .description {
-                    margin-top: 30px;
-                }
-
-                .contactData {
-                    margin-top: 50px;
-
-                    div {
-                        .title {
-                            font-size: 24px;
-                        }
-                        .value {
-                            font-size: 16px;
-                        }
-                    }
-                }
-            }
-        }
+    &::before {
+      background-image: url("@/assets/images/backgrounds/getInTouch/phone.png");
     }
-}
 
+    .itemsHolder {
+      flex-direction: column-reverse;
+      gap: 50px;
+      padding: 20px 0;
+
+      .formHolder {
+        margin: 0;
+        padding: 50px;
+      }
+
+      .contentHolder {
+        padding: 0;
+
+        .description {
+          margin-top: 30px;
+        }
+
+        .contactData {
+          margin-top: 50px;
+
+          div {
+            .title {
+              font-size: 24px;
+            }
+            .value {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
 @media (max-width: 400px) {
-    .container {
+  .container {
+    margin: 0 0;
+    padding: 0 40px;
 
-        margin: 0 0;
-        padding: 0 40px;
+    .itemsHolder {
+      .formHolder {
+        padding: 25px;
+      }
 
+      .contentHolder {
+        .contactData {
+          margin-top: 50px;
 
-        .itemsHolder {
-
-
-            .formHolder {
-                padding: 25px;
-
+          div {
+            .title {
+              font-size: 7vw;
             }
+            .value {
+              padding: 5px 10px;
 
-            .contentHolder {
-
-    
-                .contactData {
-                    margin-top: 50px;
-
-                    div {
-                        .title {
-                            font-size: 7vw;
-                        }
-                        .value {
-                            padding: 5px 10px;
-                             
-                            span {
-                                width: 100%;
-                                word-break: break-word; /* Allow long words to break and wrap */
-                                overflow-wrap: break-word;                            
-                            }
-                        }
-                    }
-                }
+              span {
+                width: 100%;
+                word-break: break-word; /* Allow long words to break and wrap */
+                overflow-wrap: break-word;
+              }
             }
+          }
         }
+      }
     }
+  }
 }
 
-
 @media (max-width: 300px) {
-    .container {
+  .container {
+    margin: 0 0;
+    padding: 10px;
 
-        margin: 0 0;
-        padding: 10px;
-
-
-        .itemsHolder {
-
-
-            .formHolder {
-                padding: 20px;
-            }
-        }
+    .itemsHolder {
+      .formHolder {
+        padding: 20px;
+      }
     }
+  }
 }

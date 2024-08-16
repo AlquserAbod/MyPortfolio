@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form Submission</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #0a0847;
+        }
+        
+        .container {
+            background-color: #ffffff;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            background-color: #0a0847;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            color: #ffffff;
+        }
+        
+        .content {
+            padding: 20px;
+        }
+        
+        .footer {
+            background-color: #1dffc4;
+            padding: 10px;
+            text-align: center;
+            border-radius: 0 0 8px 8px;
+            color: #0a0847;
+        }
+        
+        .info {
+            margin-bottom: 20px;
+        }
+        
+        .info label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .info span {
+            display: block;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>New Contact Form Submission</h1>
+        </div>
+        <div class="content">
+            <div class="info">
+                <label>First Name:</label>
+                <span>{{firstName}}</span>
+            </div>
+            <div class="info">
+                <label>Last Name:</label>
+                <span>{{lastName}}</span>
+            </div>
+            <div class="info">
+                <label>Email:</label>
+                <span>{{email}}</span>
+            </div>
+            <div class="info">
+                <label>Phone Number:</label>
+                <span>{{phoneNumber}}</span>
+            </div>
+            <div class="info">
+                <label>Message:</label>
+                <span>{{message}}</span>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Thank you for reaching out to us!</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -103,6 +103,11 @@
     "phoneNumber": "Telefon Numarası",
     "messageTitle": "Mesajınız",
     "messagePlaceHolder": "Aklınızda ne var",
-    "description": "Birlikte çalışmak mı istiyorsunuz yoksa çalışmalarım hakkında görüş bildirmek mi istiyorsunuz? Buradan başvurabilir ve size en kısa sürede yanıt verilecektir."
+    "description": "Birlikte çalışmak mı istiyorsunuz yoksa çalışmalarım hakkında görüş bildirmek mi istiyorsunuz? Buradan başvurabilir ve size en kısa sürede yanıt verilecektir.",
+
+    "errors": {
+      "required": "Bu alan gereklidir.",
+      "invalidEmail": "Geçersiz e-posta formatı."
+    }
   }
 }
