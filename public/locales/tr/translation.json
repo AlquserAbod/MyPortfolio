@@ -94,7 +94,8 @@
 
   "submit": "Gönder",
   "clicktoCopy": "Kopyalamak için tıklayın",
-  
+  "copied": "Kopyalandı",
+
   "getInTouch": {
     "title": "İletişime Geç",
     "firstName": "Ad",
@@ -108,6 +109,10 @@
     "errors": {
       "required": "Bu alan gereklidir.",
       "invalidEmail": "Geçersiz e-posta formatı."
-    }
+    },
+    
+    "successMessage": "Mesaj başarıyla gönderildi. En kısa zamanda cevap verilecektir.",
+    "errorMessage": "Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+    "sendingMessage": "Form gönderiliyor..."
   }
 }

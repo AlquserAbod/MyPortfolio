@@ -97,6 +97,7 @@
 
   "submit": "Submit",
   "clicktoCopy": "Click to copy",
+  "copied": "Copied",
 
   "getInTouch": {
     "title": "Get In Touch",
@@ -112,6 +113,10 @@
     "errors": {
       "required": "this field is required.",
       "invalidEmail": "invalid email format."
-    }
+    },
+
+    "successMessage": "The message has been sent successfully. You will be answered as soon as possible.",
+    "errorMessage": "An error occurred while sending the message. Please try again later.",
+    "sendingMessage": "Sending the form..."
   }
 }

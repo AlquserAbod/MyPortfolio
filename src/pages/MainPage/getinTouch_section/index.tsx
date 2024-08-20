@@ -4,9 +4,13 @@ import { Trans, useTranslation } from "react-i18next";
 import TitleBox from "@/components/titleBox";
 import data from "@/data.json";
 import { sendEmail } from "@/utils/sendEmail";
+import ToastService from "@/services/ToastService";
 
 const GetInTouch = () => {
   const { t } = useTranslation();
+
+  const [emailTooltipText, setEmailTooltipText] = useState("clicktoCopy");
+  const [phoneTooltipText, setPhoneTooltipText] = useState("clicktoCopy");
 
   const [formValues, setFormValues] = useState({
     firstName: "",
@@ -88,7 +92,7 @@ const GetInTouch = () => {
     e.preventDefault();
 
     const isValid = validateForm();
-    if (!isValid) return;
+    if (!isValid) throw Error('form is not valid');
 
     try {
       await sendEmail({
@@ -101,16 +105,27 @@ const GetInTouch = () => {
         },
       });
 
-      alert("Email sent successfully!");
+      setFormValues({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phoneNumber: "",
+        message: "",
+      });
     } catch (error) {
-      console.error("Error sending email:", error);
-      alert("Failed to send email.");
+      throw Error('error')
     }
   };
 
   return (
     <div className={styles.container}>
-      <form className={styles.itemsHolder} onSubmit={handleSubmit}>
+      <form className={styles.itemsHolder} onSubmit={(e) => {
+        ToastService.promiseToast(handleSubmit(e),{
+          loadingText: t('getInTouch.sendingMessage'),
+          successText:t('getInTouch.successMessage'),
+          errorText:t('getInTouch.errorMessage'),
+        })
+      }}>
         <div className={styles.formHolder}>
           <div className={styles.inputGroup}>
             <label htmlFor="firstName">
@@ -237,30 +252,46 @@ const GetInTouch = () => {
           <div className={styles.contactData}>
             <div
               className={styles.email}
-              onClick={() =>
-                navigator.clipboard.writeText(data.contactData.email)
-              }
+              onClick={() => {
+                navigator.clipboard.writeText(data.contactData.email);
+                setEmailTooltipText("copied");
+                setTimeout(() => {
+                  setEmailTooltipText("clicktoCopy");
+                }, 1000);
+              }}
             >
               <div className={styles.title}>
                 <Trans i18nKey={"getInTouch.email"} />
               </div>
               <div className={styles.value}>
-                <div className={styles.tooltip}>{t("clicktoCopy")}</div>
+                <div
+                  className={`${styles.tooltip}`}
+                >
+                  {t(emailTooltipText)}
+                </div>
                 <span>{data.contactData.email}</span>
               </div>
             </div>
 
             <div
               className={styles.phoneNumber}
-              onClick={() =>
-                navigator.clipboard.writeText(data.contactData.phoneNumber)
-              }
+              onClick={() => {
+                navigator.clipboard.writeText(data.contactData.phoneNumber);
+                setPhoneTooltipText("copied");
+                setTimeout(() => {
+                  setPhoneTooltipText("clicktoCopy");
+                }, 1000);
+              }}
             >
               <div className={styles.title}>
                 <Trans i18nKey={t("getInTouch.phoneNumber")} />
               </div>
               <div className={styles.value}>
-                <div className={styles.tooltip}>{t("clicktoCopy")}</div>
+                <div
+                  className={`${styles.tooltip}`}
+                >
+                  {t(phoneTooltipText)}
+                </div>
                 {data.contactData.phoneNumber}
               </div>
             </div>
