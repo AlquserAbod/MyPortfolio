@@ -12,6 +12,10 @@ body {
     }
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body .portfolio{
     
     font-family: $font-family;

@@ -5,6 +5,7 @@ import WhoamiSection from './whoami';
 import SkillsSection from './skillsSection';
 import CustomerReviews from './customer_reviews_section';
 import GetInTouch from './getinTouch_section';
+import ServicesSection from './services_section';
 
 const MainPage = () => {
   return (
@@ -16,6 +17,8 @@ const MainPage = () => {
       <WhoamiSection />
 
       <SkillsSection /> 
+      
+      <ServicesSection />
 
       <CustomerReviews />
 

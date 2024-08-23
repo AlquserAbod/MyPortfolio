@@ -92,7 +92,7 @@ const GetInTouch = () => {
     e.preventDefault();
 
     const isValid = validateForm();
-    if (!isValid) throw Error('form is not valid');
+    if (!isValid) throw Error("form is not valid");
 
     try {
       await sendEmail({
@@ -113,19 +113,22 @@ const GetInTouch = () => {
         message: "",
       });
     } catch (error) {
-      throw Error('error')
+      throw Error("error");
     }
   };
 
   return (
-    <div className={styles.container}>
-      <form className={styles.itemsHolder} onSubmit={(e) => {
-        ToastService.promiseToast(handleSubmit(e),{
-          loadingText: t('getInTouch.sendingMessage'),
-          successText:t('getInTouch.successMessage'),
-          errorText:t('getInTouch.errorMessage'),
-        })
-      }}>
+    <div className={`${styles.container}`} id="getinTouch">
+      <form
+        className={styles.itemsHolder}
+        onSubmit={(e) => {
+          ToastService.promiseToast(handleSubmit(e), {
+            loadingText: t("getInTouch.sendingMessage"),
+            successText: t("getInTouch.successMessage"),
+            errorText: t("getInTouch.errorMessage"),
+          });
+        }}
+      >
         <div className={styles.formHolder}>
           <div className={styles.inputGroup}>
             <label htmlFor="firstName">
@@ -264,11 +267,7 @@ const GetInTouch = () => {
                 <Trans i18nKey={"getInTouch.email"} />
               </div>
               <div className={styles.value}>
-                <div
-                  className={`${styles.tooltip}`}
-                >
-                  {t(emailTooltipText)}
-                </div>
+                <div className={`${styles.tooltip}`}>{t(emailTooltipText)}</div>
                 <span>{data.contactData.email}</span>
               </div>
             </div>
@@ -287,11 +286,7 @@ const GetInTouch = () => {
                 <Trans i18nKey={t("getInTouch.phoneNumber")} />
               </div>
               <div className={styles.value}>
-                <div
-                  className={`${styles.tooltip}`}
-                >
-                  {t(phoneTooltipText)}
-                </div>
+                <div className={`${styles.tooltip}`}>{t(phoneTooltipText)}</div>
                 {data.contactData.phoneNumber}
               </div>
             </div>

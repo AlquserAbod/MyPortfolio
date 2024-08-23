@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  border-bottom: 5px solid $secondary-color;
+  max-width: 200px;
+  min-height: 325px;
+  max-height: 325px;
+  text-align: center;
+
+  gap: 20px;
+  padding: 20px 10px;
+
+  background-color: $light-color;
+  border-radius: 15px;
+
+  color: $primary-color;
+
+  .icon {
+    font-size: 50px;
+    color: $secondary-color;
+  }
+
+  .title {
+    font-weight: 800;
+  }
+
+  .contactUs {
+    color: $secondary-color;
+    font-weight: 900;
+    transition: 0.3s ease;
+    
+    &:hover {
+        cursor: pointer;
+        color: $primary-color;
+        transform: scale(1.1);
+    }
+  }
+}
