@@ -48,7 +48,7 @@ const HeroSection = () => {
             <div className={styles.rightSide}>
               <div className={styles.pcIconHolder}>
                 
-                  <img src={laptopWithGround} alt='laptop With Ground' className={styles.laptop} />
+                  <img src={laptopWithGround} alt='laptop Gif' className={styles.laptop} />
               </div>
             </div>
 

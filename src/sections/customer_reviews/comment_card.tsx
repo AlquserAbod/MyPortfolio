@@ -12,7 +12,7 @@ const CommentCard: React.FC<CommentCardProps> =  ({name, service, imageUrl,comme
     <div className={styles.reviewHolder}>
       <div className={styles.itemsHolder}>
         <div className={styles.avatarHolder}>
-          <img src={imageUrl} alt={name}  width={150}/>
+          <img src={imageUrl} alt={'customer profile picture'}  width={150} loading='lazy'/>
         </div>
         <div className={styles.contentHolder}>
           <div className={styles.nameHolder}>

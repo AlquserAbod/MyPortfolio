@@ -36,6 +36,8 @@ const WhoamiSection = () => {
           <img
             src={isRtl() ? halflogoRotate : hlaflogo}
             className={styles.logo}
+            loading="lazy"
+            alt="logo"
           />
         </div>
       </div>

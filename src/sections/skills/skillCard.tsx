@@ -12,7 +12,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ title, icon, content }) => {
     <div className={styles.skillHolder}>
       <div className={styles.headerHolder}>
         <div className={styles.iconHolder}>
-          <img src={icon} alt="Skill Icon" />
+          <img src={icon} alt="Skill Icon"  loading="lazy"/>
         </div>
         <TitleBox title={title} />
       </div>

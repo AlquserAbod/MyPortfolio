@@ -18,7 +18,7 @@ const Footer = () => {
       <div className={styles.itemsHolder}>
         <div className={styles.leftSide}>
           <div className={styles.logo}>
-            <img src={logoUrl} loading="lazy" />
+            <img src={logoUrl} loading="lazy"  alt="logo"/>
             <span>{t("name")}</span>
           </div>
 
