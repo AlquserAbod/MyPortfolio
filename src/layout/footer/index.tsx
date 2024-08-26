@@ -8,8 +8,7 @@ import {
   FaTiktok,
   FaYoutube,
 } from "react-icons/fa";
-import data from '@/data.json';
-
+import data from "@/data.json";
 
 const Footer = () => {
   const { t } = useTranslation("footer");
@@ -19,7 +18,7 @@ const Footer = () => {
       <div className={styles.itemsHolder}>
         <div className={styles.leftSide}>
           <div className={styles.logo}>
-            <img src={logoUrl} loading="lazy"  alt="logo"/>
+            <img src={logoUrl} loading="lazy" alt="logo" />
             <span>{t("name")}</span>
           </div>
 
@@ -30,7 +29,7 @@ const Footer = () => {
               </a>
             </li>
             <li className={styles.github} data-color="#181717">
-               <a href={data.links.github}>
+              <a href={data.links.github}>
                 <FaGithub />
               </a>
             </li>
@@ -75,7 +74,7 @@ const Footer = () => {
       </div>
 
       <div className={styles.divider}></div>
-      
+
       <div className={styles.copyright}>
         {t("copyright")}
         <span>©</span>

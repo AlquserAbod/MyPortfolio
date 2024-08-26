@@ -38,13 +38,6 @@ const Navbar = () => {
 
   const logoUrl = screenWidth > 600 ? noBgLogoUrl : primaryNoBgLogoUrl;
 
-  const handleScroll = (e: any) => {
-    e.preventDefault();
-    const targetId = e.currentTarget.getAttribute("section-class");
-    const targetElement = document.getElementById(targetId);
-    targetElement?.scrollIntoView({ behavior: "smooth" });
-  };
-
   useClickOutside([sidebarRef, sidebarToggleRef], () => {
     if (isSidebarOpen) {
       setIsSidebarOpen(false);
@@ -79,33 +72,34 @@ const Navbar = () => {
           </div>
           <div className={styles.pagesHolder}>
             <span>
-              <a section-class="whoami" onClick={handleScroll}>
-                <Trans i18nKey="navbar.whoami"></Trans>
-              </a>
-            </span>
-            <span>
-              <a section-class="projects" onClick={handleScroll}>
+              <a href="#projects">
                 <Trans i18nKey={"navbar.projects"}></Trans>
               </a>
             </span>
+
             <span>
-              <a section-class="services" onClick={handleScroll}>
+              <a href="#whoami">
+                <Trans i18nKey="navbar.whoami"></Trans>
+              </a>
+            </span>
+
+            <span>
+              <a href="#services">
                 <Trans i18nKey={"navbar.services"}></Trans>
               </a>
             </span>
             <span>
-              <a section-class="academic_qualifications" onClick={handleScroll}>
-                <Trans i18nKey={"navbar.academic_qualifications"}></Trans>
+              <a href="#skills">
+                <Trans i18nKey={"navbar.skills"}></Trans>
               </a>
             </span>
             <span>
-              <a section-class="getinTouch" onClick={handleScroll}>
+              <a href="#getinTouch">
                 <Trans i18nKey={"navbar.getinTouch"}></Trans>
               </a>
             </span>
           </div>
           <LanguageSelector isScrolled={isScrolled} />{" "}
-          {/* Pass isScrolled state */}
         </div>
 
         <div
