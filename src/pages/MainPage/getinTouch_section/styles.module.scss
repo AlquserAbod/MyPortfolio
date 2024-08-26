@@ -107,6 +107,7 @@ $value-tooltip-arrow-size: 8px;
           &:hover {
             background-color: $secondary-color;
             color: $primary-color;
+            cursor: pointer;
           }
         }
       }

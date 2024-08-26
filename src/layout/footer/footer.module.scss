@@ -1,0 +1,224 @@
+footer.container {
+  display: flex;
+  flex-direction: column;
+  background-color: $light-color;
+  margin-top: 100px;
+  padding: 50px 100px;
+
+  .itemsHolder {
+    display: flex;
+    justify-content: space-between;
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+
+      color: $primary-color;
+      font-size: 1.75rem;
+
+      img {
+        width: 60px;
+      }
+    }
+
+    .leftSide {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 50px;
+      .contactUsButton {
+        background-color: $primary-color;
+        color: $light-color;
+        border-radius: 20px;
+        padding: 10px;
+
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      .sochilLinks {
+        display: flex;
+
+        list-style: none;
+        gap: 10px;
+
+        padding: 0;
+
+        li {
+          background-color: $primary-color;
+          border-radius: 10px;
+          transition: 0.3s ease;
+          padding: 10px;
+
+          a {
+            font-size: 1.2rem;
+            color: $light-color;
+            display: flex;
+            align-items: center;
+          }
+
+          &:hover {
+            cursor: pointer;
+
+            &.youtube {
+              background-color: #ff0000;
+            }
+
+            &.github {
+              background-color: #1d1a1a;
+            }
+
+            &.linkedIn {
+              background-color: #0077b5;
+            }
+
+            &.tiktok {
+              background-color: #00f2ea;
+            }
+
+            &.instagram {
+              background-color: #e1306c;
+            }
+
+            a {
+              animation: slide-in-top 0.3s both;
+            }
+          }
+        }
+
+        @keyframes slide-in-top {
+          0% {
+            transform: translateY(-50px);
+            opacity: 0;
+          }
+
+          100% {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .pagesHolder {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        transition: 0.3s ease;
+        a {
+          color: $primary-color;
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 1.5rem;
+        }
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+  .divider {
+    width: 100%;
+    height: 2px;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    background-color: $primary-color;
+  }
+
+  .copyright {
+    color: $primary-color;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+}
+
+
+@media (max-width: $screen-size-md) {
+    footer.container {
+        padding: 50px 25px;
+    }
+}
+
+
+@media (max-width: $screen-size-sm) {
+    footer.container {
+        padding: 50px 25px;
+
+        .itemsHolder {
+
+            .leftSide {
+                .logo {
+                    font-size: 1.5rem;
+                    gap: 10px;
+                    img { 
+                        width: 45px;
+                    }
+                }
+    
+                .sochilLinks {
+                    li {
+                        padding: 7px;
+                        a {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+            .pagesHolder {
+                li {
+                    a {
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+@media (max-width: 480px) {
+    footer.container {
+        padding: 50px 25px;
+
+        .itemsHolder {
+            flex-direction: column;
+
+            .leftSide {
+                .logo {
+                    flex-direction: column;
+                    font-size: 1.7rem;
+                    text-align: center  ;
+                    img { 
+                        width: 75px;
+                    }
+                }
+    
+                .sochilLinks {
+                    justify-content: center;
+                    gap: 20px;
+                    flex-wrap: wrap;
+
+                }
+            }
+
+            .pagesHolder {
+                margin-top: 15px;
+                text-align: center;
+                li {
+                    a {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+
+    }
+}

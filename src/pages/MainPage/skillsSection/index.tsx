@@ -23,7 +23,7 @@ const SkillsSection = () => {
     const {t} = useTranslation();
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} id='skills'>
             <div className={styles.sectionTitle}>
                 <TitleBox title={t('skills.title')} />
             </div>

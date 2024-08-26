@@ -11,7 +11,7 @@ const CustomerReviews: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="customerReviews">
         
         <div className={styles.titleHolder}>
           <TitleBox title={t("customerReveiews.title")} />

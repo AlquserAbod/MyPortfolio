@@ -1,30 +1,23 @@
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
-    &.rtl {
-        direction: rtl;
-    }
-
-    &.ltr {
-        direction: ltr;
-    }
-}
 
 html {
     scroll-behavior: smooth;
-}
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;            
+        font-family: $font-family;
+        color: $white-color;
+        background-color: $primary-color;
+        overflow-x: hidden;
 
-body .portfolio{
+        &.rtl {
+            direction: rtl;
+        }
     
-    font-family: $font-family;
-    color: $white-color;
-
+        &.ltr {
+            direction: ltr;
+        }
+    }
+    
 }
 
-body { 
-    background-color: $primary-color;
-    height: 1000vh;
-    overflow-x: hidden;
-}

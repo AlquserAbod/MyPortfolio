@@ -1,0 +1,13 @@
+{
+    "name": "Alquser Abdullah",
+    "copyright": "All rights reserved to Abdullah Alquser",
+    "contactUs": "Contact us",
+    "pages": {
+        "whoamI": "Who I'am",
+        "skills": "Skills",
+        "projects": "Projects",
+        "services": "Services",
+        "customerReviews": "Customer Reviews",
+        "getInTouch": "Get In Touch"
+    }
+}
