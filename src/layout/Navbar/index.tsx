@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import styles from "./navbar.module.scss";
+import styles from "@/styles/layout/navbar.module.scss";
 import noBgLogoUrl from "@/assets/images/logos/noBgLogo.png";
 import primaryNoBgLogoUrl from "@/assets/images/logos/PrimaryColorNoBgLogo.png";
 import { TiThMenu } from "react-icons/ti";
@@ -38,14 +38,12 @@ const Navbar = () => {
 
   const logoUrl = screenWidth > 600 ? noBgLogoUrl : primaryNoBgLogoUrl;
 
-
   const handleScroll = (e: any) => {
     e.preventDefault();
     const targetId = e.currentTarget.getAttribute("section-class");
     const targetElement = document.getElementById(targetId);
     targetElement?.scrollIntoView({ behavior: "smooth" });
   };
-
 
   useClickOutside([sidebarRef, sidebarToggleRef], () => {
     if (isSidebarOpen) {
@@ -79,23 +77,33 @@ const Navbar = () => {
               <ImCross />
             </div>
           </div>
-    <div className={styles.pagesHolder}>
-      <span>
-        <a section-class="whoami" onClick={handleScroll}><Trans i18nKey="navbar.whoami"></Trans></a>
-      </span>
-      <span>
-        <a section-class="projects" onClick={handleScroll}><Trans i18nKey={"navbar.projects"}></Trans></a>
-      </span>
-      <span>
-        <a section-class="services" onClick={handleScroll}><Trans i18nKey={"navbar.services"}></Trans></a>
-      </span>
-      <span>
-        <a section-class="academic_qualifications" onClick={handleScroll}><Trans i18nKey={"navbar.academic_qualifications"}></Trans></a>
-      </span>
-      <span>
-        <a section-class="getinTouch" onClick={handleScroll}><Trans i18nKey={"navbar.getinTouch"}></Trans></a>
-      </span>
-    </div>
+          <div className={styles.pagesHolder}>
+            <span>
+              <a section-class="whoami" onClick={handleScroll}>
+                <Trans i18nKey="navbar.whoami"></Trans>
+              </a>
+            </span>
+            <span>
+              <a section-class="projects" onClick={handleScroll}>
+                <Trans i18nKey={"navbar.projects"}></Trans>
+              </a>
+            </span>
+            <span>
+              <a section-class="services" onClick={handleScroll}>
+                <Trans i18nKey={"navbar.services"}></Trans>
+              </a>
+            </span>
+            <span>
+              <a section-class="academic_qualifications" onClick={handleScroll}>
+                <Trans i18nKey={"navbar.academic_qualifications"}></Trans>
+              </a>
+            </span>
+            <span>
+              <a section-class="getinTouch" onClick={handleScroll}>
+                <Trans i18nKey={"navbar.getinTouch"}></Trans>
+              </a>
+            </span>
+          </div>
           <LanguageSelector isScrolled={isScrolled} />{" "}
           {/* Pass isScrolled state */}
         </div>

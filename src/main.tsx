@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 
-import './styles/index.scss';
+import './styles/global.scss';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import i18n from '@/utils/i18n.ts';

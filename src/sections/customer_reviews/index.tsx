@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./styles/customer_reviews.module.scss";
+import styles from "@/styles/sections/customer_reviews/styles.module.scss";
 import TitleBox from "@/components/titleBox";
 import { useTranslation } from "react-i18next";
 import CommentCard from "./comment_card";

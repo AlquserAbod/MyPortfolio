@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./footer.module.scss";
+import styles from "@/styles/layout/footer.module.scss";
 import { useTranslation } from "react-i18next";
 import logoUrl from "@/assets/images/logos/PrimaryColorNoBgLogo.png";
 import {
@@ -21,7 +21,6 @@ const Footer = () => {
             <img src={logoUrl} loading="lazy" />
             <span>{t("name")}</span>
           </div>
-
 
           <ul className={styles.sochilLinks}>
             <li className={styles.youtube} data-color="#FF0000">

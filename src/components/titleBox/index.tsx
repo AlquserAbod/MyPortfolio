@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './styles.module.scss';
+import React from "react";
+import styles from "@/styles/components/titleBox.module.scss";
 
 interface TitleBoxProps {
   title: string;
@@ -8,9 +8,7 @@ interface TitleBoxProps {
 const TitleBox: React.FC<TitleBoxProps> = ({ title }) => {
   return (
     <div className={styles.titleHolder}>
-      <div className={styles.title}>
-        {title}
-      </div>
+      <div className={styles.title}>{title}</div>
     </div>
   );
 };

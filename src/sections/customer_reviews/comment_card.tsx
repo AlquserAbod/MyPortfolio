@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './styles/comment.module.scss';
+import styles from "@/styles/sections/customer_reviews/comment.module.scss";
 
 interface CommentCardProps {
   name: string;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import styles from "./styles.module.scss";
+import styles from "@/styles/sections/get_in_touch/styles.module.scss";
+
 import { Trans, useTranslation } from "react-i18next";
 import TitleBox from "@/components/titleBox";
 import data from "@/data.json";
@@ -120,6 +121,8 @@ const GetInTouch = () => {
   return (
     <div className={`${styles.container}`} id="getinTouch">
       <form
+        action="https://formspree.io/f/mqaznzja"
+        method="POST"
         className={styles.itemsHolder}
         onSubmit={(e) => {
           ToastService.promiseToast(handleSubmit(e), {

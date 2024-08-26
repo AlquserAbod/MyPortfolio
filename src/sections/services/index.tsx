@@ -1,17 +1,13 @@
 import TitleBox from "@/components/titleBox";
-import styles from "./styles/styles.module.scss";
+import styles from "@/styles/sections/services/styles.module.scss";
 
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { t } from "i18next";
 import ServiceCard from "./serviceCard";
 import Carousel from "react-multi-carousel";
-import useScreenWidth from "@/hooks/useScreenWidth";
 
 const ServicesSection = () => {
   const services = t("services.services", { returnObjects: true });
-
-
-
 
   useEffect(() => {
     import("react-multi-carousel/lib/styles.css")
@@ -59,7 +55,6 @@ const ServicesSection = () => {
     },
   };
 
-
   return (
     <div className={styles.container} id="services">
       <div className={styles.webServices}>
@@ -85,19 +80,17 @@ const ServicesSection = () => {
             slidesToSlide={1}
             swipeable
           >
-            {Object.entries(services).map(
-              ([key, service]: [string, any]) => (
-                <ServiceCard
-                  title={service.title}
-                  description={service.description}
-                  iconName={service.iconName}
-                  key={key}
-                />
-              )
-            )}
+            {Object.entries(services).map(([key, service]: [string, any]) => (
+              <ServiceCard
+                title={service.title}
+                description={service.description}
+                iconName={service.iconName}
+                key={key}
+              />
+            ))}
           </Carousel>
         </div>
-      </div>     
+      </div>
     </div>
   );
 };
