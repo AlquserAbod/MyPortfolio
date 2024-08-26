@@ -1,0 +1,21 @@
+{
+    "title": "Projects",
+    "github": "Github",
+    "theWebsite": "The website",
+    "categories": {
+        "all": "All",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "fullstack": "Full stack",
+        "androidApplications": "Android Applications"
+    },
+
+    "projects": { 
+        "moviemagic": {
+            "title": "Movie Magic",
+            "description": "MovieMagic is a web application built with React that caters to movie enthusiasts. It integrates with TheMovieDB API to provide an extensive library of films. The app features a powerful search functionality, allowing users to easily find movies. Additionally, users can manage their film preferences by adding movies to their Watchlist for future viewing or to their Watched list to track what they've already seen. With its clean and intuitive design, MovieMagic enhances the movie-watching experience by providing seamless movie exploration and organization.",
+            "imagePath": "\\images\\projects\\moviemagic.png",
+            "tags": ["Html", "JavaScript","React", "Bootstrap"]
+        }
+    }
+}

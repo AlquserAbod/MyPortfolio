@@ -8,6 +8,7 @@ import CustomerReviews from "./sections/customer_reviews";
 import GetInTouch from "./sections/get_in_touch";
 import ServicesSection from "./sections/services";
 import Footer from "@/layout/footer";
+import Projects from "./sections/projects";
 
 const MainPage = () => {
   return (
@@ -19,6 +20,8 @@ const MainPage = () => {
       <WhoamiSection />
 
       <SkillsSection />
+
+      <Projects /> 
 
       <ServicesSection />
 

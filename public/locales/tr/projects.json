@@ -1,0 +1,21 @@
+{
+    "title": "Projeler",
+    "github": "Github",
+    "theWebsite": "Web Sitesi",
+    "categories": {
+        "all": "Hepsi",
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "fullstack": "Full Stack",
+        "androidApplications": "Android Uygulamaları"
+    },
+
+    "projects": { 
+        "moviemagic": {
+            "title": "Movie Magic",
+            "description": "MovieMagic, sinema tutkunları için React ile geliştirilmiş bir web uygulamasıdır. TheMovieDB API'si ile geniş bir film kütüphanesi sunar. Uygulama, kullanıcıların filmleri kolayca bulmasını sağlayan güçlü bir arama işlevi içerir. Ayrıca, kullanıcılar filmleri gelecekte izlemek üzere Watchlist'lerine veya zaten izledikleri filmleri takip etmek için Watched listelerine ekleyebilirler. Temiz ve kullanıcı dostu tasarımıyla, MovieMagic sinema izleme deneyimini geliştirir ve film keşfi ile organizasyonunu sorunsuz hale getirir.",
+            "imagePath": "\\images\\projects\\moviemagic.png",
+            "tags": ["Html", "JavaScript","React", "Bootstrap"]
+        }
+    }
+}
