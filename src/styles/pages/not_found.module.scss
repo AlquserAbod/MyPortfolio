@@ -1,0 +1,125 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+
+    img {
+        width: 250px;
+        filter: drop-shadow(3px 11px 15px #000000);
+        animation: space-swiming 5s ease-out reverse;
+        animation-iteration-count: infinite;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        text-align: center;
+        span {
+            font-size: 3rem;
+            font-weight: 800;
+            color: $light-color;
+
+            strong {
+                font-size: 3.2rem;
+                color: $secondary-color;
+            }
+        }
+
+        a {
+            cursor: pointer;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 100px;
+            background: white;
+            border: 1px solid transparent;
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+
+            span {
+                color: $primary-color;
+            }
+
+            &.rtl:hover {
+                svg {
+                  transform: translateX(-5px);
+                }
+              }
+            &:not(.rtl):hover {
+                svg {
+                  transform: translateX(5px);
+                }
+              }
+  
+
+
+            svg {
+                font-size: 2rem;
+                color: $primary-color;
+                transition: all .3s;
+
+            }
+
+            &:active {
+              transform: scale(0.95);
+            }
+
+
+          }
+          
+          
+          
+
+          
+          
+          
+    }
+}
+
+@keyframes space-swiming {
+    0% {
+        transform: translateX(-5px);
+
+    }
+
+    50% {
+        transform: translateX(5px);
+
+    }
+    100% {
+        transform: translateX(-5px);
+
+    }
+}
+
+@media (max-width:400px) {
+    .container {
+        gap: 20px;
+        img {
+            width: 200px;
+        }
+
+        .content {
+        gap: 20px;
+
+            span {
+                font-weight: 500;
+                font-size: 2rem;
+                strong {
+                    font-size: 2.5rem;
+                }
+            }
+        }
+    }
+}

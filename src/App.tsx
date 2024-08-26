@@ -1,11 +1,14 @@
 /* eslint-disable react-refresh/only-export-components */
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import MainPage from ".";
+import MainPage from "./pages";
 import { withTranslation } from "react-i18next";
 import { isRtl } from "./utils/i18n";
 import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
+import Navbar from "./layout/Navbar";
+import Footer from "./layout/footer";
+import NotFound from "./pages/not_found";
 
 function App() {
   const directionClass = isRtl() ? "rtl" : "ltr";
@@ -20,11 +23,12 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<MainPage />} />{" "}
-        {/* Handle admin dashboard routes */}
+        <Route path="/" element={<MainPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
-
+      <Footer />
       <Toaster />
     </BrowserRouter>
   );
