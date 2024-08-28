@@ -72,30 +72,42 @@ const Navbar = () => {
           </div>
           <div className={styles.pagesHolder}>
             <span>
-              <a href="#projects">
-                <Trans i18nKey={"navbar.projects"}></Trans>
+              <a href="#projects" className={isRtl() ? styles.lastChild : ''}>
+                <span>
+                  <Trans i18nKey={"navbar.projects"}></Trans>
+
+                </span>
               </a>
             </span>
 
             <span>
               <a href="#whoami">
+                <span> 
                 <Trans i18nKey="navbar.whoami"></Trans>
+
+                </span>
               </a>
             </span>
 
             <span>
               <a href="#services">
-                <Trans i18nKey={"navbar.services"}></Trans>
+                <span>
+                  <Trans i18nKey={"navbar.services"}></Trans>
+                </span>
               </a>
             </span>
             <span>
               <a href="#skills">
-                <Trans i18nKey={"navbar.skills"}></Trans>
+                <span>
+                  <Trans i18nKey={"navbar.skills"}></Trans>
+                </span>
               </a>
             </span>
             <span>
-              <a href="#getinTouch">
-                <Trans i18nKey={"navbar.getinTouch"}></Trans>
+              <a href="#getinTouch"  className={isRtl() ?  '' : styles.lastChild}>
+                <span>
+                  <Trans i18nKey={"navbar.getinTouch"}></Trans>
+                </span>
               </a>
             </span>
           </div>

@@ -10,13 +10,13 @@ $value-tooltip-arrow-size: 8px;
   z-index: 1;
   margin: 100px 150px;
   &::before {
+    
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("@/assets/images/backgrounds/getInTouch/laptop.png");
     background-size: 100% 100%;
     opacity: 0.4;
     z-index: -1;
@@ -324,10 +324,6 @@ $value-tooltip-arrow-size: 8px;
   .container {
     margin: 0 20px;
     padding: 0 40px;
-
-    &::before {
-      background-image: url("@/assets/images/backgrounds/getInTouch/phone.png");
-    }
 
     .itemsHolder {
       flex-direction: column-reverse;

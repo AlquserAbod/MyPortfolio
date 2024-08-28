@@ -3,12 +3,14 @@ import styles from "@/styles/components/titleBox.module.scss";
 
 interface TitleBoxProps {
   title: string;
+  className?: string; 
+  holderClass?: string; 
 }
 
-const TitleBox: React.FC<TitleBoxProps> = ({ title }) => {
+const TitleBox: React.FC<TitleBoxProps> = ({ title, holderClass, className }) => {
   return (
-    <div className={styles.titleHolder}>
-      <div className={styles.title}>{title}</div>
+    <div className={`${styles.titleHolder} ${holderClass}`}>
+    <div className={`${styles.title} ${className}`}>{title}</div>
     </div>
   );
 };

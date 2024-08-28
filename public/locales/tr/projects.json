@@ -1,0 +1,34 @@
+{
+  "title": "Projeler",
+  "github": "Github",
+  "theWebsite": "Web Sitesi",
+  "downloadApplication": "Uygulamayı indirin",
+  "categories": {
+    "all": "Hepsi",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "fullstack": "Full Stack",
+    "androidApplications": "Android Uygulamaları"
+  },
+
+  "projects": {
+    "moviemagic": {
+      "title": "Movie Magic",
+      "description": "MovieMagic, React kullanılarak geliştirilen ve film severlere hitap eden bir web uygulamasıdır. TheMovieDB API ile entegre olarak geniş bir film kütüphanesi sunar. Kullanıcılar filmleri arayabilir, izleme listelerine ekleyebilir veya izledikleri filmleri takip edebilir. Uygulamanın sade tasarımı, film keşfi ve organizasyonunu kolaylaştırır.",
+      "imagePath": "\\images\\projects\\moviemagic.png",
+      "tags": ["Html", "JavaScript", "React", "Bootstrap"],
+      "category": "Frontend",
+      "githubLink": "https://github.com/AlquserAbod/moviemagic",
+      "visitorDownloadLink": "https://moviemagic-al.vercel.app"
+    },
+    "tasktroveWeb": {
+        "title": "Task Trove : Web Uygulaması",
+        "description": "TaskTrove, MERN stack ile geliştirilmiş bir görev yönetim uygulamasıdır. Kullanıcıların görevleri etkin bir şekilde ekleyip organize etmelerini sağlar; görevleri filtreleme, Google hesaplarıyla giriş yapma ve görevleri mobil uygulama ile senkronize etme seçenekleri sunar.",
+        "imagePath": "\\images\\projects\\tasktrove.png",
+        "tags": ["NextJs", "ExpressJs", "Bootstrap"],
+        "category": "Fullstack",
+        "githubLink": "https://github.com/AlquserAbod/tasktrove",
+        "visitorDownloadLink": "https://tasktrove-al.vercel.app"
+    }
+  }
+}
