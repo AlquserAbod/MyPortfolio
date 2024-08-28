@@ -16,8 +16,6 @@ nav.navbar {
     transition: background-color 0.3s ease, transform 0.3s ease;
     position: relative;
 
-
-
     .logoHolder {
       width: 40px;
       position: absolute;
@@ -49,30 +47,33 @@ nav.navbar {
           color: #f3fff4;
           text-decoration: none;
           position: relative;
-          transition: color 0.3s ease, font-size 0.2s ease;
           font-weight: 900;
-          font-size: 20px;
+          font-size: 1.6rem;
           white-space: nowrap;
           height: fit-content;
+          display: inline-block;
 
-          &::after {
-            content: '\007C';
+          &:not(.lastChild)::after {
+            content: "\007C"; 
             position: absolute;
             text-align: center;
             right: calc($pagesGap / 2 * -1);
             color: #f3fff4;
           }
 
+          span {
+            display: inline-block;
+            transition: transform 0.3s ease; 
+          }
+
           &:hover {
             color: $secondary-color;
-            font-size: 22px;
             cursor: pointer;
 
+            span {
+              transform: scale(1.1);
+            }
           }
-        }
-
-        &:last-child a::after {
-          content: '';
         }
       }
     }
@@ -81,7 +82,11 @@ nav.navbar {
   &.scrolled {
     .itemsHolder {
       background-color: $white-color;
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(255, 255, 255, 0));
+      background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.35),
+        rgba(255, 255, 255, 0)
+      );
       padding-top: 0px;
       padding-bottom: 10px;
 
@@ -93,16 +98,14 @@ nav.navbar {
       .pagesHolder {
         span {
           a {
-            color: $primary-color;
+            color: $primary-color ;
 
             &::after {
-              color: $primary-color;
+              color: $primary-color ;
             }
           }
         }
       }
-
-
     }
   }
 
@@ -117,7 +120,7 @@ nav.navbar {
     border-radius: 50%;
     padding: 10px;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-    
+
     .iconHolder {
       display: flex;
       color: $primary-color;
@@ -127,20 +130,12 @@ nav.navbar {
       transform: scale(1.2);
     }
   }
-
-  &.rtl {
-    .itemsHolder {
-      .pagesHolder {
-        flex-direction: row-reverse;
-      }
-    }
-  }
 }
 
 @media (max-width: $screen-size-lg) {
   nav.navbar {
     .itemsHolder .pagesHolder span a {
-      font-size: 16px;
+      font-size: 1.3rem;
     }
   }
 }
@@ -153,10 +148,10 @@ nav.navbar {
       gap: 20px;
 
       span a {
-        font-size: 2vw;
+        font-size: 1rem;
 
-        &::after {
-          right: -13px;
+        &:not(.lastChild):after {
+          right: -12px;
         }
       }
     }
@@ -166,86 +161,81 @@ nav.navbar {
 @media (max-width: $screen-size-sm) {
   nav.navbar {
     .itemsHolder {
-        background-image: none !important;
-        background-color: rgba($color: $light-color, $alpha: 0.9) !important;
+      background-image: none !important;
+      background-color: rgba($color: $light-color, $alpha: 0.9) !important;
 
-        z-index: 100;
-        padding: 10px;
-        height: 100vh;
-        position: fixed;
-        width: 50%;
-        top: 0;
-        left: 0;
+      z-index: 100;
+      padding: 10px;
+      height: 100vh;
+      position: fixed;
+      width: 50%;
+      top: 0;
+      left: 0;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: space-between;
+      transform: translateX(-100%);
+      transition: 0.3s ease;
+
+      &.open {
+        display: flex !important;
+        transform: translateX(0);
+      }
+
+      .logoHolder {
+        transform: translate(0);
+        width: 100%;
+        background-color: transparent;
+
+        position: static;
+
+        margin: 35px 0px;
+        padding: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        flex: 1;
+
+        img {
+          width: 70px;
+        }
+
+        .siderCloseButton {
+          display: block;
+          cursor: pointer;
+          color: $primary-color;
+        }
+      }
+
+      .pagesHolder {
         flex-direction: column;
-        align-items: stretch;
-        justify-content: space-between;
-        transform: translateX(-100%);
-        transition: 0.3s ease;
+        align-items: start;
+        flex: 1.5;
+        flex-direction: column !important;
 
-        &.open {
-          display: flex !important;
-          transform: translateX(0);
-        }
+        span {
+          a {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: $primary-color !important;
+            position: relative;
+            gap: 40px;
 
-        .logoHolder {
-           transform: translate(0);
-           width: 100%;
-           background-color: transparent;
-
-           position: static;
-
-           margin: 35px 0px;
-           padding: 0;
-           
-           display: flex;
-           align-items: center;
-           justify-content: space-around;
-
-           flex: 1;
-
-           
-           img {
-              width: 70px;
-           }
-
-           .siderCloseButton {
-            display: block;
-            cursor: pointer;
-            color: $primary-color;
-           }
-        }
-
-        .pagesHolder {
-            flex-direction: column;
-            align-items: start;
-            flex: 1.5;
-            flex-direction: column !important;
-
-            span {
-                a {
-                    font-size: 20px;
-                    font-weight: 300;
-                    color: $primary-color;
-                    position: relative;
-                    gap: 40px;
-                    
-                    &::after {
-                      content: '\007C';
-                      position: absolute;
-                      text-align: center;
-                      left: 10px;
-                      bottom: -20px;
-                      color: $primary-color;
-                      width: fit-content;
-                      transform: rotate(90deg);
-
-                      
-                    }
-                }
+            &::after {
+              content: "\007C";
+              position: absolute;
+              text-align: center;
+              left: 10px;
+              bottom: -20px;
+              color: $primary-color !important;
+              width: fit-content;
+              transform: rotate(90deg);
             }
-
-   
+          }
         }
+      }
     }
 
     .sidebarToggle {
@@ -253,22 +243,19 @@ nav.navbar {
     }
 
     &.rtl {
-      
       .itemsHolder {
         right: 0;
         left: auto;
         transform: translateX(100%);
-        
+
         &.open {
           transform: translateX(0);
         }
 
         .pagesHolder {
-  
           span a {
-            &::after {
-              right: 10px;
-  
+            &:after {
+            right: 5px ;
             }
           }
         }
@@ -284,7 +271,7 @@ nav.navbar {
   }
 }
 
-@media  (max-width: 450px){
+@media (max-width: 450px) {
   nav.navbar {
     .itemsHolder {
       width: 100%;
@@ -298,7 +285,7 @@ nav.navbar {
             white-space: wrap;
 
             &::after {
-              content: '\007C';
+              content: "\007C";
               position: absolute;
               text-align: center;
               left: 20px;
@@ -308,7 +295,7 @@ nav.navbar {
               transform: rotate(90deg);
             }
 
-            &:hover{
+            &:hover {
               font-size: 9.2vw;
             }
           }
@@ -317,4 +304,3 @@ nav.navbar {
     }
   }
 }
-

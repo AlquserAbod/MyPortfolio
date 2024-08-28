@@ -2,6 +2,8 @@
     "title": "Projects",
     "github": "Github",
     "theWebsite": "The website",
+    "downloadApplication": "Download application",
+
     "categories": {
         "all": "All",
         "frontend": "Frontend",
@@ -13,9 +15,21 @@
     "projects": { 
         "moviemagic": {
             "title": "Movie Magic",
-            "description": "MovieMagic is a web application built with React that caters to movie enthusiasts. It integrates with TheMovieDB API to provide an extensive library of films. The app features a powerful search functionality, allowing users to easily find movies. Additionally, users can manage their film preferences by adding movies to their Watchlist for future viewing or to their Watched list to track what they've already seen. With its clean and intuitive design, MovieMagic enhances the movie-watching experience by providing seamless movie exploration and organization.",
+            "description": "MovieMagic is a React web app for movie enthusiasts, integrating with TheMovieDB API to offer a vast movie library. Users can search for films, add them to their Watchlist for future viewing, or track them in their Watched list. The app's clean design makes movie exploration and organization effortless.",
             "imagePath": "\\images\\projects\\moviemagic.png",
-            "tags": ["Html", "JavaScript","React", "Bootstrap"]
+            "tags": ["Html", "JavaScript","React", "Bootstrap"],
+            "category": "Frontend",
+            "githubLink": "https://github.com/AlquserAbod/moviemagic",
+            "visitorDownloadLink": "https://moviemagic-al.vercel.app"
+        },
+        "tasktroveWeb": {
+            "title": "Task Trove : Web App",
+            "description": "TaskTrove is a task management app built with the MERN stack. It allows users to add and organize tasks effectively, with options to filter tasks, log in using Google accounts, and sync tasks with a mobile app.",
+            "imagePath": "\\images\\projects\\tasktrove.png",
+            "tags": ["NextJs", "ExpressJs","Bootstrap"],
+            "category": "Fullstack",
+            "githubLink": "https://github.com/AlquserAbod/tasktrove",
+            "visitorDownloadLink": "https://tasktrove-al.vercel.app"
         }
     }
 }

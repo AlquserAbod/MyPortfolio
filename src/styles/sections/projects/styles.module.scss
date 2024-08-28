@@ -74,6 +74,15 @@
       }
     }
   }
+
+
+  .projects {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
 }
 
 
@@ -98,7 +107,7 @@
 
 @media (max-width: $screen-size-sm) {
   .container {
-    margin: 50px;
+    margin: 50px 20px;
     
     .categoriesHolder {
       .categories {

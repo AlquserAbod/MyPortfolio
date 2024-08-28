@@ -1,21 +1,34 @@
 {
-    "title": "المشاريع",
-    "github": "Github",
-    "theWebsite": "الموقع الإلكتروني",
-    "categories": {
-        "all": "الكل",
-        "frontend": "الواجهة الأمامية",
-        "backend": "الواجهة الخلفية",
-        "fullstack": "الواجهة الكاملة",
-        "androidApplications": "تطبيقات أندرويد"
-    },
+  "title": "المشاريع",
+  "github": "Github",
+  "theWebsite": "الموقع الإلكتروني",
+  "downloadApplication": "تحميل التطبيق",
+  "categories": {
+    "all": "الكل",
+    "frontend": "الواجهة الأمامية",
+    "backend": "الواجهة الخلفية",
+    "fullstack": "الواجهة الكاملة",
+    "androidApplications": "تطبيقات أندرويد"
+  },
 
-    "projects": { 
-        "moviemagic": {
-            "title": "Movie Magic",
-            "description": "MovieMagic هو تطبيق ويب مبني باستخدام React يهدف إلى عشاق الأفلام. يتكامل مع واجهة برمجة التطبيقات TheMovieDB لتوفير مكتبة واسعة من الأفلام. يحتوي التطبيق على ميزة بحث قوية، مما يسمح للمستخدمين بالعثور على الأفلام بسهولة. بالإضافة إلى ذلك، يمكن للمستخدمين إدارة تفضيلاتهم السينمائية من خلال إضافة الأفلام إلى قائمة Watchlist لمشاهدتها لاحقًا أو إلى قائمة Watched لتتبع الأفلام التي شاهدوها بالفعل. مع تصميمه النظيف وسهل الاستخدام، يعزز MovieMagic تجربة مشاهدة الأفلام من خلال توفير استكشاف وتنظيم الأفلام بسلاسة.",
-            "imagePath": "\\images\\projects\\moviemagic.png",
-            "tags": ["Html", "JavaScript","React", "Bootstrap"]
-        }
+  "projects": {
+    "moviemagic": {
+      "title": "Movie Magic",
+      "description": "MovieMagic هو تطبيق ويب مبني باستخدام React لمحبي الأفلام، يتكامل مع TheMovieDB API لتوفير مكتبة ضخمة من الأفلام. يمكن للمستخدمين البحث عن الأفلام وإضافتها إلى قائمة المشاهدة للمستقبل أو تتبعها في قائمة المشاهدة. يتميز التطبيق بتصميم بسيط يجعل استكشاف الأفلام وتنظيمها أمرًا سهلاً.",
+      "imagePath": "\\images\\projects\\moviemagic.png",
+      "tags": ["Html", "JavaScript", "React", "Bootstrap"],
+      "category": "Frontend",
+      "githubLink": "https://github.com/AlquserAbod/moviemagic",
+      "visitorDownloadLink": "https://moviemagic-al.vercel.app"
+    },
+    "tasktroveWeb": {
+        "title": "Task Trove : تطبيق الويب",
+        "description": "تاسك تروف هو تطبيق لإدارة المهام مبني باستخدام تقنية MERN. يتيح للمستخدمين إضافة وتنظيم المهام بفعالية، مع خيارات لتصفية المهام، وتسجيل الدخول باستخدام حسابات جوجل، ومزامنة المهام مع تطبيق موبايل.",
+        "imagePath": "\\images\\projects\\tasktrove.png",
+        "tags": ["NextJs", "ExpressJs", "Bootstrap"],
+        "category": "Fullstack",
+        "githubLink": "https://github.com/AlquserAbod/tasktrove",
+        "visitorDownloadLink": "https://tasktrove-al.vercel.app"
     }
+  }
 }
