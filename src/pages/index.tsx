@@ -5,8 +5,10 @@ import SkillsSection from "../sections/skills";
 import CustomerReviews from "../sections/customer_reviews";
 import GetInTouch from "../sections/get_in_touch";
 import ServicesSection from "../sections/services";
+import Projects from "@/sections/projects";
 
 const MainPage = () => {
+
   return (
     <>
       <HeroSection />
@@ -15,7 +17,9 @@ const MainPage = () => {
 
       <SkillsSection />
 
+      <Projects /> 
       <ServicesSection />
+      
 
       <CustomerReviews />
 

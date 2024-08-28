@@ -21,6 +21,8 @@ function App() {
     };
   }, [directionClass]);
 
+  
+
   return (
     <BrowserRouter>
       <Navbar />

@@ -11,6 +11,7 @@ import Footer from "@/layout/footer";
 import Projects from "./sections/projects";
 
 const MainPage = () => {
+  
   return (
     <>
       <Navbar />
