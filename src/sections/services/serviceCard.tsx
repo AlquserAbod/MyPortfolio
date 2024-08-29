@@ -35,7 +35,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
     <div className={styles.container}>
       <div className={styles.icon}>
         {iconUrl ? (
-          <img src={iconUrl} alt="Service Icon" width={50}  loading="lazy"/>
+          <img src={iconUrl} alt="Service Icon"  loading="lazy"/>
         ) : (
           <div></div>
         )}

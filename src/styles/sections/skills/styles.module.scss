@@ -1,7 +1,6 @@
 
-
 .container {
-    margin: 100px;
+    margin: 50px;
     
 
     .sectionTitle {
@@ -11,16 +10,17 @@
     .flexContainer {
         display:  flex;
         justify-content: center;
-        align-items: center;
+        align-items: stretch;
         flex-wrap: wrap;
-        gap: 50px;
+        gap: 25px;
     }
     
 }
 
 
-@media (max-width: $screen-size-lg) {
+@media (max-width: $screen-size-md) {
     .container {
-        margin : 100px 50px;
+        margin: 50px 10px;
+
     }
 }

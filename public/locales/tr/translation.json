@@ -17,62 +17,6 @@
     "line3": "Müşteri projelerinin başarısına katkıda bulunan ve isteklerini sürekli olarak karşılayan yenilikçi teknik çözümler sunmaya kendimi adadım."
   },
 
-  "skills": {
-    "title": "Beceriler",
-    "html": {
-      "title": "Html",
-      "content": "HTML, web sayfaları oluşturmak ve tasarlamak için kullanılan bir hiper metin işaretleme dilidir. Belgelerin yapısını ve içeriğini etiketler ve öğeler kullanarak tanımlar. CSS ve JavaScript ile birlikte web teknolojilerinin temelidir."
-    },
-    "css": {
-      "title": "Css",
-      "content": "CSS, web sayfalarını tasarlamak ve biçimlendirmek için kullanılan bir formatlama dilidir. HTML'de yazılı öğelerin görünümünü ve düzenini tanımlar. Renkler, yazı tipleri, boşluklar ve düzenler üzerinde kontrol sağlar ve çekici ve duyarlı kullanıcı arayüzleri sunar."
-    },
-    "expressjs": {
-      "title": "Express Js",
-      "content": "Express.js, Node.js için hafif, açık kaynaklı bir çerçevedir ve web uygulamaları ve API'ler oluşturmayı hızlı ve verimli bir şekilde sağlar. İstek ve yanıtları yönetmek ve uygulamaları genişletmek için araçlar ve özellikler sunar."
-    },
-    "dart": {
-      "title": "Dart",
-      "content": "Dart, Google tarafından geliştirilen açık kaynaklı bir programlama dilidir ve Flutter çerçevesi aracılığıyla web ve mobil uygulamalar geliştirmek için kullanılır. Dart, yüksek performans ve modern bir mimari sunarak hızlı ve sürdürülebilir uygulama geliştirmeyi destekler."
-    },
-    "flutter": {
-      "title": "Flutter",
-      "content": "Flutter, Google tarafından sağlanan açık kaynaklı bir çerçevedir ve tek bir kod tabanından birden fazla platformda (Android ve iOS) entegre uygulamalar oluşturmak için kullanılır. Dart diline dayanır ve akıcı ve çekici kullanıcı arayüzleri oluşturmak için araçlar ve özellikler sunar."
-    },
-    "tailwindcss": {
-      "title": "Tailwind CSS",
-      "content": "Modern, duyarlı ve görsel olarak çekici kullanıcı arayüzleri tasarlamak için Tailwind CSS kullanma konusunda yetkin. Hızlı geliştirme ve tutarlı tasarım sistemleri için yardımcı sınıflar tabanlı CSS'i özelleştirme ve genişletme konusunda deneyim sahibiyim."
-    },
-    "nextjs": {
-      "title": "Next Js",
-      "content": "Next.js ile yüksek performanslı, sunucu tarafından render edilen React uygulamaları geliştirme konusunda yetkinim. Dinamik, SEO dostu web siteleri oluşturma ve kullanıcı deneyimini optimize etmek için Next.js'in statik site üretimi (SSG) ve sunucu tarafı render (SSR) gibi özelliklerini kullanma konusunda uzmanım."
-    },
-    "javascript": {
-      "title": "JavaScript",
-      "content": "JavaScript, web uygulama geliştirmede yaygın olarak kullanılan bir betik dilidir. Etkileşimli ve dinamik web sayfaları sağlamak için tasarlanmıştır ve olayları işleme, içeriği değiştirme ve sunucularla iletişim kurma yeteneğiyle karakterize edilir."
-    },
-    "typescript": {
-      "title": "TypeScript",
-      "content": "TypeScript, Microsoft tarafından geliştirilen ve JavaScript'e statik yazım özellikleri ekleyerek hata tespitini ve kod bakımını iyileştiren açık kaynaklı bir programlama dilidir. TypeScript kodu, yürütme için JavaScript'e dönüştürülür."
-    },
-    "react": {
-      "title": "React",
-      "content": "React, Facebook tarafından geliştirilen açık kaynaklı bir JavaScript kütüphanesidir ve web uygulamaları için etkileşimli ve hızlı performans gösteren arayüzler oluşturmak için kullanılır. Kodun yeniden kullanılabilirliğini artırmak ve durum yönetimini iyileştirmek için bileşen prensibine dayanır."
-    },
-    "node": {
-      "title": "Node",
-      "content": "Node.js, sunucuda JavaScript çalıştırmak için açık kaynaklı bir çalışma zamanı ortamıdır ve yüksek performanslı, ölçeklenebilir web uygulamaları oluşturmayı sağlar. İşlemleri verimli bir şekilde işlemek için eşzamansız ve olay odaklı bir model kullanır."
-    },
-    "mongodb": {
-      "title": "MongoDb",
-      "content": "MongoDB, büyük ve karmaşık web uygulamaları için ideal olan esnek ve ölçeklenebilir JSON belgeleri biçiminde veri depolamak için kullanılan açık kaynaklı bir NoSQL veritabanıdır. Yüksek performans sağlar ve büyük miktarda veriyi hızlı bir şekilde işleyebilir."
-    },
-    "sass": {
-      "title": "SASS",
-      "content": "Sass, büyük ve karmaşık CSS düzenlerini basitleştirmek ve bakımını yapmak için değişkenler, iç içe geçme ve fonksiyonlar kullanılmasını sağlayan açık kaynaklı bir CSS optimize biçimlendirme dilidir. Sass kodu, web sitelerinde kullanılmak üzere CSS'ye dönüştürülür."
-    }
-  },
-
   "customerReveiews": {
     "title": "Müşteri Yorumları",
     "review1": {

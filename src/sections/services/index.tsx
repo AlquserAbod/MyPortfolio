@@ -5,36 +5,38 @@ import { useEffect } from "react";
 import { t } from "i18next";
 import ServiceCard from "./serviceCard";
 import Carousel from "react-multi-carousel";
+import 'react-multi-carousel/lib/styles.css'
 
 const ServicesSection = () => {
   const services = t("services.services", { returnObjects: true });
 
-  useEffect(() => {
-    import("react-multi-carousel/lib/styles.css")
-      .then(() => {
-        console.log("Carousel CSS loaded successfully");
-      })
-      .catch((err) => {
-        console.error("Failed to load Carousel CSS", err);
-      });
-  }, []);
+
 
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 1350 },
-      items: 5,
+      breakpoint: { max: 4000, min: 1536 },
+      items: 7,
+
     },
     desktop: {
       breakpoint: {
-        max: 1350,
+        max: 1536,
         min: 1024,
       },
-      items: 4,
+      items: 5,
     },
     mobile: {
       breakpoint: {
-        max: 500,
+        max: 600,
+        min: 350,
+      },
+      items: 2,
+    },
+    
+    mobile2: {
+      breakpoint: {
+        max: 350,
         min: 0,
       },
       items: 1,
@@ -42,16 +44,16 @@ const ServicesSection = () => {
     other: {
       breakpoint: {
         max: 900,
-        min: 500,
+        min: 600,
       },
-      items: 2,
+      items: 3,
     },
     tablet: {
       breakpoint: {
         max: 1150,
         min: 900,
       },
-      items: 3,
+      items: 4,
     },
   };
 
@@ -72,6 +74,7 @@ const ServicesSection = () => {
             focusOnSelect={false}
             infinite
             itemClass={styles.itemClass}
+            containerClass={styles.carouselContainer}
             minimumTouchDrag={80}
             pauseOnHover
             rtl={false}

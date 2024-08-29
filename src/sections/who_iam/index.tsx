@@ -9,7 +9,7 @@ const WhoamiSection = () => {
   const { t } = useTranslation();
 
   return (
-    <div className={styles.container} id="whoami">
+    <section className={styles.container} id="whoami">
       <div className={`${styles.holder} ${isRtl() ? styles.rtl : ""}`}>
         <TitleBox title={t("whoami.title")} />
         <div className={styles.line1holder}>
@@ -41,7 +41,7 @@ const WhoamiSection = () => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
