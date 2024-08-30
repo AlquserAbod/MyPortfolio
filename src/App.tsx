@@ -10,6 +10,9 @@ import Navbar from "./layout/Navbar";
 import Footer from "./layout/footer";
 import NotFound from "./pages/not_found";
 
+import 'react-multi-carousel/lib/styles.css'
+
+
 function App() {
   const directionClass = isRtl() ? "rtl" : "ltr";
 

@@ -1,184 +1,211 @@
-.project{
-    position: relative;
-    background-color: $light-color;
-    padding: 25px;
-    
-    color: $primary-color;
-    
-    border-radius: 50px;
-    
-    flex: 1 1 calc(20% - 20px);
+.project {
+  position: relative;
+  background-color: $light-color;
+  padding: 25px;
 
-    -webkit-box-shadow:  inset 0px 0px 81px -35px rgba(0,0,0,0.88);
-    -moz-box-shadow: inset 0px 0px 81px -35px rgba(0,0,0,0.88);
-    box-shadow:  inset 0px 0px 81px -35px rgba(0,0,0,0.88);
+  color: $primary-color;
 
-    border: 2px solid $secondary-color;
+  border-radius: 50px;
 
+  flex: 1 1 calc(20% - 20px);
 
-    max-width: 50%;
-    
+  -webkit-box-shadow: inset 0px 0px 81px -35px rgba(0, 0, 0, 0.88);
+  -moz-box-shadow: inset 0px 0px 81px -35px rgba(0, 0, 0, 0.88);
+  box-shadow: inset 0px 0px 81px -35px rgba(0, 0, 0, 0.88);
+
+  border: 2px solid $secondary-color;
+
+  max-width: 50%;
+
+  .carouselHolder {
+    border-radius: 30px;
+    aspect-ratio: 16/9;
     .imageHolder {
 
-        &:hover .image {
-            transform: scale(1.05);
-        }
-    
-        img.image {
-            width: 100%;
+      width: 100%;
+      height: 100%;
+      img {
 
-            transition: 0.3s ease;
-            -webkit-box-shadow: 0px 0px 81px -35px rgba(0,0,0,0.88);
-            -moz-box-shadow: 0px 0px 81px -35px rgba(0,0,0,0.88);
-            box-shadow: 0px 0px 81px -35px rgba(0,0,0,0.88);
-            border-radius: 30px;
+        aspect-ratio: 16/9;
+        object-fit: contain;
+        float: left;
+        transition: 0.3s ease;
+        -webkit-box-shadow: 0px 0px 81px -35px rgba(0, 0, 0, 0.88);
+        -moz-box-shadow: 0px 0px 81px -35px rgba(0, 0, 0, 0.88);
+        box-shadow: 0px 0px 81px -35px rgba(0, 0, 0, 0.88);
+        border-radius: 30px;
+  
+        &:hover {
+          transform: scale(1.05);
         }
+  
+        
+      }
     }
+  }
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+
+  .content {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 30px;
+    align-items: start;
+    gap: 15px;
 
-    .content {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        gap: 15px;
-
-
-        .titleBox {
-            .title {
-                font-size: 1rem;
-            }
-        }
-
-        flex-grow: 1;
-
-        .desc {
-            font-weight: 500;
-            font-size: 0.85rem;
-            line-height: 25px;
-        
-        }
-
-        .footer {
-            display:  flex;
-            justify-content: space-between;
-            align-items:  end;
-            gap: 20px;
-            width: 100%;
-            flex-grow: 1;
-
-            .buttonGroup {
-                display: flex;
-                gap: 10px;
-                
-                a {
-                    width: 35px;
-                    height: 35px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border: none;
-                    background-color: transparent;
-                    position: relative;
-                    border-radius: 7px;
-                    cursor: pointer;
-                    transition: all .3s;
-
-                    color: $light-color;
-
-                    .svgContainer {
-                        width: 100%;
-                        height: 100%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        background-color: transparent;
-                        backdrop-filter: blur(0px);
-                        letter-spacing: 0.8px;
-                        border-radius: 10px;
-                        transition: all .3s;
-                        border: 1px solid rgba(156, 156, 156, 0.466);             
-                        z-index: 1;         
-                    }
-                    
-                    .BG {
-                        position: absolute;
-                        content: "";
-                        width: 100%;
-                        height: 100%;
-                        background: #181818;
-                        z-index: 0;
-                        border-radius: 10px;
-                        pointer-events: none;
-                        transition: all .3s;
-                    }
-
-                    &:hover .BG {
-                        transform: rotate(35deg);
-                        transform-origin: bottom;
-                    }
-                    &:hover .svgContainer {
-                        background-color: rgba(156, 156, 156, 0.466);
-                        backdrop-filter: blur(4px);
-                    }
-                }
-            }
-
-            .tags {
-                display: flex;
-                gap: 5px;
-                flex-wrap: wrap;
-                .tag {
-                    font-size: 0.8rem;
-                    padding: 5px;
-                    border-radius: 5px;
-                    font-weight: 700;
-                    background-color: rgba($color: $primary-color, $alpha: 0.3);
-                }
-            }
-        }
+    .titleBox {
+      .title {
+        font-size: 1rem;
+      }
     }
+
+    flex-grow: 1;
+
+    .desc {
+      font-weight: 500;
+      font-size: 0.85rem;
+      line-height: 25px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      width: 100%;
+      flex-grow: 1;
+
+      .buttonGroup {
+        display: flex;
+        gap: 10px;
+
+        a {
+          width: 35px;
+          height: 35px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: none;
+          background-color: transparent;
+          position: relative;
+          border-radius: 7px;
+          cursor: pointer;
+          transition: all 0.3s;
+
+          color: $light-color;
+
+          .svgContainer {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            backdrop-filter: blur(0px);
+            letter-spacing: 0.8px;
+            border-radius: 10px;
+            transition: all 0.3s;
+            border: 1px solid rgba(156, 156, 156, 0.466);
+            z-index: 1;
+          }
+
+          .BG {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: #181818;
+            z-index: 0;
+            border-radius: 10px;
+            pointer-events: none;
+            transition: all 0.3s;
+          }
+
+          &:hover .BG {
+            transform: rotate(35deg);
+            transform-origin: bottom;
+          }
+          &:hover .svgContainer {
+            background-color: rgba(156, 156, 156, 0.466);
+            backdrop-filter: blur(4px);
+          }
+        }
+      }
+
+      .tags {
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+        .tag {
+          font-size: 0.8rem;
+          padding: 5px;
+          border-radius: 5px;
+          font-weight: 700;
+          background-color: rgba($color: $primary-color, $alpha: 0.3);
+        }
+      }
+    }
+  }
 }
 @media (max-width: $screen-size-sm) {
-    .project {
-        padding: 15px;
-        border-radius: 25px;
+  .project {
+    padding: 15px;
+    border-radius: 25px;
 
-        gap: 10px;
-        max-width: 100%;
-        img.image {
-            border-radius: 10px;
-        }
-        .content {
-            .titleBox {
-                .title {
-                    font-size: 0.9rem;
-                }
-            }
-
-            .desc {
-                line-height: 19px;
-                font-size: 0.8rem;
-            }
-
-            .footer {
-                .tags {
-                    .tag {
-                        font-size: 0.6rem;
-                    }
-                }
-
-                .buttonGroup {
-                    a {
-                        width: 25px;
-                        height: 25px;
-
-                    }
-                }
-            }
-        }
+    gap: 10px;
+    max-width: 100%;
+    img.image {
+      border-radius: 10px;
     }
+    .content {
+      .titleBox {
+        .title {
+          font-size: 0.9rem;
+        }
+      }
+
+      .desc {
+        line-height: 19px;
+        font-size: 0.8rem;
+      }
+
+      .footer {
+        .tags {
+          .tag {
+            font-size: 0.6rem;
+          }
+        }
+
+        .buttonGroup {
+          a {
+            width: 25px;
+            height: 25px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 250px) {
+  .project {
+    padding: 0 0 15px 0;
+
+    border-radius: 10px;
+    .carouselHolder {
+      border-radius: 10px 10px 0 0;
+      img.image {
+        border-radius: 10px 10px 0 0;
+
+        &:hover {
+          transform: scale(1);
+        }
+      }
+    }
+    .content {
+      padding: 5px;
+    }
+  }
 }

@@ -6,7 +6,7 @@ import { PiGithubLogoFill  } from "react-icons/pi";
 import { FaLinkedinIn } from "react-icons/fa";
 import { Trans } from 'react-i18next';
 import { isRtl } from '@/utils/i18n';
-import data from '@/data.json';
+import data from '@/data/data.json';
 
 const HeroSection = () => {
   

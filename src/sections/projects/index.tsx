@@ -4,22 +4,24 @@ import TitleBox from "@/components/titleBox";
 import { useTranslation } from "react-i18next";
 import { isRtl } from "@/utils/i18n";
 import Card from "./card";
-import { Project, ProjectCategories } from "@/types/project";
+import { ProjectCategories } from "@/types/project";
+import { projectsData } from "@/data/projectData";
 
 const Projects = () => {
   const { t } = useTranslation("projects");
-  const [category, setCategory] = useState<ProjectCategories>(
-    ProjectCategories.All
-  );
+  const [category, setCategory] = useState<ProjectCategories>(ProjectCategories.All);
 
-  const projects: Project[] = t("projects", { returnObjects: true });
+  const  projectsTranslations = t('projects', { returnObjects: true })  as Record<string, any>;
+    
+  const projects = Object.entries(projectsData).map(([key, project]) => ({
+    ...project,
+    title: projectsTranslations[key]?.title,
+    description: projectsTranslations[key]?.description,
+  }));
 
-  const filteredProjects =
-    category === ProjectCategories.All
-      ? Object.values(projects) // Get all project values if category is All
-      : Object.values(projects).filter(
-          (project) => project.category === category
-        );
+  const filteredProjects = category === ProjectCategories.All
+    ? projects
+    : projects.filter((project) => project.category === category);
 
   return (
     <section className={styles.container} id="projects">
@@ -73,10 +75,17 @@ const Projects = () => {
       </div>
 
       <div className={styles.projects}>
-        {Object.entries(filteredProjects).map(
-          ([key, project]: [string, any]) => (
-            <Card key={key} project={project} />
+
+        {filteredProjects.length > 0 ? (
+          Object.entries(filteredProjects).map(
+            ([key, project]: [string, any]) => (
+              <Card key={key} project={project} />
+            )
           )
+        ) : (
+          <div className={styles.emptyCategory}>
+            {t('emptyCategory')}
+          </div>
         )}
 
       </div>

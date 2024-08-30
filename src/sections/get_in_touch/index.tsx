@@ -3,7 +3,7 @@ import styles from "@/styles/sections/get_in_touch/styles.module.scss";
 
 import { Trans, useTranslation } from "react-i18next";
 import TitleBox from "@/components/titleBox";
-import data from "@/data.json";
+import data from "@/data/data.json";
 import { sendEmail } from "@/utils/sendEmail";
 import ToastService from "@/services/ToastService";
 

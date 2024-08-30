@@ -1,11 +1,9 @@
 import TitleBox from "@/components/titleBox";
 import styles from "@/styles/sections/services/styles.module.scss";
 
-import { useEffect } from "react";
 import { t } from "i18next";
 import ServiceCard from "./serviceCard";
 import Carousel from "react-multi-carousel";
-import 'react-multi-carousel/lib/styles.css'
 
 const ServicesSection = () => {
   const services = t("services.services", { returnObjects: true });

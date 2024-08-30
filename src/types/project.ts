@@ -1,7 +1,7 @@
 export interface Project {
     title: string,
     description: string,
-    imagePath: string,
+    images: Array<string>,
     category: string
     tags: Array<string>,
     githubLink: string,

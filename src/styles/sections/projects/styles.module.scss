@@ -82,7 +82,15 @@
     align-items: stretch;
     flex-wrap: wrap;
     gap: 20px;
+
+    .emptyCategory {
+      color: $light-color;
+      font-weight: 700;
+      font-size: 1.5rem;
+      text-align: center;
+    }
   }
+
 }
 
 
@@ -108,7 +116,7 @@
 
 @media (max-width: $screen-size-sm) {
   .container {
-    margin: 50px 20px;
+    margin: 50px 30px;
     
     .categoriesHolder {
       .categories {
@@ -120,7 +128,7 @@
           flex: 1 0 20%;
           font-size: 1rem;
           font-weight: 700;
-          padding: 10px;
+          padding: 5px;
           
           &.selected {
             border-radius: 0 !important;
@@ -128,9 +136,24 @@
         }
 
         border-radius: 0;
+        
 
 
       }
     }
+
+    .projects {
+      .emptyCategory {
+        font-weight: 700;
+        font-size: 1rem;
+
+      }
+    }
+  }
+}
+
+@media (max-width: 250px) {
+  .container {
+    margin: 50px 10px;
   }
 }

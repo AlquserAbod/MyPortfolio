@@ -8,7 +8,7 @@ import {
   FaTiktok,
   FaYoutube,
 } from "react-icons/fa";
-import data from "@/data.json";
+import data from "@/data/data.json";
 
 const Footer = () => {
   const { t } = useTranslation("footer");
