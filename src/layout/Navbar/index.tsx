@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "@/styles/layout/navbar.module.scss";
-import noBgLogoUrl from "@/assets/images/logos/noBgLogo.png";
-import primaryNoBgLogoUrl from "@/assets/images/logos/PrimaryColorNoBgLogo.png";
+import seconadryLogo from "@/assets/images/logos/secondary-transparent-logo.png";
+import primaryLogoUrl from "@/assets/images/logos/primary-transparent-logo.png";
 import { TiThMenu } from "react-icons/ti";
 import { ImCross } from "react-icons/im";
 import useClickOutside from "@/hooks/useClickOutside";
@@ -12,8 +12,7 @@ import { Trans } from "react-i18next";
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const [isScrolled, setIsScrolled] = useState<boolean>(false); // State to track scroll
-  const [screenWidth] = useState<number>(window.innerWidth);
-
+  const [logoUrl, setLogoUrl] = useState<string>(seconadryLogo);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const sidebarToggleRef = useRef<HTMLDivElement>(null);
 
@@ -26,17 +25,22 @@ const Navbar = () => {
       }
     };
 
+    const handleResize = () => {
+      setLogoUrl(innerWidth > 600 ? seconadryLogo : primaryLogoUrl);
+    };
+
     handleScroll();
+    handleResize();
 
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup event listener on component unmount
+    window.addEventListener("resize", handleResize);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  const logoUrl = screenWidth > 600 ? noBgLogoUrl : primaryNoBgLogoUrl;
 
   useClickOutside([sidebarRef, sidebarToggleRef], () => {
     if (isSidebarOpen) {
@@ -72,19 +76,17 @@ const Navbar = () => {
           </div>
           <div className={styles.pagesHolder}>
             <span>
-              <a href="#projects" className={isRtl() ? styles.lastChild : ''}>
+              <a href="#projects" className={isRtl() ? styles.lastChild : ""}>
                 <span>
                   <Trans i18nKey={"navbar.projects"}></Trans>
-
                 </span>
               </a>
             </span>
 
             <span>
               <a href="#whoami">
-                <span> 
-                <Trans i18nKey="navbar.whoami"></Trans>
-
+                <span>
+                  <Trans i18nKey="navbar.whoami"></Trans>
                 </span>
               </a>
             </span>
@@ -104,7 +106,7 @@ const Navbar = () => {
               </a>
             </span>
             <span>
-              <a href="#getinTouch"  className={isRtl() ?  '' : styles.lastChild}>
+              <a href="#getinTouch" className={isRtl() ? "" : styles.lastChild}>
                 <span>
                   <Trans i18nKey={"navbar.getinTouch"}></Trans>
                 </span>

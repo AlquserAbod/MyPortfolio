@@ -1,6 +1,6 @@
 import styles from "@/styles/layout/footer.module.scss";
 import { useTranslation } from "react-i18next";
-import logoUrl from "@/assets/images/logos/PrimaryColorNoBgLogo.png";
+import logoUrl from "@/assets/images/logos/primary-transparent-logo.png";
 import {
   FaGithub,
   FaInstagram,

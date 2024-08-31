@@ -1,6 +1,6 @@
 import styles from '@/styles/sections/hero/styles.module.scss';
 import MatrixBackground from './matrix_background';
-import noBgLogoUrl from '@/assets/images/logos/noBgLogo.png';
+import logoUrl from '@/assets/images/logos/secondary-transparent-logo.png';
 import laptopWithGround from '@/assets/images/laptop_with_Ground.gif';
 import { PiGithubLogoFill  } from "react-icons/pi";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -18,7 +18,7 @@ const HeroSection = () => {
             <div className={styles.leftSide}>
 
               <div className={styles.logoHolder}>
-                <img src={noBgLogoUrl} width={50} className={styles.logo} alt="logo" />
+                <img src={logoUrl} width={50} className={styles.logo} alt="logo" />
               </div>
 
               <div className={styles.textHolder}> 
