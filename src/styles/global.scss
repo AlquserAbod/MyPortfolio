@@ -1,14 +1,27 @@
 
+*  {
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;     
+}
+
+
 html {
     scroll-behavior: smooth;
+
     body {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;            
+        
         font-family: $font-family;
         color: $white-color;
         background-color: $primary-color;
         overflow-x: hidden;
+
+        @font-face {
+            font-family: 'Tajawal';
+            src: url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+            font-display: swap;
+        }
 
         &.rtl {
             direction: rtl;

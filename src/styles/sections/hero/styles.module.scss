@@ -12,6 +12,7 @@ $account-hover-change-width: 2px;
     aspect-ratio: 16 / 9;
     
     .mainSectionContainer {
+        
         height: 100%;
         margin: 0 150px;
 
@@ -37,6 +38,7 @@ $account-hover-change-width: 2px;
                     width: 100%;
                     height: 100%;
                 }
+
 
             }
         }
@@ -157,13 +159,13 @@ $account-hover-change-width: 2px;
                         gap: calc(1 * 1em);
 
                         .slogan {
-                            font-size: calc($slogan-font-size * 2.2);
+                            font-size: calc($slogan-font-size * 2);
                             line-height: calc($slogan-line-ratio * 1em);
                         }
 
                         .jobTitle {
                             font-weight: 900;
-                            font-size: calc($jobTitle-font-size * 2);
+                            font-size: calc($jobTitle-font-size * 2.3);
                         }
                     }
 
@@ -171,7 +173,7 @@ $account-hover-change-width: 2px;
                         margin-top: 10px;
 
                         svg {
-                            font-size: 15px !important;
+                            font-size: 1.3rem !important;
 
                             &:hover {
                                 font-size: calc(15px + $account-hover-change-width);
@@ -195,19 +197,14 @@ $account-hover-change-width: 2px;
     .container {
         .mainSectionContainer {
             gap: 15px;
-            margin: 0 10px;
+            margin: 0 10px !important;
 
-            .leftSide {
-                gap: calc(0.4 * 1em);
 
-                .accountsHolder {
-                    margin-top: 0px;
-
-                    svg {
-                        font-size: 10px;
-
-                        &:hover {
-                            font-size: calc(10px + $account-hover-change-width);
+            .flexContainer {
+                .leftSide {
+                    .accountsHolder {
+                        svg {
+                            font-size: 0.8rem !important;
                         }
                     }
                 }
@@ -215,3 +212,5 @@ $account-hover-change-width: 2px;
         }
     }
 }
+
+

@@ -7,7 +7,7 @@ import { ImCross } from "react-icons/im";
 import useClickOutside from "@/hooks/useClickOutside";
 import LanguageSelector from "@/components/languageSelector";
 import { isRtl } from "@/utils/i18n";
-import { Trans } from "react-i18next";
+import {  useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
@@ -15,6 +15,8 @@ const Navbar = () => {
   const [logoUrl, setLogoUrl] = useState<string>(seconadryLogo);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const sidebarToggleRef = useRef<HTMLDivElement>(null);
+
+  const { t } = useTranslation("navbar");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,39 +79,29 @@ const Navbar = () => {
           <div className={styles.pagesHolder}>
             <span>
               <a href="#projects" className={isRtl() ? styles.lastChild : ""}>
-                <span>
-                  <Trans i18nKey={"navbar.projects"}></Trans>
-                </span>
+                <span>{t("projects")}</span>
               </a>
             </span>
 
             <span>
               <a href="#whoami">
-                <span>
-                  <Trans i18nKey="navbar.whoami"></Trans>
-                </span>
+                <span>{t("whoami")}</span>
               </a>
             </span>
 
             <span>
               <a href="#services">
-                <span>
-                  <Trans i18nKey={"navbar.services"}></Trans>
-                </span>
+                <span>{t("services")}</span>
               </a>
             </span>
             <span>
               <a href="#skills">
-                <span>
-                  <Trans i18nKey={"navbar.skills"}></Trans>
-                </span>
+                <span>{t("skills")}</span>
               </a>
             </span>
             <span>
               <a href="#getinTouch" className={isRtl() ? "" : styles.lastChild}>
-                <span>
-                  <Trans i18nKey={"navbar.getinTouch"}></Trans>
-                </span>
+                <span>{t("getinTouch")}</span>
               </a>
             </span>
           </div>

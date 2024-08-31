@@ -1,5 +1,6 @@
 export const projectsData = {
     moviemagic: {
+      id: 1,
       images: [
         '/images/projects/moviemagic/moviemagic1.png',
         '/images/projects/moviemagic/moviemagic2.png'
@@ -10,6 +11,7 @@ export const projectsData = {
       visitorDownloadLink: "https://moviemagic-al.vercel.app"
     },
     tasktroveWeb: {
+      id: 2,
       images: [
         '/images/projects/tasktrove/tasktrove1.png',
         '/images/projects/tasktrove/tasktrove2.png',
@@ -23,6 +25,7 @@ export const projectsData = {
       visitorDownloadLink: "https://tasktrove-al.vercel.app"
     },
     tasktroveMobile: {
+      id: 3,
       images: [
         '/images/projects/tasktrove-mobile/tasktrove-mobile1.jpg',
         '/images/projects/tasktrove-mobile/tasktrove-mobile2.jpg',

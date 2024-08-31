@@ -1,13 +1,32 @@
 .titleHolder {
     width: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-             color: $primary-color;
+    height: fit-content;
+    color: $primary-color;
     padding: 3px 8px;
     background-color: $secondary-color;
     box-shadow: 0px 0px 30px 02px rgba(29,255,195,0.4);
     font-weight: 900;
-    font-size: 24px;
+    font-size: 1.5rem;
 
+    line-height: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+    
+}
+
+
+
+@media (max-width: $screen-size-xs) {
+    .titleHolder {
+        text-wrap: wrap;   
+        width: 100%;
+        overflow-x: auto;
+
+        font-size: 1rem
+        
+    }
 }

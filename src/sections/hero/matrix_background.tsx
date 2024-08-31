@@ -53,32 +53,34 @@ const MatrixBackground = ({ children }: { children: JSX.Element }) => {
     };
   }, []);
 
+  
+
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-
+    
     // Matrix characters
     const matrix = matrixCharacters.split("");
     const columns = Math.floor(canvasDimensions.width + 20 / fontSize);
     const drops: number[] = new Array(columns).fill(1);
-
+    
     const draw = () => {
       ctx.fillStyle = styles.backgroundColor;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-
+  
       ctx.fillStyle = styles.textColor;
       ctx.font = `${fontSize}px ${styles.fontFamily}`;
-
+  
       drops.forEach((y, x) => {
         const text = matrix[Math.floor(Math.random() * matrix.length)];
         ctx.fillText(text, x * fontSize, y * fontSize);
-
+  
         if (y * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[x] = 2;
+          drops[x] = 1;
         }
-
+  
         drops[x]++;
       });
     };

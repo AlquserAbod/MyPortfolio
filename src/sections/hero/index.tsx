@@ -1,18 +1,18 @@
 import styles from '@/styles/sections/hero/styles.module.scss';
-import MatrixBackground from './matrix_background';
 import logoUrl from '@/assets/images/logos/secondary-transparent-logo.png';
 import laptopWithGround from '@/assets/images/laptop_with_Ground.gif';
 import { PiGithubLogoFill  } from "react-icons/pi";
 import { FaLinkedinIn } from "react-icons/fa";
-import { Trans } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { isRtl } from '@/utils/i18n';
 import data from '@/data/data.json';
+import TitleBox from '@/components/titleBox';
 
 const HeroSection = () => {
-  
+  const { t } = useTranslation("hero")
+
   return (
     <section  className={`${styles.container} ${ isRtl() ? styles.rtl : ''}`}>
-      <MatrixBackground>
         <div className={styles.mainSectionContainer}>
           <div className={styles.flexContainer}>
             <div className={styles.leftSide}>
@@ -23,13 +23,13 @@ const HeroSection = () => {
 
               <div className={styles.textHolder}> 
                 <div className={styles.slogan}>
-                <Trans i18nKey="slogan" components={{ br: <br />, b: <b /> }} />
+                <Trans ns={'hero'} i18nKey="slogan" components={{ br: <br />, b: <b /> }} />
+
+              
                   
                 </div>
 
-                <div className={styles.jobTitle}>
-                <Trans i18nKey="jobTitle" />
-                </div>
+                <TitleBox  title={t('jobTitle')} holderClass={styles.jobTitle}/> 
                 
               </div>
 
@@ -54,7 +54,6 @@ const HeroSection = () => {
 
           </div>
         </div>
-      </MatrixBackground>
     </section >
   )
 }

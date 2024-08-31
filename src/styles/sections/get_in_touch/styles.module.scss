@@ -8,9 +8,8 @@ $value-tooltip-arrow-size: 8px;
   position: relative;
   height: 100%;
   z-index: 1;
-  margin: 100px 150px;
+  margin: 50px 150px 0 150px;
   &::before {
-    
     content: "";
     position: absolute;
     top: 0;
@@ -54,30 +53,29 @@ $value-tooltip-arrow-size: 8px;
         }
 
         .input {
-            background: $light-color;
-            padding: 5px;
-            border-radius: 5px;
-            outline: none;
-            transition: 0.3s ease;
-          
-            &.error {
-              border-color: red;
-              box-shadow: 0 0 5px rgba(red, 0.5);
-          
-              + .errorText,
-              ~ .errorText {
-                display: block;
-                font-size: 12px;
-                font-weight: 400;
-                color: rgba(red, 0.8);
-              }
+          background: $light-color;
+          padding: 5px;
+          border-radius: 5px;
+          outline: none;
+          transition: 0.3s ease;
+
+          &.error {
+            border-color: red;
+            box-shadow: 0 0 5px rgba(red, 0.5);
+
+            + .errorText,
+            ~ .errorText {
+              display: block;
+              font-size: 12px;
+              font-weight: 400;
+              color: rgba(red, 0.8);
             }
           }
-          
-          .errorText {
-            display: none; // Hide by default
-          }
-          
+        }
+
+        .errorText {
+          display: none; // Hide by default
+        }
 
         .input:focus {
           transform: scale(1.05);
@@ -194,7 +192,6 @@ $value-tooltip-arrow-size: 8px;
               visibility: visible;
             }
 
-            
             &:hover {
               cursor: pointer;
             }
@@ -227,7 +224,7 @@ $value-tooltip-arrow-size: 8px;
 
 @media (max-width: $screen-size-xl) {
   .container {
-    margin: 0 100px;
+    margin: 50px 100px 0 100px;
     padding: 0 50px;
 
     .itemsHolder {
@@ -238,7 +235,8 @@ $value-tooltip-arrow-size: 8px;
 
 @media (max-width: $screen-size-lg) {
   .container {
-    margin: 0 50px;
+    margin: 50px 50px 0 50px;
+
     padding: 0 20px;
 
     .itemsHolder {
@@ -266,7 +264,8 @@ $value-tooltip-arrow-size: 8px;
 
 @media (max-width: $screen-size-md) {
   .container {
-    margin: 0 10px;
+    margin: 50px 10px 0 10px;
+
     padding: 0 10px;
 
     .itemsHolder {
@@ -322,7 +321,8 @@ $value-tooltip-arrow-size: 8px;
 
 @media (max-width: $screen-size-sm) {
   .container {
-    margin: 0 20px;
+    margin: 50px 20px 0 20px;
+
     padding: 0 40px;
 
     .itemsHolder {
@@ -361,7 +361,8 @@ $value-tooltip-arrow-size: 8px;
 
 @media (max-width: 400px) {
   .container {
-    margin: 0 0;
+    margin: 50px 0 0 0;
+    
     padding: 0 40px;
 
     .itemsHolder {

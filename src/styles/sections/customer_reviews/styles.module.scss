@@ -1,5 +1,5 @@
 .container {
-    margin: 100px;
+    margin: 50px 50px 0 50px;
 
     .titleHolder {
         margin-bottom: 50px;
@@ -34,9 +34,6 @@
 
 @media (max-width: $screen-size-xl) {
     .container {
-        margin: 100px 50px;
-        
-
         .reviewsHolder{
             max-height: 425px;
         }
@@ -45,7 +42,6 @@
 
 @media (max-width: $screen-size-lg) {
     .container {
-        margin: 100px 50px;
 
         .reviewsHolder{
             gap: 25px;
@@ -79,9 +75,8 @@
 
 @media (max-width: 500px) {
     .container {
-        margin: 100px 25px;
+        margin: 50px 25px 0 25px;
 
-        
         .titleHolder {
             margin-bottom: 100px;
         }

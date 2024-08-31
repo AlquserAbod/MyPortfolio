@@ -1,24 +1,19 @@
 .container {
-    margin: 50px;
+  margin: 50px 50px 0 50px;
 
-    .cardsContainer {
-        margin: 50px 0;
+  .cardsContainer {
+    margin: 50px 0;
 
-        .itemClass {
-            display: flex;
-            justify-content: center;
-            align-items: stretch;
-        }
-        
-
+    .itemClass {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
     }
+  }
 }
-
 
 @media (max-width: $screen-size-lg) {
-    .container {
-        margin: 50px 20px ;
-    }
+  .container {
+    margin: 50px 20px 0 20px;
+  }
 }
-
-

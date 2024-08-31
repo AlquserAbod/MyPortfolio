@@ -119,7 +119,7 @@ const GetInTouch = () => {
   };
 
   return (
-    <div className={`${styles.container}`} id="getinTouch">
+    <section className={`${styles.container}`} id="getinTouch">
       <form
         action="https://formspree.io/f/mqaznzja"
         method="POST"
@@ -296,7 +296,7 @@ const GetInTouch = () => {
           </div>
         </div>
       </form>
-    </div>
+    </section>
   );
 };
 

@@ -196,6 +196,7 @@
     border-radius: 10px;
     .carouselHolder {
       border-radius: 10px 10px 0 0;
+
       img.image {
         border-radius: 10px 10px 0 0;
 
@@ -206,6 +207,13 @@
     }
     .content {
       padding: 5px;
+
+      .footer {
+        flex-wrap: wrap;
+      }
     }
   }
 }
+
+
+

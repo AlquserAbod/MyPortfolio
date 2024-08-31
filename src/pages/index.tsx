@@ -18,6 +18,7 @@ const MainPage = () => {
       <SkillsSection />
 
       <Projects /> 
+      
       <ServicesSection />
       
 

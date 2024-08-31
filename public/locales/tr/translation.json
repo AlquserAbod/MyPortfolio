@@ -1,15 +1,4 @@
 {
-  "slogan": "Programlama, <br/><b> yaratıcılığın modern dili </b>",
-  "jobTitle": "Web ve Android uygulamalarının kapsamlı geliştiricisi",
-
-  "navbar": {
-    "whoami": "Ben Kimim",
-    "projects": "Projeler",
-    "services": "Hizmetler",
-    "skills": "Beceriler",
-    "getinTouch": "İletişime Geçin"
-  },
-
   "whoami": {
     "title": "Ben Kimim",
     "line1": "Çekici ve etkili kullanıcı arayüzleri oluşturmaya ve uygulamaya odaklanarak web ve Android uygulama geliştirmede 4 yılı aşkın kapsamlı deneyime sahibim. İş uygulamaları, e-ticaret, sosyal medya ve uzaktan eğitim gibi çeşitli projeler üzerinde çalıştım; bu da beni pazar gereksinimlerini anlayacak ve müşterilerin ihtiyaçlarını karşılayan etkili çözümler sunacak konuma getirdi.",

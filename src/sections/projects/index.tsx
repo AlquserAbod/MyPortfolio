@@ -9,19 +9,25 @@ import { projectsData } from "@/data/projectData";
 
 const Projects = () => {
   const { t } = useTranslation("projects");
-  const [category, setCategory] = useState<ProjectCategories>(ProjectCategories.All);
+  const [category, setCategory] = useState<ProjectCategories>(
+    ProjectCategories.All
+  );
 
-  const  projectsTranslations = t('projects', { returnObjects: true })  as Record<string, any>;
-    
+  const projectsTranslations = t("projects", { returnObjects: true }) as Record<
+    string,
+    any
+  >;
+
   const projects = Object.entries(projectsData).map(([key, project]) => ({
     ...project,
     title: projectsTranslations[key]?.title,
     description: projectsTranslations[key]?.description,
   }));
 
-  const filteredProjects = category === ProjectCategories.All
-    ? projects
-    : projects.filter((project) => project.category === category);
+  const filteredProjects =
+    category === ProjectCategories.All
+      ? projects
+      : projects.filter((project) => project.category === category);
 
   return (
     <section className={styles.container} id="projects">
@@ -75,19 +81,13 @@ const Projects = () => {
       </div>
 
       <div className={styles.projects}>
-
         {filteredProjects.length > 0 ? (
-          Object.entries(filteredProjects).map(
-            ([key, project]: [string, any]) => (
-              <Card key={key} project={project} />
-            )
-          )
+          Object.entries(filteredProjects).map(([key, project]) => {
+            return <Card key={project.id} project={project} />;
+          })
         ) : (
-          <div className={styles.emptyCategory}>
-            {t('emptyCategory')}
-          </div>
+          <div className={styles.emptyCategory}>{t("emptyCategory")}</div>
         )}
-
       </div>
     </section>
   );

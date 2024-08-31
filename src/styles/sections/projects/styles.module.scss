@@ -1,5 +1,5 @@
 .container {
-  margin: 50px;
+  margin: 50px 50px 0 50px;
 
   .categoriesHolder {
     display: flex;
@@ -96,8 +96,8 @@
 
 @media (max-width: $screen-size-md) {
   .container {
-    margin: 50px 10px;
-    
+    margin: 50px 10px 0 10px;
+
     .categoriesHolder {
       .categories {
 
@@ -116,8 +116,8 @@
 
 @media (max-width: $screen-size-sm) {
   .container {
-    margin: 50px 30px;
-    
+    margin: 50px 30px 0 30px;
+
     .categoriesHolder {
       .categories {
         flex-wrap: wrap;
@@ -154,6 +154,7 @@
 
 @media (max-width: 250px) {
   .container {
-    margin: 50px 10px;
+    margin: 50px 10px 0 10px;
+
   }
 }

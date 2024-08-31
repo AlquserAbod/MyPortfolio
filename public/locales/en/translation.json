@@ -2,15 +2,6 @@
   "slogan": "Programming is the <br /> <b> modern language of creativity </b>",
   "jobTitle": "Comprehensive developer of web and Android applications",
 
-
-  "navbar": {
-    "whoami": "Who Am I",
-    "projects": "Projects",
-    "services": "Services",
-    "skills": "Skills",
-    "getinTouch": "Get in Touch"
-  },
-
   "whoami": {
     "title": "who am I",
 
@@ -19,9 +10,7 @@
     "line3": "I am committed to providing innovative technical solutions that contribute to the success of customer projects and meet their aspirations on an ongoing basis."
   },
 
-  "skills": {
 
-  },
 
   "customerReveiews": {
     "title": "Customer Reviews",

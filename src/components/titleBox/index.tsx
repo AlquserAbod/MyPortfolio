@@ -9,9 +9,9 @@ interface TitleBoxProps {
 
 const TitleBox: React.FC<TitleBoxProps> = ({ title, holderClass, className }) => {
   return (
-    <div className={`${styles.titleHolder} ${holderClass}`}>
-     {title}
-    </div>
+  <div className={`${styles.titleHolder} ${holderClass}`}>
+    <span className={`${className} ${styles.text}`}>{title}</span>
+  </div>
   );
 };
 

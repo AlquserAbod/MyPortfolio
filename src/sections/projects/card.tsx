@@ -11,7 +11,7 @@ const Card = ({ project }: { project: Project }) => {
 
 
   return (
-    <div className={styles.project}>
+    <div className={styles.project} >
       <Carousel
         autoPlay
         autoPlaySpeed={3000}

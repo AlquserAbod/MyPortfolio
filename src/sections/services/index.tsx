@@ -56,7 +56,7 @@ const ServicesSection = () => {
   };
 
   return (
-    <div className={styles.container} id="services">
+    <section className={styles.container} id="services">
       <div className={styles.webServices}>
         <div className={styles.titleHolder}>
           <TitleBox title={t("services.title")} />
@@ -92,7 +92,7 @@ const ServicesSection = () => {
           </Carousel>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
