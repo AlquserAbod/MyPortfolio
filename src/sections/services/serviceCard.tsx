@@ -2,6 +2,7 @@ import styles from "@/styles/sections/services/serviceCard.module.scss";
 
 import React, { useEffect, useState } from "react";
 import { Trans } from "react-i18next";
+import { SwiperSlide } from "swiper/react";
 
 interface ServiceCardProps {
   title: string;

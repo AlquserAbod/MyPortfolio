@@ -14,6 +14,9 @@ export default defineConfig({
     },
   },
   css: {
+    modules: {
+      scopeBehaviour: 'local',
+    },
     preprocessorOptions: {
       scss: {
         additionalData: `@use "src/styles/variables.scss" as *;`

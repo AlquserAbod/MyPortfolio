@@ -3,67 +3,54 @@
     "skills": {
       "html": {
         "title": "Html",
-        "icon": "html.png",
         "content": "HTML, web sayfalarının yapısını ve içeriğini etiketlerle tanımlar."
       },
       "css": {
         "title": "Css",
-        "icon": "css.png",
         "content": "CSS, web sayfalarını stilize eder ve düzenler, renkleri ve fontları kontrol eder."
       },
       "expressjs": {
         "title": "Express Js",
-        "icon": "express-js.png",
         "content": "Express.js, hızlı ve ölçeklenebilir web uygulamaları oluşturmak için kullanılan bir çerçevedir."
       },
       "nextjs": {
         "title": "Next Js",
-        "icon": "nextjs.png",
         "content": "Next.js, React uygulamaları için sunucu tarafı render'ı sağlar, SEO'yu artırır."
       },
       "tailwindcss": {
         "title": "Tailwind CSS",
-        "icon": "tailwindcss.png",
         "content": "Tailwind CSS, duyarlı kullanıcı arayüzleri tasarlamak için kullanılan bir yardımcı sınıf çerçevesidir."
       },
       "dart": {
         "title": "Dart",
-        "icon": "dart.png",
         "content": "Dart, hızlı ve yüksek performanslı uygulama geliştirmek için Flutter ile kullanılır."
       },
       "flutter": {
         "title": "Flutter",
-        "icon": "flutter.png",
         "content": "Flutter, mobil, web ve masaüstü için yerel olarak derlenmiş uygulamalar oluşturur."
       },
       "javascript": {
         "title": "JavaScript",
-        "icon": "javascript.png",
         "content": "JavaScript, web sayfalarına etkileşim ve dinamik davranış ekler."
       },
       "typescript": {
         "title": "TypeScript",
-        "icon": "typescript.png",
         "content": "TypeScript, JavaScript'e statik tip ekleyerek kod kalitesini artırır."
       },
       "react": {
         "title": "React",
-        "icon": "react.png",
         "content": "React, yeniden kullanılabilir bileşenler ve hızlı render ile etkileşimli kullanıcı arayüzleri oluşturur."
       },
       "node": {
         "title": "Node",
-        "icon": "_node.png",
         "content": "Node.js, sunucuda JavaScript çalıştırarak ölçeklenebilir ağ uygulamaları sağlar."
       },
       "mongodb": {
         "title": "MongoDB",
-        "icon": "mongo-db.png",
         "content": "MongoDB, verileri esnek JSON belgeleri olarak saklayan bir NoSQL veritabanıdır."
       },
       "sass": {
         "title": "Sass",
-        "icon": "sass.png",
         "content": "Sass, CSS'i değişkenler ve iç içe geçirme ile geliştirir, stil vermeyi kolaylaştırır."
       }
     }

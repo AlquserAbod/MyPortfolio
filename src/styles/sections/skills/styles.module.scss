@@ -2,18 +2,13 @@
 .container {
     
     margin: 50px 50px 0 50px;
+
     .sectionTitle {
         margin-bottom: 50px;
     }
-
-    .flexContainer {
-        display:  flex;
-        justify-content: center;
-        align-items: stretch;
-        flex-wrap: wrap;
-        gap: 25px;
+    .holder {
+        padding: 10px 30px;
     }
-    
 }
 
 

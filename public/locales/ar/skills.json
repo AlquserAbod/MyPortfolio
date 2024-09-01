@@ -3,67 +3,54 @@
     "skills": {
       "html": {
         "title": "Html",
-        "icon": "html.png",
         "content": "HTML يحدد هيكل ومحتوى صفحات الويب باستخدام الوسوم."
       },
       "css": {
         "title": "Css",
-        "icon": "css.png",
         "content": "CSS ينسق ويصمم صفحات الويب، ويتحكم في الألوان والخطوط."
       },
       "expressjs": {
         "title": "Express Js",
-        "icon": "express-js.png",
         "content": "Express.js هو إطار عمل لبناء تطبيقات ويب قابلة للتوسع وسريعة."
       },
       "nextjs": {
         "title": "Next Js",
-        "icon": "nextjs.png",
         "content": "Next.js يوفر التقديم من جانب الخادم لتطبيقات React، مما يعزز تحسين محركات البحث (SEO)."
       },
       "tailwindcss": {
         "title": "Tailwind CSS",
-        "icon": "tailwindcss.png",
         "content": "Tailwind CSS هو إطار عمل يعتمد على الفئات لتصميم واجهات المستخدم الحديثة والقابلة للتكيف."
       },
       "dart": {
         "title": "Dart",
-        "icon": "dart.png",
         "content": "Dart يستخدم مع Flutter لتطوير تطبيقات سريعة وعالية الأداء."
       },
       "flutter": {
         "title": "Flutter",
-        "icon": "flutter.png",
         "content": "Flutter إطار عمل لبناء تطبيقات مدمجة عبر منصات متعددة من قاعدة كود واحدة."
       },
       "javascript": {
         "title": "JavaScript",
-        "icon": "javascript.png",
         "content": "JavaScript يضيف تفاعلية وسلوك ديناميكي لصفحات الويب."
       },
       "typescript": {
         "title": "TypeScript",
-        "icon": "typescript.png",
         "content": "TypeScript يعزز JavaScript بإضافة نوع ثابت لتحسين جودة الكود."
       },
       "react": {
         "title": "React",
-        "icon": "react.png",
         "content": "React يبني واجهات المستخدم التفاعلية باستخدام مكونات قابلة لإعادة الاستخدام وأداء سريع."
       },
       "node": {
         "title": "Node",
-        "icon": "_node.png",
         "content": "Node.js ينفذ JavaScript على الخادم لتمكين بناء تطبيقات الشبكة القابلة للتوسع."
       },
       "mongodb": {
         "title": "MongoDB",
-        "icon": "mongo-db.png",
         "content": "MongoDB قاعدة بيانات NoSQL تخزن البيانات على شكل مستندات JSON مرنة."
       },
       "sass": {
         "title": "Sass",
-        "icon": "sass.png",
         "content": "Sass يعزز CSS باستخدام المتغيرات والتداخل لتبسيط وتسهيل الأساليب."
       }
     }

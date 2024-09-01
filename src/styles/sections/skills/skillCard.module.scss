@@ -1,119 +1,24 @@
-
-
-
-.skillHolder {
-    background: $glass-background-color;
-    border-radius: $glass-border-radius;
-    backdrop-filter: blur($glass-backdrop-blur);
-    -webkit-backdrop-filter: blur($glass-backdrop-blur);
-    border: $glass-border-width solid $glass-border-color;
-    
-    -moz-box-shadow:$glass-box-shadow;
-    -webkit-box-shadow: $glass-box-shadow;
-    box-shadow: $glass-box-shadow;
-
-    flex: 1 1 calc(20% - 25px);
+.skill {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    
-    gap: 50px;
+    .iconHolder{
+        position: relative;
+        width: 45px;
+        top: 15px;
+        z-index: -2;
 
-    padding: 50px 20px;
-
-
-
-    .headerHolder {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        
-        .iconHolder {
-            position: relative;
-            top: 15px;
-            width: 50px;
-    
-            img {
-                width: 100%;
-            }
+        img {
+            width: 100%;
         }
     }
-    
-    .contentHolder {
-        flex-grow: 1;
-        font-weight: 400;
-        font-size: 18.5px;
-        color: rgba($color: $light-color, $alpha: 0.8);
-        line-height: 30px;
+    .title {
+        font-size: 1rem;
         text-align: center;
-    }
-}
 
-
-
-@media (max-width: $screen-size-lg) {
-    .skillHolder {
-        padding: 30px 10px;
-        flex:  1 0 25%;
-
-        .headerHolder{
-            .iconHolder {
-                width: 45px;
-            }
-            .titleBox {
-                .title {
-                    font-size: 1.2rem;
-                }
-            }
-        }
-        .contentHolder {
-            font-size: 1rem;
-            
+        @media (max-width: $screen-size-lg) {
+            font-size: 0.8;
         }
     }
 }
-
-@media (max-width: $screen-size-md) {
-    .skillHolder {
-        padding: 20px 10px;
-        border-radius: calc($glass-border-radius - 20px);
-        gap: 15px;
-        .headerHolder{
-  
-            .titleBox {
-                .title {
-                    font-size: 1.1rem;
-                }
-            }
-        }
-        .contentHolder {
-            font-size: 0.8rem;
-            line-height: 25px;
-            
-        }
-    }
-}
-
-
-@media (max-width: $screen-size-sm) {
-    .skillHolder {
-        padding: 10px 10px;
-        border-radius: calc($glass-border-radius - 20px);
-
-        .headerHolder{
-  
-            .titleBox {
-                .title {
-                    font-size: 0.9rem;
-                }
-            }
-        }
-        .contentHolder {
-            font-size: 0.7rem;
-            line-height: 20px;
-            
-        }
-    }
-}
-

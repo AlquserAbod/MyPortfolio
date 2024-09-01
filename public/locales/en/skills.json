@@ -3,12 +3,10 @@
     "skills": {
       "html": {
         "title": "Html",
-        "icon": "html.png",
         "content": "HTML defines web page structure and content with tags."
       },
       "css": {
         "title": "Css",
-        "icon": "css.png",
         "content": "CSS styles and layouts web pages, controlling colors and fonts."
       },
       "expressjs": {
@@ -18,42 +16,34 @@
       },
       "nextjs": {
         "title": "Next Js",
-        "icon": "nextjs.png",
         "content": "Next.js enables server-side rendering for React apps, enhancing SEO."
       },
       "tailwindcss": {
         "title": "Tailwind CSS",
-        "icon": "tailwindcss.png",
         "content": "Tailwind CSS is a utility-first framework for designing responsive UIs."
       },
       "dart": {
         "title": "Dart",
-        "icon": "dart.png",
         "content": "Dart is used with Flutter for fast, high-performance app development."
       },
       "flutter": {
         "title": "Flutter",
-        "icon": "flutter.png",
         "content": "Flutter builds natively compiled apps for mobile, web, and desktop."
       },
       "javascript": {
         "title": "JavaScript",
-        "icon": "javascript.png",
         "content": "JavaScript adds interactivity and dynamic behavior to web pages."
       },
       "typescript": {
         "title": "TypeScript",
-        "icon": "typescript.png",
         "content": "TypeScript enhances JavaScript with static typing for better code quality."
       },
       "react": {
         "title": "React",
-        "icon": "react.png",
         "content": "React builds interactive UIs with reusable components and fast rendering."
       },
       "node": {
         "title": "Node",
-        "icon": "_node.png",
         "content": "Node.js runs JavaScript on the server, enabling scalable network apps."
       },
       "mongodb": {
@@ -63,7 +53,6 @@
       },
       "sass": {
         "title": "Sass",
-        "icon": "sass.png",
         "content": "Sass extends CSS with variables and nesting for easier styling."
       }
     }

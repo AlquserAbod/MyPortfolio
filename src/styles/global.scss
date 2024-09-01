@@ -1,3 +1,7 @@
+:root {
+    --swiper-theme-color: #1dffc4; 
+    --swiper-pagination-bullet-inactive-color: #1dffc4
+  }
 
 *  {
     
@@ -17,12 +21,6 @@ html {
         background-color: $primary-color;
         overflow-x: hidden;
 
-        @font-face {
-            font-family: 'Tajawal';
-            src: url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
-            font-display: swap;
-        }
-
         &.rtl {
             direction: rtl;
         }
@@ -30,7 +28,10 @@ html {
         &.ltr {
             direction: ltr;
         }
+
+
     }
     
 }
 
+  

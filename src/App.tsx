@@ -12,6 +12,10 @@ import NotFound from "./pages/not_found";
 
 import 'react-multi-carousel/lib/styles.css'
 
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 
 function App() {
   const directionClass = isRtl() ? "rtl" : "ltr";

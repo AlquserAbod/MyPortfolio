@@ -1,19 +1,37 @@
 .container {
   margin: 50px 50px 0 50px;
 
-  .cardsContainer {
+  .wrapper {
     margin: 50px 0;
 
-    .itemClass {
+    height: 100%;
+    align-items: stretch;
+    .swiperSlide {
       display: flex;
       justify-content: center;
-      align-items: stretch;
+      align-items: center;
+      height: unset;
     }
+
+
   }
 }
+
+
+
+
+
+
 
 @media (max-width: $screen-size-lg) {
   .container {
     margin: 50px 20px 0 20px;
+  }
+}
+
+
+@media (max-width: $screen-size-sm) {
+  .container {
+    margin: 50px 10px 0 10px;
   }
 }

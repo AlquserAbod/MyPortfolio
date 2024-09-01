@@ -6,20 +6,18 @@ import { FaDownload, FaGithub, FaGlobe } from "react-icons/fa";
 
 import Carousel from "react-multi-carousel";
 
-const Card = ({ project }: { project: Project }) => {
+const ProjectCard = ({ project }: { project: Project }) => {
   const categoryEnum = convertStringToEnum(ProjectCategories, project.category);
 
-
+  
   return (
-    <div className={styles.project} >
+    <div className={styles.project}>
       <Carousel
         autoPlay
         autoPlaySpeed={3000}
-
         rewind
         containerClass={styles.carouselHolder}
         pauseOnHover
-
         responsive={{
           desktop: {
             breakpoint: {
@@ -48,18 +46,12 @@ const Card = ({ project }: { project: Project }) => {
         slidesToSlide={1}
         arrows={false}
         showDots
-
       >
-        {Object.entries(project.images).map(
-          ([key, image]: [string, any]) => (
-
-            <div className={styles.imageHolder}>
-              <img src={image}  key={key} loading="lazy" />
-
-            </div>
-            
-          )
-        )}
+        {Object.entries(project.images).map(([key, image]: [string, any]) => (
+          <div className={styles.imageHolder} key={key}>
+            <img src={image}  loading="lazy" />
+          </div>
+        ))}
       </Carousel>
 
       <div className={styles.content}>
@@ -111,4 +103,4 @@ const Card = ({ project }: { project: Project }) => {
   );
 };
 
-export default Card;
+export default ProjectCard;

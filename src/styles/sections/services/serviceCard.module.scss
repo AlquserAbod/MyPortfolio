@@ -1,24 +1,20 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 5px solid $secondary-color;
-  max-width: 190px;
-
   text-align: center;
-
-  gap: 20px;
+  gap: 10px;
   padding: 20px 5px;
-
   background-color: $light-color;
   border-radius: 15px;
-
   color: $primary-color;
+  height: 100%; 
+  align-self: stretch;
 
   .icon {
     width: 3.5rem;
-
 
     img {
       width: 100%;
@@ -32,32 +28,32 @@
   .description {
     flex-grow: 1;
   }
-  
+
   .contactUs {
     color: $secondary-color;
     font-weight: 900;
     transition: 0.3s ease;
     
     &:hover {
-        cursor: pointer;
-        color: $primary-color;
-        transform: scale(1.1);
+      cursor: pointer;
+      color: $primary-color;
+      transform: scale(1.1);
     }
   }
 }
 
-
 @media (max-width: 750px) {
   .container {
     max-width: 150px;
+
     .icon {
       width: 3rem;
-
     }
+
     .title {
       font-size: 0.9rem;
-      
     }
+
     .description {
       font-size: 0.8rem;
     }
@@ -74,12 +70,12 @@
 
     .icon {
       width: 2.5rem;
-
     }
+
     .title {
       font-size: 0.7rem;
-      
     }
+
     .description {
       font-size: 0.6rem;
     }
@@ -89,4 +85,3 @@
     }
   }
 }
-

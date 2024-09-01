@@ -3,9 +3,9 @@ import styles from "@/styles/sections/projects/styles.module.scss";
 import TitleBox from "@/components/titleBox";
 import { useTranslation } from "react-i18next";
 import { isRtl } from "@/utils/i18n";
-import Card from "./card";
+import ProjectCard from "./card";
 import { ProjectCategories } from "@/types/project";
-import { projectsData } from "@/data/projectData";
+import { projectsData } from "@/data/project-data";
 
 const Projects = () => {
   const { t } = useTranslation("projects");
@@ -82,9 +82,9 @@ const Projects = () => {
 
       <div className={styles.projects}>
         {filteredProjects.length > 0 ? (
-          Object.entries(filteredProjects).map(([key, project]) => {
-            return <Card key={project.id} project={project} />;
-          })
+          Object.entries(filteredProjects).map(([key, project]: [string,any]) => (
+            <ProjectCard  project={project}  key={key}/>
+          ))
         ) : (
           <div className={styles.emptyCategory}>{t("emptyCategory")}</div>
         )}

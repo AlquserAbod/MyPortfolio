@@ -5,20 +5,14 @@ import { Skill } from "@/types/skills";
 const SkillCard: React.FC<any> = ({ skill }: { skill: Skill }) => {
   const iconSrc = `/images/icons/skills/${skill.icon}`; // استخدام المسار الثابت
 
+  
   return (
-    <div className={styles.skillHolder}>
-      <div className={styles.headerHolder}>
-        <div className={styles.iconHolder}>
-          <img src={iconSrc} alt={`${skill.title} Icon`} loading="lazy" />
-        </div>
-        <TitleBox
-          title={skill.title}
-          holderClass={styles.titleBox}
-          className={styles.title}
-        />
-      </div>
+    <div className={styles.skill}>
+      <div className={styles.iconHolder}>
+        <img src={iconSrc} alt={skill.title} loading="lazy" />
 
-      <div className={styles.contentHolder}>{skill.content}</div>
+      </div>
+      <TitleBox title={skill.title} className={styles.title} />
     </div>
   );
 };

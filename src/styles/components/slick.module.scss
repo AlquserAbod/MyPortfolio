@@ -1,0 +1,36 @@
+.arrow {
+    display:  flex;
+    align-items: center;
+    font-size: 1.7rem;
+
+
+    
+    .icon {
+        color: $secondary-color;
+        transition: 0.2s ease;
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+    }
+}
+
+
+.slickDots {
+    margin-top: 20px;
+
+    ul {
+        list-style: none;
+        display: flex;
+        gap: 15px;
+
+
+
+        .dot {
+            background-color: $secondary-color;
+            width: 5px;
+            height: 5px;
+            border-radius: 2px;
+        }
+    }
+}
