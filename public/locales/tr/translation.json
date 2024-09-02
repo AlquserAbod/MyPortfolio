@@ -47,57 +47,5 @@
     "successMessage": "Mesaj başarıyla gönderildi. En kısa zamanda cevap verilecektir.",
     "errorMessage": "Mesaj gönderilirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
     "sendingMessage": "Form gönderiliyor..."
-  },
-
-  "services": {
-    "contactUs": "bizimle iletişime geçin",
-    "title": "Hizmetler",
-    "services": {
-      "service1": {
-        "iconName": "fullStackMern",
-        "title": "MERN Stack ile Tam Yığın Web Geliştirme",
-        "description": "MongoDB, Express.js, React.js ve Node.js kullanarak kapsamlı web uygulamaları geliştirme."
-      },
-      "service2": {
-        "iconName": "frontend",
-        "title": "Ön Uç Geliştirme",
-        "description": "React.js ve SCSS kullanarak duyarlı ve etkileşimli kullanıcı arayüzleri tasarlama ve geliştirme."
-      },
-      "service3": {
-        "iconName": "backend",
-        "title": "Arka Uç Geliştirme",
-        "description": "Node.js ve Express.js kullanarak sunucu tarafı mantığı ve veritabanlarını yönetme ve ölçeklenebilir uygulamalar oluşturma."
-      },
-      "service4": {
-        "iconName": "api",
-        "title": "RESTful API Geliştirme",
-        "description": "Farklı sistemler arasında sorunsuz entegrasyon için RESTful API'ler tasarlama ve geliştirme."
-      },
-      "service5": {
-        "iconName": "database",
-        "title": "Veritabanı Yönetimi",
-        "description": "Performans ve güvenliği sağlamak için MongoDB kullanarak veritabanlarını tasarlama, optimize etme ve yönetme."
-      },
-      "service6": {
-        "iconName": "deployment",
-        "title": "Dağıtım ve Barındırma",
-        "description": "Vercel ve Heroku gibi platformlarda uygulamaları dağıtma ve barındırma, stabil ve güvenli işlemler sağlama."
-      },
-      "service7": {
-        "iconName": "android",
-        "title": "Flutter ile Android Geliştirme",
-        "description": "Flutter kullanarak modern tasarım ve kullanıcı deneyimine odaklanan tam işlevli Android uygulamaları tasarlama ve geliştirme."
-      },
-      "service8": {
-        "iconName": "firebase",
-        "title": "Firebase Entegrasyonu",
-        "description": "Kimlik doğrulama, gerçek zamanlı veritabanları ve anlık bildirimler gibi özellikler için Android uygulamalarına Firebase hizmetlerini entegre etme."
-      },
-      "service9": {
-        "iconName": "apiMobile",
-        "title": "API Entegrasyonu",
-        "description": "Veri etkileşimini sağlamak ve uygulama işlevselliğini genişletmek için Android uygulamalarını harici API'lere bağlama."
-      }
-    }
   }
 }

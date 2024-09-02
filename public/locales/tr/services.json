@@ -1,0 +1,42 @@
+{
+  "title": "Hizmetler",
+  "contactUs": "Bizimle iletişime geçin",
+  "services": {
+    "fullStackMern": {
+      "title": "MERN Stack ile Tam Yığın Web Geliştirme",
+      "description": "MongoDB, Express.js, React.js ve Node.js kullanarak kapsamlı web uygulamaları geliştirme."
+    },
+    "frontend": {
+      "title": "Ön Uç Geliştirme",
+      "description": "React.js ve SCSS kullanarak duyarlı ve etkileşimli kullanıcı arayüzleri tasarlama ve geliştirme."
+    },
+    "backend": {
+      "title": "Arka Uç Geliştirme",
+      "description": "Node.js ve Express.js kullanarak sunucu tarafı mantığı ve veritabanlarını yönetme ve ölçeklenebilir uygulamalar oluşturma."
+    },
+    "api": {
+      "title": "RESTful API Geliştirme",
+      "description": "Farklı sistemler arasında sorunsuz entegrasyon için RESTful API'ler tasarlama ve geliştirme."
+    },
+    "database": {
+      "title": "Veritabanı Yönetimi",
+      "description": "Performans ve güvenliği sağlamak için MongoDB kullanarak veritabanlarını tasarlama, optimize etme ve yönetme."
+    },
+    "deployment": {
+      "title": "Dağıtım ve Barındırma",
+      "description": "Vercel ve Heroku gibi platformlarda uygulamaları dağıtma ve barındırma, stabil ve güvenli işlemler sağlama."
+    },
+    "android": {
+      "title": "Flutter ile Android Geliştirme",
+      "description": "Flutter kullanarak modern tasarım ve kullanıcı deneyimine odaklanan tam işlevli Android uygulamaları tasarlama ve geliştirme."
+    },
+    "firebase": {
+      "title": "Firebase Entegrasyonu",
+      "description": "Kimlik doğrulama, gerçek zamanlı veritabanları ve anlık bildirimler gibi özellikler için Android uygulamalarına Firebase hizmetlerini entegre etme."
+    },
+    "apiMobile": {
+      "title": "API Entegrasyonu",
+      "description": "Veri etkileşimini sağlamak ve uygulama işlevselliğini genişletmek için Android uygulamalarını harici API'lere bağlama."
+    }
+  }
+}

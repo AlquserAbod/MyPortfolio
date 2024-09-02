@@ -54,58 +54,6 @@
     "successMessage": "The message has been sent successfully. You will be answered as soon as possible.",
     "errorMessage": "An error occurred while sending the message. Please try again later.",
     "sendingMessage": "Sending the form..."
-  },
-
-  "services": {
-    "title": "Services",
-    "contactUs": "Contact us now",
-    "services": {
-      "service1": {
-        "iconName": "fullStackMern",
-        "title": "Full-Stack Web Development with MERN Stack",
-        "description": "Building comprehensive web applications using MongoDB, Express.js, React.js, and Node.js."
-      },
-      "service2": {
-        "iconName": "frontend",
-        "title": "Front-End Development",
-        "description": "Designing and developing responsive and interactive user interfaces using React.js and SCSS."
-      },
-      "service3": {
-        "iconName": "backend",
-        "title": "Back-End Development",
-        "description": "Creating and managing server-side logic and databases using Node.js and Express.js for scalable applications."
-      },
-      "service4": {
-        "iconName": "api",
-        "title": "RESTful API Development",
-        "description": "Designing and developing RESTful APIs for seamless integration between different systems."
-      },
-      "service5": {
-        "iconName": "database",
-        "title": "Database Management",
-        "description": "Designing, optimizing, and managing databases using MongoDB to ensure performance and security."
-      },
-      "service6": {
-        "iconName": "deployment",
-        "title": "Deployment & Hosting",
-        "description": "Deploying and hosting applications on platforms like Vercel and Heroku, ensuring stable and secure operations."
-      },
-      "service7": {
-        "iconName": "android",
-        "title": "Android Development with Flutter",
-        "description": "Designing and developing fully functional Android applications using Flutter with a focus on modern design and user experience."
-      },
-      "service8": {
-        "iconName": "firebase",
-        "title": "Firebase Integration",
-        "description": "Integrating Firebase services into Android apps for features like authentication, real-time databases, and push notifications."
-      },
-      "service9": {
-        "iconName": "apiMobile",
-        "title": "API Integration",
-        "description": "Connecting Android apps to external APIs to enable seamless data interaction and extend app functionality."
-      }
-
-    }
   }
+
 }

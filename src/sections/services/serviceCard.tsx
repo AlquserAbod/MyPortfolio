@@ -1,48 +1,19 @@
 import styles from "@/styles/sections/services/serviceCard.module.scss";
+import { Service } from "@/types/service";
 
-import React, { useEffect, useState } from "react";
 import { Trans } from "react-i18next";
-import { SwiperSlide } from "swiper/react";
 
-interface ServiceCardProps {
-  title: string;
-  description: string;
-  iconName: string;
-}
-const ServiceCard: React.FC<ServiceCardProps> = ({
-  title,
-  description,
-  iconName,
-}) => {
-  const [iconUrl, setIconUrl] = useState<string | null>(null);
 
-  useEffect(() => {
-    const loadIcon = async () => {
-      try {
-        const iconModule = await import(
-          `@/assets/icons/services/${iconName}.png`
-        );
-        setIconUrl(iconModule.default);
-      } catch (error) {
-        console.error("Error loading icon:", error);
-        setIconUrl(null); // Handle error case
-      }
-    };
+const ServiceCard = ({ service }: { service: Service }) => {
 
-    loadIcon();
-  }, [iconName]);
 
   return (
     <div className={styles.container}>
       <div className={styles.icon}>
-        {iconUrl ? (
-          <img src={iconUrl} alt="Service Icon"  loading="lazy"/>
-        ) : (
-          <div></div>
-        )}
+          <img src={`/images/icons/services/${service.icon}`} alt={service.title}  loading="lazy"/>
       </div>
-      <div className={styles.title}>{title}</div>
-      <div className={styles.description}>{description}</div>
+      <div className={styles.title}>{service.title}</div>
+      <div className={styles.description}>{service.description}</div>
       <div
         className={styles.contactUs}
         onClick={(e) => {

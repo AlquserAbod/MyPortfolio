@@ -48,58 +48,5 @@
     "successMessage": "تم إرسال الرسالة بنجاح. سيتم الرد عليك في أقرب وقت ممكن.",
     "errorMessage": "حدث خطأ أثناء إرسال الرسالة. الرجاء المحاولة مرة أخرى لاحقًا.",
     "sendingMessage": "جارٍ إرسال النموذج..."
-  },
-
-  "services": {
-    "title": "الخدمات",
-    "contactUs": "اتصل بنا الآن" ,
-    "services": {
-      "service1": {
-        "iconName": "fullStackMern",
-        "title": "تطوير ويب كامل باستخدام MERN",
-        "description": "بناء تطبيقات ويب شاملة باستخدام MongoDB و Express.js و React.js و Node.js."
-      },
-      "service2": {
-        "iconName": "frontend",
-        "title": "تطوير الواجهة الأمامية",
-        "description": "تصميم وتطوير واجهات مستخدم تفاعلية واستجابية باستخدام React.js و SCSS."
-      },
-      "service3": {
-        "iconName": "backend",
-        "title": "تطوير الخلفية",
-        "description": "إنشاء وإدارة المنطق البرمجي على الخادم وقواعد البيانات باستخدام Node.js و Express.js لتطبيقات قابلة للتوسع."
-      },
-      "service4": {
-        "iconName": "api",
-        "title": "تطوير API RESTful",
-        "description": "تصميم وتطوير واجهات API RESTful لتكامل سلس بين الأنظمة المختلفة."
-      },
-      "service5": {
-        "iconName": "database",
-        "title": "إدارة قواعد البيانات",
-        "description": "تصميم وتحسين وإدارة قواعد البيانات باستخدام MongoDB لضمان الأداء والأمان."
-      },
-      "service6": {
-        "iconName": "deployment",
-        "title": "النشر والاستضافة",
-        "description": "نشر واستضافة التطبيقات على منصات مثل Vercel و Heroku، وضمان عمليات مستقرة وآمنة."
-      },
-
-      "service7": {
-        "iconName": "android",
-        "title": "تطوير تطبيقات أندرويد باستخدام Flutter",
-        "description": "تصميم وتطوير تطبيقات أندرويد كاملة الوظائف باستخدام Flutter مع التركيز على التصميم الحديث وتجربة المستخدم."
-      },
-      "service8": {
-        "iconName": "firebase",
-        "title": "دمج Firebase",
-        "description": "دمج خدمات Firebase في تطبيقات أندرويد لميزات مثل المصادقة، وقواعد البيانات في الوقت الفعلي، والإشعارات الفورية."
-      },
-      "service9": {
-        "iconName": "apiMobile",
-        "title": "دمج API",
-        "description": "ربط تطبيقات أندرويد بواجهات API الخارجية لتمكين التفاعل السلس مع البيانات وتوسيع وظائف التطبيق."
-      }
-    }
   }
 }

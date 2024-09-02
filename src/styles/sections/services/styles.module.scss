@@ -18,6 +18,23 @@
 }
 
 
+@media (max-width: 768px) {
+  .swiperButtonNext,
+  .swiperButtonPrev {
+    width: 30px;
+    height: 30px;
+
+
+  }
+}
+
+@media (max-width: 480px) {
+  .swiperButtonNext,
+  .swiperButtonPrev {
+    width: 20px;
+    height: 20px;
+  }
+}
 
 
 

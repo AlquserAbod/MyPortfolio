@@ -1,7 +1,19 @@
 :root {
     --swiper-theme-color: #1dffc4; 
-    --swiper-pagination-bullet-inactive-color: #1dffc4
-  }
+    --swiper-pagination-bullet-inactive-color: #1dffc4;
+}
+
+@media (max-width: $screen-size-sm) {
+    :root {
+    --swiper-navigation-size: 40px;
+    }
+}
+
+@media (max-width: 300px) {
+    :root {
+    --swiper-navigation-size: 30px;
+    }
+}
 
 *  {
     

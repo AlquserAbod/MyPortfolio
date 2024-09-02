@@ -1,22 +1,38 @@
 import TitleBox from "@/components/titleBox";
 import styles from "@/styles/sections/services/styles.module.scss";
 
-import { t } from "i18next";
 import ServiceCard from "./serviceCard";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { isRtl } from "@/utils/i18n";
+import { useTranslation } from "react-i18next";
+import { servicesData } from "@/data/services-data";
 
 const ServicesSection = () => {
-  const services = t("services.services", { returnObjects: true });
+  const { t } = useTranslation('services');
+
+
+
+  const servicesTranslations = t("services", { returnObjects: true }) as Record<
+    string,
+    any
+  >;
+
+  const services = Object.entries(servicesData).map(([key, service]) => ({
+    ...service,
+    title: servicesTranslations[key]?.title,
+    description: servicesTranslations[key]?.description,
+  }));
+
+
   const direction = isRtl() ? "rtl" : "ltr";
 
   return (
     <section className={styles.container} id="services">
       <div className={styles.titleHolder}>
-        <TitleBox title={t("services.title")} />
+        <TitleBox title={t("title")} />
       </div>
 
       <Swiper
@@ -63,9 +79,7 @@ const ServicesSection = () => {
         {Object.entries(services).map(([key, service]: [string, any]) => (
           <SwiperSlide className={styles.swiperSlide} key={key}>
             <ServiceCard
-              title={service.title}
-              description={service.description}
-              iconName={service.iconName}
+            service={service}
             />
           </SwiperSlide>
         ))}
