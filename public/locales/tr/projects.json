@@ -7,7 +7,6 @@
   "categories": {
     "all": "Hepsi",
     "frontend": "Frontend",
-    "backend": "Backend",
     "fullstack": "Full Stack",
     "androidApplications": "Android Uygulamaları"
   },
@@ -24,6 +23,10 @@
     "tasktroveMobile": {
       "title": "TaskTrove : Mobile App",
       "description": "TaskTrove, TaskTrove web uygulamasıyla senkronize olan basit bir Android görev yönetim uygulamasıdır. Görevlerinizi kolayca ekleyin, organize edin ve filtreleyin, Google hesabıyla kolay giriş yapın ve tüm cihazlarınızda sorunsuz bir senkronizasyon sağlayın. Nerede olursanız olun, görevlerinizin takibini yapın."
+    },
+    "tnatoptan": {
+      "title": "Tna Toptan",
+      "description": "tnatoptan uygulaması, toptan mağazaların yönetimi için tasarlanmıştır. Kullanıcılar sipariş oluşturabilir ve takip edebilirken, yönetim departmanı siparişlerin durumunu görüntüleyip yönetme yeteneğine sahiptir. Uygulama 8 sayfadan oluşur ve şirketin özel bir aracıdır; halka açık değildir."
     }
   }
 }

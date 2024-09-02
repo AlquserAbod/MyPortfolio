@@ -52,14 +52,6 @@ const Projects = () => {
             <span>{t("categories.frontend")}</span>
           </label>
           <label
-            onClick={() => setCategory(ProjectCategories.Backend)}
-            className={`${
-              category == ProjectCategories.Backend ? styles.selected : ""
-            }`}
-          >
-            <span>{t("categories.backend")}</span>
-          </label>
-          <label
             onClick={() => setCategory(ProjectCategories.Fullstack)}
             className={`${
               category == ProjectCategories.Fullstack ? styles.selected : ""

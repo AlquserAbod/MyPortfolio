@@ -7,7 +7,6 @@
     "categories": {
         "all": "All",
         "frontend": "Frontend",
-        "backend": "Backend",
         "fullstack": "Full stack",
         "androidApplications": "Android Applications"
     },
@@ -24,6 +23,10 @@
         "tasktroveMobile": {
             "title": "TaskTrove : Mobile App",
             "description": "TaskTrove is a simple Android task management app that syncs with the TaskTrove web app. Add, organize, and filter tasks effortlessly, with easy Google login and seamless syncing across your devices. Stay on top of your tasks, wherever you are."
+        },
+        "tnatoptan": {
+            "title": "Tna Toptan",
+            "description": "The tnatoptan application is designed for managing wholesale stores. It allows users to create and track orders, while the management department has the ability to view and manage the status of these orders. The application consists of 8 pages and is a private tool for the company, not accessible to the public."
         }
     }
 }

@@ -2,7 +2,7 @@ export interface Project {
     id: number,
     title: string,
     description: string,
-    images: Array<string>,
+    image: string,
     category: string
     tags: Array<string>,
     githubLink: string,
@@ -12,7 +12,6 @@ export interface Project {
 
 export enum ProjectCategories {
     All = 'All',
-    Backend = 'Backend',
     Frontend = 'Frontend',
     Fullstack = 'Fullstack',
     AndroidApplications = 'AndroidApplications'
