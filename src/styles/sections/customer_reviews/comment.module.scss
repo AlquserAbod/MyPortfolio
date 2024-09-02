@@ -1,108 +1,7 @@
-$review-border-radius: 60px;
-$avatar-border-radius: 50%;
-
 .reviewHolder {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-
   position: relative;
-  top: -100px;
 
-  .itemsHolder {
-    display: flex;
-    justify-content: center;
-
-    .avatarHolder {
-      width: 150px;
-      height: 150px;
-      position: absolute;
-      top: -50px;
-      border: 10px solid $primary-color;
-      border-radius: $avatar-border-radius;
-
-      img {
-        border-radius: $avatar-border-radius;
-
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    .contentHolder {
-      background-color: $light-color;
-      color: $primary-color;
-
-      border-radius: $review-border-radius;
-      padding: 150px 35px 25px 35px;
-
-      min-height: 250px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: stretch;
-
-      .nameHolder {
-        font-size: 2rem;
-        font-weight: 900;
-      }
-
-      .serviceHolder {
-        font-size: 1.1rem;
-        font-weight: 700;
-      }
-
-      .commentHolder {
-        margin-top: 25px;
-        font-weight: 400;
-        font-size: 1.2rem;
-        line-height: 1.7rem;
-      }
-    }
-  }
-}
-
-@media (max-width: $screen-size-xl) {
-  .reviewHolder {
-    .itemsHolder {
-      .contentHolder {
-        min-height: 360px;
-
-        .nameHolder {
-          font-size: 2vw;
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: $screen-size-lg) {
-  .reviewHolder {
-    top: -110px;
-
-    .itemsHolder {
-      .contentHolder {
-        min-height: 400px;
-
-        padding-bottom: 15px;
-        padding-right: 15px;
-        padding-left: 15px;
-
-        .nameHolder {
-          font-size: 2.3vw;
-          margin-bottom: 10px;
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: $screen-size-md) {
-  .reviewHolder {
-    margin-top: 250px;
-
+  .bg {
     background: $glass-background-color;
     border-radius: $glass-border-radius;
     backdrop-filter: blur($glass-backdrop-blur);
@@ -112,90 +11,167 @@ $avatar-border-radius: 50%;
     -moz-box-shadow: $glass-box-shadow;
     -webkit-box-shadow: $glass-box-shadow;
     box-shadow: $glass-box-shadow;
-    padding: 25px;
+    height: 90%;
+    position: absolute;
+    top: 100px;
+    left: 0;
 
+    width: 100%;
+    z-index: -1;
+    display: none;
+  }
+
+  .itemsHolder {
     position: relative;
+    background-color: $light-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    .itemsHolder {
-      height: 350px;
+    height: 100%;
 
-      .contentHolder {
-        min-height: 275px;
-        width: 300px;
+    color: $primary-color;
 
-        padding-bottom: 50px;
-        padding-right: 50px;
-        padding-left: 50px;
+    border-radius: 25px;
+    padding: 10px 25px;
 
-        top: -125px;
-        position: relative;
+    border: 2px solid $secondary-color;
+    box-shadow: 0px 0px 30px 02px rgba(29,255,195,0.4);
 
-        .nameHolder {
-          font-size: 2rem;
-        }
+    .avatarHolder {
+      position: relative;
+      margin-bottom: 50px;
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
 
-        .serviceHolder {
-          font-size: 1rem;
-        }
+        border-radius: 50%;
+        border: 7px solid $primary-color;
+      }
+    }
+
+    .contentHolder {
+      padding: 45px 0;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .name {
+        font-size: 1.9rem;
+        font-weight: 700;
+      }
+      .service {
+        font-weight: 600;
+        font-size: 1rem;
       }
 
-      .avatarHolder {
-        position: absolute;
-        top: -200px;
-        z-index: 2;
+      .comment {
+        margin-top: 20px;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 2;
       }
     }
   }
 }
 
+@media (max-width: $screen-size-md) and (min-width: $screen-size-sm) {
+  .reviewHolder {
+    .itemsHolder {
+      padding: 10px;
 
-@media (max-width: 500px) {
-    .reviewHolder {
-        width: fit-content;
-        padding: 15px;
-
-        .itemsHolder {
-            height: 310px;
-
-            .contentHolder {
-                padding-bottom: 10px;
-                padding-right: 10px;
-                padding-left: 10px;
-            }
+      .avatarHolder {
+        img {
+          width: 125px;
         }
+      }
+
+      .contentHolder {
+        .name {
+          font-size: 1.3rem;
+        }
+
+        .service {
+          font-size: 0.8rem;
+          margin-top: 5px;
+        }
+
+        .comment {
+          font-size: 0.9rem;
+          line-height: 1.4;
+        }
+      }
     }
+  }
 }
 
-@media (max-width: 350px) {
-    .reviewHolder {
-        width: 100%;
-        padding: 15px;
-        margin-top: 175px;
-        .itemsHolder {
-            height: 310px;
+@media (max-width: $screen-size-sm) {
+  .reviewHolder {
+    padding: 25px 25px 0 25px;
 
-            .avatarHolder { 
-                width: 100px;
-                height: 100px;
-                top: -170px;
-            }
-
-            .contentHolder {
-                width: 100%;
-                height: 100%;
-
-                padding-top: 100px;
-                overflow-x: auto;
-                border-radius: 10px;
-                .nameHolder {
-                    font-size: 1.3rem;
-                    text-align: center;
-                }
-
-                .commentHolder {
-                    font-size: 0.8rem;
-                }
-            }
-        }
+    .bg {
+      display: block;
     }
+
+    .itemsHolder {
+      .avatarHolder {
+        img {
+          width: 125px;
+        }
+      }
+
+      .contentHolder {
+        .name {
+          font-size: 1.35rem;
+        }
+  
+        .service {
+          font-size: 0.9rem;
+          margin-top: 5px;
+        }
+  
+        .comment {
+          font-size: 0.9rem;
+          line-height: 1.4;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 300px) {
+  .reviewHolder {
+    padding: 10px 10px 0 10px;
+
+
+    .bg {
+      height: 85%;
+    }
+
+    .itemsHolder {
+
+      .avatarHolder {
+        img {
+          width: 100px;
+        }
+      }
+      .contentHolder {
+        .name {
+          font-size: 1rem;
+        }
+  
+        .service {
+          font-size: 0.9rem;
+          margin-top: 5px;
+        }
+  
+        .comment {
+          font-size: 0.9rem;
+          line-height: 1.4;
+        }
+      }
+    }
+  }
 }

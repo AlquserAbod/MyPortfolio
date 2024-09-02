@@ -1,84 +1,87 @@
 .container {
-    margin: 50px 50px 0 50px;
+  margin: 50px 50px 200px 50px;
 
-    .titleHolder {
-        margin-bottom: 50px;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 250px;
+  .titleHolder {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+  }
+
+  .reviewsContainer {
+    padding: 0px 50px 0px 50px;
+
+    position: relative;
+
+    .bg {
+      background: $glass-background-color;
+      border-radius: $glass-border-radius;
+      backdrop-filter: blur($glass-backdrop-blur);
+      -webkit-backdrop-filter: blur($glass-backdrop-blur);
+      border: $glass-border-width solid $glass-border-color;
+
+      -moz-box-shadow: $glass-box-shadow;
+      -webkit-box-shadow: $glass-box-shadow;
+      box-shadow: $glass-box-shadow;
+      position: absolute;
+      top: 100px;
+      left: 0;
+
+      height: 90%;
+      width: 100%;
+      z-index: -1;
     }
 
-    
-    
     .reviewsHolder {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 50px;
-        
-        padding: 0px 50px 0px 50px;
-        max-height: 350px;
-
-
-        background: $glass-background-color;
-        border-radius: $glass-border-radius;
-        backdrop-filter: blur($glass-backdrop-blur);
-        -webkit-backdrop-filter: blur($glass-backdrop-blur);
-        border: $glass-border-width solid $glass-border-color;
-        
-        -moz-box-shadow:$glass-box-shadow;
-        -webkit-box-shadow: $glass-box-shadow;
-        box-shadow: $glass-box-shadow;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 50px;
     }
-}
-
-@media (max-width: $screen-size-xl) {
-    .container {
-        .reviewsHolder{
-            max-height: 425px;
-        }
-    }
+  }
 }
 
 @media (max-width: $screen-size-lg) {
-    .container {
+  .container {
+    margin: 40px 40px 200px 40px;
 
-        .reviewsHolder{
-            gap: 25px;
-            padding: 25px;
+    .reviewsContainer {
+      padding: 0px 20px 0px 5px;
 
-            max-height: 400px;
-        }
+      .reviewsHolder {
+        gap: 30px;
+      }
     }
+  }
 }
 
 @media (max-width: $screen-size-md) {
-    .container {
-        .reviewsHolder {
+  .container {
+    margin: 30px 30px 200px 30px;
 
-            flex-direction: column;
-            
-            background: none;
-            border-radius: 0;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            border: 0;
-            
-            -moz-box-shadow:none;
-            -webkit-box-shadow: none;
-            box-shadow:n one;
-        
-            max-height: fit-content;
-        }
+    .reviewsContainer {
+      padding: 0px 20px 0px 20px;
+
+      .reviewsHolder {
+        gap: 20px;
+      }
     }
+  }
 }
 
-@media (max-width: 500px) {
-    .container {
-        margin: 50px 25px 0 25px;
+@media (max-width: $screen-size-sm) {
+  .container {
+    margin: 0 0 200px 0;
 
-        .titleHolder {
-            margin-bottom: 100px;
-        }
+    .reviewsContainer {
+      .reviewsHolder {
+        flex-direction: column;
+        gap: 100px;
+      }
+
+      .bg {
+        display: none;
+      }
     }
+  }
 }

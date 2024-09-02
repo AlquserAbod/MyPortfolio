@@ -15,17 +15,19 @@ const CommentCard: React.FC<CommentCardProps> =  ({name, service, imageUrl,comme
           <img src={imageUrl} alt={'customer profile picture'}  width={150} loading='lazy'/>
         </div>
         <div className={styles.contentHolder}>
-          <div className={styles.nameHolder}>
+          <div className={styles.name}>
             {name}
           </div>
-          <div className={styles.serviceHolder}>
+          <div className={styles.service}>
             {service}
           </div>
-          <div className={styles.commentHolder}>
+          <div className={styles.comment}>
             {comment}
           </div>
         </div>
       </div>
+
+      <div className={styles.bg}></div>
     </div>
   )
 }

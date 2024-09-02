@@ -17,25 +17,32 @@ const CustomerReviews: React.FC = () => {
           <TitleBox title={t("customerReveiews.title")} />
         </div>
 
-        <div className={styles.reviewsHolder}>
-          <CommentCard
-            name={t("customerReveiews.review1.name")}
-            service={t("customerReveiews.review1.service")}
-            comment={t("customerReveiews.review1.comment")}
-            imageUrl={ahmedMohammedAvatar}
-          />
-          <CommentCard
-            name={t("customerReveiews.review2.name")}
-            service={t("customerReveiews.review2.service")}
-            comment={t("customerReveiews.review2.comment")}
-            imageUrl={emilyDavisAvatar}
-          />
-          <CommentCard
-            name={t("customerReveiews.review3.name")}
-            service={t("customerReveiews.review3.service")}
-            comment={t("customerReveiews.review3.comment")}
-            imageUrl={omarAhmedAvatar}
-          />
+
+        <div className={styles.reviewsContainer}>
+          <div className={styles.reviewsHolder}>
+            <CommentCard
+              name={t("customerReveiews.review1.name")}
+              service={t("customerReveiews.review1.service")}
+              comment={t("customerReveiews.review1.comment")}
+              imageUrl={ahmedMohammedAvatar}
+            />
+
+            <CommentCard
+              name={t("customerReveiews.review2.name")}
+              service={t("customerReveiews.review2.service")}
+              comment={t("customerReveiews.review2.comment")}
+              imageUrl={emilyDavisAvatar}
+            />
+
+            <CommentCard
+              name={t("customerReveiews.review3.name")}
+              service={t("customerReveiews.review3.service")}
+              comment={t("customerReveiews.review3.comment")}
+              imageUrl={omarAhmedAvatar}
+            />
+          </div>
+
+          <div className={styles.bg}></div>
         </div>
 
     </section>

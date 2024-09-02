@@ -73,6 +73,10 @@ $value-tooltip-arrow-size: 8px;
           }
         }
 
+        textarea {
+          line-height: 22px;
+        }
+
         .errorText {
           display: none; // Hide by default
         }
