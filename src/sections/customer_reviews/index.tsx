@@ -8,36 +8,36 @@ import emilyDavisAvatar from "@/assets/images/customers/emily_davis.jpg";
 import omarAhmedAvatar from "@/assets/images/customers/omar_ahmed.jpg";
 
 const CustomerReviews: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('customerReviews');
 
   return (
     <section className={styles.container} id="customerReviews">
         
         <div className={styles.titleHolder}>
-          <TitleBox title={t("customerReveiews.title")} />
+          <TitleBox title={t("title")} />
         </div>
 
 
         <div className={styles.reviewsContainer}>
           <div className={styles.reviewsHolder}>
             <CommentCard
-              name={t("customerReveiews.review1.name")}
-              service={t("customerReveiews.review1.service")}
-              comment={t("customerReveiews.review1.comment")}
+              name={t("review1.name")}
+              service={t("review1.service")}
+              comment={t("review1.comment")}
               imageUrl={ahmedMohammedAvatar}
             />
 
             <CommentCard
-              name={t("customerReveiews.review2.name")}
-              service={t("customerReveiews.review2.service")}
-              comment={t("customerReveiews.review2.comment")}
+              name={t("review2.name")}
+              service={t("review2.service")}
+              comment={t("review2.comment")}
               imageUrl={emilyDavisAvatar}
             />
 
             <CommentCard
-              name={t("customerReveiews.review3.name")}
-              service={t("customerReveiews.review3.service")}
-              comment={t("customerReveiews.review3.comment")}
+              name={t("review3.name")}
+              service={t("review3.service")}
+              comment={t("review3.comment")}
               imageUrl={omarAhmedAvatar}
             />
           </div>

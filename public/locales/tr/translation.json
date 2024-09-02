@@ -6,25 +6,6 @@
     "line3": "Müşteri projelerinin başarısına katkıda bulunan ve isteklerini sürekli olarak karşılayan yenilikçi teknik çözümler sunmaya kendimi adadım."
   },
 
-  "customerReveiews": {
-    "title": "Müşteri Yorumları",
-    "review1": {
-      "name": "Ahmed Mohammed",
-      "comment": "Abdullah, neyin gerektiğini hızlıca anlayan yetenekli bir programcı. Çalışmaları mükemmel ve her zaman zamanında teslim ediliyor. Onunla çalışmayı kesinlikle tavsiye ederim.",
-      "service": "MERN Yığını Kullanarak Web Sitesi Geliştirme"
-    },
-    "review2": {
-      "name": "Emily Davis",
-      "comment": "Abdullah ile birkaç projede çalıştım ve her zaman olağanüstü iş ve yenilikçi çözümler sunuyor. Çok işbirlikçi ve sabırlı.",
-      "service": "Flutter Kullanarak Android Uygulama Geliştirme"
-    },
-    "review3": {
-      "name": "Ömer Ahmed",
-      "comment": "Abdullah, büyük bir profesyonellik ve detaylara dikkat ile çalışıyor. Sorunları hızlı ve etkili bir şekilde çözüyor. Onunla çalışmak mükemmel bir deneyimdi.",
-      "service": "React Teknolojilerini Kullanarak Web Sitesi Geliştirme"
-    }
-  },
-
   "submit": "Gönder",
   "clicktoCopy": "Kopyalamak için tıklayın",
   "copied": "Kopyalandı"

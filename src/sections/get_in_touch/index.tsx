@@ -29,7 +29,6 @@ const GetInTouch = () => {
     message: "",
   });
 
-  // Function to handle input changes
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -37,7 +36,6 @@ const GetInTouch = () => {
     setFormValues({ ...formValues, [id]: value });
   };
 
-  // Function to handle focus change on Enter key press
   const handleKeyDown = (
     e: React.KeyboardEvent<HTMLInputElement>,
     nextElementId: string

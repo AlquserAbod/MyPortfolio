@@ -1,11 +1,12 @@
 import styles from "@/styles/sections/services/serviceCard.module.scss";
 import { Service } from "@/types/service";
 
-import { Trans } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 
 
 const ServiceCard = ({ service }: { service: Service }) => {
 
+  const { t } = useTranslation('services');
 
   return (
     <div className={styles.container}>
@@ -26,7 +27,7 @@ const ServiceCard = ({ service }: { service: Service }) => {
           });
         }}
       >
-        <Trans i18nKey={"services.contactUs"} />
+        {t('contactUs')}
       </div>
     </div>
   );
