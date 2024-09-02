@@ -1,7 +1,7 @@
 $value-tooltip-bg: #333;
 $value-tooltip-color: #fff;
 $value-tooltip-padding: 5px 10px;
-$value-tooltip-font-size: 14px;
+$value-tooltip-font-size: 0.8rem;
 $value-tooltip-arrow-size: 8px;
 
 .container {
@@ -49,7 +49,7 @@ $value-tooltip-arrow-size: 8px;
         gap: 5px;
 
         label {
-          font-size: 18px;
+          font-size: 1.2rem;
         }
 
         .input {
@@ -66,7 +66,7 @@ $value-tooltip-arrow-size: 8px;
             + .errorText,
             ~ .errorText {
               display: block;
-              font-size: 12px;
+              font-size: 0.8rem;
               font-weight: 400;
               color: rgba(red, 0.8);
             }
@@ -98,7 +98,7 @@ $value-tooltip-arrow-size: 8px;
           background: none;
           color: $white-color;
           font-weight: 700;
-          font-size: 16px;
+          font-size: 1rem;
           border-radius: 5px;
           transition: 0.3s ease;
 
@@ -118,7 +118,7 @@ $value-tooltip-arrow-size: 8px;
       flex: 1 1 50%;
 
       .description {
-        font-size: 20px;
+        font-size: 1.3rem;
         color: $light-color;
         line-height: 24px;
         margin-top: 50px;
@@ -136,14 +136,14 @@ $value-tooltip-arrow-size: 8px;
           gap: 5px;
 
           .title {
-            font-size: 28px;
+            font-size: 1.8rem;
             font-weight: 600;
           }
 
           .value {
             position: relative;
             padding: 10px 20px;
-            font-size: 20px;
+            font-size: 1.2rem;
             font-family: Verdana, sans-serif;
             letter-spacing: 2px;
             text-align: center;
@@ -250,10 +250,10 @@ $value-tooltip-arrow-size: 8px;
         .contactData {
           div {
             .title {
-              font-size: 24px;
+              font-size: 1.5rem;
             }
             .value {
-              font-size: 16px;
+              font-size: 1rem;
             }
           }
         }
@@ -277,18 +277,6 @@ $value-tooltip-arrow-size: 8px;
 
       .contentHolder {
         flex: 1 1 10%;
-
-        padding: 50px 25px;
-        .contactData {
-          div {
-            .title {
-              font-size: 24px;
-            }
-            .value {
-              font-size: 16px;
-            }
-          }
-        }
       }
     }
   }
@@ -347,10 +335,10 @@ $value-tooltip-arrow-size: 8px;
 
           div {
             .title {
-              font-size: 24px;
+              font-size: 1.5rem;
             }
             .value {
-              font-size: 16px;
+              font-size: 1rem;
             }
           }
         }
@@ -396,7 +384,7 @@ $value-tooltip-arrow-size: 8px;
 
 @media (max-width: 300px) {
   .container {
-    margin: 0 0;
+    margin: 50px 10px;
     padding: 10px;
 
     .itemsHolder {

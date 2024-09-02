@@ -33,27 +33,5 @@
 
   "submit": "Submit",
   "clicktoCopy": "Click to copy",
-  "copied": "Copied",
-
-  "getInTouch": {
-    "title": "Get In Touch",
-    "firstName": "First Name",
-    "lastName": "Last Name", 
-    "email": "Email",
-    "phoneNumber": "Phone Number",
-    "messageTitle": "Your Message",
-    "messagePlaceHolder": "What do you have in mind",
-
-    "description": "Do you want to work together or want to give your opinion on my work? You can apply here and you will be answered as soon as possible.",
-
-    "errors": {
-      "required": "this field is required.",
-      "invalidEmail": "invalid email format."
-    },
-
-    "successMessage": "The message has been sent successfully. You will be answered as soon as possible.",
-    "errorMessage": "An error occurred while sending the message. Please try again later.",
-    "sendingMessage": "Sending the form..."
-  }
-
+  "copied": "Copied"
 }

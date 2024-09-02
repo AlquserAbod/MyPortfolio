@@ -8,7 +8,7 @@ import { sendEmail } from "@/utils/sendEmail";
 import ToastService from "@/services/ToastService";
 
 const GetInTouch = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("getInTouch");
 
   const [emailTooltipText, setEmailTooltipText] = useState("clicktoCopy");
   const [phoneTooltipText, setPhoneTooltipText] = useState("clicktoCopy");
@@ -62,26 +62,26 @@ const GetInTouch = () => {
     let valid = true;
 
     if (!formValues.firstName.trim()) {
-      errors.firstName = t("getInTouch.errors.required");
+      errors.firstName = t("errors.required");
       valid = false;
     }
 
     if (!formValues.lastName.trim()) {
-      errors.lastName = t("getInTouch.errors.required");
+      errors.lastName = t("errors.required");
       valid = false;
     }
 
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!formValues.email.trim()) {
-      errors.email = t("getInTouch.errors.required");
+      errors.email = t("errors.required");
       valid = false;
     } else if (!emailPattern.test(formValues.email)) {
-      errors.email = t("getInTouch.errors.invalidEmail");
+      errors.email = t("errors.invalidEmail");
       valid = false;
     }
 
     if (!formValues.message.trim()) {
-      errors.message = t("getInTouch.errors.required");
+      errors.message = t("errors.required");
       valid = false;
     }
 
@@ -126,17 +126,15 @@ const GetInTouch = () => {
         className={styles.itemsHolder}
         onSubmit={(e) => {
           ToastService.promiseToast(handleSubmit(e), {
-            loadingText: t("getInTouch.sendingMessage"),
-            successText: t("getInTouch.successMessage"),
-            errorText: t("getInTouch.errorMessage"),
+            loadingText: t("sendingMessage"),
+            successText: t("successMessage"),
+            errorText: t("errorMessage"),
           });
         }}
       >
         <div className={styles.formHolder}>
           <div className={styles.inputGroup}>
-            <label htmlFor="firstName">
-              <Trans i18nKey={"getInTouch.firstName"} /> *
-            </label>
+            <label htmlFor="firstName">{t("firstName")}</label>
             <input
               type="text"
               className={`${styles.input} ${
@@ -156,9 +154,7 @@ const GetInTouch = () => {
           </div>
 
           <div className={styles.inputGroup}>
-            <label htmlFor="lastName">
-              <Trans i18nKey={"getInTouch.lastName"} /> *
-            </label>
+            <label htmlFor="lastName">{t("lastName")}</label>
             <input
               type="text"
               className={`${styles.input} ${
@@ -178,9 +174,7 @@ const GetInTouch = () => {
           </div>
 
           <div className={styles.inputGroup}>
-            <label htmlFor="email">
-              <Trans i18nKey={"getInTouch.email"} /> *
-            </label>
+            <label htmlFor="email">{t("email")}</label>
             <input
               type="email"
               className={`${styles.input} ${formErrors.email && styles.error}`}
@@ -198,9 +192,7 @@ const GetInTouch = () => {
           </div>
 
           <div className={styles.inputGroup}>
-            <label htmlFor="phoneNumber">
-              <Trans i18nKey={"getInTouch.phoneNumber"} />
-            </label>
+            <label htmlFor="phoneNumber">{t("phoneNumber")}</label>
             <input
               type="text"
               className={`${styles.input} ${
@@ -220,15 +212,13 @@ const GetInTouch = () => {
           </div>
 
           <div className={styles.inputGroup}>
-            <label htmlFor="message">
-              <Trans i18nKey={"getInTouch.messageTitle"} /> *
-            </label>
+            <label htmlFor="message">{t("messageTitle")}</label>
             <textarea
               id="message"
               className={`${styles.input} ${
                 formErrors.message && styles.error
               }`}
-              placeholder={t("getInTouch.messagePlaceHolder")}
+              placeholder={t("messagePlaceHolder")}
               value={formValues.message}
               onChange={handleInputChange}
             ></textarea>
@@ -247,13 +237,9 @@ const GetInTouch = () => {
         </div>
 
         <div className={styles.contentHolder}>
-          <div className={styles.titleHolder}>
-            <TitleBox title={t("getInTouch.title")} />
-          </div>
+          <div className={styles.titleHolder}><TitleBox  title={t('title')}/></div>
 
-          <div className={styles.description}>
-            <Trans i18nKey={"getInTouch.description"} />
-          </div>
+          <div className={styles.description}>{t("description")}</div>
 
           <div className={styles.contactData}>
             <div
@@ -266,11 +252,11 @@ const GetInTouch = () => {
                 }, 1000);
               }}
             >
-              <div className={styles.title}>
-                <Trans i18nKey={"getInTouch.email"} />
-              </div>
+              <div className={styles.title}>{t("email")}</div>
               <div className={styles.value}>
-                <div className={`${styles.tooltip}`}>{t(emailTooltipText)}</div>
+                <div className={`${styles.tooltip}`}>
+                  <Trans i18nKey={emailTooltipText} />
+                </div>
                 <span>{data.contactData.email}</span>
               </div>
             </div>
@@ -285,11 +271,11 @@ const GetInTouch = () => {
                 }, 1000);
               }}
             >
-              <div className={styles.title}>
-                <Trans i18nKey={t("getInTouch.phoneNumber")} />
-              </div>
+              <div className={styles.title}>{t("phoneNumber")}</div>
               <div className={styles.value}>
-                <div className={`${styles.tooltip}`}>{t(phoneTooltipText)}</div>
+                <div className={`${styles.tooltip}`}>
+                  <Trans i18nKey={phoneTooltipText} />
+                </div>
                 {data.contactData.phoneNumber}
               </div>
             </div>
