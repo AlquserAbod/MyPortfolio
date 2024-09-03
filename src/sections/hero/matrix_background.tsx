@@ -85,11 +85,12 @@ const MatrixBackground = ({ children }: { children: JSX.Element }) => {
       });
     };
 
+    
     const interval = setInterval(draw, matrixSpeed);
     return () => {
       clearInterval(interval);
     };
-  }, [canvasDimensions, fontSize]);
+  }, [ fontSize]);
 
   return (
     <div className={styles.matrixContainer}>

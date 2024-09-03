@@ -1,7 +1,7 @@
 import styles from "@/styles/sections/services/serviceCard.module.scss";
 import { Service } from "@/types/service";
 
-import { Trans, useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 
 const ServiceCard = ({ service }: { service: Service }) => {

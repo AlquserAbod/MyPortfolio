@@ -12,6 +12,8 @@ const GetInTouch = () => {
 
   const [emailTooltipText, setEmailTooltipText] = useState("clicktoCopy");
   const [phoneTooltipText, setPhoneTooltipText] = useState("clicktoCopy");
+  const [emailTooltipActive, setEmailTooltipActive] = useState(false);
+  const [phoneTooltipActive, setPhoneTooltipActive] = useState(false);
 
   const [formValues, setFormValues] = useState({
     firstName: "",
@@ -28,6 +30,27 @@ const GetInTouch = () => {
     phoneNumber: "",
     message: "",
   });
+
+  const handleCopy = (type: "email" | "phone") => {
+    const text =
+      type === "email" ? data.contactData.email : data.contactData.phoneNumber;
+    navigator.clipboard.writeText(text);
+    if (type === "email") {
+      setEmailTooltipText("copied");
+      setEmailTooltipActive(true);
+      setTimeout(() => {
+        setEmailTooltipText("clicktoCopy");
+        setEmailTooltipActive(false);
+      }, 1000);
+    } else {
+      setPhoneTooltipText("copied");
+      setPhoneTooltipActive(true);
+      setTimeout(() => {
+        setPhoneTooltipText("clicktoCopy");
+        setPhoneTooltipActive(false);
+      }, 1000);
+    }
+  };
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -119,9 +142,8 @@ const GetInTouch = () => {
   return (
     <section className={`${styles.container}`} id="getinTouch">
       <form
-        action="https://formspree.io/f/mqaznzja"
         method="POST"
-        className={styles.itemsHolder}
+        className={`${styles.itemsHolder}`}
         onSubmit={(e) => {
           ToastService.promiseToast(handleSubmit(e), {
             loadingText: t("sendingMessage"),
@@ -235,20 +257,18 @@ const GetInTouch = () => {
         </div>
 
         <div className={styles.contentHolder}>
-          <div className={styles.titleHolder}><TitleBox  title={t('title')}/></div>
+          <div className={styles.titleHolder}>
+            <TitleBox title={t("title")} />
+          </div>
 
           <div className={styles.description}>{t("description")}</div>
 
           <div className={styles.contactData}>
             <div
-              className={styles.email}
-              onClick={() => {
-                navigator.clipboard.writeText(data.contactData.email);
-                setEmailTooltipText("copied");
-                setTimeout(() => {
-                  setEmailTooltipText("clicktoCopy");
-                }, 1000);
-              }}
+              className={`${styles.email} ${
+                emailTooltipActive ? styles.tooltipActive : ""
+              }`}
+              onClick={() => handleCopy("email")}
             >
               <div className={styles.title}>{t("email")}</div>
               <div className={styles.value}>
@@ -260,14 +280,10 @@ const GetInTouch = () => {
             </div>
 
             <div
-              className={styles.phoneNumber}
-              onClick={() => {
-                navigator.clipboard.writeText(data.contactData.phoneNumber);
-                setPhoneTooltipText("copied");
-                setTimeout(() => {
-                  setPhoneTooltipText("clicktoCopy");
-                }, 1000);
-              }}
+              className={`${styles.phoneNumber} ${
+                phoneTooltipActive ? styles.tooltipActive : ""
+              }`}
+              onClick={() => handleCopy("phone")}
             >
               <div className={styles.title}>{t("phoneNumber")}</div>
               <div className={styles.value}>

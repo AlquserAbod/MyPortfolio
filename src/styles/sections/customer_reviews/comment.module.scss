@@ -1,16 +1,11 @@
+@import '@styles/mixins';
+
 .reviewHolder {
   position: relative;
 
   .bg {
-    background: $glass-background-color;
-    border-radius: $glass-border-radius;
-    backdrop-filter: blur($glass-backdrop-blur);
-    -webkit-backdrop-filter: blur($glass-backdrop-blur);
-    border: $glass-border-width solid $glass-border-color;
+    @include glass-effect;
 
-    -moz-box-shadow: $glass-box-shadow;
-    -webkit-box-shadow: $glass-box-shadow;
-    box-shadow: $glass-box-shadow;
     height: 90%;
     position: absolute;
     top: 100px;
@@ -36,7 +31,9 @@
     padding: 10px 25px;
 
     border: 2px solid $secondary-color;
-    box-shadow: 0px 0px 30px 02px rgba(29,255,195,0.4);
+    -webkit-box-shadow: 0px 0px 49px -21px $secondary-color;
+    -moz-box-shadow: 0px 0px 49px -21px $secondary-color;
+    box-shadow: 0px 0px 49px -21px $secondary-color;
 
     .avatarHolder {
       position: relative;
@@ -126,12 +123,12 @@
         .name {
           font-size: 1.35rem;
         }
-  
+
         .service {
           font-size: 0.9rem;
           margin-top: 5px;
         }
-  
+
         .comment {
           font-size: 0.9rem;
           line-height: 1.4;
@@ -145,13 +142,11 @@
   .reviewHolder {
     padding: 10px 10px 0 10px;
 
-
     .bg {
       height: 85%;
     }
 
     .itemsHolder {
-
       .avatarHolder {
         img {
           width: 100px;
@@ -161,12 +156,12 @@
         .name {
           font-size: 1rem;
         }
-  
+
         .service {
           font-size: 0.9rem;
           margin-top: 5px;
         }
-  
+
         .comment {
           font-size: 0.9rem;
           line-height: 1.4;

@@ -1,149 +1,193 @@
-
+@import "@styles/mixins";
 
 .container {
-    margin-top: 50px;
-    
+  margin-top: 50px;
+
+  .holder {
+    @include glass-effect;
+
+    margin: 0 70px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 20% 30% 30%;
+    grid-auto-flow: column;
+    padding: 20px 0 20px 20px;
+
+    &.rtl {
+      padding: 20px 20px 20px 0;
+    }
+
+    .line {
+      font-weight: 400;
+      color: rgba($color: $light-color, $alpha: 0.8);
+      line-height: 30px;
+      word-break: normal;
+      white-space: normal;
+      overflow-wrap: break-word;
+      font-size: 1.3rem;
+      align-self: center;
+      padding: 25px 0;
+    } 
+
+    .logoHolder {
+      height: 90%;
+      width: 200px;
+      grid-column-start: 2;
+      grid-area: 1 / 2 / 5 / 5;
+      justify-self: end;
+
+      .logo {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  @media (max-width: $screen-size-lg) {
     .holder {
-        background: $glass-background-color;
-        border-radius: $glass-border-radius;
-        backdrop-filter: blur($glass-backdrop-blur);
-        -webkit-backdrop-filter: blur($glass-backdrop-blur);
-        border: $glass-border-width solid $glass-border-color;
-        
-        -moz-box-shadow:$glass-box-shadow;
-        -webkit-box-shadow: $glass-box-shadow;
-        box-shadow: $glass-box-shadow;
+      grid-template-columns: 70% 30%;
+      margin: 0 50px;
+
+      .line {
+        font-size: 1rem;
+        line-height: 25px;
+      }
+    }
+  }
+
+  @media (max-width: 775px) {
+    .holder {
+      margin: 0 20px;
+      grid-template-columns: 80% 20%;
+      grid-template-rows: 20% 40% 20% 20%;
 
 
-        margin: 0 70px;
-        position: relative;
-        display: grid;
-        grid-template-columns: 80% 20%;
-        grid-template-rows: 20% 30% 30%;
-        grid-auto-flow: column;
-        flex-wrap: wrap;
-        padding: 20px 0 20px 20px;
-        row-gap: 10px;
+      .titleBox {
+        align-self: center;
+      }
+      .line2holder {
+        grid-area: 3 / 1 / 4 / last-line;
+      }
 
-        &.rtl {
-            padding: 20px 20px 20px 0;
-        }
+      .line3holder {
+        grid-area: 4 / 1 / 4 / last-line;
+      }
 
-
-        .line1holder,
-        .line2holder,
-        .line3holder {
-            font-weight: 400;
-            font-size: 18.5px;
-            color: rgba($color: $light-color, $alpha: 0.8);
-            line-height: 30px;
-            word-break: normal;
-            overflow-wrap: break-word;
-            white-space: normal;
-        }
-
-        .line1holder,
-        .line2holder {
-            align-self: center;
-        }
-
+      &.rtl {
         .logoHolder {
-            height: 90%;
-            width: 200px;
-            grid-column-start: 2;
-            grid-area: 1 / 2 / 5 / 5;
-            justify-self: end;
-
-            .logo {
-                width: 100%;
-                height: 100%;
-            }
+          padding-right: 5px;
         }
+      }
+
+      &:not(.rtl) {
+        .logoHolder {
+          padding-left: 5px;
+        }
+      }
+
+      .logoHolder {
+        width: 100%;
+        padding: 0 0;
+        grid-area: 1 / 2 / 3;
+        height: 100%;
+        align-self: stretch;
+      }
+
+      .line {
+        font-size: 0.9rem;
+        line-height: 20px;
+        margin: 0;
+      }
+    }
+  }
+
+  @media (max-width: $screen-size-sm) {
+    .holder {
+      margin: 0 10px;
+      grid-template-columns: 70% 30%;
+
+
+      padding: 10px 0 10px 10px;
+
+      &.rtl {
+        padding: 10px 10px 10px 0;
+      }
+
+      .line2holder {
+        grid-area: 3 / 1 / 4 / last-line;
+      }
+
+      .line3holder {
+        grid-area: 4 / 1 / 4 / last-line;
+      }
+
+      &.rtl {
+        .logoHolder {
+          padding-right: 5px;
+        }
+      }
+
+      &:not(.rtl) {
+        .logoHolder {
+          padding-left: 5px;
+        }
+      }
+
+      .logoHolder {
+        width: 100%;
+        grid-area: 1 / 2 / 3;
+      }
+
+      .line {
+        font-size: 0.8rem;
+        line-height: 20px;
+        margin: 0;
+      }
+    }
+  }
+
+  @media (max-width: 380px) {
+    .holder {
+      grid-template-columns: 65% 35%;
+
+      grid-template-rows: 20% 40% 20% 20%;
+
+      .titleBox {
+        align-self: center;
+      }
+
+      .line1holder,
+      .line2holder,
+      .line3holder {
+        margin: 20px 0;
+      }
+
+      .line2holder {
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+@media (max-width: 300px) {
+  .holder {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px !important;
+    text-align: center;
+
+    .logoHolder {
+      display: none;
     }
 
-    @media (max-width: $screen-size-lg) {
-        .holder {
-            grid-template-columns: 70% 30%;
-
-            .logoHolder {
-                grid-area: 1 / 2 / 3;
-                height: 100%;
-                align-self: stretch;
-            }
-
-            .line2holder {
-                grid-area: 3 / 1 / 4 / last-line;
-            }
-
-            .line3holder {
-                grid-area: 4 / 1 / 4 / last-line;
-            }
-        }
+    .line1holder,
+    .line2holder,
+    .line3holder {
+      font-size: 0.8rem !important;
+      margin: 10px 0 !important;
     }
-
-    @media (max-width: $screen-size-md) {
-        .holder {
-            grid-template-columns: 70% 30%;
-            margin: 50px;
-
-            .logoHolder {
-                grid-area: 1 / 2 / 3;
-                height: 100%;
-                align-self: stretch;
-            }
-
-            .line1holder,
-            .line2holder,
-            .line3holder {
-                font-size: 15px;
-                line-height: 25px;
-            }
-        }
-    }
-
-    @media (max-width: 775px) {
-        .holder {
-            margin: 40px;
-
-            .logoHolder {
-                width: 150px;
-            }
-
-            .line1holder,
-            .line2holder,
-            .line3holder {
-                font-size: 14px;
-                line-height: 20px;
-            }
-        }
-    }
-
-    @media (max-width: $screen-size-sm) {
-        .holder {
-            .logoHolder {
-                width: calc(100% - 20px);
-            }
-
-            .line1holder,
-            .line2holder,
-            .line3holder {
-                font-size: 12.5px;
-                line-height: 20px;
-                margin: 25px 0;
-            }
-        }
-    }
-
-    @media (max-width: 400px) {
-        .holder {
-            display: flex;
-            justify-content: center;
-            padding: 20px !important;
-            text-align: center;
-
-            .logoHolder {
-                display: none;
-            }
-        }
-    }
+  }
 }

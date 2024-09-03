@@ -1,0 +1,49 @@
+// _fonts.scss
+@font-face {
+  font-family: "Tajawal";
+  font-style: normal;
+  font-weight: 100; // ExtraLight
+  src: url('/fonts/tajawal/Tajawal-ExtraLight.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Tajawal";
+  font-style: normal;
+  font-weight: 300; // Light
+  src: url('/fonts/tajawal/Tajawal-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Tajawal";
+  font-style: normal;
+  font-weight: 400; // Regular
+  src: url('/fonts/tajawal/Tajawal-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Tajawal";
+  font-style: normal;
+  font-weight: 500; // Medium
+  src: url('/fonts/tajawal/Tajawal-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Tajawal";
+  font-style: normal;
+  font-weight: 700; // Bold
+  src: url('/fonts/tajawal/Tajawal-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Tajawal";
+  font-style: normal;
+  font-weight: 800; // ExtraBold
+  src: url('/fonts/tajawal/Tajawal-ExtraBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: "Tajawal";
+  font-style: normal;
+  font-weight: 900; // Black
+  src: url('/fonts/tajawal/Tajawal-Black.woff') format('woff');
+}

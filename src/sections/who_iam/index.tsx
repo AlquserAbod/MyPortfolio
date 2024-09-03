@@ -1,33 +1,36 @@
 import { Trans, useTranslation } from "react-i18next";
 import styles from "@/styles/sections/who_iam/styles.module.scss";
 import hlaflogo from "@/assets/images/logos/hlaflogo.png";
-import halflogoRotate from "@/assets/images/logos/halflogoRotate.png";
+import halflogoRotate from "@/assets/images/logos/hlaflogoRotate.png";
 import { isRtl } from "@/utils/i18n";
 import TitleBox from "@/components/titleBox";
 
 const WhoamiSection = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("whoami");
 
   return (
     <section className={styles.container} id="whoami">
       <div className={`${styles.holder} ${isRtl() ? styles.rtl : ""}`}>
-        <TitleBox title={t("whoami.title")} />
-        <div className={styles.line1holder}>
+        <TitleBox title={t("title")} holderClass={styles.titleBox} />
+        <div className={`${styles.line1holder} ${styles.line}`}>
           <Trans
-            i18nKey={"whoami.line1"}
+            ns="whoami"
+            i18nKey={"line1"}
             components={{ span: <span /> }}
           ></Trans>
         </div>
-        <div className={styles.line2holder}>
+        <div className={`${styles.line2holder} ${styles.line}`}>
           <Trans
-            i18nKey={"whoami.line2"}
+            ns="whoami"
+            i18nKey={"line2"}
             components={{ span: <span /> }}
           ></Trans>
         </div>
 
-        <div className={styles.line3holder}>
+        <div className={`${styles.line3holder} ${styles.line}`}>
           <Trans
-            i18nKey={"whoami.line3"}
+            ns="whoami"
+            i18nKey={"line3"}
             components={{ span: <span /> }}
           ></Trans>
         </div>

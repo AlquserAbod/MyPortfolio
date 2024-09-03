@@ -1,3 +1,5 @@
+@import '@styles/mixins';
+
 .container {
   margin: 50px 50px 200px 50px;
 
@@ -14,15 +16,9 @@
     position: relative;
 
     .bg {
-      background: $glass-background-color;
-      border-radius: $glass-border-radius;
-      backdrop-filter: blur($glass-backdrop-blur);
-      -webkit-backdrop-filter: blur($glass-backdrop-blur);
-      border: $glass-border-width solid $glass-border-color;
 
-      -moz-box-shadow: $glass-box-shadow;
-      -webkit-box-shadow: $glass-box-shadow;
-      box-shadow: $glass-box-shadow;
+      @include glass-effect;
+
       position: absolute;
       top: 100px;
       left: 0;

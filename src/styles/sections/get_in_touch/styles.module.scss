@@ -1,3 +1,6 @@
+@import '@styles/mixins';
+
+
 $value-tooltip-bg: #333;
 $value-tooltip-color: #fff;
 $value-tooltip-padding: 5px 10px;
@@ -23,20 +26,19 @@ $value-tooltip-arrow-size: 8px;
   .itemsHolder {
     display: flex;
     justify-content: space-between;
+    flex-direction: row-reverse;
+
+
     gap: 150px;
     width: 100%;
 
     .formHolder {
+      @include glass-effect;
+
       display: flex;
       flex-direction: column;
-      background: $glass-background-color;
-      border-radius: $glass-border-radius;
-      backdrop-filter: blur($glass-backdrop-blur);
-      -webkit-backdrop-filter: blur($glass-backdrop-blur);
-      border: $glass-border-width solid $glass-border-color;
-      -moz-box-shadow: $glass-box-shadow;
-      -webkit-box-shadow: $glass-box-shadow;
-      box-shadow: $glass-box-shadow;
+      
+
 
       padding: 50px;
       gap: 20px;
@@ -139,6 +141,25 @@ $value-tooltip-arrow-size: 8px;
           flex-direction: column;
           gap: 5px;
 
+
+          &.tooltipActive {
+            .value {
+              .tooltip {
+                opacity: 1;
+                visibility: visible;
+              }
+              @media  (hover: none) {
+                &:before,
+                &:after {
+                  width: calc(100% - 8px) !important;
+                  height: calc(100% - 8px ) !important;
+                }
+              }
+            }
+
+
+          }
+          
           .title {
             font-size: 1.8rem;
             font-weight: 600;
@@ -191,7 +212,7 @@ $value-tooltip-arrow-size: 8px;
               transition: width 1s, height 1s;
             }
 
-            &:hover .tooltip {
+            &.tooltipActive:hover .tooltip {
               opacity: 1;
               visibility: visible;
             }
@@ -214,10 +235,13 @@ $value-tooltip-arrow-size: 8px;
               border-left: 4px solid $secondary-color;
             }
 
-            &:hover:before,
-            &:hover:after {
-              width: calc(100% - 8px);
-              height: calc(100% - 8px);
+
+            @media  (hover: hover) {
+              &:hover:before,
+              &:hover:after {
+                width: calc(100% - 8px);
+                height: calc(100% - 8px);
+              }
             }
           }
         }

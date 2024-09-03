@@ -1,3 +1,4 @@
+@import 'fonts';
 :root {
     --swiper-theme-color: #1dffc4; 
     --swiper-pagination-bullet-inactive-color: #1dffc4;
@@ -27,7 +28,7 @@ html {
     scroll-behavior: smooth;
 
     body {
-        
+
         font-family: $font-family;
         color: $white-color;
         background-color: $primary-color;

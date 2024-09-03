@@ -1,11 +1,4 @@
 {
-  "whoami": {
-    "title": "Ben Kimim",
-    "line1": "Çekici ve etkili kullanıcı arayüzleri oluşturmaya ve uygulamaya odaklanarak web ve Android uygulama geliştirmede 4 yılı aşkın kapsamlı deneyime sahibim. İş uygulamaları, e-ticaret, sosyal medya ve uzaktan eğitim gibi çeşitli projeler üzerinde çalıştım; bu da beni pazar gereksinimlerini anlayacak ve müşterilerin ihtiyaçlarını karşılayan etkili çözümler sunacak konuma getirdi.",
-    "line2": "HTML, CSS, JavaScript, ReactJS ve ExpressJS gibi birden fazla dil ve teknolojiyi kullanma konusunda uzman, sorunları çözme ve uygulama performansını ve güvenliğini artırma konusunda olağanüstü yeteneklere sahip. Bir ekibin parçası olarak ve çok kültürlü çalışma ortamlarında çalışma becerisine sahibim ve her zaman sürekli mesleki gelişim için çabalıyorum ve yeniliğe ulaşmak ve kullanıcı deneyimini geliştirmek için en son metodolojileri ve teknik araçları kullanıyorum.",
-    "line3": "Müşteri projelerinin başarısına katkıda bulunan ve isteklerini sürekli olarak karşılayan yenilikçi teknik çözümler sunmaya kendimi adadım."
-  },
-
   "submit": "Gönder",
   "clicktoCopy": "Kopyalamak için tıklayın",
   "copied": "Kopyalandı"

@@ -6,6 +6,7 @@ import CustomerReviews from "../sections/customer_reviews";
 import GetInTouch from "../sections/get_in_touch";
 import ServicesSection from "../sections/services";
 import Projects from "@/sections/projects";
+import ScrollToTopButton from "@/components/scrollToTop";
 
 const MainPage = () => {
 
@@ -25,6 +26,8 @@ const MainPage = () => {
       <CustomerReviews />
 
       <GetInTouch />
+
+      <ScrollToTopButton />
     </>
   );
 };

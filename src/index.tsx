@@ -9,6 +9,7 @@ import GetInTouch from "./sections/get_in_touch";
 import ServicesSection from "./sections/services";
 import Footer from "@/layout/footer";
 import Projects from "./sections/projects";
+import ScrollToTopButton from "./components/scrollToTop";
 
 const MainPage = () => {
   
@@ -31,6 +32,8 @@ const MainPage = () => {
       <GetInTouch />
 
       <Footer />
+
+      <ScrollToTopButton />
     </>
   );
 };
