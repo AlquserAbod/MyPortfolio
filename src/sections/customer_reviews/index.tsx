@@ -13,7 +13,7 @@ const CustomerReviews: React.FC = () => {
   return (
     <section className={styles.container} id="customerReviews">
         
-        <div className={styles.titleHolder}>
+        <div className={styles.titleHolder} data-aos={'flip-up'}>
           <TitleBox title={t("title")} />
         </div>
 

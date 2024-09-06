@@ -9,7 +9,7 @@ const ServiceCard = ({ service }: { service: Service }) => {
   const { t } = useTranslation('services');
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-aos={'flip-up'}>
       <div className={styles.icon}>
           <img src={`/images/icons/services/${service.icon}`} alt={service.title}  loading="lazy"/>
       </div>

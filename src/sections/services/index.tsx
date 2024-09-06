@@ -31,9 +31,10 @@ const ServicesSection = () => {
 
   return (
     <section className={styles.container} id="services">
-      <div className={styles.titleHolder}>
+      <div className={styles.titleHolder} data-aos={'flip-up'}>
         <TitleBox title={t("title")} />
       </div>
+
 
       <Swiper
         key={direction}
@@ -77,7 +78,7 @@ const ServicesSection = () => {
         
       >
         {Object.entries(services).map(([key, service]: [string, any]) => (
-          <SwiperSlide className={styles.swiperSlide} key={key}>
+          <SwiperSlide className={styles.swiperSlide} key={key} >
             <ServiceCard
             service={service}
             />

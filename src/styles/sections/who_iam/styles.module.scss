@@ -28,7 +28,7 @@
       font-size: 1.3rem;
       align-self: center;
       padding: 25px 0;
-    } 
+    }
 
     .logoHolder {
       height: 90%;
@@ -56,12 +56,15 @@
     }
   }
 
-  @media (max-width: 775px) {
+  @media (max-width: $screen-size-md) {
     .holder {
       margin: 0 20px;
+    }
+  }
+  @media (max-width: 775px) {
+    .holder {
       grid-template-columns: 80% 20%;
       grid-template-rows: 20% 40% 20% 20%;
-
 
       .titleBox {
         align-self: center;
@@ -106,7 +109,6 @@
     .holder {
       margin: 0 10px;
       grid-template-columns: 70% 30%;
-
 
       padding: 10px 0 10px 10px;
 
@@ -188,6 +190,7 @@
     .line3holder {
       font-size: 0.8rem !important;
       margin: 10px 0 !important;
+      padding: 0 !important;
     }
   }
 }

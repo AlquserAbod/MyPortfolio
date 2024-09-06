@@ -7,16 +7,18 @@ import { Trans, useTranslation } from 'react-i18next';
 import { isRtl } from '@/utils/i18n';
 import data from '@/data/data.json';
 import TitleBox from '@/components/titleBox';
-import MatrixBackground from './matrix_background';
 
 const HeroSection = () => {
   const { t } = useTranslation("hero")
 
+
   return (
       <section  className={`${styles.container} ${ isRtl() ? styles.rtl : ''}`}>
+            <div className={styles.bg}></div>
           <div className={styles.mainSectionContainer}>
+
             <div className={styles.flexContainer}>
-              <div className={styles.leftSide}>
+              <div className={styles.leftSide} data-aos={`${isRtl() ? `fade-left` : `fade-right`}`}>
 
                 <div className={styles.logoHolder}>
                   <img src={logoUrl} width={50} className={styles.logo} alt="logo" />
@@ -46,9 +48,8 @@ const HeroSection = () => {
 
               </div>
               
-              <div className={styles.rightSide}>
-                <div className={styles.pcIconHolder}>
-                  
+              <div className={styles.rightSide} data-aos={`${isRtl() ? `fade-right` : `fade-left`}`}>
+                <div className={styles.pcIconHolder} >
                     <img src={laptopWithGround} alt='laptop Gif' className={styles.laptop} />
                 </div>
               </div>

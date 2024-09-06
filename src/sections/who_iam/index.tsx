@@ -8,8 +8,10 @@ import TitleBox from "@/components/titleBox";
 const WhoamiSection = () => {
   const { t } = useTranslation("whoami");
 
+
   return (
-    <section className={styles.container} id="whoami">
+    <section className={styles.container} data-aos="zoom-in"
+     id="whoami" >
       <div className={`${styles.holder} ${isRtl() ? styles.rtl : ""}`}>
         <TitleBox title={t("title")} holderClass={styles.titleBox} />
         <div className={`${styles.line1holder} ${styles.line}`}>

@@ -22,7 +22,7 @@ nav.navbar {
       height: fit-content;
       transition: 0.3s ease;
       background-color: $primary-color;
-      transform: translateY(-75px);
+      transform: translateY(-100px);
       padding: 25px 15px 10px;
       border-radius: 0px 0px 10px 10px;
 
@@ -92,7 +92,7 @@ nav.navbar {
 
       .logoHolder {
         transform: translateY(0px);
-        position: static;
+        position: relative;
       }
 
       .pagesHolder {

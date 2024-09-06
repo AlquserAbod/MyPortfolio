@@ -1,7 +1,7 @@
 @import '@styles/mixins';
 
 .container {
-  margin: 50px 50px 200px 50px;
+  margin: 100px 50px 200px 50px;
 
   .titleHolder {
     margin-bottom: 50px;
@@ -39,7 +39,7 @@
 
 @media (max-width: $screen-size-lg) {
   .container {
-    margin: 40px 40px 200px 40px;
+    margin: 100px 40px 200px 40px;
 
     .reviewsContainer {
       padding: 0px 20px 0px 5px;
@@ -53,7 +53,7 @@
 
 @media (max-width: $screen-size-md) {
   .container {
-    margin: 30px 30px 200px 30px;
+    margin: 100px 30px 200px 30px;
 
     .reviewsContainer {
       padding: 0px 20px 0px 20px;
@@ -67,7 +67,7 @@
 
 @media (max-width: $screen-size-sm) {
   .container {
-    margin: 0 0 200px 0;
+    margin: 100px 0 200px 0;
 
     .reviewsContainer {
       .reviewsHolder {

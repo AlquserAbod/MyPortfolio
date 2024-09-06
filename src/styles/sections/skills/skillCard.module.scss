@@ -1,24 +1,84 @@
+$random-delay: random(0.7 * 1000 - 0.3 * 1000) / 1000 + 0.3;
 .skill {
+  .title {
+    font-size: 1rem;
+    color: $light-color;
+    font-weight: 600;
+    text-shadow: 0px 0px 2px $secondary-color;
+
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    .iconHolder{
+    gap: 5px;
+  }
+
+  .skillBar {
+    height: 8px;
+    width: 100%;
+    border-radius: 6px;
+    margin-top: 6px;
+    background: rgba($color: #000000, $alpha: 0.1);
+
+    .skillPer {
         position: relative;
-        width: 45px;
-        top: 15px;
-        z-index: -2;
+        display: block;
+        height: 100%;
+        width: 0; 
+        border-radius: 6px;
+        background: $secondary-color;
+        opacity: 0; 
+        &.animate {
+          opacity: 1;
+          animation: progress 1s ease-in-out forwards;
+          animation-delay: #{$random-delay}s;
 
-        img {
-            width: 100%;
         }
-    }
+      }
+  }
+}
+
+@keyframes progress {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+
+  100% {
+    width: var(--value);
+
+    opacity: 1;
+  }
+}
+
+
+@media (max-width: 700px) {
+
+  .skill {
     .title {
-        font-size: 1rem;
-        text-align: center;
-
-        @media (max-width: $screen-size-lg) {
-            font-size: 0.8;
-        }
+      font-size: 0.8rem;
     }
+    .skillBar {
+      height: 5px;
+    }
+  }
+
+}
+
+@media (max-width: $screen-size-sm) {
+  
+  .container {
+      margin: 50px 10px 0 10px;
+  }
+
+}
+
+@media (max-width: 300px) {
+
+  .skill {
+    .title {
+      font-size: 0.6rem;
+    }
+    .skillBar {
+      height: 3px;
+    }
+  }
+
 }

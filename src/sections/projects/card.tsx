@@ -7,8 +7,10 @@ import { FaDownload, FaGithub, FaGlobe } from "react-icons/fa";
 const ProjectCard = ({ project }: { project: Project }) => {
   const categoryEnum = convertStringToEnum(ProjectCategories, project.category);
 
+
+
   return (
-    <div className={styles.project}>
+    <div className={styles.project} data-aos={'zoom-in'}>
       <TitleBox
         title={project.title}
         holderClass={styles.titleBox}

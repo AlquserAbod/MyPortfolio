@@ -14,11 +14,12 @@ const MainPage = () => {
     <>
       <HeroSection />
 
+
       <WhoamiSection />
 
-      <SkillsSection />
-
       <Projects /> 
+      
+      <SkillsSection />
       
       <ServicesSection />
       

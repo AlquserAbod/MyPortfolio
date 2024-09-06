@@ -1,30 +1,45 @@
 .container {
-  margin: 50px 50px 0 50px;
+  margin: 100px 70px 0 70px;
+  
 
+
+  @media (max-width: $screen-size-lg) {
+    margin: 100px 50px 0 50px;
+  }
+
+  @media (max-width: $screen-size-md) {
+    margin: 100px 20px 0 20px;
+  }
+
+  @media (max-width: $screen-size-sm) {
+    margin: 100px 10px 0 10px;
+  }
+
+
+  .titleHolder {
+    display: flex;
+    justify-content: center;
+  }
   .wrapper {
     margin: 50px 0;
 
     height: 100%;
     align-items: stretch;
+
     .swiperSlide {
       display: flex;
       justify-content: center;
       align-items: center;
       height: unset;
     }
-
-
   }
 }
-
 
 @media (max-width: 768px) {
   .swiperButtonNext,
   .swiperButtonPrev {
     width: 30px;
     height: 30px;
-
-
   }
 }
 
@@ -36,19 +51,3 @@
   }
 }
 
-
-
-
-
-@media (max-width: $screen-size-lg) {
-  .container {
-    margin: 50px 20px 0 20px;
-  }
-}
-
-
-@media (max-width: $screen-size-sm) {
-  .container {
-    margin: 50px 10px 0 10px;
-  }
-}

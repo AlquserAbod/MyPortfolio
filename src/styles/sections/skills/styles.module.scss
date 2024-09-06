@@ -1,20 +1,64 @@
+@import "@styles/mixins";
 
 .container {
-    
-    margin: 50px 50px 0 50px;
+  margin: 100px 70px 0 70px;
+  padding: 20px 40px;
+
+  @include glass-effect;
+
+  @media (max-width: $screen-size-lg) {
+    margin: 100px 50px 0 50px;
+  }
+
+  @media (max-width: $screen-size-md) {
+    margin: 100px 20px 0 20px;
+  }
+
+  @media (max-width: $screen-size-sm) {
+    margin: 100px 10px 0 10px;
+  }
+
+
+  .sectionTitle {
+    margin-bottom: 50px;
+  }
+
+  .holder {
+      
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      
+      gap: 25px;
+      
+
+  }
+
+  @media (max-width: 500px) {
+    padding: 20px 20px;
+
+    & .holder {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+  }
+
+  @media (max-width: 300px) {
+    padding: 20px 10px;
 
     .sectionTitle {
-        margin-bottom: 50px;
+      margin-bottom: 30px;
+      margin-top: 10px;
     }
+
     .holder {
-        padding: 10px 30px;
+      gap: 10px;
     }
-}
+  }
+  @media (max-width: 230px) {
 
-
-@media (max-width: $screen-size-md) {
-    .container {
-        margin: 50px 10px;
+    .holder {
+        grid-template-columns: 100%;
 
     }
+  }
 }

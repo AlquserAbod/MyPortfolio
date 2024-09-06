@@ -6,6 +6,7 @@ import TitleBox from "@/components/titleBox";
 import data from "@/data/data.json";
 import { sendEmail } from "@/utils/sendEmail";
 import ToastService from "@/services/ToastService";
+import { isRtl } from "@/utils/i18n";
 
 const GetInTouch = () => {
   const { t } = useTranslation("getInTouch");
@@ -152,7 +153,7 @@ const GetInTouch = () => {
           });
         }}
       >
-        <div className={styles.formHolder}>
+        <div className={styles.formHolder} data-aos={`${isRtl() ? `fade-right` : `fade-left`}`}>
           <div className={styles.inputGroup}>
             <label htmlFor="firstName">{t("firstName")}</label>
             <input
@@ -256,7 +257,7 @@ const GetInTouch = () => {
           </div>
         </div>
 
-        <div className={styles.contentHolder}>
+        <div className={styles.contentHolder}data-aos={`${isRtl() ? `fade-left` : `fade-right`}`}>
           <div className={styles.titleHolder}>
             <TitleBox title={t("title")} />
           </div>

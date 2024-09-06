@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "@/styles/sections/projects/styles.module.scss";
 import TitleBox from "@/components/titleBox";
 import { useTranslation } from "react-i18next";
@@ -30,10 +30,13 @@ const Projects = () => {
       : projects.filter((project) => project.category === category);
 
   return (
-    <section className={styles.container} id="projects">
-      <TitleBox title={t("title")} />
+    <section className={styles.container} id="projects" >
+      <div data-aos={`${isRtl() ? `fade-left` : `fade-right`}`}>
+        <TitleBox title={t("title")} />
 
-      <div className={styles.categoriesHolder}>
+      </div>
+
+      <div className={styles.categoriesHolder} data-aos={'zoom-in'}>
         <div className={`${styles.categories} ${isRtl() ? styles.isRtl : ""}`}>
           <label
             onClick={() => setCategory(ProjectCategories.All)}

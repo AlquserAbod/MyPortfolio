@@ -10,12 +10,12 @@ import Navbar from "./layout/Navbar";
 import Footer from "./layout/footer";
 import NotFound from "./pages/not_found";
 
-import 'react-multi-carousel/lib/styles.css'
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function App() {
   const directionClass = isRtl() ? "rtl" : "ltr";
@@ -27,6 +27,10 @@ function App() {
       document.body.classList.remove(directionClass);
     };
   }, [directionClass]);
+
+  useEffect(() => {
+    AOS.init();
+  }, [])
 
   
 

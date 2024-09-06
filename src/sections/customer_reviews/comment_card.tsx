@@ -9,7 +9,7 @@ interface CommentCardProps {
 }
 const CommentCard: React.FC<CommentCardProps> =  ({name, service, imageUrl,comment}) => {
   return (
-    <div className={styles.reviewHolder}>
+    <div className={styles.reviewHolder} data-aos={'zoom-in'}>
       <div className={styles.itemsHolder}>
         <div className={styles.avatarHolder}>
           <img src={imageUrl} alt={'customer profile picture'}  width={150} loading='lazy'/>
