@@ -11,9 +11,7 @@ import { useTranslation } from "react-i18next";
 import { servicesData } from "@/data/services-data";
 
 const ServicesSection = () => {
-  const { t } = useTranslation('services');
-
-
+  const { t } = useTranslation("services");
 
   const servicesTranslations = t("services", { returnObjects: true }) as Record<
     string,
@@ -26,15 +24,13 @@ const ServicesSection = () => {
     description: servicesTranslations[key]?.description,
   }));
 
-
   const direction = isRtl() ? "rtl" : "ltr";
 
   return (
     <section className={styles.container} id="services">
-      <div className={styles.titleHolder} data-aos={'flip-up'}>
+      <div className={styles.titleHolder} data-aos={"flip-up"}>
         <TitleBox title={t("title")} />
       </div>
-
 
       <Swiper
         key={direction}
@@ -42,7 +38,6 @@ const ServicesSection = () => {
         spaceBetween={15}
         pagination={{
           clickable: false,
-          
         }}
         dir={direction}
         navigation={true}
@@ -63,25 +58,19 @@ const ServicesSection = () => {
             slidesPerView: 7,
           },
         }}
-
         modules={[Pagination, Navigation, Autoplay]}
-        
         wrapperClass={styles.wrapper}
-        grabCursor={true}
         loop={true}
+        grabCursor={true}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
-          pauseOnMouseEnter: true
+          pauseOnMouseEnter: true,
         }}
-        
-        
       >
         {Object.entries(services).map(([key, service]: [string, any]) => (
-          <SwiperSlide className={styles.swiperSlide} key={key} >
-            <ServiceCard
-            service={service}
-            />
+          <SwiperSlide className={styles.swiperSlide} key={key}>
+            <ServiceCard service={service} />
           </SwiperSlide>
         ))}
       </Swiper>

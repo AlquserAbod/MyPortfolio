@@ -2,7 +2,7 @@
 
 .reviewHolder {
   position: relative;
-
+  flex: 1;
   .bg {
     @include glass-effect;
 

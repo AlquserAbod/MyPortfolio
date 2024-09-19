@@ -284,7 +284,7 @@ nav.navbar {
       width: 100%;
 
       .pagesHolder {
-        margin: 5px;
+        margin: 15px;
 
         span {
           a {
@@ -295,8 +295,8 @@ nav.navbar {
               content: "\007C";
               position: absolute;
               text-align: center;
-              left: 20px;
-              bottom: -35px;
+              left: 10px;
+              bottom: -25px;
               color: $primary-color;
               width: fit-content;
               transform: rotate(90deg);

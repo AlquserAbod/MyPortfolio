@@ -3,25 +3,31 @@
 $main-section-height: 100%;
 $laptop-animation-speed: 10s;
 $slogan-font-size: 3vw;
-$jobTitle-font-size: 1.5vw;
+$jobTitle-font-size: 2vw;
 $slogan-line-ratio: 1.2;
 $logo-width: 5vw;
-$account-hover-change-width: 2px;
+
 
 .container {
   aspect-ratio: 16 / 9;
   position: relative;
 
+
+
   .bg {
     width: 100%;
     height: 65%;
     position: relative;
-    border-radius:0% 0% 88% 12% / 0% 0% 94% 11% ;    //   top: 50%;
+    border-radius:0% 0% 88% 12% / 0% 0% 94% 11% ;
+
     background: rgba($secondary-color, 0.1);
     z-index: -3;
     position: absolute;
   }
 
+    &.rtl .bg { 
+      border-radius: 0% 0% 12% 88% / 0% 0% 11% 94%;
+    }
   .mainSectionContainer {
     height: 100%;
     margin: 0 150px;
@@ -105,7 +111,7 @@ $account-hover-change-width: 2px;
               cursor: pointer;
 
               svg {
-                font-size: calc(25px + $account-hover-change-width);
+                transform: scale(1.1);
                 fill: $secondary-color;
               }
             }
@@ -123,6 +129,7 @@ $account-hover-change-width: 2px;
     }
   }
 }
+
 @media (max-width: $screen-size-md) {
   .container {
     .mainSectionContainer {
@@ -180,9 +187,7 @@ $account-hover-change-width: 2px;
             svg {
               font-size: 1.3rem !important;
 
-              &:hover {
-                font-size: calc(15px + $account-hover-change-width);
-              }
+
             }
           }
 

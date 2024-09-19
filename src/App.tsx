@@ -29,7 +29,10 @@ function App() {
   }, [directionClass]);
 
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      once: true,
+      
+    });
   }, [])
 
   
