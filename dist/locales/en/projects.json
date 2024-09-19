@@ -1,0 +1,44 @@
+{
+  "title": "Projects",
+  "github": "Github",
+  "theWebsite": "The website",
+  "downloadApplication": "Download application",
+  "emptyCategory": "there is no have  any project in this category...",
+  "categories": {
+    "all": "All",
+    "frontend": "Frontend",
+    "fullstack": "Full stack",
+    "androidApplications": "Android Applications"
+  },
+
+  "projects": {
+    "moviemagic": {
+      "title": "Movie Magic",
+      "description": "Movie Magic is a sophisticated React web application designed for movie lovers, seamlessly integrating with TheMovieDB API to provide access to a comprehensive movie library. Users can effortlessly search for films, curate a personalized Watchlist, and track viewed movies with ease. The app's intuitive and modern interface enhances the overall movie discovery and management experience."
+    },
+    "chattyweb": {
+      "title": "Chatty Web",
+      "description": "Chatty Web is a user-friendly web application that offers a seamless chat experience. With its simple yet effective interface, users can easily communicate with friends, create new accounts, and log in. Its focus on usability makes chatting straightforward and accessible."
+    },
+    "tasktroveWeb": {
+      "title": "Task Trove: Web App",
+      "description": "TaskTrove is a robust task management application built using the MERN stack. It empowers users to efficiently add, organize, and prioritize tasks, with advanced filtering options and Google account integration. Tasks sync seamlessly with the mobile app, ensuring productivity across all devices."
+    },
+    "tictaczone": {
+      "title": "TicTacZone",
+      "description": "TicTacZone is an engaging platform where users can create and join Tic-Tac-Toe game rooms to compete with friends. The app offers additional features like real-time chat and the ability to have spectators watch the games, enhancing the overall gaming experience."
+    },
+    "tasktroveMobile": {
+      "title": "TaskTrove: Mobile App",
+      "description": "TaskTrove is a streamlined task management application for Android, designed to sync seamlessly with the TaskTrove web app. Users can add, organize, and filter tasks effortlessly, with integrated Google login for convenience. Whether at home or on the go, TaskTrove keeps you in control of your tasks."
+    },
+    "tnatoptan": {
+      "title": "Tna Toptan",
+      "description": "Tna Toptan is a specialized wholesale management application designed for businesses. It enables users to create and monitor orders, while the management team can oversee and update order statuses. The app consists of 8 pages and is a private tool, exclusively for internal company use."
+    },
+    "myportfolio": {
+      "title": "My Portfolio",
+      "description": "A personal portfolio website built to showcase my work as a full-stack developer. It features a modern, responsive design with sections for client reviews, services offered, highlighted projects, and a contact form. The website is designed for seamless user experience across devices and serves as a professional platform to display my skills, projects, and expertise in web development."
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "title": "Projeler",
+  "github": "Github",
+  "theWebsite": "Web Sitesi",
+  "downloadApplication": "Uygulamayı indirin",
+  "emptyCategory": "bu kategoride herhangi bir proje bulunmamaktadır..",
+  "categories": {
+    "all": "Hepsi",
+    "frontend": "Frontend",
+    "fullstack": "Full Stack",
+    "androidApplications": "Android Uygulamaları"
+  },
+
+  "projects": {
+    "moviemagic": {
+      "title": "Movie Magic",
+      "description": "Movie Magic, TheMovieDB API ile entegre edilen ve film severler için tasarlanmış sofistike bir React web uygulamasıdır. Kullanıcılar, kapsamlı bir film kütüphanesine erişebilir, filmleri kolayca arayabilir, kişisel bir İzleme Listesi oluşturabilir ve izledikleri filmleri takip edebilirler. Uygulamanın sezgisel ve modern arayüzü, film keşfetme ve yönetim deneyimini geliştirir."
+    },
+    "chattyweb": {
+      "title": "Chatty Web",
+      "description": "Chatty Web, kullanıcı dostu bir sohbet deneyimi sunan bir web uygulamasıdır. Basit ama etkili arayüzü sayesinde kullanıcılar arkadaşlarıyla kolayca iletişim kurabilir, yeni hesaplar oluşturabilir ve giriş yapabilirler. Kullanılabilirliğe odaklanan bu uygulama, sohbeti basit ve erişilebilir kılar."
+    },
+    "tasktroveWeb": {
+      "title": "Task Trove: Web App",
+      "description": "TaskTrove, MERN stack kullanılarak geliştirilmiş güçlü bir görev yönetim uygulamasıdır. Kullanıcılar, görevleri verimli bir şekilde ekleyebilir, organize edebilir ve önceliklendirebilirler. Gelişmiş filtreleme seçenekleri ve Google hesap entegrasyonu ile desteklenen uygulama, görevlerin mobil uygulama ile senkronize olmasını sağlar, böylece tüm cihazlarda verimliliği artırır."
+    },
+    "tictaczone": {
+      "title": "TicTacZone",
+      "description": "TicTacZone, kullanıcıların arkadaşlarıyla yarışabileceği Tic-Tac-Toe oyun odaları oluşturabileceği ve katılabileceği etkileşimli bir platformdur. Uygulama, gerçek zamanlı sohbet ve izleyicilerin oyunları izleyebilmesi gibi ek özellikler sunarak oyun deneyimini zenginleştirir."
+    },
+    "tasktroveMobile": {
+      "title": "TaskTrove: Mobile App",
+      "description": "TaskTrove, TaskTrove web uygulamasıyla kusursuz bir şekilde senkronize olan bir Android görev yönetim uygulamasıdır. Kullanıcılar, görevleri kolayca ekleyebilir, organize edebilir ve filtreleyebilirler. Google giriş entegrasyonu ile desteklenen bu uygulama, evde veya hareket halindeyken görevlerinizi kontrol altında tutmanıza yardımcı olur."
+    },
+    "tnatoptan": {
+      "title": "Tna Toptan",
+      "description": "Tna Toptan, işletmeler için özel olarak tasarlanmış bir toptan yönetim uygulamasıdır. Kullanıcılar, sipariş oluşturabilir ve izleyebilirken, yönetim ekibi sipariş durumlarını denetleyip güncelleyebilir. 8 sayfadan oluşan bu özel araç, yalnızca şirket içi kullanım için tasarlanmıştır."
+    },
+    "myportfolio": {
+      "title": "My Portfolio",
+      "description": "Kişisel çalışmalarımı sergilemek için oluşturulmuş bir portföy web sitesi. Modern ve duyarlı bir tasarıma sahip olan sitede, müşteri yorumları, sunulan hizmetler, öne çıkan projeler ve bir iletişim formu bulunuyor. Web sitesi, tüm cihazlarda sorunsuz bir kullanıcı deneyimi sunacak şekilde tasarlanmış olup, web geliştirme alanındaki becerilerimi ve uzmanlığımı profesyonel bir platformda sergilemektedir."
+    }
+  }
+}

@@ -1,12 +1,7 @@
 {
-    "slogan": "Programlama, <br/><b> yaratıcılığın modern dili </b>",
-    "jobTitle": "Web ve Android uygulamalarının kapsamlı geliştiricisi",
+  "submit": "Gönder",
+  "clicktoCopy": "Kopyalamak için tıklayın",
+  "copied": "Kopyalandı"
 
-    "navbar": {
-        "whoami": "Ben Kimim",
-        "projects": "Projeler",
-        "services": "Hizmetler",
-        "academic_qualifications": "Akademik Yeterlilikler",
-        "connectWithUs": "Bizimle İletişime Geçin"
-    }
+
 }

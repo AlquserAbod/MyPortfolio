@@ -1,0 +1,42 @@
+{
+  "title": "Services",
+  "contactUs": "Contact us now",
+  "services": {
+    "fullStackMern": {
+      "title": "Full-Stack Web Development with MERN Stack",
+      "description": "Developing robust, scalable web applications using MongoDB, Express.js, React.js, and Node.js, ensuring full-stack proficiency from database management to front-end interfaces."
+    },
+    "frontend": {
+      "title": "Front-End Development",
+      "description": "Crafting responsive, high-performance user interfaces using modern technologies like React.js and SCSS, focused on delivering seamless user experiences."
+    },
+    "backend": {
+      "title": "Back-End Development",
+      "description": "Building secure and efficient server-side architectures using Node.js and Express.js, tailored for scalable and high-performing applications."
+    },
+    "api": {
+      "title": "RESTful API Development",
+      "description": "Designing and implementing RESTful APIs to ensure smooth communication and data transfer between systems and services."
+    },
+    "database": {
+      "title": "Database Management",
+      "description": "Expertly designing, optimizing, and maintaining databases with MongoDB to deliver high performance, reliability, and security."
+    },
+    "deployment": {
+      "title": "Deployment & Hosting",
+      "description": "Deploying and managing applications on platforms such as Vercel and Heroku, providing stable, secure, and scalable hosting solutions."
+    },
+    "android": {
+      "title": "Android Development with Flutter",
+      "description": "Developing intuitive, feature-rich Android applications using Flutter, with a focus on modern design principles and user-centric experiences."
+    },
+    "firebase": {
+      "title": "Firebase Integration",
+      "description": "Seamlessly integrating Firebase services into Android applications, enabling real-time databases, authentication, push notifications, and more."
+    },
+    "apiMobile": {
+      "title": "API Integration",
+      "description": "Integrating external APIs into Android applications to enhance functionality and provide seamless data interaction."
+    }
+  }
+}

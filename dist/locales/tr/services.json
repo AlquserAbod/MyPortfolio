@@ -1,0 +1,42 @@
+{
+  "title": "Hizmetler",
+  "contactUs": "Hemen bizimle iletişime geçin",
+  "services": {
+    "fullStackMern": {
+      "title": "MERN Stack ile Tam Yığın Web Geliştirme",
+      "description": "MongoDB, Express.js, React.js ve Node.js kullanarak kapsamlı ve ölçeklenebilir web uygulamaları geliştirerek, veritabanı yönetiminden ön yüz arayüzlerine kadar tam yığın yetkinliği sağlıyorum."
+    },
+    "frontend": {
+      "title": "Ön Yüz Geliştirme",
+      "description": "Modern teknolojilerle, özellikle React.js ve SCSS kullanarak, duyarlı ve yüksek performanslı kullanıcı arayüzleri tasarlıyor ve geliştiriyorum, kesintisiz kullanıcı deneyimleri sunmayı hedefliyorum."
+    },
+    "backend": {
+      "title": "Arka Yüz Geliştirme",
+      "description": "Node.js ve Express.js kullanarak güvenli ve verimli sunucu tarafı mimarileri oluşturuyorum, ölçeklenebilir ve yüksek performanslı uygulamalar için özelleştirilmiş çözümler sunuyorum."
+    },
+    "api": {
+      "title": "RESTful API Geliştirme",
+      "description": "Sistemler ve hizmetler arasında kesintisiz iletişim ve veri aktarımı sağlamak için RESTful API'ler tasarlayıp uyguluyorum."
+    },
+    "database": {
+      "title": "Veritabanı Yönetimi",
+      "description": "MongoDB ile veritabanları tasarlıyor, optimize ediyor ve yönetiyorum, yüksek performans, güvenilirlik ve güvenlik sunuyorum."
+    },
+    "deployment": {
+      "title": "Dağıtım ve Barındırma",
+      "description": "Vercel ve Heroku gibi platformlarda uygulamaları dağıtıyor ve yönetiyorum, stabil, güvenli ve ölçeklenebilir barındırma çözümleri sunuyorum."
+    },
+    "android": {
+      "title": "Flutter ile Android Geliştirme",
+      "description": "Modern tasarım prensiplerine ve kullanıcı odaklı deneyimlere odaklanarak, Flutter kullanarak sezgisel ve özellik açısından zengin Android uygulamaları geliştiriyorum."
+    },
+    "firebase": {
+      "title": "Firebase Entegrasyonu",
+      "description": "Android uygulamalarına Firebase hizmetlerini sorunsuz bir şekilde entegre ederek, gerçek zamanlı veritabanları, kimlik doğrulama, bildirimler ve daha fazlasını sağlıyorum."
+    },
+    "apiMobile": {
+      "title": "API Entegrasyonu",
+      "description": "Android uygulamalarına dış API'leri entegre ederek işlevselliği artırıyor ve kesintisiz veri etkileşimi sağlıyorum."
+    }
+  }
+}
