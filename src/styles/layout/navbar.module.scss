@@ -17,7 +17,7 @@ nav.navbar {
     position: relative;
 
     .logoHolder {
-      width: 80px;
+      width: 70px;
       position: absolute;
       height: fit-content;
       transition: 0.3s ease;
@@ -48,7 +48,7 @@ nav.navbar {
           text-decoration: none;
           position: relative;
           font-weight: 900;
-          font-size: 1.6rem;
+          font-size: 1.5rem;
           white-space: nowrap;
           height: fit-content;
           display: inline-block;
@@ -135,7 +135,7 @@ nav.navbar {
 @media (max-width: $screen-size-lg) {
   nav.navbar {
     .itemsHolder .pagesHolder span a {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
   }
 }
@@ -147,7 +147,7 @@ nav.navbar {
     .itemsHolder {
 
       .logoHolder {
-        width: 70px;
+        width: 55px;
         padding: 20px 10px 5px;
       }
       .pagesHolder {

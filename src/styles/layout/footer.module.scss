@@ -3,7 +3,7 @@ footer.container {
   flex-direction: column;
   background-color: $light-color;
   margin-top: 100px;
-  padding: 50px 100px;
+  padding: 25px 100px;
 
   .itemsHolder {
     display: flex;
@@ -28,15 +28,6 @@ footer.container {
       flex-direction: column;
       justify-content: space-between;
       gap: 50px;
-      .contactUsButton {
-        background-color: $primary-color;
-        color: $light-color;
-        border-radius: 20px;
-        padding: 10px;
-
-        font-weight: 700;
-        font-size: 1rem;
-      }
 
       .sochilLinks {
         display: flex;
@@ -109,7 +100,7 @@ footer.container {
       list-style: none;
       padding: 0;
       margin: 0;
-      gap: 10px;
+      gap: 5px;
       
       li {
         transition: 0.3s ease;
@@ -117,7 +108,7 @@ footer.container {
           color: $primary-color;
           text-decoration: none;
           font-weight: 500;
-          font-size: 1.5rem;
+          font-size: 1.3rem;
         }
 
         &:hover {
@@ -145,14 +136,14 @@ footer.container {
 
 @media (max-width: $screen-size-md) {
     footer.container {
-        padding: 50px 25px;
+        padding: 25px 25px;
     }
 }
 
 
 @media (max-width: $screen-size-sm) {
     footer.container {
-        padding: 50px 25px;
+        padding: 25px 25px;
 
         .itemsHolder {
 
@@ -188,7 +179,7 @@ footer.container {
 
 @media (max-width: 480px) {
     footer.container {
-        padding: 50px 25px;
+        padding: 25px 25px;
 
         .itemsHolder {
             flex-direction: column;
