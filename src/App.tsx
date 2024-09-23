@@ -30,7 +30,6 @@ function App() {
 
   useEffect(() => {
     AOS.init({
-      once: true,
       
     });
   }, [])

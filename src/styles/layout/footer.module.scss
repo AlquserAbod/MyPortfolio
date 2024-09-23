@@ -101,7 +101,7 @@ footer.container {
       padding: 0;
       margin: 0;
       gap: 5px;
-      
+
       li {
         transition: 0.3s ease;
         a {
@@ -133,85 +133,79 @@ footer.container {
   }
 }
 
-
 @media (max-width: $screen-size-md) {
-    footer.container {
-        padding: 25px 25px;
-    }
+  footer.container {
+    padding: 25px 25px;
+  }
 }
 
-
 @media (max-width: $screen-size-sm) {
-    footer.container {
-        padding: 25px 25px;
+  footer.container {
+    padding: 25px 25px;
 
-        .itemsHolder {
-
-            .leftSide {
-                .logo {
-                    font-size: 1.5rem;
-                    gap: 10px;
-                    img { 
-                        width: 45px;
-                    }
-                }
-    
-                .sochilLinks {
-                    li {
-                        padding: 7px;
-                        a {
-                            font-size: 1rem;
-                        }
-                    }
-                }
-            }
-            .pagesHolder {
-                li {
-                    a {
-                        font-size: 1.2rem;
-                    }
-                }
-            }
+    .itemsHolder {
+      .leftSide {
+        .logo {
+          font-size: 1.5rem;
+          gap: 10px;
+          img {
+            width: 45px;
+          }
         }
 
+        .sochilLinks {
+          li {
+            padding: 7px;
+            a {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+      .pagesHolder {
+        li {
+          a {
+            font-size: 1.2rem;
+          }
+        }
+      }
     }
+  }
 }
 
 @media (max-width: 480px) {
-    footer.container {
-        padding: 25px 25px;
+  footer.container {
+    padding: 25px 25px;
 
-        .itemsHolder {
-            flex-direction: column;
+    .itemsHolder {
+      flex-direction: column;
 
-            .leftSide {
-                .logo {
-                    flex-direction: column;
-                    font-size: 1.7rem;
-                    text-align: center  ;
-                    img { 
-                        width: 75px;
-                    }
-                }
-    
-                .sochilLinks {
-                    justify-content: center;
-                    gap: 20px;
-                    flex-wrap: wrap;
-
-                }
-            }
-
-            .pagesHolder {
-                margin-top: 15px;
-                text-align: center;
-                li {
-                    a {
-                        font-size: 1.5rem;
-                    }
-                }
-            }
+      .leftSide {
+        .logo {
+          flex-direction: column;
+          font-size: 1.7rem;
+          text-align: center;
+          img {
+            width: 75px;
+          }
         }
 
+        .sochilLinks {
+          justify-content: center;
+          gap: 20px;
+          flex-wrap: wrap;
+        }
+      }
+
+      .pagesHolder {
+        margin-top: 15px;
+        text-align: center;
+        li {
+          a {
+            font-size: 1.5rem;
+          }
+        }
+      }
     }
+  }
 }
