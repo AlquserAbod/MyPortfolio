@@ -26,9 +26,9 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 
     body {
-
         font-family: $font-family;
         color: $white-color;
         background-color: $primary-color;
